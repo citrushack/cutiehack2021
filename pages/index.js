@@ -36,7 +36,7 @@ export default function Home({ isConnected }) {
 
         <div className={styles.grid}>
           <a 
-            href=""
+            href="https://www.facebook.com/cutiehack/"
             className={styles.card}
           >
             <div className={styles.textIconWrapper}>
@@ -46,32 +46,12 @@ export default function Home({ isConnected }) {
           </a>
 
           <a 
-            href=""
+            href="https://www.instagram.com/cutiehack_ucr/"
             className={styles.card}
           >
             <div className={styles.textIconWrapper}>
               <div>Instagram</div>
               <IoLogoInstagram className={styles.icon}/>
-            </div>
-          </a>
-
-          <a
-            href=""
-            className={styles.card}
-          >
-            <div className={styles.textIconWrapper}>
-              <div>Twitter</div>
-              <IoLogoTwitter className={styles.icon}/>
-            </div>
-          </a>
-
-          <a
-            href=""
-            className={styles.card}
-          >
-            <div className={styles.textIconWrapper}>
-              <div>Linkedin</div>
-              <IoLogoLinkedin className={styles.icon}/>
             </div>
           </a>
         </div>
