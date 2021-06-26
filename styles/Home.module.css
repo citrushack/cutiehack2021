@@ -45,12 +45,18 @@
 }
 
 .title {
+  margin: 0 0 1.5rem 0;
+  line-height: 1;
+  font-size: 5rem;
+}
+
+.subtitle {
   margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .title,
+.subtitle,
 .description {
   text-align: center;
 }
@@ -80,6 +86,8 @@
 
 .card {
   margin: 1rem;
+  flex-basis: 45%;
+  min-width: 20rem;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -87,7 +95,6 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  width: 45%;
 }
 
 .card:hover,
@@ -102,6 +109,18 @@
   font-size: 1.5rem;
 }
 
+.card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card div {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
 .card p {
   margin: 0;
   font-size: 1.25rem;
@@ -111,6 +130,17 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+.textIconWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.icon {
+  font-size: 2rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 600px) {
