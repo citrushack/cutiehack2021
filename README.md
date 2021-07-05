@@ -64,6 +64,9 @@ Run the following commands in a terminal.
 ### Fetching Upstream
 > Match your repository to the master branch.
 - Go to your forked repo on Github and click the "Fetch upstream" option near the top. 
+- Click `Fetch and Merge` to fetch the master branch and merge the master code into your repo.
+  - This will merge any new changes made in the master branch into your repo.
+  - I recommend committing any of your changes to your forked repo before doing this, so you can see if there will be any conflicts.
 
 ### Assigning Yourself to Issues
 > Issues are tasks to be done for the project.
@@ -74,3 +77,4 @@ Run the following commands in a terminal.
 
 ## Tech Stack
 - **[NextJS](https://nextjs.org/)**: This is the frontend framework for this project.
+- **MongoDB**: This is the database used for the backend for this project.
