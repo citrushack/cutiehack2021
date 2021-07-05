@@ -40,12 +40,10 @@ Run the following commands in a terminal.
   - This is the port where the development server is run on. Any changes you make to the code will reflect almost instantly while the server is running.
 
 ## Contributing to the Project
-### Making Your Own Git Branch
-> Create your own branch to develop on.
-- Make your own branch: `git branch <branch-name>`
-- Switch to your branch: `git checkout <branch-name>`
-- Check what branch you are on (and also view other branches): `git branch`
-  - I recommend using this before making changes to ensure that you're developing on the right branch.
+### Forking
+> Forking the repo to work on your own code.
+- Fork the repo by clicking the `Fork` button in the upper right corner
+  - This creates a copy of the repository in your own account.
 
 ### Committing Changes
 - Check what files you edited: `git status`
@@ -57,12 +55,15 @@ Run the following commands in a terminal.
 
 ### Creating Pull Requests
 > Make a pull request when you have code to merge.
-- Go to the repo on Github and open the "Pull Requests" tab. 
-  - Click `New Pull Request`.
-  - Compare your branch to the main branch.
-  - Assign the webdev lead to review your code (see the righthand side).
+- Go to your forked repo on Github and click the "Contribute" option near the top. 
   - Click `Open Pull Request`.
-  - **Do not click `Merge`.** Only the webdev leads should be responsible for merging pull requests.
+  - Compare your branch to the main branch. Then click `Create Pull Request`.
+  - Assign the webdev lead to review your code (see the righthand side).
+  - Leave a comment if you want to. Then click `Create Pull Request`.
+
+### Fetching Upstream
+> Match your repository to the master branch.
+- Go to your forked repo on Github and click the "Fetch upstream" option near the top. 
 
 ### Assigning Yourself to Issues
 > Issues are tasks to be done for the project.
