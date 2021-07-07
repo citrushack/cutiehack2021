@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import { connectToDatabase } from '../util/mongodb'
-import { IoLogoFacebook, IoLogoInstagram, IoLogoTwitter, IoLogoLinkedin } from "react-icons/io"
+import { IoLogoFacebook, IoLogoInstagram } from "react-icons/io"
 
 export default function Home({ isConnected }) {
   return (
