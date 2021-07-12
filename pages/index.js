@@ -4,8 +4,11 @@ import styles from '../styles/Home.module.css'
 
 import { connectToDatabase } from '../util/mongodb'
 import { IoLogoFacebook, IoLogoInstagram } from "react-icons/io"
+import { signIn, signOut, useSession } from 'next-auth/client'
 
 export default function Home({ isConnected }) {
+  const [ session, loading ] = useSession()
+
   return (
     <div className={styles.container}>
       <Head>
@@ -24,6 +27,15 @@ export default function Home({ isConnected }) {
         <p className={styles.description}>
           Coming Soon...
         </p>
+
+        {!session && <>
+          Not signed in <br/>
+          <button onClick={() => signIn()}>Sign in</button>
+        </>}
+        {session && <>
+          Signed in as {session.user.email} <br/>
+          <button onClick={() => signOut()}>Sign out</button>
+        </>}
 
         {/* {isConnected ? (
           <h2 className="subtitle">You are connected to MongoDB</h2>
