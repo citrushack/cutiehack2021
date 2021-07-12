@@ -10,7 +10,6 @@ import {
 import Link from 'next/link';
 import { connectToDatabase } from '../util/mongodb'
 import { IoLogoFacebook, IoLogoInstagram } from "react-icons/io"
-import { signIn, signOut, useSession } from 'next-auth/client'
 
   
 export default function Home({ isConnected }) {
@@ -25,15 +24,6 @@ export default function Home({ isConnected }) {
       </Head>
 
       <main className={styles.main}>
-
-        {!session && <>
-          Not signed in <br/>
-          <button onClick={() => signIn()}>Sign in</button>
-        </>}
-        {session && <>
-          Signed in as {session.user.email} <br/>
-          <button onClick={() => signOut()}>Sign out</button>
-        </>}
 
         {/* {isConnected ? (
           <h2 className="subtitle">You are connected to MongoDB</h2>
