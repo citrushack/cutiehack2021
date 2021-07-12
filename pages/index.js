@@ -1,11 +1,20 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
+import React from 'react';
+import {
+  signIn, 
+  signOut,
+  useSession
+} from 'next-auth/client';
+import Link from 'next/link';
 import { connectToDatabase } from '../util/mongodb'
 import { IoLogoFacebook, IoLogoInstagram } from "react-icons/io"
 
+  
 export default function Home({ isConnected }) {
+    const [ session, loading ] = useSession();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -15,15 +24,6 @@ export default function Home({ isConnected }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.subtitle}>
-          Welcome to
-        </h1>
-        <h1 className={styles.title}>
-          Cutie Hack
-        </h1>
-        <p className={styles.description}>
-          Coming Soon...
-        </p>
 
         {/* {isConnected ? (
           <h2 className="subtitle">You are connected to MongoDB</h2>
@@ -32,7 +32,28 @@ export default function Home({ isConnected }) {
             You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
             for instructions.
           </h2>
-        )} */}
+        )}    */}
+      
+        {!session && <>
+          <h1>You are not signed in</h1> <br/>
+          <button onClick={signIn}>Sign in</button>
+        </>}
+
+        {session && <>
+          <h1>Signed in as {session.user.name} </h1> <br/>
+          <h1 className={styles.subtitle}>
+          Welcome to
+          </h1>
+          <h1 className={styles.title}>
+            Cutie Hack
+          </h1>
+          <p className={styles.description}>
+            Coming Soon...
+          </p>
+            <button onClick={signOut}>Sign out</button>
+        </>}
+
+        
 
         <div className={styles.grid}>
           <a 
@@ -55,7 +76,7 @@ export default function Home({ isConnected }) {
             </div>
           </a>
         </div>
-      </main>
+        </main>
 
       <footer className={styles.footer}>
         Click the links above to learn more about us!
