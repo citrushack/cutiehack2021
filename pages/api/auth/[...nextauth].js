@@ -1,5 +1,5 @@
-import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import NextAuth from 'next-auth'
+import Providers from 'next-auth/providers'
 
 const options = {
   providers: [
@@ -19,9 +19,9 @@ const options = {
     }),
   ],
   pages: {
-    signIn: "/signin",
+    signIn: '/signin',
   },
   database: process.env.MONGODB_URI,
-};
+}
 
-export default (req, res) => NextAuth(req, res, options);
+export default (req, res) => NextAuth(req, res, options)
