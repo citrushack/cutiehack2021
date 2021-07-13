@@ -1,16 +1,12 @@
-import Head from 'next/head'
-import React from 'react'
+import Head from "next/head";
+import React from "react";
 
-import styles from '../styles/Common.module.css'
+import styles from "../styles/Common.module.css";
 
-import { connectToDatabase } from '../util/mongodb'
-import {
-  signIn, 
-  signOut,
-  useSession
-} from 'next-auth/client';
+import { connectToDatabase } from "../util/mongodb";
+import { signIn, signOut, useSession } from "next-auth/client";
 
-import { IoLogoFacebook, IoLogoInstagram } from "react-icons/io"
+import { IoLogoFacebook, IoLogoInstagram } from "react-icons/io";
 
 export default function Home({ isConnected }) {
   const [session, loading] = useSession();

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
-import styles from '../styles/Common.module.css'
-import signinStyles from '../styles/SignIn.module.css'
+import styles from "../styles/Common.module.css";
+import signinStyles from "../styles/SignIn.module.css";
 
-import { providers, signIn, getSession } from 'next-auth/client'
-import { useRouter } from 'next/dist/client/router'
+import { providers, signIn, getSession } from "next-auth/client";
+import { useRouter } from "next/dist/client/router";
 
 const SignInError = ({ error }) => {
   const errors = {
@@ -34,17 +34,17 @@ export default function SignIn({ providers }) {
 
   return (
     <div className={styles.container}>
-      {error &&
+      {error && (
         <div className={signinStyles.errorMsg}>
           <SignInError error={error} />
         </div>
-      }
+      )}
       {Object.values(providers).map((provider) => {
         if (provider.name === "Email") {
           return;
         }
         return (
-          <div 
+          <div
             key={provider.name}
             className={signinStyles.button}
             onClick={() => signIn(provider.id)}
