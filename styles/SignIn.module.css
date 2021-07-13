@@ -1,0 +1,21 @@
+.button {
+  display: flex;
+  width: 20rem;
+  height: 3rem;
+  margin: 0.4rem 0;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: 0.2rem;
+  background-color: #e7eaeb;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ccd3d5;
+}
+
+.errorMsg {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+}

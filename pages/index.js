@@ -1,11 +1,16 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import React from "react";
-import { signIn, signOut, useSession } from "next-auth/client";
-import Link from "next/link";
-import { connectToDatabase } from "../util/mongodb";
-import { IoLogoFacebook, IoLogoInstagram } from "react-icons/io";
+import Head from 'next/head'
+import React from 'react'
+
+import styles from '../styles/Common.module.css'
+
+import { connectToDatabase } from '../util/mongodb'
+import {
+  signIn, 
+  signOut,
+  useSession
+} from 'next-auth/client';
+
+import { IoLogoFacebook, IoLogoInstagram } from "react-icons/io"
 
 export default function Home({ isConnected }) {
   const [session, loading] = useSession();
@@ -34,7 +39,6 @@ export default function Home({ isConnected }) {
             <button onClick={signIn}>Sign in</button>
           </>
         )}
-
         {session && (
           <>
             <h1>Signed in as {session.user.name} </h1> <br />
