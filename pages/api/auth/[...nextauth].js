@@ -10,18 +10,18 @@ const options = {
 
     Providers.Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
 
     Providers.LinkedIn({
       clientId: process.env.LINKEDIN_CLIENT_ID,
-      clientSecret: process.env.LINKEDIN_CLIENT_SECRET
-    })
+      clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
+    }),
   ],
   pages: {
     signIn: "/signin",
   },
-  database: process.env.MONGODB_URI
+  database: process.env.MONGODB_URI,
 };
 
 export default (req, res) => NextAuth(req, res, options);

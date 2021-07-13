@@ -8,27 +8,29 @@ import { useRouter } from 'next/dist/client/router'
 
 const SignInError = ({ error }) => {
   const errors = {
-      Signin: 'Try signing in with a different account.',
-      OAuthSignin: 'Try signing in with a different account.',
-      OAuthCallback: 'Try signing in with a different account.',
-      OAuthCreateAccount: 'Try signing in with a different account.',
-      EmailCreateAccount: 'Try signing in with a different account.',
-      Callback: 'Try signing in with a different account.',
-      OAuthAccountNotLinked: 'Please sign in with the same account you used orignally.',
-      EmailSignin: 'Check your email address.',
-      CredentialsSignin: 'Sign in failed. Make sure the details you provided are correct.',
-      default: 'Unable to sign in.'
-  }
+    Signin: "Try signing in with a different account.",
+    OAuthSignin: "Try signing in with a different account.",
+    OAuthCallback: "Try signing in with a different account.",
+    OAuthCreateAccount: "Try signing in with a different account.",
+    EmailCreateAccount: "Try signing in with a different account.",
+    Callback: "Try signing in with a different account.",
+    OAuthAccountNotLinked:
+      "Please sign in with the same account you used orignally.",
+    EmailSignin: "Check your email address.",
+    CredentialsSignin:
+      "Sign in failed. Make sure the details you provided are correct.",
+    default: "Unable to sign in.",
+  };
 
-  const errorMessage = error && (errors[error] ?? errors.default)
+  const errorMessage = error && (errors[error] ?? errors.default);
 
-  return <div className="signin-error">{errorMessage}</div>
-}
+  return <div className="signin-error">{errorMessage}</div>;
+};
 
 export default function SignIn({ providers }) {
   const {
-    query: {callbackUrl, error},
-  } = useRouter()
+    query: { callbackUrl, error },
+  } = useRouter();
 
   return (
     <div className={styles.container}>
@@ -37,10 +39,9 @@ export default function SignIn({ providers }) {
           <SignInError error={error} />
         </div>
       }
-
       {Object.values(providers).map((provider) => {
         if (provider.name === "Email") {
-            return;
+          return;
         }
         return (
           <div 

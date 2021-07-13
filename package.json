@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier --write \"pages/**/*.{js,jsx}\""
   },
   "dependencies": {
     "mongodb": "^3.6.9",
@@ -17,6 +18,7 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.29.0",
-    "eslint-config-next": "^11.0.1"
+    "eslint-config-next": "^11.0.1",
+    "prettier": "^2.3.2"
   }
 }
