@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 .inputHeader {
@@ -91,11 +91,8 @@
   display: flex;
   align-items: center;
   width: 28rem;
-  height: 3rem;
-  margin-bottom: 0.8rem;
+  height: 2rem;
   padding: 0 0.8rem;
-  border: 2px solid #e7eaeb;
-  border-radius: 0.2rem;
   cursor: pointer;
 }
 
@@ -104,7 +101,6 @@
 }
 
 .radio:hover {
-  border: 2px solid #5ba3f5;
   color: #5ba3f5;
 }
 
@@ -114,7 +110,11 @@
   color: #f55b5b;
 }
 
-.triggered {
-  border: 2px solid #f55b5b;
+.triggered,
+.triggeredBox {
   color: #f55b5b;
+}
+
+.triggeredBox {
+  border: 2px solid #f55b5b;
 }

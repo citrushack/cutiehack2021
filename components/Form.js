@@ -180,7 +180,7 @@ export default class Form extends Component {
                   : `${formStyles.dropdownHeader}` &&
                     submit_triggered &&
                     !race_filled
-                  ? `${formStyles.dropdownHeader} ${formStyles.triggered}`
+                  ? `${formStyles.dropdownHeader} ${formStyles.triggeredBox}`
                   : `${formStyles.dropdownHeader}`
               }
               onClick={() => this.openRaceDropdown()}
@@ -218,7 +218,7 @@ export default class Form extends Component {
                   : `${formStyles.dropdownHeader}` &&
                     submit_triggered &&
                     !gender_filled
-                  ? `${formStyles.dropdownHeader} ${formStyles.triggered}`
+                  ? `${formStyles.dropdownHeader} ${formStyles.triggeredBox}`
                   : `${formStyles.dropdownHeader}`
               }
               onClick={() => this.openGenderDropdown()}
@@ -251,7 +251,7 @@ export default class Form extends Component {
           <input
             className={
               formStyles.inputBox && submit_triggered && !school_filled
-                ? `${formStyles.inputBox} ${formStyles.triggered}`
+                ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
                 : `${formStyles.inputBox}`
             }
             value={school}
@@ -264,7 +264,7 @@ export default class Form extends Component {
           <input
             className={
               formStyles.inputBox && submit_triggered && !major_filled
-                ? `${formStyles.inputBox} ${formStyles.triggered}`
+                ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
                 : `${formStyles.inputBox}`
             }
             value={major}
@@ -277,7 +277,7 @@ export default class Form extends Component {
           <input
             className={
               formStyles.inputBox && submit_triggered && !grade_filled
-                ? `${formStyles.inputBox} ${formStyles.triggered}`
+                ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
                 : `${formStyles.inputBox}`
             }
             value={grade}

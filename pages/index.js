@@ -24,22 +24,11 @@ export default function Home() {
           {!session && (
             <>
               <h1>You are not signed in</h1>
-              <button className={styles.signinbutton} onClick={signIn}>
-                Sign in
-              </button>
             </>
           )}
           {session && (
             <>
               <h1>Signed in as {session.user.name} </h1>
-              <div className={styles.actionwrapper}>
-                <Link passHref href="/checkin">
-                  <a className={styles.primarybutton}>Check In</a>
-                </Link>
-                <button className={styles.secondarybutton} onClick={signOut}>
-                  Sign out
-                </button>
-              </div>
             </>
           )}
           <div className={styles.grid}>
