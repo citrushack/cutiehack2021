@@ -1,6 +1,6 @@
 import React from 'react'
-
-import styles from '../styles/Common.module.css'
+import Layout from '../components/Layout'
+import styles from '../styles/Index.module.css'
 import formStyles from '../styles/Form.module.css'
 
 import { providers, signIn, getSession } from 'next-auth/client'
@@ -33,27 +33,29 @@ export default function SignIn({ providers }) {
   } = useRouter()
 
   return (
-    <div className={styles.container}>
-      {error && (
-        <div className={formStyles.errorMsg}>
-          <SignInError error={error} />
-        </div>
-      )}
-      {Object.values(providers).map((provider) => {
-        if (provider.name === 'Email') {
-          return
-        }
-        return (
-          <div
-            key={provider.name}
-            className={formStyles.button}
-            onClick={() => signIn(provider.id)}
-          >
-            Sign in with {provider.name}
+    <Layout>
+      <div className={styles.container}>
+        {error && (
+          <div className={formStyles.errorMsg}>
+            <SignInError error={error} />
           </div>
-        )
-      })}
-    </div>
+        )}
+        {Object.values(providers).map((provider) => {
+          if (provider.name === 'Email') {
+            return
+          }
+          return (
+            <div
+              key={provider.name}
+              className={formStyles.button}
+              onClick={() => signIn(provider.id)}
+            >
+              Sign in with {provider.name}
+            </div>
+          )
+        })}
+      </div>
+    </Layout>
   )
 }
 
