@@ -1,9 +1,9 @@
 import Link from 'next/link' // We should be using the Link component
-import { useSession } from 'next-auth/client'
+import { signIn, signOut, useSession } from 'next-auth/client'
 import styles from '../styles/Nav.module.css'
 
 export default function Nav() {
-  const [session, loading] = useSession()
+  const [session] = useSession()
   return (
     <nav className={styles.navbar}>
       <div className={styles.tabs}>
@@ -12,7 +12,20 @@ export default function Nav() {
         <a href="#">FAQ</a>
         <a href="#">Help</a>
         <a href="#">Sponsors</a>
-        {!session ? '' : <Link href="/checkin">Check In</Link>}
+        {!session ? (
+          <button className={styles.primarybutton} onClick={signIn}>
+            Sign in
+          </button>
+        ) : (
+          <>
+            <Link passHref href="/checkin">
+              <a className={styles.primarybutton}>Check In</a>
+            </Link>
+            <button className={styles.secondarybutton} onClick={signOut}>
+              Sign out
+            </button>
+          </>
+        )}
       </div>
     </nav>
   )
