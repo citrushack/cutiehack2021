@@ -53,8 +53,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
   margin-top: 3rem;
 }
 
@@ -121,10 +119,46 @@
   display: block !important;
 }
 
-@media (max-width: 600px) {
+.actionwrapper{
+  display: flex;
+  align-items: center;
+}
+
+.primarybutton,
+.secondarybutton {
+  /* Temp font fix but we need to be sure it applies to ALL elements */
+  font-family: 'Nunito', sans-serif !important;
+  padding: 0.5rem 1rem;
+  border: 1px solid orange;
+  border-radius: 5px;
+  font-weight: 750;
+  font-size: large;
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+}
+
+.primarybutton {
+  background-color: orange;
+  color: white;
+  margin-right: 20px;
+}
+
+.primarybutton:hover {
+  background-color: white;
+  color: orange;
+}
+
+.secondarybutton {
+  background-color: white;
+  color: orange;
+}
+.secondarybutton:hover {
+  background-color: orange;
+  color: white;
+}
+
+@media (max-width: 868px) {
   .grid {
-    width: 100%;
     flex-direction: column;
   }
 }
-  
