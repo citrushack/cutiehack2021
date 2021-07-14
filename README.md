@@ -1,7 +1,11 @@
 # CutieHack 2021
 > Author: J.S. Pescasio
 
-> Contributor(s): Caleb Yoo, Danial Beg, Andrei Dimaano
+> Contributors: 
+> Danial Beg,
+> Caleb Yoo,
+> Andrei Dimaano,
+> James Zhang
 
 This is the codebase for CutieHack 2021. Below is a guide for setting up a local environment to run the website locally for development purposes.
 

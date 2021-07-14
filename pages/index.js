@@ -24,7 +24,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   }
 }
 
-export default function Home({ isConnected }) {
+export default function Home() {
   const [session, loading] = useSession()
 
   return (
@@ -36,26 +36,18 @@ export default function Home({ isConnected }) {
       </Head>
       <body>
         <nav className={styles.navbar}>
-            <div className={styles.tabs}>
-              <a href='#'>Home</a>
-              <a href='#'>About</a>
-              <a href='#'>FAQ</a>
-              <a href='#'>Help</a>
-              <a href='#'>Sponsors</a>
-            </div>
+          <div className={styles.tabs}>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">FAQ</a>
+            <a href="#">Help</a>
+            <a href="#">Sponsors</a>
+          </div>
         </nav>
         <main className={styles.main}>
           <h3>
             <Countdown date="2021-10-31T00:00:00" renderer={renderer} />
           </h3>
-          {/* {isConnected ? (
-            <h2 className="subtitle">You are connected to MongoDB</h2>
-          ) : (
-            <h2 className="subtitle">
-              You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
-              for instructions.
-            </h2>
-          )}    */}
 
           {!session && (
             <>
@@ -74,7 +66,10 @@ export default function Home({ isConnected }) {
           )}
 
           <div className={styles.grid}>
-            <a href="https://www.facebook.com/cutiehack/" className={styles.card}>
+            <a
+              href="https://www.facebook.com/cutiehack/"
+              className={styles.card}
+            >
               <div className={styles.textIconWrapper}>
                 <div>Facebook</div>
                 <IoLogoFacebook className={styles.icon} />
@@ -101,12 +96,9 @@ export default function Home({ isConnected }) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const { client } = await connectToDatabase()
-
   const isConnected = await client.isConnected()
 
-  return {
-    props: { isConnected },
-  }
+  return { props: { isConnected } }
 }
