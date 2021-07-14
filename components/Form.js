@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
+import { FiChevronDown } from 'react-icons/fi'
+import { IoMdRadioButtonOff, IoMdRadioButtonOn } from 'react-icons/io'
 
 import styles from '../styles/Common.module.css'
 import formStyles from '../styles/Form.module.css'
-
-import { FiChevronDown } from 'react-icons/fi'
-import { IoMdRadioButtonOff, IoMdRadioButtonOn } from 'react-icons/io'
 
 export default class Form extends Component {
   constructor() {
@@ -104,7 +103,7 @@ export default class Form extends Component {
     this.setState({ first_time_filled: true });
   }
 
-  submitForm() {
+  submitForm(name, email) {
     this.setState({ submit_triggered: true });
     if (
       this.state.race !== 'Select an option...' 
@@ -116,6 +115,8 @@ export default class Form extends Component {
     ) {
       this.setState({ error_msg: '' });
       const data = [
+        name,
+        email,
         this.state.race, 
         this.state.gender, 
         this.state.school, 
@@ -272,7 +273,7 @@ export default class Form extends Component {
 
         <div 
           className={formStyles.button}
-          onClick={() => this.submitForm()}
+          onClick={() => this.submitForm(this.props.name, this.props.email)}
         >
           Submit
         </div>

@@ -1,12 +1,11 @@
 import Head from 'next/head'
 import React from 'react'
-
-import styles from '../styles/Common.module.css'
-
+import Countdown from 'react-countdown'
 import { connectToDatabase } from '../util/mongodb'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { IoLogoFacebook, IoLogoInstagram } from 'react-icons/io'
-import Countdown from 'react-countdown'
+
+import styles from '../styles/Common.module.css'
 
 const Completionist = () => <span>You are good to go!</span>
 
@@ -25,7 +24,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 }
 
 export default function Home() {
-  const [session, loading] = useSession()
+  const [session] = useSession()
 
   return (
     <div className={styles.container}>
@@ -45,25 +44,25 @@ export default function Home() {
           </div>
         </nav>
         <main className={styles.main}>
-          <h3>
-            <Countdown date="2021-10-31T00:00:00" renderer={renderer} />
-          </h3>
-
           {!session && (
             <>
-              <h1>You are not signed in</h1> <br />
+              <h1>You are not signed in</h1>
               <button onClick={signIn}>Sign in</button>
             </>
           )}
           {session && (
             <>
-              <h1>Signed in as {session.user.name} </h1> <br />
-              <h1 className={styles.subtitle}>Welcome to</h1>
-              <h1 className={styles.title}>Cutie Hack</h1>
-              <p className={styles.description}>Coming Soon...</p>
+              <h1>Signed in as {session.user.name} </h1>
               <button onClick={signOut}>Sign out</button>
             </>
           )}
+
+          <h1 className={styles.subtitle}>Welcome to</h1>
+          <h1 className={styles.title}>Cutie Hack</h1>
+
+          <h3>
+            <Countdown date="2021-10-31T00:00:00" renderer={renderer} />
+          </h3>
 
           <div className={styles.grid}>
             <a
