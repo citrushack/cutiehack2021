@@ -1,5 +1,5 @@
 import Countdown from 'react-countdown'
-
+import styles from '../styles/Countdown.module.css'
 const Completionist = () => <span>You are good to go!</span>
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -18,7 +18,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
 export default function CountdownWrapper() {
   return (
-    <h2>
+    <h2 className={styles.countdown}>
       <Countdown date="2021-10-31T00:00:00" renderer={renderer} />
     </h2>
   )
