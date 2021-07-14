@@ -143,6 +143,10 @@
   line-height: 1.5;
 }
 
+.selected {
+  display: block !important;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

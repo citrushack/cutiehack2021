@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import React from 'react'
+
 import styles from '../styles/Common.module.css'
+
 import { connectToDatabase } from '../util/mongodb'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { IoLogoFacebook, IoLogoInstagram } from 'react-icons/io'

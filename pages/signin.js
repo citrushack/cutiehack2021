@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from '../styles/Common.module.css'
-import signinStyles from '../styles/SignIn.module.css'
+import formStyles from '../styles/Form.module.css'
 
 import { providers, signIn, getSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
@@ -35,7 +35,7 @@ export default function SignIn({ providers }) {
   return (
     <div className={styles.container}>
       {error && (
-        <div className={signinStyles.errorMsg}>
+        <div className={formStyles.errorMsg}>
           <SignInError error={error} />
         </div>
       )}
@@ -46,7 +46,7 @@ export default function SignIn({ providers }) {
         return (
           <div
             key={provider.name}
-            className={signinStyles.button}
+            className={formStyles.button}
             onClick={() => signIn(provider.id)}
           >
             Sign in with {provider.name}
