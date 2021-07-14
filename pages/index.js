@@ -21,7 +21,7 @@ export default function Home() {
           <h1 className={styles.subtitle}>Welcome to</h1>
           <h1 className={styles.title}>Cutie Hack</h1>
           <CountdownWrapper />
-          {!session && (
+          {/* {!session && (
             <>
               <h1>You are not signed in</h1>
             </>
@@ -30,7 +30,7 @@ export default function Home() {
             <>
               <h1>Signed in as {session.user.name} </h1>
             </>
-          )}
+          )} */}
           <div className={styles.grid}>
             <a
               href="https://www.facebook.com/cutiehack/"
