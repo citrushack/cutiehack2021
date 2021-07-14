@@ -21,7 +21,7 @@ export default function CheckIn() {
         <p>Access Denied. Please login!</p>
       </Layout>
     )
-    
+
   return (
     <Layout>
       <div className={styles.container}>

@@ -1,137 +1,114 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { FiChevronDown } from 'react-icons/fi'
 import { IoMdRadioButtonOff, IoMdRadioButtonOn } from 'react-icons/io'
 
 import styles from '../styles/Index.module.css'
 import formStyles from '../styles/Form.module.css'
 
-export default class Form extends Component {
-  constructor() {
-    super()
-    this.state = {
-      error_msg: '',
-      open_race_dropdown: false,
-      open_gender_dropdown: false,
-      race: 'Select an option...',
-      gender: 'Select an option...',
-      race_options: [
-        'American Indian or Alaska Native',
-        'Asian',
-        'Black or African American',
-        'Hispanic or Latino',
-        'Native Hawaiian or Other Pacific Islander',
-        'White',
-      ],
-      gender_options: [
-        'Male',
-        'Female',
-        'Nonbinary',
-        'Other',
-        'Prefer not to say',
-      ],
-      school: '',
-      major: '',
-      grade: '',
-      first_time: '',
-      submit_triggered: false,
-      race_filled: false,
-      gender_filled: false,
-      school_filled: false,
-      major_filled: false,
-      grade_filled: false,
-      first_time_filled: false,
+export default function Form(props) {
+  const [error, setError] = React.useState('');
+  const [open_race, toggleOpenRace] = React.useState(false);
+  const [open_gender, toggleOpenGender] = React.useState(false);
+  const [race, setRace] = React.useState('Select an option...');
+  const [gender, setGender] = React.useState('Select an option...');
+  const [options] = React.useState({
+    race: [
+      'American Indian or Alaska Native',
+      'Asian',
+      'Black or African American',
+      'Hispanic or Latino',
+      'Native Hawaiian or Other Pacific Islander',
+      'White',
+    ],
+    gender: [
+      'Male',
+      'Female',
+      'Nonbinary',
+      'Other',
+      'Prefer not to say',
+    ]
+  })
+  const [school, setSchool] = React.useState('');
+  const [major, setMajor] = React.useState('');
+  const [grade, setGrade] = React.useState('');
+  const [first_time, setFirstTime] = React.useState('');
+  const [submit_triggered, triggerSubmit] = React.useState(false);
+  const [filled] = React.useState({
+    race: false,
+    gender: false,
+    school: false,
+    major: false,
+    grade: false,
+    first_time: false,
+  })
+
+  const openRaceDropdown = () => {
+    if (!open_race && open_gender) {
+      toggleOpenGender(false)
     }
-    this.handleChangeSchool = this.handleChangeSchool.bind(this)
-    this.handleChangeMajor = this.handleChangeMajor.bind(this)
-    this.handleChangeGrade = this.handleChangeGrade.bind(this)
+    toggleOpenRace(!open_race)
   }
-
-  openRaceDropdown() {
-    if (this.state.open_gender_dropdown && !this.state.open_race_dropdown) {
-      this.setState({ open_gender_dropdown: false })
+  
+  const openGenderDropdown = () => {
+    if (open_race && !open_gender) {
+      toggleOpenRace(false)
     }
-    this.setState({ open_race_dropdown: !this.state.open_race_dropdown })
+    toggleOpenGender(!open_gender)
   }
-
-  openGenderDropdown() {
-    if (this.state.open_race_dropdown && !this.state.open_gender_dropdown) {
-      this.setState({ open_race_dropdown: false })
-    }
-    this.setState({ open_gender_dropdown: !this.state.open_gender_dropdown })
+  
+  const selectRace = (e) => {
+    toggleOpenRace(false)
+    setRace(e)
+    filled.race = true
   }
-
-  selectRace(e) {
-    this.setState({ open_race_dropdown: false })
-    this.setState({ race: e })
-    this.setState({ race_filled: true })
+  
+  const selectGender = (e) => {
+    toggleOpenGender(false)
+    setGender(e)
+    filled.gender = true
   }
-
-  selectGender(o) {
-    this.setState({ open_gender_dropdown: false })
-    this.setState({ gender: o })
-    this.setState({ gender_filled: true })
+  
+  const handleChangeSchool = (e) => {
+    setSchool(e.target.value)
+    filled.school = e.target.value !== ''
   }
-
-  handleChangeSchool(e) {
-    this.setState({ school: e.target.value })
-    if (e.target.value !== '') {
-      this.setState({ school_filled: true })
-    } else {
-      this.setState({ school_filled: false })
-    }
+  
+  const handleChangeMajor = (e) => {
+    setMajor(e.target.value)
+    filled.major = e.target.value !== ''
   }
-
-  handleChangeMajor(e) {
-    this.setState({ major: e.target.value })
-    if (e.target.value !== '') {
-      this.setState({ major_filled: true })
-    } else {
-      this.setState({ major_filled: false })
-    }
+  
+  const handleChangeGrade = (e) => {
+    setGrade(e.target.value)
+    filled.grade = e.target.value !== ''
   }
-
-  handleChangeGrade(e) {
-    this.setState({ grade: e.target.value })
-    if (e.target.value !== '') {
-      this.setState({ grade_filled: true })
-    } else {
-      this.setState({ grade_filled: false })
-    }
+  
+  const toggleFirstTime = (e) => {
+    setFirstTime(e)
+    filled.first_time = true
   }
-
-  toggleFirstTime(e) {
-    this.setState({ first_time: e })
-    this.setState({ first_time_filled: true })
-  }
-
-  submitForm(name, email) {
-    this.setState({ submit_triggered: true })
-    if (
-      this.state.race !== 'Select an option...' &&
-      this.state.gender !== 'Select an option...' &&
-      this.state.school !== '' &&
-      this.state.major !== '' &&
-      this.state.grade !== '' &&
-      this.state.first_time !== ''
-    ) {
-      this.setState({ error_msg: '' })
+  
+  const submitForm = (name, email) => {
+    triggerSubmit(true)
+    if (Object.values(filled).every(e => e)) {
+      setError('')
       const data = [
         name,
         email,
-        this.state.race,
-        this.state.gender,
-        this.state.school,
-        this.state.major,
-        this.state.grade,
-        this.state.first_time,
+        race,
+        gender,
+        school,
+        major,
+        grade,
+        first_time,
       ]
-      this.sendData(data)
+      sendData(data)
     } else {
-      this.setState({ error_msg: 'Please fill out all required fields.' })
+      setError('Please fill out all required fields.')
     }
   }
-
-  async sendData(checkinData) {
+  
+  const sendData = async (checkinData) => {
     console.log(checkinData)
     const response = await fetch('/api/checkin/create', {
       method: 'POST',
@@ -145,187 +122,164 @@ export default class Form extends Component {
     return data.checkin_data
   }
 
-  render() {
-    const {
-      error_msg,
-      open_race_dropdown,
-      open_gender_dropdown,
-      race,
-      race_options,
-      gender,
-      gender_options,
-      school,
-      major,
-      grade,
-      first_time,
-      submit_triggered,
-      race_filled,
-      gender_filled,
-      school_filled,
-      major_filled,
-      grade_filled,
-      first_time_filled,
-    } = this.state
-
-    return (
-      <section>
-        <div className={formStyles.errorMsg}>{error_msg}</div>
-        <div className={formStyles.inputWrapper}>
-          <div className={formStyles.inputHeader}>Race</div>
-          <div className={formStyles.dropdown}>
-            <div
-              className={
-                open_race_dropdown
-                  ? `${formStyles.dropdownHeader} ${formStyles.dropdownSelected}`
-                  : `${formStyles.dropdownHeader}` &&
-                    submit_triggered &&
-                    !race_filled
-                  ? `${formStyles.dropdownHeader} ${formStyles.triggeredBox}`
-                  : `${formStyles.dropdownHeader}`
-              }
-              onClick={() => this.openRaceDropdown()}
-            >
-              <div>{race}</div>
-              <div>
-                <FiChevronDown />
-              </div>
-            </div>
-            <div
-              className={
-                open_race_dropdown
-                  ? `${formStyles.dropdownContent} ${styles.selected}`
-                  : `${formStyles.dropdownContent}`
-              }
-            >
-              {race_options
-                ? race_options.map((option) => (
-                    <div key={option} onClick={() => this.selectRace(option)}>
-                      {option}
-                    </div>
-                  ))
-                : null}
-            </div>
-          </div>
-        </div>
-
-        <div className={formStyles.inputWrapper}>
-          <div className={formStyles.inputHeader}>Gender</div>
-          <div className={formStyles.dropdown}>
-            <div
-              className={
-                open_gender_dropdown
-                  ? `${formStyles.dropdownHeader} ${formStyles.dropdownSelected}`
-                  : `${formStyles.dropdownHeader}` &&
-                    submit_triggered &&
-                    !gender_filled
-                  ? `${formStyles.dropdownHeader} ${formStyles.triggeredBox}`
-                  : `${formStyles.dropdownHeader}`
-              }
-              onClick={() => this.openGenderDropdown()}
-            >
-              <div>{gender}</div>
-              <div>
-                <FiChevronDown />
-              </div>
-            </div>
-            <div
-              className={
-                open_gender_dropdown
-                  ? `${formStyles.dropdownContent} ${styles.selected}`
-                  : `${formStyles.dropdownContent}`
-              }
-            >
-              {gender_options
-                ? gender_options.map((option) => (
-                    <div key={option} onClick={() => this.selectGender(option)}>
-                      {option}
-                    </div>
-                  ))
-                : null}
-            </div>
-          </div>
-        </div>
-
-        <div className={formStyles.inputWrapper}>
-          <div className={formStyles.inputHeader}>School</div>
-          <input
-            className={
-              formStyles.inputBox && submit_triggered && !school_filled
-                ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
-                : `${formStyles.inputBox}`
-            }
-            value={school}
-            onChange={this.handleChangeSchool}
-          />
-        </div>
-
-        <div className={formStyles.inputWrapper}>
-          <div className={formStyles.inputHeader}>Major</div>
-          <input
-            className={
-              formStyles.inputBox && submit_triggered && !major_filled
-                ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
-                : `${formStyles.inputBox}`
-            }
-            value={major}
-            onChange={this.handleChangeMajor}
-          />
-        </div>
-
-        <div className={formStyles.inputWrapper}>
-          <div className={formStyles.inputHeader}>Grade</div>
-          <input
-            className={
-              formStyles.inputBox && submit_triggered && !grade_filled
-                ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
-                : `${formStyles.inputBox}`
-            }
-            value={grade}
-            onChange={this.handleChangeGrade}
-          />
-        </div>
-
-        <div className={formStyles.inputWrapper}>
-          <div className={formStyles.inputHeader}>First Time Hacker?</div>
+  return (
+    <section>
+      <div className={formStyles.errorMsg}>{error}</div>
+      <div className={formStyles.inputWrapper}>
+        <div className={formStyles.inputHeader}>Race</div>
+        <div className={formStyles.dropdown}>
           <div
             className={
-              formStyles.radio && submit_triggered && !first_time_filled
-                ? `${formStyles.radio} ${formStyles.triggered}`
-                : `${formStyles.radio}`
+              open_race
+                ? `${formStyles.dropdownHeader} ${formStyles.dropdownSelected}`
+                : `${formStyles.dropdownHeader}` &&
+                  submit_triggered &&
+                  !filled.race
+                ? `${formStyles.dropdownHeader} ${formStyles.triggeredBox}`
+                : `${formStyles.dropdownHeader}`
             }
-            onClick={() => this.toggleFirstTime(true)}
+            onClick={() => openRaceDropdown()}
           >
-            {first_time === true ? (
-              <IoMdRadioButtonOn />
-            ) : (
-              <IoMdRadioButtonOff />
-            )}
-            Yes
+            <div>{race}</div>
+            <div>
+              <FiChevronDown />
+            </div>
           </div>
           <div
             className={
-              formStyles.radio && submit_triggered && !first_time_filled
-                ? `${formStyles.radio} ${formStyles.triggered}`
-                : `${formStyles.radio}`
+              open_race
+                ? `${formStyles.dropdownContent} ${styles.selected}`
+                : `${formStyles.dropdownContent}`
             }
-            onClick={() => this.toggleFirstTime(false)}
           >
-            {first_time === false ? (
-              <IoMdRadioButtonOn />
-            ) : (
-              <IoMdRadioButtonOff />
-            )}
-            No
+            {options.race
+              ? options.race.map((option) => (
+                  <div key={option} onClick={() => selectRace(option)}>
+                    {option}
+                  </div>
+                ))
+              : null}
           </div>
         </div>
+      </div>
 
+      <div className={formStyles.inputWrapper}>
+        <div className={formStyles.inputHeader}>Gender</div>
+        <div className={formStyles.dropdown}>
+          <div
+            className={
+              open_gender
+                ? `${formStyles.dropdownHeader} ${formStyles.dropdownSelected}`
+                : `${formStyles.dropdownHeader}` &&
+                  submit_triggered &&
+                  !filled.gender
+                ? `${formStyles.dropdownHeader} ${formStyles.triggeredBox}`
+                : `${formStyles.dropdownHeader}`
+            }
+            onClick={() => openGenderDropdown()}
+          >
+            <div>{gender}</div>
+            <div>
+              <FiChevronDown />
+            </div>
+          </div>
+          <div
+            className={
+              open_gender
+                ? `${formStyles.dropdownContent} ${styles.selected}`
+                : `${formStyles.dropdownContent}`
+            }
+          >
+            {options.gender
+              ? options.gender.map((option) => (
+                  <div key={option} onClick={() => selectGender(option)}>
+                    {option}
+                  </div>
+                ))
+              : null}
+          </div>
+        </div>
+      </div>
+
+      <div className={formStyles.inputWrapper}>
+        <div className={formStyles.inputHeader}>School</div>
+        <input
+          className={
+            formStyles.inputBox && submit_triggered && !filled.school
+              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
+              : `${formStyles.inputBox}`
+          }
+          value={school}
+          onChange={handleChangeSchool}
+        />
+      </div>
+
+      <div className={formStyles.inputWrapper}>
+        <div className={formStyles.inputHeader}>Major</div>
+        <input
+          className={
+            formStyles.inputBox && submit_triggered && !filled.major
+              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
+              : `${formStyles.inputBox}`
+          }
+          value={major}
+          onChange={handleChangeMajor}
+        />
+      </div>
+
+      <div className={formStyles.inputWrapper}>
+        <div className={formStyles.inputHeader}>Grade</div>
+        <input
+          className={
+            formStyles.inputBox && submit_triggered && !filled.grade
+              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
+              : `${formStyles.inputBox}`
+          }
+          value={grade}
+          onChange={handleChangeGrade}
+        />
+      </div>
+
+      <div className={formStyles.inputWrapper}>
+        <div className={formStyles.inputHeader}>First Time Hacker?</div>
         <div
-          className={formStyles.button}
-          onClick={() => this.submitForm(this.props.name, this.props.email)}
+          className={
+            formStyles.radio && submit_triggered && !filled.first_time
+              ? `${formStyles.radio} ${formStyles.triggered}`
+              : `${formStyles.radio}`
+          }
+          onClick={() => toggleFirstTime(true)}
         >
-          Submit
+          {first_time === true ? (
+            <IoMdRadioButtonOn />
+          ) : (
+            <IoMdRadioButtonOff />
+          )}
+          Yes
         </div>
-      </section>
-    )
-  }
+        <div
+          className={
+            formStyles.radio && submit_triggered && !filled.first_time
+              ? `${formStyles.radio} ${formStyles.triggered}`
+              : `${formStyles.radio}`
+          }
+          onClick={() => toggleFirstTime(false)}
+        >
+          {first_time === false ? (
+            <IoMdRadioButtonOn />
+          ) : (
+            <IoMdRadioButtonOff />
+          )}
+          No
+        </div>
+      </div>
+
+      <div
+        className={formStyles.button}
+        onClick={() => submitForm(props.name, props.email)}
+      >
+        Submit
+      </div>
+    </section>
+  );
 }
