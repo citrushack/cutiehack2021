@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useRouter } from 'next/router'
+import { Toaster } from 'react-hot-toast'
 import { FiChevronDown } from 'react-icons/fi'
 import { IoMdRadioButtonOff, IoMdRadioButtonOn } from 'react-icons/io'
 
 import styles from '../styles/Index.module.css'
 import formStyles from '../styles/Form.module.css'
+import toast from 'react-hot-toast'
 
 export default function Form(props) {
-  const [error, setError] = React.useState('');
+  const router = useRouter()
+
+  const [error, setError] = React.useState(false);
   const [open_race, toggleOpenRace] = React.useState(false);
   const [open_gender, toggleOpenGender] = React.useState(false);
   const [race, setRace] = React.useState('Select an option...');
@@ -91,7 +96,7 @@ export default function Form(props) {
   const submitForm = (name, email) => {
     triggerSubmit(true)
     if (Object.values(filled).every(e => e)) {
-      setError('')
+      setError(false)
       const data = [
         name,
         email,
@@ -102,9 +107,12 @@ export default function Form(props) {
         grade,
         first_time,
       ]
-      sendData(data)
+      // sendData(data)
+      router.push('/')
+      toast.success('Succesfully checked in!')
     } else {
-      setError('Please fill out all required fields.')
+      setError(true)
+      toast.error('Please fill out all required fields.')
     }
   }
   
@@ -124,7 +132,11 @@ export default function Form(props) {
 
   return (
     <section>
-      <div className={formStyles.errorMsg}>{error}</div>
+      {error ? 
+        <div><Toaster /></div>
+        :
+        null
+      }
       <div className={formStyles.inputWrapper}>
         <div className={formStyles.inputHeader}>Race</div>
         <div className={formStyles.dropdown}>

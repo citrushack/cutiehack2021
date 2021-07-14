@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import React from 'react'
-import Link from 'next/link'
+import { Toaster } from 'react-hot-toast'
 import Layout from '../components/Layout'
 import CountdownWrapper from '../components/Countdown'
 import { connectToDatabase } from '../util/mongodb'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 import { IoLogoFacebook, IoLogoInstagram } from 'react-icons/io'
 
 import styles from '../styles/Index.module.css'
@@ -18,6 +18,7 @@ export default function Home() {
       </Head>
       <Layout>
         <section className={styles.main}>
+          <div><Toaster /></div>
           <h1 className={styles.subtitle}>Welcome to</h1>
           <h1 className={styles.title}>Cutie Hack</h1>
           <CountdownWrapper />
