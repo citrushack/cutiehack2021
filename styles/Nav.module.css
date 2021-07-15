@@ -22,8 +22,6 @@
 
 .primarybutton,
 .secondarybutton {
-  /* Temp font fix but we need to be sure it applies to ALL elements */
-  font-family: 'Nunito', sans-serif !important;
   padding: 0.5rem 1rem;
   border: 1px solid orange;
   border-radius: 5px;
