@@ -1,11 +1,11 @@
 import React from 'react'
-import CheckInForm from '../components/CheckInForm'
-import Layout from '../components/Layout'
+import Layout from '../../components/Layout'
+import CreateGroupForm from '../../components/CreateGroupForm'
 import { useSession } from 'next-auth/client'
 
-import styles from '../styles/Index.module.css'
+import styles from '../../styles/Index.module.css'
 
-export default function CheckIn() {
+export default function CreateGroup() {
   const [session, loading] = useSession()
 
   if (loading)
@@ -25,7 +25,7 @@ export default function CheckIn() {
   return (
     <Layout>
       <div className={styles.container}>
-        <CheckInForm name={session.user.name} email={session.user.email} />
+        <CreateGroupForm />
       </div>
     </Layout>
   )

@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import React from 'react'
-import { Toaster } from 'react-hot-toast'
 import Layout from '../components/Layout'
 import CountdownWrapper from '../components/Countdown'
 import { connectToDatabase } from '../util/mongodb'
@@ -18,7 +17,6 @@ export default function Home() {
       </Head>
       <Layout>
         <section className={styles.main}>
-          <div><Toaster /></div>
           <h1 className={styles.subtitle}>Welcome to</h1>
           <h1 className={styles.title}>Cutie Hack</h1>
           <CountdownWrapper />
