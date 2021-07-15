@@ -7,6 +7,12 @@
   align-items: center;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .title a {
   color: #0070f3;
   text-decoration: none;
@@ -49,8 +55,9 @@
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-.grid {
+.stack {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 3rem;
@@ -58,7 +65,7 @@
 
 .card {
   margin: 1rem;
-  flex-basis: 45%;
+  /* flex-basis: 45%; */
   min-width: 20rem;
   padding: 1.5rem;
   text-align: left;
@@ -157,8 +164,23 @@
   color: white;
 }
 
+.image {
+  display: none;
+  padding: 0 2.5rem;
+}
+
+.invisible {
+  opacity: 0;
+}
+
 @media (max-width: 868px) {
   .grid {
     flex-direction: column;
+  }
+}
+
+@media (min-width: 1080px) {
+  .image {
+    display: block;
   }
 }

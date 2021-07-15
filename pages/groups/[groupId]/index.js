@@ -29,15 +29,9 @@ export default function GroupPage() {
       </div>
       <div className={styles.container}>
         {/* display group info (group name, invite code, team members) */}
-        <div>
-          Group Name
-        </div>
-        <div>
-          Invite Code
-        </div>
-        <div>
-          Members
-        </div>
+        <div>Group Name</div>
+        <div>Invite Code</div>
+        <div>Members</div>
       </div>
     </Layout>
   )
