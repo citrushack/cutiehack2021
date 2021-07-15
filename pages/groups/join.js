@@ -25,6 +25,7 @@ export default function CreateGroup() {
   return (
     <Layout>
       <div className={styles.container}>
+        <h1 className={styles.subtitle}>Join a Group</h1>
         <JoinGroupForm />
       </div>
     </Layout>
