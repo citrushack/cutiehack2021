@@ -6,6 +6,15 @@ const options = {
     Providers.GitHub({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
+      scope: 'read:user user:email',
+      profile(profile) {
+        return {
+          id: profile.id,
+          name: profile.name || profile.login,
+          email: profile.email,
+          image: profile.avatar_url,
+        }
+      },
     }),
 
     Providers.Google({
