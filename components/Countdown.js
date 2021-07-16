@@ -10,7 +10,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     // Render a countdown
     return (
       <span>
-        {days} days, {hours} hours, {minutes}, minutes, {seconds} seconds left!
+        {days} days, {hours} hours, {minutes}, minutes, and {seconds} seconds left!
       </span>
     )
   }

@@ -33,12 +33,13 @@ export default function Nav() {
               </Link>
               :
               <>
-                <Link passHref href="/groups/create">
+              {/* Moved to home page */}
+                {/* <Link passHref href="/groups/create">
                   <a className={styles.primarybutton}>Create a Group</a>
                 </Link>
                 <Link passHref href="/groups/join">
                   <a className={styles.primarybutton}>Join a Group</a>
-                </Link>
+                </Link> */}
               </>
             }
             <button className={styles.secondarybutton} onClick={signOut}>
