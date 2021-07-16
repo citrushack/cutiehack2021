@@ -30,8 +30,8 @@ This is the codebase for CutieHack 2021. Below is a guide for setting up a local
 ## Setting Up Your Local Environment
 Run the following commands in a terminal.
 ### Clone the Project
-- `git clone https://github.com/citrushack/CitrusHack2021.git`
-- `cd CitrusHack2021`
+- `git clone https://github.com/citrushack/cutiehack2021`
+- `cd cutiehack2021`
   - This is to navigate into the directory generated for the cloned repo.
 - If you are using VScode, run `code .` to open the current directory in VScode (this is mainly for easier navigation)
   - You may need to install **code** so run `sudo apt install code`
