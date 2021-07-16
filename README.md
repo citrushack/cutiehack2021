@@ -3,6 +3,7 @@
 
 > Contributors: 
 > Danial Beg,
+> Rajbir Johar,
 > Caleb Yoo,
 > Andrei Dimaano,
 > James Zhang
