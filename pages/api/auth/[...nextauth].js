@@ -18,6 +18,23 @@ const options = {
       clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
     }),
   ],
+  callbacks: {
+    signIn: async (profile, account, metadata) => {
+      // https://developer.github.com/v3/users/emails/#list-email-addresses-for-the-authenticated-user
+      const res = await fetch('https://api.github.com/user/emails', {
+        headers: {
+          Authorization: `token ${account.accessToken}`,
+        },
+      })
+      const emails = await res.json()
+      if (!emails || emails.length === 0) {
+        return
+      }
+      // Sort by primary email - the user may have several emails, but only one of them will be primary
+      const sortedEmails = emails.sort((a, b) => b.primary - a.primary)
+      profile.email = sortedEmails[0].email
+    },
+  },
   pages: {
     signIn: '/signin',
   },
