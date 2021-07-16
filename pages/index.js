@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import Layout from '../components/Layout'
 import CountdownWrapper from '../components/Countdown'
 import { connectToDatabase } from '../util/mongodb'
 import { useSession } from 'next-auth/client'
-import { IoLogoFacebook, IoLogoInstagram } from 'react-icons/io'
+import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin } from 'react-icons/io'
 import laptop from '../public/assets/laptop.png'
 import plant from '../public/assets/potted_plant.png'
 
@@ -20,56 +21,62 @@ export default function Home() {
       </Head>
       <Layout>
         <section className={styles.main}>
-          <div className={styles.wrapper}>
-            <div className={styles.image}>
-              <Image src={laptop} />
-            </div>
-            <div>
+          <div className={styles.intro}>
+            <div className={styles.intro}>
+              {session && <h1>Glad to have you, {session.user.name}!</h1>}
               <h1 className={styles.subtitle}>Welcome to</h1>
               <h1 className={styles.title}>Cutie Hack</h1>
             </div>
-            <div className={`${styles.image} ${styles.invisible}`}>
-              <Image src={laptop} />
-            </div>
           </div>
           <CountdownWrapper />
-          {/* {!session && (
-            <>
-              <h1>You are not signed in</h1>
-            </>
-          )}
+          {!session && <>{/* <h1>You are not signed in</h1> */}</>}
           {session && (
-            <>
-              <h1>Signed in as {session.user.name} </h1>
-            </>
-          )} */}
-          <div className={styles.wrapper}>
-            <div className={`${styles.image} ${styles.invisible}`}>
-              <Image src={plant} />
+            <div className={styles.actionwrapper}>
+              <Link passHref href="/groups/create">
+                <a className={styles.primarybutton}>Create a Group</a>
+              </Link>
+              <Link passHref href="/groups/join">
+                <a className={styles.primarybutton}>Join a Group</a>
+              </Link>
             </div>
-            <div className={styles.stack}>
-              <a
-                href="https://www.facebook.com/cutiehack/"
-                className={styles.card}
-              >
+          )}
+
+          <div className={styles.contact}>
+            <div className={styles.laptop}>
+              <Image
+                src={laptop}
+                alt="laptop asset"
+                height="200"
+                width="200"
+                layout="intrinsic"
+              />
+            </div>
+            <div className={styles.iconWrapper}>
+              <a href="https://www.facebook.com/cutiehack/">
                 <div className={styles.textIconWrapper}>
-                  <div>Facebook</div>
                   <IoLogoFacebook className={styles.icon} />
                 </div>
               </a>
 
-              <a
-                href="https://www.instagram.com/cutiehack_ucr/"
-                className={styles.card}
-              >
+              <a href="https://www.instagram.com/cutiehack_ucr/">
                 <div className={styles.textIconWrapper}>
-                  <div>Instagram</div>
                   <IoLogoInstagram className={styles.icon} />
                 </div>
               </a>
+              <a href="https://www.linkedin.com/company/17907222/admin/">
+                <div className={styles.textIconWrapper}>
+                  <IoLogoLinkedin className={styles.icon} />
+                </div>
+              </a>
             </div>
-            <div className={styles.image}>
-              <Image src={plant} />
+            <div className={styles.plant}>
+              <Image
+                src={plant}
+                alt="laptop asset"
+                height="200"
+                width="200"
+                layout="intrinsic"
+              />
             </div>
           </div>
         </section>
