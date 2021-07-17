@@ -15,6 +15,7 @@ export default function CheckInForm(props) {
   const [validEmail, setValidEmail] = React.useState(true)
 
   const [email, setEmail] = React.useState('')
+  const [emailConfirm, setEmailConfirm] = React.useState('')
   const [open_race, toggleOpenRace] = React.useState(false)
   const [open_gender, toggleOpenGender] = React.useState(false)
   const [race, setRace] = React.useState('Select an option...')
@@ -37,6 +38,7 @@ export default function CheckInForm(props) {
   const [submit_triggered, triggerSubmit] = React.useState(false)
   const [filled] = React.useState({
     email: false,
+    emailConfirm: false,
     race: false,
     gender: false,
     school: false,
@@ -48,6 +50,12 @@ export default function CheckInForm(props) {
   const handleChangeEmail = (e) => {
     setEmail(e.target.value)
     filled.email = e.target.value !== ''
+    setValidEmail(true)
+  }
+
+  const handleChangeEmailConfirm = (e) => {
+    setEmailConfirm(e.target.value)
+    filled.emailConfirm = e.target.value !== ''
     setValidEmail(true)
   }
 
@@ -126,7 +134,11 @@ export default function CheckInForm(props) {
       ) {
         setValidEmail(false)
         toast.error('Please input a valid email.')
-      } else {
+      } else if (filled.email && filled.emailConfirm && email !== emailConfirm) {
+        setValidEmail(false)
+        toast.error('Emails don\'t match. Please try again.')
+      }
+      else {
         setValidEmail(true)
       }
       toast.error('Please fill out all required fields.')
@@ -163,7 +175,6 @@ export default function CheckInForm(props) {
           />
         </div>
         <input
-          type="email"
           className={
             (formStyles.inputBox && submit_triggered && !filled.email) ||
             !validEmail
@@ -172,6 +183,22 @@ export default function CheckInForm(props) {
           }
           value={email}
           onChange={handleChangeEmail}
+        />
+      </div>
+
+      <div className={formStyles.inputWrapper}>
+        <div className={formStyles.inputHeader}>
+          Confirm Email
+        </div>
+        <input
+          className={
+            (formStyles.inputBox && submit_triggered && !filled.emailConfirm) ||
+            !validEmail
+              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
+              : `${formStyles.inputBox}`
+          }
+          value={emailConfirm}
+          onChange={handleChangeEmailConfirm}
         />
       </div>
 
