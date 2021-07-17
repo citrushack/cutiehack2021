@@ -4,6 +4,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { FiChevronDown } from 'react-icons/fi'
 import { IoMdRadioButtonOff, IoMdRadioButtonOn } from 'react-icons/io'
 import { FaRegQuestionCircle } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 import formStyles from '../styles/Form.module.css'
 
@@ -27,13 +28,7 @@ export default function CheckInForm(props) {
       'Native Hawaiian or Other Pacific Islander',
       'White',
     ],
-    gender: [
-      'Male',
-      'Female',
-      'Nonbinary',
-      'Other',
-      'Prefer not to say',
-    ]
+    gender: ['Male', 'Female', 'Nonbinary', 'Other', 'Prefer not to say'],
   })
   const [school, setSchool] = React.useState('')
   const [major, setMajor] = React.useState('')
@@ -62,41 +57,41 @@ export default function CheckInForm(props) {
     }
     toggleOpenRace(!open_race)
   }
-  
+
   const openGenderDropdown = () => {
     if (open_race && !open_gender) {
       toggleOpenRace(false)
     }
     toggleOpenGender(!open_gender)
   }
-  
+
   const selectRace = (e) => {
     toggleOpenRace(false)
     setRace(e)
     filled.race = true
   }
-  
+
   const selectGender = (e) => {
     toggleOpenGender(false)
     setGender(e)
     filled.gender = true
   }
-  
+
   const handleChangeSchool = (e) => {
     setSchool(e.target.value)
     filled.school = e.target.value !== ''
   }
-  
+
   const handleChangeMajor = (e) => {
     setMajor(e.target.value)
     filled.major = e.target.value !== ''
   }
-  
+
   const handleChangeGrade = (e) => {
     setGrade(e.target.value)
     filled.grade = e.target.value !== ''
   }
-  
+
   const toggleFirstTime = (e) => {
     setFirstTime(e)
     filled.first_time = true
@@ -104,42 +99,40 @@ export default function CheckInForm(props) {
 
   const triggerWarning = () => {
     setError(true)
-    toast('This email will be used for verifying your participation in case we need to double check!', {
-      icon: '⚠️',
-    });
+    toast(
+      'This email will be used for verifying your participation in case we need to double check!',
+      {
+        icon: '⚠️',
+      }
+    )
   }
-  
+
   const submitForm = (name) => {
     triggerSubmit(true)
-    if (Object.values(filled).every(e => e)) {
+    if (Object.values(filled).every((e) => e)) {
       setError(false)
-      const data = [
-        name,
-        email,
-        race,
-        gender,
-        school,
-        major,
-        grade,
-        first_time,
-      ]
+      const data = [name, email, race, gender, school, major, grade, first_time]
       // uncomment when you want to write to db
       // sendData(data)
       router.push('/groups/create')
       toast.success('Succesfully checked in!')
     } else {
       setError(true)
-      if (filled.email && !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))) {
+      if (
+        filled.email &&
+        !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+          email
+        )
+      ) {
         setValidEmail(false)
         toast.error('Please input a valid email.')
-      }
-      else {
+      } else {
         setValidEmail(true)
       }
       toast.error('Please fill out all required fields.')
     }
   }
-  
+
   const sendData = async (checkinData) => {
     console.log(checkinData)
     const response = await fetch('/api/checkin/create', {
@@ -156,22 +149,24 @@ export default function CheckInForm(props) {
 
   return (
     <section>
-      { error 
-        ? <div><Toaster /></div>
-        : null
-      }
+      {error ? (
+        <div>
+          <Toaster />
+        </div>
+      ) : null}
       <div className={formStyles.inputWrapper}>
         <div className={formStyles.inputHeader}>
-          Email 
-          <FaRegQuestionCircle 
+          Email
+          <FaRegQuestionCircle
             onClick={() => triggerWarning()}
-            className={formStyles.trigger} 
+            className={formStyles.trigger}
           />
         </div>
         <input
           type="email"
           className={
-            formStyles.inputBox && submit_triggered && !filled.email || !validEmail
+            (formStyles.inputBox && submit_triggered && !filled.email) ||
+            !validEmail
               ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
               : `${formStyles.inputBox}`
           }
@@ -305,11 +300,7 @@ export default function CheckInForm(props) {
           }
           onClick={() => toggleFirstTime(true)}
         >
-          {first_time === true ? (
-            <IoMdRadioButtonOn />
-          ) : (
-            <IoMdRadioButtonOff />
-          )}
+          {first_time === true ? <IoMdRadioButtonOn /> : <IoMdRadioButtonOff />}
           Yes
         </div>
         <div
@@ -329,12 +320,17 @@ export default function CheckInForm(props) {
         </div>
       </div>
 
-      <div
+      <motion.button
+        aria-label="Check In Button"
+        type="button"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.997 }}
+        transition={{ ease: 'easeInOut', duration: 0.015 }}
         className={formStyles.button}
         onClick={() => submitForm(props.name)}
       >
         Submit
-      </div>
+      </motion.button>
     </section>
   )
 }
