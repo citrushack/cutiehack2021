@@ -41,7 +41,9 @@ export default function Home() {
                 <FaCircle className={styles.windowButton} />
               </div>
               <div className={styles.windowContent}>
-                {session && <h1>Glad to have you, {session.user.name}!</h1>}
+                {session && <h1 className={styles.greeting}>
+                  Glad to have you, {session.user.name}!
+                </h1>}
                 <div>
                   <h1 className={styles.title}>cutie hack</h1>
                   <CountdownWrapper />

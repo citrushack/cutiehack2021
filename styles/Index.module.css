@@ -175,6 +175,9 @@
 }
 
 @media (max-width: 420px) {
+  .greeting {
+    font-size: 1rem;
+  }
   .title {
     font-size: 2rem;
   }
@@ -184,9 +187,19 @@
   .windowButton {
     font-size: 1rem;
   }
+  .actionwrapper {
+    flex-direction: column;
+  }
+  .actionwrapper * {
+    margin: 6px 0;
+    font-size: 0.8rem;
+  }
 }
 
 @media (min-width: 420px) and (max-width: 530px) {
+  .greeting {
+    font-size: 1.2rem;
+  }
   .title {
     font-size: 2rem;
   }
@@ -194,6 +207,10 @@
     margin: 2rem 1.5rem;
   }
   .windowButton {
+    font-size: 1rem;
+  }
+  .actionwrapper * {
+    margin: 0 6px;
     font-size: 1rem;
   }
 }
@@ -204,11 +221,5 @@
   }
   .windowContent {
     margin: 2rem 3.5rem;
-  }
-}
-
-@media (max-width: 868px) {
-  .grid {
-    flex-direction: column;
   }
 }
