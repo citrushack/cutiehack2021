@@ -8,6 +8,7 @@ import { connectToDatabase } from '../util/mongodb'
 import { useSession } from 'next-auth/client'
 import Sponsors from '../pages/sponsors'
 import { FaCircle } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 import hero from '../public/assets/hero.png'
 
@@ -48,10 +49,28 @@ export default function Home() {
                   {session && (
                     <div className={styles.actionwrapper}>
                       <Link passHref href="/groups/create">
-                        <a className={styles.primarybutton}>Create a Group</a>
+                        <motion.a
+                          aria-label="Create Group Button"
+                          type="button"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.995 }}
+                          transition={{ ease: 'easeInOut', duration: 0.015 }}
+                          className={styles.primarybutton}
+                        >
+                          Create a Group
+                        </motion.a>
                       </Link>
                       <Link passHref href="/groups/join">
-                        <a className={styles.primarybutton}>Join a Group</a>
+                        <motion.a
+                          aria-label="Join Group Button"
+                          type="button"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.995 }}
+                          transition={{ ease: 'easeInOut', duration: 0.015 }}
+                          className={styles.primarybutton}
+                        >
+                          Join a Group
+                        </motion.a>
                       </Link>
                     </div>
                   )}

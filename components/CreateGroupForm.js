@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
 import { nanoid } from 'nanoid'
-
+import { motion } from 'framer-motion'
 import styles from '../styles/Index.module.css'
 import formStyles from '../styles/Form.module.css'
 
@@ -32,12 +32,17 @@ export default function CreateGroupForm() {
           onChange={handleChangeName}
         />
       </div> */}
-      <div
+      <motion.button
+        aria-label="Create Group Button"
+        type="button"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.997 }}
+        transition={{ ease: 'easeInOut', duration: 0.015 }}
         className={formStyles.button}
         onClick={() => createGroup()}
       >
         Create Group
-      </div>
+      </motion.button>
     </section>
   )
 }
