@@ -86,16 +86,6 @@
   margin: 0 2rem;
   z-index: 2;
 }
-.icon {
-  font-size: 3rem;
-  line-height: 1.5;
-  margin: 0 0.5rem;
-  transition: color 200ms ease-in-out;
-}
-
-.icon:hover {
-  color: var(--brand-light);
-}
 
 .actionwrapper {
   display: flex;
