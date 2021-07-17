@@ -42,8 +42,7 @@ export default function Home() {
               <div className={styles.windowContent}>
                 {session && <h1>Glad to have you, {session.user.name}!</h1>}
                 <div>
-                  <h1 className={styles.subtitle}>Welcome to</h1>
-                  <h1 className={styles.title}>Cutie Hack</h1>
+                  <h1 className={styles.title}>cutie hack</h1>
                   <CountdownWrapper />
                   {session && (
                     <div className={styles.actionwrapper}>

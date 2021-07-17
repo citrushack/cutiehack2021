@@ -54,6 +54,7 @@
 .windowHeader {
   display: flex;
   padding: 0.5rem;
+  border-radius: 5px 5px 0 0;
   border-bottom: 2px solid var(--brand-light);
   background: var(--nav-bg);
 }
@@ -84,15 +85,7 @@
   width: 100%;
 }
 
-.subtitle {
-  margin: 0;
-  font-size: 3rem;
-  z-index: 2;
-  width: 100%;
-}
-
 .title,
-.subtitle,
 .description {
   text-align: center;
 }
@@ -181,17 +174,41 @@
   }
 }
 
-@media (max-width: 868px) {
-  .grid {
-    flex-direction: column;
+@media (max-width: 420px) {
+  .title {
+    font-size: 2rem;
+  }
+  .windowContent {
+    margin: 1.5rem 0.8rem;
+  }
+  .windowButton {
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 640px) {
+@media (min-width: 420px) and (max-width: 530px) {
+  .title {
+    font-size: 2rem;
+  }
+  .windowContent {
+    margin: 2rem 1.5rem;
+  }
+  .windowButton {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 530px) and (max-width: 760px) {
   .title {
     font-size: 3rem;
   }
-  .subtitle {
-    font-size: 1.5rem;
+  .windowContent {
+    margin: 2rem 3.5rem;
+  }
+}
+
+@media (max-width: 868px) {
+  .grid {
+    flex-direction: column;
   }
 }
