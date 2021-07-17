@@ -4,7 +4,6 @@ import toast, { Toaster } from 'react-hot-toast'
 import { FiChevronDown } from 'react-icons/fi'
 import { IoMdRadioButtonOff, IoMdRadioButtonOn } from 'react-icons/io'
 
-import styles from '../styles/Index.module.css'
 import formStyles from '../styles/Form.module.css'
 
 export default function CheckInForm(props) {
@@ -159,7 +158,7 @@ export default function CheckInForm(props) {
           <div
             className={
               open_race
-                ? `${formStyles.dropdownContent} ${styles.selected}`
+                ? `${formStyles.dropdownContent} ${formStyles.show}`
                 : `${formStyles.dropdownContent}`
             }
           >
@@ -197,7 +196,7 @@ export default function CheckInForm(props) {
           <div
             className={
               open_gender
-                ? `${formStyles.dropdownContent} ${styles.selected}`
+                ? `${formStyles.dropdownContent} ${formStyles.show}`
                 : `${formStyles.dropdownContent}`
             }
           >
