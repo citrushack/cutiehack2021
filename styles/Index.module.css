@@ -3,7 +3,7 @@
   width: 100vw;
   overflow: hidden;
   z-index: 0;
-  transform: translateY(3rem);
+  /* transform: translateY(3rem); */
 }
 
 .main {
