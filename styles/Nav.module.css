@@ -36,7 +36,7 @@
 
 .primarybutton {
   background-color: var(--brand);
-  color: #fff;
+  color: #fff9ef;
 }
 
 .primarybutton:hover {
@@ -44,10 +44,10 @@
 }
 
 .secondarybutton {
-  background-color: #fff;
+  background-color: #f2e3ca;
   color: var(--brand);
 }
 .secondarybutton:hover {
   background-color: var(--brand);
-  color: #fff;
+  color: #fff9ef;
 }

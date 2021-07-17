@@ -7,12 +7,12 @@
   justify-content: center;
   font-weight: 700;
   border-radius: 0.2rem;
-  background-color: #e7eaeb;
+  background-color: #dacbb2;
   cursor: pointer;
 }
 
 .button:hover {
-  background-color: #ccd3d5;
+  background-color: #c9b695;
   box-shadow: 0 6px 16px 0 rgba(98, 99, 99, 0.2);
 }
 
@@ -32,14 +32,15 @@
   width: 28rem;
   height: 3rem;
   padding-left: 0.8rem;
-  border: 2px solid #e7eaeb;
+  border: 2px solid #dacbb2;
   border-radius: 0.2rem;
+  background: #fffcf7;
   font-size: inherit;
 }
 
 .inputBox:focus {
   outline: none;
-  border: 2px solid #5ba3f5;
+  border: 2px solid #ff8a00;
   border-radius: 0.2rem;
 }
 
@@ -55,21 +56,22 @@
   width: 28rem;
   height: 3rem;
   padding: 0 0.8rem;
-  border: 2px solid #e7eaeb;
+  border: 2px solid #dacbb2;
   border-radius: 0.2rem;
+  background: #fffcf7;
   cursor: pointer;
 }
 
 .dropdownSelected {
-  border: 2px solid #5ba3f5;
-  color: #5ba3f5;
+  border: 2px solid #ff8a00;
+  color: #ff8a00;
 }
 
 .dropdownContent {
   z-index: 1;
   display: none;
   position: absolute;
-  background: #fff;
+  background: #fffcf7;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -105,7 +107,7 @@
 }
 
 .radio:hover {
-  color: #5ba3f5;
+  color: #ff8a00;
 }
 
 .errorMsg {
