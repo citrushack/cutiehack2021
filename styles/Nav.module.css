@@ -1,9 +1,9 @@
 .navbar {
   z-index: 10;
-  margin: 0 auto;
-  position: sticky;
+  position: fixed;
   padding: 1.5rem 0;
   top: 0;
+  width: 100%;
   background-color: var(--nav-bg);
   backdrop-filter: saturate(180%) blur(20px);
   -moz-backdrop-filter: saturate(180%) blur(20px);

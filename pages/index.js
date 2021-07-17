@@ -8,6 +8,7 @@ import { connectToDatabase } from '../util/mongodb'
 import { useSession } from 'next-auth/client'
 import laptop from '../public/assets/laptop.png'
 import plant from '../public/assets/potted_plant.png'
+import hero from '../public/assets/hero.png'
 
 import styles from '../styles/Index.module.css'
 
@@ -19,12 +20,21 @@ export default function Home() {
         <title>Cutie Hack</title>
       </Head>
       <Layout>
+        <div className={styles.bgWrap}>
+          <Image
+            src={hero}
+            alt="Hero Image"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            placeholder="blur"
+          />
+        </div>
         <section className={styles.main}>
           <div className={styles.intro}>
-            <div className={styles.intro}>
-              {session && <h1>Glad to have you, {session.user.name}!</h1>}
-              <div className={styles.row}>
-                <div className={styles.laptop}>
+            {session && <h1>Glad to have you, {session.user.name}!</h1>}
+
+            {/* <div className={styles.laptop}>
                   <Image
                     src={laptop}
                     alt="laptop asset"
@@ -32,12 +42,23 @@ export default function Home() {
                     width="200"
                     layout="intrinsic"
                   />
+                </div> */}
+            <div>
+              <h1 className={styles.subtitle}>Welcome to</h1>
+              <h1 className={styles.title}>Cutie Hack</h1>
+              <CountdownWrapper />
+              {session && (
+                <div className={styles.actionwrapper}>
+                  <Link passHref href="/groups/create">
+                    <a className={styles.primarybutton}>Create a Group</a>
+                  </Link>
+                  <Link passHref href="/groups/join">
+                    <a className={styles.primarybutton}>Join a Group</a>
+                  </Link>
                 </div>
-                <div>
-                  <h1 className={styles.subtitle}>Welcome to</h1>
-                  <h1 className={styles.title}>Cutie Hack</h1>
-                </div>
-                <div className={styles.plant}>
+              )}
+            </div>
+            {/* <div className={styles.plant}>
                   <Image
                     src={plant}
                     alt="laptop asset"
@@ -45,22 +66,10 @@ export default function Home() {
                     width="200"
                     layout="intrinsic"
                   />
-                </div>
-              </div>
-            </div>
+                </div> */}
           </div>
-          <CountdownWrapper />
+
           {!session && <>{/* <h1>You are not signed in</h1> */}</>}
-          {session && (
-            <div className={styles.actionwrapper}>
-              <Link passHref href="/groups/create">
-                <a className={styles.primarybutton}>Create a Group</a>
-              </Link>
-              <Link passHref href="/groups/join">
-                <a className={styles.primarybutton}>Join a Group</a>
-              </Link>
-            </div>
-          )}
         </section>
       </Layout>
     </div>
