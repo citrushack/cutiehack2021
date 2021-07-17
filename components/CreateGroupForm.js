@@ -9,11 +9,11 @@ import formStyles from '../styles/Form.module.css'
 export default function CreateGroupForm() {
   const router = useRouter()
 
-  const [name, setName] = React.useState()
+  // const [name, setName] = React.useState()
 
-  const handleChangeName = (e) => {
-    setName(e.target.value)
-  }
+  // const handleChangeName = (e) => {
+  //   setName(e.target.value)
+  // }
 
   const createGroup = () => {
     const code = nanoid()
@@ -24,14 +24,14 @@ export default function CreateGroupForm() {
 
   return (
     <section>
-      <div className={formStyles.inputWrapper}>
+      {/* <div className={formStyles.inputWrapper}>
         <div className={formStyles.inputHeader}>Group Name</div>
         <input
           className={formStyles.inputBox}
           value={name}
           onChange={handleChangeName}
         />
-      </div>
+      </div> */}
       <div
         className={formStyles.button}
         onClick={() => createGroup()}
