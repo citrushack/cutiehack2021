@@ -28,6 +28,16 @@
   font-weight: 700;
 }
 
+.trigger {
+  margin-left: 0.2rem;
+  color: #c9b695;
+}
+
+.trigger:hover {
+  cursor: pointer;
+  color: #a5854d;
+}
+
 .inputBox {
   width: 28rem;
   height: 3rem;

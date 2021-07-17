@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import toast, { Toaster } from 'react-hot-toast'
 import { FiChevronDown } from 'react-icons/fi'
 import { IoMdRadioButtonOff, IoMdRadioButtonOn } from 'react-icons/io'
+import { FaRegQuestionCircle } from 'react-icons/fa'
 
 import formStyles from '../styles/Form.module.css'
 
@@ -100,6 +101,13 @@ export default function CheckInForm(props) {
     setFirstTime(e)
     filled.first_time = true
   }
+
+  const triggerWarning = () => {
+    setError(true)
+    toast('This email will be used for verifying your participation in case we need to double check!', {
+      icon: '⚠️',
+    });
+  }
   
   const submitForm = (name) => {
     triggerSubmit(true)
@@ -153,7 +161,13 @@ export default function CheckInForm(props) {
         : null
       }
       <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>Email</div>
+        <div className={formStyles.inputHeader}>
+          Email 
+          <FaRegQuestionCircle 
+            onClick={() => triggerWarning()}
+            className={formStyles.trigger} 
+          />
+        </div>
         <input
           type="email"
           className={
