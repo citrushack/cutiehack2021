@@ -18,7 +18,7 @@ export default function Nav() {
           </button>
         ) : (
           <>
-            { false /* replace with variable to check if user already checked in */ 
+            { true /* replace with variable to check if user already checked in */ 
               ?
               <Link passHref href="/checkin">
                 <a className={styles.primarybutton}>Check In</a>

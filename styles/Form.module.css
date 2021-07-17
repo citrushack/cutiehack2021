@@ -87,6 +87,10 @@
   cursor: pointer;
 }
 
+.show {
+  display: block;
+}
+
 .radio {
   display: flex;
   align-items: center;
