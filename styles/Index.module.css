@@ -3,6 +3,7 @@
   width: 100vw;
   overflow: hidden;
   z-index: 0;
+  transform: translateY(3rem);
 }
 
 .main {
@@ -39,6 +40,42 @@
   padding: 0 1rem;
   overflow: hidden;
 }
+
+.window {
+  border: 2px solid var(--brand-light);
+  border-radius: 5px;
+  text-align: center;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -moz-backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.windowHeader {
+  display: flex;
+  padding: 0.5rem;
+  border-bottom: 2px solid var(--brand-light);
+  background: var(--nav-bg);
+}
+
+.windowButton {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+.windowButton:nth-of-type(1) {
+  color: var(--brand-darkest);
+}
+.windowButton:nth-of-type(2) {
+  color: var(--brand-dark);
+}
+.windowButton:nth-of-type(3) {
+  color: var(--brand);
+}
+
+.windowContent {
+  margin: 3rem 5rem;
+}
+
 .title {
   margin: 0 0 1.5rem 0;
   line-height: 1;
