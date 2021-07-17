@@ -11,7 +11,7 @@ export default function Nav() {
         <a href="#">About</a>
         <a href="#">FAQ</a>
         <a href="#">Help</a>
-        <a href="#">Sponsors</a>
+        <a href="#sponsors">Sponsors</a>
         {!session ? (
           <button className={styles.primarybutton} onClick={signIn}>
             Sign in

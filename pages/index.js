@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import CountdownWrapper from '../components/Countdown'
 import { connectToDatabase } from '../util/mongodb'
 import { useSession } from 'next-auth/client'
+import Sponsors from '../pages/sponsors'
 import laptop from '../public/assets/laptop.png'
 import plant from '../public/assets/potted_plant.png'
 import hero from '../public/assets/hero.png'
@@ -71,6 +72,7 @@ export default function Home() {
 
           {!session && <>{/* <h1>You are not signed in</h1> */}</>}
         </section>
+        <Sponsors />
       </Layout>
     </div>
   )
