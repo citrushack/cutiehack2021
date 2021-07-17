@@ -1,13 +1,32 @@
+.bgWrap {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 0;
+}
+
 .main {
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .intro {
-  text-align: center;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 0 1rem;
+  overflow: hidden;
 }
 .title {
   margin: 0 0 1.5rem 0;
@@ -54,6 +73,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 2rem;
+  z-index: 2;
 }
 .icon {
   font-size: 3rem;
@@ -69,6 +89,7 @@
 .actionwrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: 1rem;
 }
 
@@ -118,5 +139,14 @@
 @media (max-width: 868px) {
   .grid {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 3rem;
+  }
+  .subtitle {
+    font-size: 1.5rem;
   }
 }
