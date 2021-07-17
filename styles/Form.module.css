@@ -6,8 +6,11 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  font-size: inherit;
   border-radius: 0.2rem;
   background-color: #dacbb2;
+  border: none;
+  transition: all 100ms ease-in-out;
   cursor: pointer;
 }
 
