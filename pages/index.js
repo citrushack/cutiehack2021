@@ -6,7 +6,6 @@ import Layout from '../components/Layout'
 import CountdownWrapper from '../components/Countdown'
 import { connectToDatabase } from '../util/mongodb'
 import { useSession } from 'next-auth/client'
-import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin } from 'react-icons/io'
 import laptop from '../public/assets/laptop.png'
 import plant from '../public/assets/potted_plant.png'
 
@@ -24,8 +23,30 @@ export default function Home() {
           <div className={styles.intro}>
             <div className={styles.intro}>
               {session && <h1>Glad to have you, {session.user.name}!</h1>}
-              <h1 className={styles.subtitle}>Welcome to</h1>
-              <h1 className={styles.title}>Cutie Hack</h1>
+              <div className={styles.row}>
+                <div className={styles.laptop}>
+                  <Image
+                    src={laptop}
+                    alt="laptop asset"
+                    height="200"
+                    width="200"
+                    layout="intrinsic"
+                  />
+                </div>
+                <div>
+                  <h1 className={styles.subtitle}>Welcome to</h1>
+                  <h1 className={styles.title}>Cutie Hack</h1>
+                </div>
+                <div className={styles.plant}>
+                  <Image
+                    src={plant}
+                    alt="laptop asset"
+                    height="200"
+                    width="200"
+                    layout="intrinsic"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <CountdownWrapper />
@@ -40,45 +61,6 @@ export default function Home() {
               </Link>
             </div>
           )}
-
-          <div className={styles.contact}>
-            <div className={styles.laptop}>
-              <Image
-                src={laptop}
-                alt="laptop asset"
-                height="200"
-                width="200"
-                layout="intrinsic"
-              />
-            </div>
-            <div className={styles.iconWrapper}>
-              <a href="https://www.facebook.com/cutiehack/">
-                <div className={styles.textIconWrapper}>
-                  <IoLogoFacebook className={styles.icon} />
-                </div>
-              </a>
-
-              <a href="https://www.instagram.com/cutiehack_ucr/">
-                <div className={styles.textIconWrapper}>
-                  <IoLogoInstagram className={styles.icon} />
-                </div>
-              </a>
-              <a href="https://www.linkedin.com/company/17907222/admin/">
-                <div className={styles.textIconWrapper}>
-                  <IoLogoLinkedin className={styles.icon} />
-                </div>
-              </a>
-            </div>
-            <div className={styles.plant}>
-              <Image
-                src={plant}
-                alt="laptop asset"
-                height="200"
-                width="200"
-                layout="intrinsic"
-              />
-            </div>
-          </div>
         </section>
       </Layout>
     </div>

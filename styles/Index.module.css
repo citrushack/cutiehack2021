@@ -43,7 +43,7 @@
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
-.contact {
+.row {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,7 +110,9 @@
   position: relative;
 }
 
-.plant {
+.plant,
+.laptop {
+  margin: 0 1.5rem;
 }
 
 @media (max-width: 868px) {
