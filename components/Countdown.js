@@ -1,6 +1,5 @@
 import Countdown from 'react-countdown'
 import { motion } from 'framer-motion'
-import { nanoid } from 'nanoid'
 
 import styles from '../styles/Countdown.module.css'
 
@@ -13,6 +12,11 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   } 
   else {
     // Render a countdown
+    const numDays = days < 10 ? String(`0${days}`) : String(days)
+    const numHours = hours < 10 ? String(`0${hours}`) : String(hours)
+    const numMinutes = minutes < 10 ? String(`0${minutes}`) : String(minutes)
+    const numSeconds = seconds < 10 ? String(`0${seconds}`) : String(seconds)
+
     return (
       <>
         <div className={styles.header}>
@@ -21,8 +25,8 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
         <div className={styles.row}>      
           <div className={styles.stack}>
             <div className={styles.number}>
-              { Array.from(days < 10 ? '0' + String(days) : String(days), num => Number(num)).map(n =>
-                <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
+              { Array.from(numDays).map(n =>
+                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
             <div className={styles.label}>days</div>
@@ -30,8 +34,8 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={styles.separator}>:</div>
           <div className={styles.stack}>
             <div className={styles.number}>
-              { Array.from(hours < 10 ? '0' + String(hours) : String(hours), num => Number(num)).map(n =>
-                <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
+              { Array.from(numHours).map(n =>
+                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
             <div className={styles.label}>hours</div>
@@ -39,8 +43,8 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={styles.separator}>:</div>
           <div className={styles.stack}>
             <div className={styles.number}>
-              { Array.from(minutes < 10 ? '0' + String(minutes) : String(minutes), num => Number(num)).map(n =>
-                <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
+              { Array.from(numMinutes).map(n =>
+                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
             <div className={styles.label}>minutes</div>
@@ -48,8 +52,8 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={styles.separator}>:</div>
           <div className={styles.stack}>
             <div className={styles.number}>
-              { Array.from(seconds < 10 ? '0' + String(seconds) : String(seconds), num => Number(num)).map(n =>
-                <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
+              { Array.from(numSeconds).map(n => 
+                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
             <div className={styles.label}>seconds</div>
