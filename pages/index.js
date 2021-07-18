@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect }  from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Layout from '../components/Layout'
 import CountdownWrapper from '../components/Countdown'
 import { connectToDatabase } from '../util/mongodb'
-import { useSession } from 'next-auth/client'
+import { session, useSession } from 'next-auth/client'
 import Sponsors from '../pages/sponsors'
 import { FaCircle } from 'react-icons/fa'
 import { motion } from 'framer-motion'
@@ -16,6 +16,24 @@ import styles from '../styles/Index.module.css'
 
 export default function Home() {
   const [session] = useSession()
+  const [checkedIn, setCheckedIn] = React.useState(false)
+
+  const fetchData = async (name) => {
+    const response = await fetch('/api/checkin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ session_data: name }),
+    })
+    const data = await response.json()
+    setCheckedIn(Object.keys(data.checkins).length !== 0)
+  }
+
+  useEffect(() => {
+    if (session) fetchData(session.user.name)
+  })
+
   return (
     <div className={styles.container}>
       <Head>
@@ -42,12 +60,12 @@ export default function Home() {
               </div>
               <div className={styles.windowContent}>
                 {session && <h1 className={styles.greeting}>
-                  Glad to have you, {session.user.name}!
+                  Glad to have you, {session.user.name}! 
                 </h1>}
                 <div>
                   <h1 className={styles.title}>cutie hack</h1>
                   <CountdownWrapper />
-                  {session && (
+                  {session && checkedIn && (
                     <div className={styles.actionwrapper}>
                       <Link passHref href="/groups/create">
                         <motion.a
@@ -89,8 +107,7 @@ export default function Home() {
 }
 
 export async function getServerSideProps() {
-  const { client } = await connectToDatabase()
-  const isConnected = await client.isConnected()
+  const { db } = await connectToDatabase()
 
-  return { props: { isConnected } }
+  return { props: {  } }
 }

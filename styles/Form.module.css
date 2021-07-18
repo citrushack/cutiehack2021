@@ -16,7 +16,7 @@
 
 .button:hover {
   background-color: #c9b695;
-  box-shadow: 0 6px 16px 0 rgba(98, 99, 99, 0.2);
+  box-shadow: 0 6px 16px 0 rgba(98, 99, 99, 0.1);
 }
 
 .inputWrapper {

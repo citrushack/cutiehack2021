@@ -121,7 +121,7 @@ export default function CheckInForm(props) {
       setError(false)
       const data = [name, email, race, gender, school, major, grade, first_time]
       // uncomment when you want to write to db
-      // sendData(data)
+      sendData(data)
       router.push('/groups/create')
       toast.success('Succesfully checked in!')
     } else {

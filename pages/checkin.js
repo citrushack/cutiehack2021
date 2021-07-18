@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CheckInForm from '../components/CheckInForm'
 import Layout from '../components/Layout'
 import { useSession } from 'next-auth/client'
@@ -7,6 +7,23 @@ import styles from '../styles/Index.module.css'
 
 export default function CheckIn() {
   const [session, loading] = useSession()
+  const [checkedIn, setCheckedIn] = React.useState(false)
+
+  const fetchData = async (name) => {
+    const response = await fetch('/api/checkin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ session_data: name }),
+    })
+    const data = await response.json()
+    setCheckedIn(Object.keys(data.checkins).length !== 0)
+  }
+
+  useEffect(() => {
+    if (session) fetchData(session.user.name)
+  })
 
   if (loading)
     return (
@@ -19,6 +36,13 @@ export default function CheckIn() {
     return (
       <Layout>
         <p>Access Denied. Please login!</p>
+      </Layout>
+    )
+
+  if (!loading && session)
+    return (
+      <Layout>
+        <p>You already checked in!</p>
       </Layout>
     )
 

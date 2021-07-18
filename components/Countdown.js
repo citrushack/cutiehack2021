@@ -1,5 +1,6 @@
 import Countdown from 'react-countdown'
 import { motion } from 'framer-motion'
+import { nanoid } from 'nanoid'
 
 import countdownStyles from '../styles/Countdown.module.css'
 
@@ -9,7 +10,8 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
     // Render a completed state
     return <Completionist />
-  } else {
+  } 
+  else {
     // Render a countdown
     return (
       <>
@@ -21,7 +23,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
             <div className={countdownStyles.number}>
               { days < 10 ? <motion.div whileHover={{scale: 1.1}}>0</motion.div> : null }
               { Array.from(String(days), num => Number(num)).map(n =>
-                <motion.div key={n} whileHover={{scale: 1.1}}>{n}</motion.div>
+                <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
             <div className={countdownStyles.label}>days</div>
@@ -31,7 +33,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
             <div className={countdownStyles.number}>
               { hours < 10 ? <motion.div whileHover={{scale: 1.1}}>0</motion.div> : null }
               { Array.from(String(hours), num => Number(num)).map(n =>
-                <motion.div key={n} whileHover={{scale: 1.1}}>{n}</motion.div>
+                <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
             <div className={countdownStyles.label}>hours</div>
@@ -41,7 +43,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
             <div className={countdownStyles.number}>
               { minutes < 10 ? <motion.div whileHover={{scale: 1.1}}>0</motion.div> : null }
               { Array.from(String(minutes), num => Number(num)).map(n =>
-                <motion.div key={n} whileHover={{scale: 1.1}}>{n}</motion.div>
+                <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
             <div className={countdownStyles.label}>minutes</div>
@@ -51,7 +53,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
             <div className={countdownStyles.number}>
               { seconds < 10 ? <motion.div whileHover={{scale: 1.1}}>0</motion.div> : null }
               { Array.from(String(seconds), num => Number(num)).map(n =>
-                <motion.div key={n} whileHover={{scale: 1.1}}>{n}</motion.div>
+                <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
             <div className={countdownStyles.label}>seconds</div>
