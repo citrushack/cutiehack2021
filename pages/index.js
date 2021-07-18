@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React, { useEffect }  from 'react'
+import React, { useEffect, useRef }  from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Layout from '../components/Layout'
@@ -17,6 +17,8 @@ import styles from '../styles/Index.module.css'
 export default function Home() {
   const [session] = useSession()
   const [checkedIn, setCheckedIn] = React.useState(false)
+
+  const constraintsRef = useRef(null)
 
   const fetchData = async (name) => {
     const response = await fetch('/api/checkin', {
@@ -51,8 +53,14 @@ export default function Home() {
           />
         </div>
         <section className={styles.main}>
-          <div className={styles.intro}>
-            <div className={styles.window}>
+          <motion.div ref={constraintsRef} className={styles.intro}>
+            <motion.div 
+              drag 
+              dragConstraints={constraintsRef}
+              whileDrag={{ scale: 1.05 }}
+              dragMomentum={false}
+              className={styles.window}
+            >
               <div className={styles.windowHeader}>
                 <FaCircle className={styles.windowButton} />
                 <FaCircle className={styles.windowButton} />
@@ -65,38 +73,38 @@ export default function Home() {
                 <div>
                   <h1 className={styles.title}>cutie hack</h1>
                   <CountdownWrapper />
-                  {session && checkedIn && (
-                    <div className={styles.actionwrapper}>
-                      <Link passHref href="/groups/create">
-                        <motion.a
-                          aria-label="Create Group Button"
-                          type="button"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.995 }}
-                          transition={{ ease: 'easeInOut', duration: 0.015 }}
-                          className={styles.primarybutton}
-                        >
-                          Create a Group
-                        </motion.a>
-                      </Link>
-                      <Link passHref href="/groups/join">
-                        <motion.a
-                          aria-label="Join Group Button"
-                          type="button"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.995 }}
-                          transition={{ ease: 'easeInOut', duration: 0.015 }}
-                          className={styles.primarybutton}
-                        >
-                          Join a Group
-                        </motion.a>
-                      </Link>
-                    </div>
-                  )}
+                    {session && checkedIn && (
+                      <div className={styles.actionwrapper}>
+                        <Link passHref href="/groups/create">
+                          <motion.a
+                            aria-label="Create Group Button"
+                            type="button"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.995 }}
+                            transition={{ ease: 'easeInOut', duration: 0.015 }}
+                            className={styles.primarybutton}
+                          >
+                            Create a Group
+                          </motion.a>
+                        </Link>
+                        <Link passHref href="/groups/join">
+                          <motion.a
+                            aria-label="Join Group Button"
+                            type="button"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.995 }}
+                            transition={{ ease: 'easeInOut', duration: 0.015 }}
+                            className={styles.primarybutton}
+                          >
+                            Join a Group
+                          </motion.a>
+                        </Link>
+                      </div>
+                    )}
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {!session && <>{/* <h1>You are not signed in</h1> */}</>}
         </section>

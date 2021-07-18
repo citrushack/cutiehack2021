@@ -29,6 +29,10 @@
   margin-right: 0;
 }
 
+.number *:hover {
+  background: #e9d3ac;
+}
+
 .separator {
   padding: 0 0.5rem 0 0.5rem;
   font-weight: 700;

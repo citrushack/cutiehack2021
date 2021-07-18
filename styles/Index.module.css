@@ -42,7 +42,8 @@
 }
 
 .window {
-  border: 2px solid var(--brand-light);
+  margin: 0.5rem;
+  border: 2.5px solid var(--brand-light);
   border-radius: 5px;
   text-align: center;
   background: var(--nav-bg);
@@ -93,6 +94,13 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+}
+
+.greeting {
+  padding: 0.2rem;
+  border: 2.5px solid var(--brand-light);
+  border-radius: 5px;
+  color: var(--brand-light);
 }
 
 .code {
