@@ -21,8 +21,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
         <div className={countdownStyles.row}>      
           <div className={countdownStyles.stack}>
             <div className={countdownStyles.number}>
-              { days < 10 ? <motion.div whileHover={{scale: 1.1}}>0</motion.div> : null }
-              { Array.from(String(days), num => Number(num)).map(n =>
+              { Array.from(days < 10 ? '0' + String(days) : String(days), num => Number(num)).map(n =>
                 <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
@@ -31,8 +30,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={countdownStyles.separator}>:</div>
           <div className={countdownStyles.stack}>
             <div className={countdownStyles.number}>
-              { hours < 10 ? <motion.div whileHover={{scale: 1.1}}>0</motion.div> : null }
-              { Array.from(String(hours), num => Number(num)).map(n =>
+              { Array.from(hours < 10 ? '0' + String(hours) : String(hours), num => Number(num)).map(n =>
                 <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
@@ -41,8 +39,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={countdownStyles.separator}>:</div>
           <div className={countdownStyles.stack}>
             <div className={countdownStyles.number}>
-              { minutes < 10 ? <motion.div whileHover={{scale: 1.1}}>0</motion.div> : null }
-              { Array.from(String(minutes), num => Number(num)).map(n =>
+              { Array.from(minutes < 10 ? '0' + String(minutes) : String(minutes), num => Number(num)).map(n =>
                 <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
@@ -51,8 +48,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={countdownStyles.separator}>:</div>
           <div className={countdownStyles.stack}>
             <div className={countdownStyles.number}>
-              { seconds < 10 ? <motion.div whileHover={{scale: 1.1}}>0</motion.div> : null }
-              { Array.from(String(seconds), num => Number(num)).map(n =>
+              { Array.from(seconds < 10 ? '0' + String(seconds) : String(seconds), num => Number(num)).map(n =>
                 <motion.div key={nanoid()} whileHover={{scale: 1.1}}>{n}</motion.div>
               )}
             </div>
