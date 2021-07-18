@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link' // We should be using the Link component
 import { signIn, signOut, useSession } from 'next-auth/client'
-import styles from '../styles/Nav.module.css'
 import { motion } from 'framer-motion'
+
+import styles from '../styles/Nav.module.css'
 
 export default function Nav() {
   const [session] = useSession()
