@@ -21,5 +21,6 @@ export default async function CreateCheckIn(req: NextApiRequest, res: NextApiRes
 
   console.log(result.ops[0]);
 
+  res.status(200);
   res.json({});
 }

@@ -10,7 +10,9 @@ export default function CreateGroupForm() {
   const router = useRouter()
 
   const [error, setError] = React.useState(false)
-  const [code, setCode] = React.useState()
+  const [code, setCode] = React.useState('')
+  const [groupExists, setGroupExists] = React.useState('')
+  const [groupFull, setGroupFull] = React.useState('')
 
   const handleChangeCode = (e) => {
     setError(false)
@@ -18,8 +20,7 @@ export default function CreateGroupForm() {
   }
 
   const join = (code) => {
-    // check if code exists
-    if (false) {
+    if (groupExists) {
       setError(false)
       toast.success('Successfully joined group!')
       const dst = '/groups/' + code.toString()
@@ -28,6 +29,23 @@ export default function CreateGroupForm() {
       setError(true)
       toast.error('Group does not exist. Try again.')
     }
+  }
+
+  const fetchData = async (code) => {
+    const response = await fetch('/api/groups', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ group_data: code }),
+    })
+    const data = await response.json()
+    setGroupExists(Object.keys(data.groups).length !== 0)
+    // check if group full
+  }
+
+  const updateData = async () => {
+
   }
 
   return (
