@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import styles from '../styles/Index.module.css'
 import formStyles from '../styles/Form.module.css'
-
+import { motion } from 'framer-motion'
 import { providers, signIn, getSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
 
@@ -45,13 +45,18 @@ export default function SignIn({ providers }) {
             return
           }
           return (
-            <div
+            <motion.button
+              aria-label="Provider Sign In Button"
+              type="button"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.997 }}
+              transition={{ ease: 'easeInOut', duration: 0.015 }}
               key={provider.name}
               className={formStyles.button}
               onClick={() => signIn(provider.id)}
             >
               Sign in with {provider.name}
-            </div>
+            </motion.button>
           )
         })}
       </div>

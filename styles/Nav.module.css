@@ -51,3 +51,9 @@
   background-color: var(--brand);
   color: #fff9ef;
 }
+
+@-moz-document url-prefix(){
+  .navbar {
+    background: var(--nav-bg-moz);
+  }
+}

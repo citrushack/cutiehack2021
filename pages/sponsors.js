@@ -22,9 +22,7 @@ export default function Sponsors() {
         </motion.div>
         <div>
           {/* sponsor logos */}
-          <a href="#">
-            
-          </a>
+          <a href="#"></a>
         </div>
       </div>
     </main>

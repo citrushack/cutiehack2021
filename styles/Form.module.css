@@ -6,14 +6,17 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  font-size: inherit;
   border-radius: 0.2rem;
   background-color: #dacbb2;
+  border: none;
+  transition: all 100ms ease-in-out;
   cursor: pointer;
 }
 
 .button:hover {
   background-color: #c9b695;
-  box-shadow: 0 6px 16px 0 rgba(98, 99, 99, 0.2);
+  box-shadow: 0 6px 16px 0 rgba(98, 99, 99, 0.1);
 }
 
 .inputWrapper {
@@ -26,6 +29,16 @@
 
 .inputHeader {
   font-weight: 700;
+}
+
+.trigger {
+  margin-left: 0.2rem;
+  color: #c9b695;
+}
+
+.trigger:hover {
+  cursor: pointer;
+  color: #a5854d;
 }
 
 .inputBox {

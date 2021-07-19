@@ -1,6 +1,44 @@
-.wrapper {
+.stack {
   position: fixed;
   left: 1rem;
   bottom: 1rem;
   z-index: 10;
+}
+
+.wrapper {
+  display: flex;
+  vertical-align: middle;
+  width: 3.9rem;
+  margin-top: 0.2rem;
+  padding: 0.8rem;
+  border: 2px solid var(--brand-light);
+  border-radius: 10rem;
+  background: #fff9ef;
+  color: var(--brand-light);
+  overflow: hidden;
+  transition: color 200ms ease-in-out;
+  transition: background 200ms ease-in-out;
+}
+
+.wrapper:hover {
+  color: var(--bg);
+  background: var(--brand-light);
+  transition: color 200ms ease-in-out;
+  transition: background 200ms ease-in-out;
+}
+
+.wrapper div {
+  display: flex;
+  vertical-align: middle;
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.caption {
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  white-space: nowrap;
 }

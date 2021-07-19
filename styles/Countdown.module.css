@@ -1,3 +1,109 @@
 .countdown{
   text-align: center;
+  cursor: default;
+}
+
+.header {
+  margin-bottom: 1rem;
+  padding: 0.2rem 0;
+  border-radius: 5px;
+  background: var(--brand-light);
+  color: var(--bg);
+}
+
+.number {
+  display: flex;
+  flex-direction: row; 
+}
+
+.number * {
+  margin: 0 0.3rem;
+  padding: 1rem;
+  border-radius: 5px;
+  background: #f2e3ca;
+}
+.number *:first-of-type {
+  margin-left: 0;
+}
+.number *:last-of-type {
+  margin-right: 0;
+}
+
+.number *:hover {
+  background: #e9d3ac;
+}
+
+.separator {
+  padding: 0 0.5rem 0 0.5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.label {
+  color: var(--brand-light);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (max-width: 530px) {
+  .header {
+    margin-bottom: 0.7rem;
+    font-size: 0.8rem;
+  }
+  .number * {
+    margin: 0 0.1rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .label {
+    font-size: 0.8rem;
+  }
+  .separator {
+    padding: 0 0.3rem 0 0.3rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 530px) {
+  .header {
+    font-size: 1rem;
+  }
+  .number * {
+    margin: 0 0.2rem;
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+  .label {
+    font-size: 0.8rem;
+  }
+  .separator {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 530px) and (max-width: 760px) {
+  .header {
+    font-size: 1.2rem;
+  }
+  .number * {
+    margin: 0 0.2rem;
+    padding: 0.6rem;
+    font-size: 1.5rem;
+  }
+  .label {
+    font-size: 1rem;
+  }
+  .separator {
+    font-size: 2rem;
+  }
 }

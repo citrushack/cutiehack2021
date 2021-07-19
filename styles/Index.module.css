@@ -3,6 +3,7 @@
   width: 100vw;
   overflow: hidden;
   z-index: 0;
+  /* transform: translateY(3rem); */
 }
 
 .main {
@@ -39,6 +40,44 @@
   padding: 0 1rem;
   overflow: hidden;
 }
+
+.window {
+  margin: 0.5rem;
+  border: 2.5px solid var(--brand-light);
+  border-radius: 5px;
+  text-align: center;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -moz-backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.windowHeader {
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid var(--brand-light);
+  background: var(--nav-bg);
+}
+
+.windowButton {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+.windowButton:nth-of-type(1) {
+  color: var(--brand-darkest);
+}
+.windowButton:nth-of-type(2) {
+  color: var(--brand-dark);
+}
+.windowButton:nth-of-type(3) {
+  color: var(--brand);
+}
+
+.windowContent {
+  margin: 3rem 5rem;
+}
+
 .title {
   margin: 0 0 1.5rem 0;
   line-height: 1;
@@ -47,15 +86,7 @@
   width: 100%;
 }
 
-.subtitle {
-  margin: 0;
-  font-size: 3rem;
-  z-index: 2;
-  width: 100%;
-}
-
 .title,
-.subtitle,
 .description {
   text-align: center;
 }
@@ -63,6 +94,13 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+}
+
+.greeting {
+  padding: 0.2rem;
+  border: 2.5px solid var(--brand-light);
+  border-radius: 5px;
+  color: var(--brand-light);
 }
 
 .code {
@@ -85,16 +123,6 @@
   justify-content: center;
   margin: 0 2rem;
   z-index: 2;
-}
-.icon {
-  font-size: 3rem;
-  line-height: 1.5;
-  margin: 0 0.5rem;
-  transition: color 200ms ease-in-out;
-}
-
-.icon:hover {
-  color: var(--brand-light);
 }
 
 .actionwrapper {
@@ -147,17 +175,59 @@
   margin: 0 1.5rem;
 }
 
-@media (max-width: 868px) {
-  .grid {
-    flex-direction: column;
+@-moz-document url-prefix(){
+  .window,
+  .windowHeader {
+    background: var(--nav-bg-moz);
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 420px) {
+  .greeting {
+    font-size: 1rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .windowContent {
+    margin: 1.5rem 0.8rem;
+  }
+  .windowButton {
+    font-size: 1rem;
+  }
+  .actionwrapper {
+    flex-direction: column;
+  }
+  .actionwrapper * {
+    margin: 6px 0;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 530px) {
+  .greeting {
+    font-size: 1.2rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .windowContent {
+    margin: 2rem 1.5rem;
+  }
+  .windowButton {
+    font-size: 1rem;
+  }
+  .actionwrapper * {
+    margin: 0 6px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 530px) and (max-width: 760px) {
   .title {
     font-size: 3rem;
   }
-  .subtitle {
-    font-size: 1.5rem;
+  .windowContent {
+    margin: 2rem 3.5rem;
   }
 }

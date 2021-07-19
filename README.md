@@ -4,6 +4,7 @@
 > Contributors: 
 > Danial Beg,
 > Rajbir Johar,
+> Minsoo Kim,
 > Caleb Yoo,
 > Andrei Dimaano,
 > James Zhang

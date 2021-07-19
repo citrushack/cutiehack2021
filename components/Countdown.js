@@ -1,17 +1,65 @@
 import Countdown from 'react-countdown'
+import { motion } from 'framer-motion'
+
 import styles from '../styles/Countdown.module.css'
+
 const Completionist = () => <span>You are good to go!</span>
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
     // Render a completed state
     return <Completionist />
-  } else {
+  } 
+  else {
     // Render a countdown
+    const numDays = days < 10 ? String(`0${days}`) : String(days)
+    const numHours = hours < 10 ? String(`0${hours}`) : String(hours)
+    const numMinutes = minutes < 10 ? String(`0${minutes}`) : String(minutes)
+    const numSeconds = seconds < 10 ? String(`0${seconds}`) : String(seconds)
+
     return (
-      <span>
-        {days} days, {hours} hours, {minutes}, minutes, and {seconds} seconds left!
-      </span>
+      <>
+        <div className={styles.header}>
+          time remaining
+        </div>
+        <div className={styles.row}>      
+          <div className={styles.stack}>
+            <div className={styles.number}>
+              { Array.from(numDays).map(n =>
+                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
+              )}
+            </div>
+            <div className={styles.label}>days</div>
+          </div>
+          <div className={styles.separator}>:</div>
+          <div className={styles.stack}>
+            <div className={styles.number}>
+              { Array.from(numHours).map(n =>
+                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
+              )}
+            </div>
+            <div className={styles.label}>hours</div>
+          </div>
+          <div className={styles.separator}>:</div>
+          <div className={styles.stack}>
+            <div className={styles.number}>
+              { Array.from(numMinutes).map(n =>
+                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
+              )}
+            </div>
+            <div className={styles.label}>minutes</div>
+          </div>
+          <div className={styles.separator}>:</div>
+          <div className={styles.stack}>
+            <div className={styles.number}>
+              { Array.from(numSeconds).map(n => 
+                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
+              )}
+            </div>
+            <div className={styles.label}>seconds</div>
+          </div>
+        </div>
+      </>
     )
   }
 }
