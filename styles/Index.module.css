@@ -100,10 +100,11 @@
 }
 
 .greeting {
-  padding: 0.2rem;
+  padding: 0.5rem;
   border: 2.5px solid var(--brand-light);
   border-radius: 5px;
   color: var(--brand-light);
+  font-size: 2rem;
 }
 
 .code {
@@ -234,6 +235,9 @@
 }
 
 @media (min-width: 530px) and (max-width: 760px) {
+  .greeting {
+    font-size: 1.5rem;
+  }
   .title {
     font-size: 3rem;
   }

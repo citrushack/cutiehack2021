@@ -28,17 +28,15 @@ export default function CreateGroup() {
 
   return (
     <Layout>
-      <div className={styles.container}>
-        <Link passHref href="/groups/create">
-          <div className={formStyles.button}>Create a Group</div>
-        </Link>
-        <Link passHref href="/groups/join">
-          <div className={formStyles.button}>Join a Group</div>
-        </Link>
-        <Link passHref href="/">
-          <div className={formStyles.button}>Go Back to Homepage</div>
-        </Link>
-      </div>
+      <Link passHref href="/groups/create">
+        <div className={formStyles.button}>Create a Group</div>
+      </Link>
+      <Link passHref href="/groups/join">
+        <div className={formStyles.button}>Join a Group</div>
+      </Link>
+      <Link passHref href="/">
+        <div className={formStyles.button}>Go Back to Homepage</div>
+      </Link>
     </Layout>
   )
 }
