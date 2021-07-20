@@ -11,7 +11,9 @@ import Sponsors from '../pages/sponsors'
 import { FaCircle } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
-import hero from '../public/assets/hero.png'
+import heroLeft from '../public/assets/hero_left.png'
+import heroRight from '../public/assets/hero_right.png'
+import heroMobile from '../public/assets/hero_mobile.png'
 
 import styles from '../styles/Index.module.css'
 
@@ -43,14 +45,30 @@ export default function Home() {
         <title>Cutie Hack</title>
       </Head>
       <Layout>
-        <div className={styles.bgWrap}>
+        <div className={`${styles.bgWrap} ${styles.desktopimage}`}>
           <Image
-            src={hero}
+            src={heroLeft}
             alt="Hero Image"
-            layout="fill"
-            objectFit="cover"
+            objectFit="contain"
             quality={100}
             placeholder="blur"
+          />
+          <Image
+            src={heroRight}
+            alt="Hero Image"
+            objectFit="contain"
+            quality={100}
+            placeholder="blur"
+          />
+        </div>
+        <div className={`${styles.bgWrap} ${styles.mobileimage}`}>
+          <Image
+            src={heroMobile}
+            alt="Hero Image"
+            objectFit="contain"
+            quality={100}
+            placeholder="blur"
+            className={styles.mobileimage}
           />
         </div>
         <section className={styles.main}>

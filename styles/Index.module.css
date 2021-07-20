@@ -1,4 +1,7 @@
 .bgWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -175,6 +178,13 @@
   margin: 0 1.5rem;
 }
 
+.mobileimage {
+  display: flex;
+}
+.desktopimage {
+  display: none;
+}
+
 @-moz-document url-prefix(){
   .window,
   .windowHeader {
@@ -229,5 +239,14 @@
   }
   .windowContent {
     margin: 2rem 3.5rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  .mobileimage {
+    display: none;
+  }
+  .desktopimage {
+    display: flex;
   }
 }
