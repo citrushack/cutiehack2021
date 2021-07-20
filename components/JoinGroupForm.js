@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import toast, { Toaster } from 'react-hot-toast'
-import { nanoid } from 'nanoid'
 import { motion } from 'framer-motion'
-import { session, useSession } from 'next-auth/client'
-import styles from '../styles/Index.module.css'
+import { useSession } from 'next-auth/client'
 import formStyles from '../styles/Form.module.css'
 
 export default function CreateGroupForm() {
