@@ -74,6 +74,24 @@
 }
 
 /* Mobile Styles */
+@media (max-width: 360px) {
+  .open .accordionItemPanel {
+    max-height: 24rem;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 480px) {
+  .open .accordionItemPanel {
+    max-height: 18rem;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 720px) {
+  .open .accordionItemPanel {
+    max-height: 15rem;
+  }
+}
+
 @media (max-width: 960px) {
   .accordion {
     width: 100%;
