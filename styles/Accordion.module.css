@@ -28,9 +28,13 @@
   color: inherit;
 }
 
+.arrow {
+  transition: 200ms ease;
+}
+
 .open .arrow {
   transform: rotate(180deg);
-  transition: 0.15s ease;
+  transition: 200ms ease;
 }
 
 .accordionItemHeading {
@@ -63,7 +67,7 @@
   width:100%;
   height: auto;
   transition-timing-function: ease-in;
-  transition: all 1s;
+  transition: all 200ms;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
   display: flex;
@@ -77,7 +81,7 @@
 
 .accordionItemButton p:hover {
   background: orange;
-  transition: .5s;
+  transition: 200ms;
   color: white;
 }
 
@@ -89,13 +93,13 @@
   background-image: var(--bg-accordion-panel);
   line-height: 1.5;
   font-size: 1.2rem;
-  transition: 0.3s ease;
+  transition: 200ms ease;
 }
 
 .open .accordionItemPanel {
   max-height: 100rem;
   padding: 1.5rem;
-  transition: 0.4s ease;
+  transition: 200ms ease;
 }
 
 .answer {
@@ -109,13 +113,13 @@
   width:100%;
   height: auto;
   transition-timing-function: ease-in;
-  transition: all 1s;
+  transition: all 200ms;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .open .answer {
   opacity: 1;
-  transition: 0.15s ease;
+  transition: 200ms ease;
 }
 
 .main {

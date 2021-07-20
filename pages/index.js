@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import CountdownWrapper from '../components/Countdown'
 import { connectToDatabase } from '../util/mongodb'
 import { session, useSession } from 'next-auth/client'
+import Faq from '../pages/faq'
 import Sponsors from '../pages/sponsors'
 import { FaCircle } from 'react-icons/fa'
 import { motion } from 'framer-motion'
@@ -108,6 +109,7 @@ export default function Home() {
 
           {!session && <>{/* <h1>You are not signed in</h1> */}</>}
         </section>
+        <Faq />
         {/* <Sponsors /> */}
       </Layout>
     </div>
