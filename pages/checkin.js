@@ -28,12 +28,10 @@ export default function CheckIn() {
     if (!loading && !session) {
       router.push('/signin')
       toast.error('Access denied. Please sign in!')
-    }
-    else if (!loading && session) {
+    } else if (!loading && session && checkedIn) {
       router.push('/signin')
       toast.error('You already checked in!')
-    }
-    else if (session) fetchData(session.user.name)
+    } else if (session) fetchData(session.user.name)
   }, [loading, session])
 
   if (loading)
@@ -45,14 +43,12 @@ export default function CheckIn() {
 
   return (
     <Layout>
-      { session &&
+      {session && (
         <>
-          <div className={styles.container}>
-            <h1 className={styles.subtitle}>Check In</h1>
-            <CheckInForm name={session.user.name} />
-          </div>
+          <h1>Check In</h1>
+          <CheckInForm name={session.user.name} />
         </>
-      }
+      )}
     </Layout>
   )
 }

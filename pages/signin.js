@@ -35,31 +35,33 @@ export default function SignIn({ providers }) {
 
   return (
     <Layout>
-      <div><Toaster /></div>
+      <div>
+        <Toaster />
+      </div>
       {error && (
-          <div className={formStyles.errorMsg}>
-            <SignInError error={error} />
-          </div>
-        )}
-        {Object.values(providers).map((provider) => {
-          if (provider.name === 'Email') {
-            return
-          }
-          return (
-            <motion.button
-              aria-label="Provider Sign In Button"
-              type="button"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.997 }}
-              transition={{ ease: 'easeInOut', duration: 0.015 }}
-              key={provider.name}
-              className={formStyles.button}
-              onClick={() => signIn(provider.id)}
-            >
-              Sign in with {provider.name}
-            </motion.button>
-          )
-        })}
+        <div className={formStyles.errorMsg}>
+          <SignInError error={error} />
+        </div>
+      )}
+      {Object.values(providers).map((provider) => {
+        if (provider.name === 'Email') {
+          return
+        }
+        return (
+          <motion.button
+            aria-label="Provider Sign In Button"
+            type="button"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.997 }}
+            transition={{ ease: 'easeInOut', duration: 0.015 }}
+            key={provider.name}
+            className={formStyles.button}
+            onClick={() => signIn(provider.id)}
+          >
+            Sign in with {provider.name}
+          </motion.button>
+        )
+      })}
     </Layout>
   )
 }

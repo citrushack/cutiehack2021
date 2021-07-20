@@ -10,13 +10,45 @@ import styles from '../../../styles/Index.module.css'
 export default function GroupPage() {
   const router = useRouter()
   const [session, loading] = useSession()
+  const [group, setGroup] = React.useState('')
+  const [users, setUsers] = React.useState([])
 
   useEffect(() => {
     if (!loading && !session) {
       router.push('/signin')
       toast.error('Access denied. Please sign in!')
+    } else if (session) {
+      fetchGroup()
     }
   }, [loading, session])
+
+  const fetchCode = async (name) => {
+    const response = await fetch('/api/checkin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ session_data: name }),
+    })
+    const data = await response.json()
+    return data.checkins[0].groupId
+  }
+
+  const fetchGroup = async () => {
+    const code = await fetchCode(session.user.name)
+    const response = await fetch('/api/groups', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ group_data: code }),
+    })
+    const data = await response.json()
+    if (data.groups[0]) {
+      setGroup(code)
+      setUsers(data.groups[0].users)
+    }
+  }
 
   if (loading)
     return (
@@ -30,12 +62,12 @@ export default function GroupPage() {
       <div>
         <Toaster />
       </div>
-      <div className={styles.container}>
-        {/* display group info (invite code, team members) */}
-        <div>Group Name</div>
-        <div>Invite Code</div>
-        <div>Members</div>
-      </div>
+      <h1>Invite Code</h1>
+      {group}
+      <h1>Members</h1>
+      {users.map((user) => (
+        <div>{user}</div>
+      ))}
     </Layout>
   )
 }

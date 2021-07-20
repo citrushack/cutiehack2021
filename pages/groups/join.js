@@ -5,8 +5,6 @@ import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
 
-import styles from '../../styles/Index.module.css'
-
 export default function CreateGroup() {
   const router = useRouter()
   const [session, loading] = useSession()
@@ -27,7 +25,7 @@ export default function CreateGroup() {
 
   return (
     <Layout>
-      <h1 className={styles.subtitle}>Join a Group</h1>
+      <h1>Join a Group</h1>
       <JoinGroupForm />
     </Layout>
   )
