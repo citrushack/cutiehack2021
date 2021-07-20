@@ -12,9 +12,27 @@ export default function CreateGroup() {
   useEffect(() => {
     if (!loading && !session) {
       router.push('/signin')
-      toast.error('Access denied. Please sign in!')
+      toast.error('Access denied. Please sign in!', { id: 'notSignedInCreateGroupError'})
+    }
+    else if (session) {
+      fetchData(session.user.name)
     }
   }, [loading, session])
+
+  const fetchData = async (name) => {
+    const response = await fetch('/api/checkin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ session_data: name }),
+    })
+    const data = await response.json()
+    if (data.checkins[0] && data.checkins[0].groupId !== '') {
+      router.push('/groups/' + data.checkins[0].groupId)
+      toast.error('Already in a group! Leave your group to create a different one.', { id: 'createGroupError'})
+    }
+  }
 
   if (loading)
     return (

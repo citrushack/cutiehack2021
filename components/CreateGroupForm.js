@@ -26,7 +26,7 @@ export default function CreateGroupForm() {
       body: JSON.stringify({ group_data: [ code, name ] }),
     })
     await response.json()
-    toast.success('Successfully created a group!')
+    toast.success('Successfully created a group!', { id: 'createGroupSuccess'})
     const dst = '/groups/' + code.toString()
     router.push(dst)
   }

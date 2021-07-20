@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react'
 import Layout from '../../../components/Layout'
 import { useSession } from 'next-auth/client'
-import { Toaster } from 'react-hot-toast'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
-
-import styles from '../../../styles/Index.module.css'
 
 export default function GroupPage() {
   const router = useRouter()
@@ -16,9 +13,9 @@ export default function GroupPage() {
   useEffect(() => {
     if (!loading && !session) {
       router.push('/signin')
-      toast.error('Access denied. Please sign in!')
+      toast.error('Access denied. Please sign in!', { id: 'notSignedInGroupPageError'})
     } else if (session) {
-      fetchGroup()
+      checkValidGroup()
     }
   }, [loading, session])
 
@@ -34,8 +31,7 @@ export default function GroupPage() {
     return data.checkins[0].groupId
   }
 
-  const fetchGroup = async () => {
-    const code = await fetchCode(session.user.name)
+  const fetchGroup = async (code) => {
     const response = await fetch('/api/groups', {
       method: 'POST',
       headers: {
@@ -50,6 +46,20 @@ export default function GroupPage() {
     }
   }
 
+  const checkValidGroup = async () => {
+    const code = await fetchCode(session.user.name)
+    const pageURL = window.location.href;
+    const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
+    
+    if (code !== lastURLSegment) {
+      router.push('/')
+      toast.error('Access denied. This group does not exist, or you are not in this group.', { id: 'invalidGroupError'})
+    }
+    else {
+      await fetchGroup(code)
+    }
+  }
+
   if (loading)
     return (
       <Layout>
@@ -59,9 +69,6 @@ export default function GroupPage() {
 
   return (
     <Layout>
-      <div>
-        <Toaster />
-      </div>
       <h1>Invite Code</h1>
       {group}
       <h1>Members</h1>

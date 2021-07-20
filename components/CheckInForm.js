@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import { FiChevronDown } from 'react-icons/fi'
 import { IoMdRadioButtonOff, IoMdRadioButtonOn } from 'react-icons/io'
 import { FaRegQuestionCircle } from 'react-icons/fa'
@@ -110,6 +110,7 @@ export default function CheckInForm(props) {
     toast(
       'This email will be used for verifying your participation in case we need to double check!',
       {
+        id: 'emailWarning',
         icon: '⚠️',
       }
     )
@@ -123,7 +124,7 @@ export default function CheckInForm(props) {
       // uncomment when you want to write to db
       sendData(data)
       router.push('/groups/create')
-      toast.success('Succesfully checked in!')
+      toast.success('Succesfully checked in!', { id: 'checkInSuccess'})
     } else {
       setError(true)
       if (
@@ -133,15 +134,15 @@ export default function CheckInForm(props) {
         )
       ) {
         setValidEmail(false)
-        toast.error('Please input a valid email.')
+        toast.error('Please input a valid email.', { id: 'invalidEmailError'})
       } else if (filled.email && filled.emailConfirm && email !== emailConfirm) {
         setValidEmail(false)
-        toast.error('Emails don\'t match. Please try again.')
+        toast.error('Emails don\'t match. Please try again.', { id: 'notMatchingEmailsError'})
       }
       else {
         setValidEmail(true)
       }
-      toast.error('Please fill out all required fields.')
+      toast.error('Please fill out all required fields.', { id: 'incompleteFormError'})
     }
   }
 
@@ -161,11 +162,6 @@ export default function CheckInForm(props) {
 
   return (
     <section>
-      {error ? (
-        <div>
-          <Toaster />
-        </div>
-      ) : null}
       <div className={formStyles.inputWrapper}>
         <div className={formStyles.inputHeader}>
           Email

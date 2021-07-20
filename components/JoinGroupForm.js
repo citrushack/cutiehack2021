@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import { motion } from 'framer-motion'
 import { useSession } from 'next-auth/client'
 import formStyles from '../styles/Form.module.css'
@@ -24,18 +24,18 @@ export default function CreateGroupForm() {
     await fetchData(code)
     if (groupExists && groupFull) {
       setError(true)
-      toast.error('Group is full. Try a different group.')
+      toast.error('Group is full. Try a different group.', { id: 'fullGroupError'})
     } 
     else if (groupExists && !groupFull) {
       setError(false)
       updateData(session.user.name)
-      toast.success('Successfully joined group!')
+      toast.success('Successfully joined group!', { id: 'joinGroupSuccess'})
       const dst = '/groups/' + code.toString()
       router.push(dst)
     }
     else if (!groupExists) {
       setError(true)
-      toast.error('Group does not exist. Try again.')
+      toast.error('Group does not exist. Try again.', { id: 'groupError'})
     }
   }
 
@@ -71,11 +71,6 @@ export default function CreateGroupForm() {
 
   return (
     <section>
-      {error ? (
-        <div>
-          <Toaster />
-        </div>
-      ) : null}
       <div className={formStyles.inputWrapper}>
         <div className={formStyles.inputHeader}>Invite Code</div>
         <input
