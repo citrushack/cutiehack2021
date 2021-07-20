@@ -1,7 +1,7 @@
 .title {
-  margin: var(--gap) var(--gap);
   display: flex;
   align-items: center;
+  margin: var(--gap) var(--gap);
 }
 
 .accordion {
@@ -12,10 +12,10 @@
 }
 
 .arrow {
-  transition: 200ms ease-in-out;
-  font-size: 2rem;
   min-width: 3rem;
   max-width: 3rem;
+  font-size: 2rem;
+  transition: transform 200ms ease-in-out;
 }
 
 .open .arrow {
@@ -30,14 +30,15 @@
 }
 
 .accordionItemButton {
+  display: flex;
   flex: 1;
+  justify-content: space-between;
   overflow: hidden;
   box-sizing: border-box;
   border-radius: 15px;
   transition: all 200ms ease-in-out;
-  display: flex;
-  justify-content: space-between;
 }
+
 .accordionItemButton:hover {
   background: var(--brand-op-dark);
   color: white;
@@ -49,15 +50,15 @@
 }
 
 .accordionItemPanel {
-  overflow-y: hidden;
   max-height: 0;
+  overflow-y: hidden;
   margin: var(--gap-half) var(--gap);
   transition: all 300ms ease-out;
 }
 
 .open .accordionItemPanel {
-  max-height: 100rem;
-  transition: all 1s ease-in;
+  max-height: 10rem;
+  transition: all 300ms ease-in;
 }
 
 .answer {
@@ -65,7 +66,6 @@
   width: 100%;
   height: auto;
 }
-
 
 .faq {
   display: flex;
