@@ -2,10 +2,13 @@ import React, { useEffect } from 'react'
 import CheckInForm from '../components/CheckInForm'
 import Layout from '../components/Layout'
 import { useSession } from 'next-auth/client'
+import { useRouter } from 'next/router'
+import toast from 'react-hot-toast'
 
 import styles from '../styles/Index.module.css'
 
 export default function CheckIn() {
+  const router = useRouter()
   const [session, loading] = useSession()
   const [checkedIn, setCheckedIn] = React.useState(false)
 
@@ -22,8 +25,16 @@ export default function CheckIn() {
   }
 
   useEffect(() => {
-    if (session) fetchData(session.user.name)
-  })
+    if (!loading && !session) {
+      router.push('/signin')
+      toast.error('Access denied. Please sign in!')
+    }
+    else if (!loading && session) {
+      router.push('/signin')
+      toast.error('You already checked in!')
+    }
+    else if (session) fetchData(session.user.name)
+  }, [loading, session])
 
   if (loading)
     return (
@@ -32,26 +43,16 @@ export default function CheckIn() {
       </Layout>
     )
 
-  if (!loading && !session)
-    return (
-      <Layout>
-        <p>Access Denied. Please login!</p>
-      </Layout>
-    )
-
-  if (!loading && session)
-    return (
-      <Layout>
-        <p>You already checked in!</p>
-      </Layout>
-    )
-
   return (
     <Layout>
-      <div className={styles.container}>
-        <h1 className={styles.subtitle}>Check In</h1>
-        <CheckInForm name={session.user.name} />
-      </div>
+      { session &&
+        <>
+          <div className={styles.container}>
+            <h1 className={styles.subtitle}>Check In</h1>
+            <CheckInForm name={session.user.name} />
+          </div>
+        </>
+      }
     </Layout>
   )
 }

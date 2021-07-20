@@ -47,10 +47,10 @@ export default function Nav() {
           </motion.button>
         ) : (
           <>
-            {!checkedIn &&/* replace with variable to check if user already checked in */
+            {!checkedIn &&
               <Link passHref href="/checkin">
                 <motion.a
-                  aria-label="Sign In Button"
+                  aria-label="Check In Button"
                   type="button"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.995 }}

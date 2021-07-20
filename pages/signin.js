@@ -5,6 +5,7 @@ import formStyles from '../styles/Form.module.css'
 import { motion } from 'framer-motion'
 import { providers, signIn, getSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
+import { Toaster } from 'react-hot-toast'
 
 const SignInError = ({ error }) => {
   const errors = {
@@ -34,8 +35,8 @@ export default function SignIn({ providers }) {
 
   return (
     <Layout>
-      <div className={styles.container}>
-        {error && (
+      <div><Toaster /></div>
+      {error && (
           <div className={formStyles.errorMsg}>
             <SignInError error={error} />
           </div>
@@ -59,7 +60,6 @@ export default function SignIn({ providers }) {
             </motion.button>
           )
         })}
-      </div>
     </Layout>
   )
 }
