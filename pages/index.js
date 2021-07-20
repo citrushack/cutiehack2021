@@ -132,7 +132,7 @@ export default function Home() {
           {!session && <>{/* <h1>You are not signed in</h1> */}</>}
         </section>
         <Faq />
-        {/* <Sponsors /> */}
+        <Sponsors />
       </Layout>
     </div>
   )

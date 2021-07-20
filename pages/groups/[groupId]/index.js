@@ -4,6 +4,8 @@ import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
 
+import formStyles from '../../../styles/Form.module.css'
+
 export default function GroupPage() {
   const router = useRouter()
   const [session, loading] = useSession()
@@ -60,6 +62,23 @@ export default function GroupPage() {
     }
   }
 
+  const leaveGroup = async (name) => { /* change to user id */ 
+    const index = users.indexOf(name)
+    if (index > -1) {
+      users.splice(index, 1)
+    }
+    const response = await fetch('/api/groups/leave', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ group_data: [name, group, users] }),
+    })
+    await response.json()
+    router.push('/')
+    toast.success('Successfully left the group!', { id: 'leaveGroupSuccess'})
+  }
+
   if (loading)
     return (
       <Layout>
@@ -75,6 +94,9 @@ export default function GroupPage() {
       {users.map((user) => (
         <div>{user}</div>
       ))}
+      <div onClick={() => leaveGroup(session.user.name)} className={formStyles.button}>
+        Leave Group
+      </div>
     </Layout>
   )
 }
