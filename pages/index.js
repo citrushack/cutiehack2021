@@ -111,7 +111,7 @@ export default function Home() {
 
           {!session && <>{/* <h1>You are not signed in</h1> */}</>}
         </section>
-        <Faq />
+        {/* <Faq /> */}
         {/* <Sponsors /> */}
       </Layout>
     </div>
