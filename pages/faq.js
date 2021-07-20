@@ -1,5 +1,5 @@
-import styles from "../styles/Accordion.module.css";
-import AccordionComponent from "../components/Accordion";
+import styles from '../styles/Accordion.module.css'
+import AccordionComponent from '../components/Accordion'
 
 export default function Faq() {
   return (
@@ -7,11 +7,10 @@ export default function Faq() {
       <div className={styles.faq}>
         <h1 className={styles.title}>Questions?</h1>
         <p className={styles.description}>
-          Here are the most commonly asked questions. Feel free to ask us any
-          question you don't see on here.
+          Here are the most commonly asked questions. Feel free to ask us any question you don\'t see on here.
         </p>
         <AccordionComponent />
       </div>
     </main>
-  );
+  )
 }

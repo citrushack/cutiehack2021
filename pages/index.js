@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React, { useEffect, useRef }  from 'react'
+import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Layout from '../components/Layout'
@@ -55,8 +55,8 @@ export default function Home() {
         </div>
         <section className={styles.main}>
           <motion.div ref={constraintsRef} className={styles.intro}>
-            <motion.div 
-              drag 
+            <motion.div
+              drag
               dragConstraints={constraintsRef}
               whileDrag={{ scale: 1.05 }}
               dragMomentum={false}
@@ -68,40 +68,42 @@ export default function Home() {
                 <FaCircle className={styles.windowButton} />
               </div>
               <div className={styles.windowContent}>
-                {session && <h1 className={styles.greeting}>
-                  Glad to have you, {session.user.name}! 
-                </h1>}
+                {session && (
+                  <h1 className={styles.greeting}>
+                    Glad to have you, {session.user.name}!
+                  </h1>
+                )}
                 <div>
                   <h1 className={styles.title}>cutie hack</h1>
                   <CountdownWrapper />
-                    {session && checkedIn && (
-                      <div className={styles.actionwrapper}>
-                        <Link passHref href="/groups/create">
-                          <motion.a
-                            aria-label="Create Group Button"
-                            type="button"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.995 }}
-                            transition={{ ease: 'easeInOut', duration: 0.015 }}
-                            className={styles.primarybutton}
-                          >
-                            Create a Group
-                          </motion.a>
-                        </Link>
-                        <Link passHref href="/groups/join">
-                          <motion.a
-                            aria-label="Join Group Button"
-                            type="button"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.995 }}
-                            transition={{ ease: 'easeInOut', duration: 0.015 }}
-                            className={styles.primarybutton}
-                          >
-                            Join a Group
-                          </motion.a>
-                        </Link>
-                      </div>
-                    )}
+                  {session && checkedIn && (
+                    <div className={styles.actionwrapper}>
+                      <Link passHref href="/groups/create">
+                        <motion.a
+                          aria-label="Create Group Button"
+                          type="button"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.995 }}
+                          transition={{ ease: 'easeInOut', duration: 0.015 }}
+                          className={styles.primarybutton}
+                        >
+                          Create a Group
+                        </motion.a>
+                      </Link>
+                      <Link passHref href="/groups/join">
+                        <motion.a
+                          aria-label="Join Group Button"
+                          type="button"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.995 }}
+                          transition={{ ease: 'easeInOut', duration: 0.015 }}
+                          className={styles.primarybutton}
+                        >
+                          Join a Group
+                        </motion.a>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -109,7 +111,7 @@ export default function Home() {
 
           {!session && <>{/* <h1>You are not signed in</h1> */}</>}
         </section>
-        <Faq />
+        {/* <Faq /> */}
         {/* <Sponsors /> */}
       </Layout>
     </div>
@@ -119,5 +121,5 @@ export default function Home() {
 export async function getServerSideProps() {
   const { db } = await connectToDatabase()
 
-  return { props: {  } }
+  return { props: {} }
 }
