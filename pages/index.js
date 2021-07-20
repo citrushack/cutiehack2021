@@ -20,6 +20,8 @@ import styles from '../styles/Index.module.css'
 export default function Home() {
   const [session] = useSession()
   const [checkedIn, setCheckedIn] = React.useState(false)
+  const [inGroup, setInGroup] = React.useState(false)
+  const [group, setGroup] = React.useState('')
 
   const constraintsRef = useRef(null)
 
@@ -33,6 +35,10 @@ export default function Home() {
     })
     const data = await response.json()
     setCheckedIn(Object.keys(data.checkins).length !== 0)
+    setInGroup(data.checkins[0].groupId !== '')
+    if (data.checkins[0].groupId !== '') {
+      setGroup(data.checkins[0].groupId)
+    }
   }
 
   useEffect(() => {
@@ -94,7 +100,7 @@ export default function Home() {
                 <div>
                   <h1 className={styles.title}>cutie hack</h1>
                   <CountdownWrapper />
-                  {session && checkedIn && (
+                  {session && checkedIn && !inGroup && (
                     <div className={styles.actionwrapper}>
                       <Link passHref href="/groups/create">
                         <motion.a

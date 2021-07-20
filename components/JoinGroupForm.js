@@ -1,31 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import toast, { Toaster } from 'react-hot-toast'
 import { nanoid } from 'nanoid'
 import { motion } from 'framer-motion'
+import { session, useSession } from 'next-auth/client'
 import styles from '../styles/Index.module.css'
 import formStyles from '../styles/Form.module.css'
 
 export default function CreateGroupForm() {
   const router = useRouter()
+  const [session] = useSession()
 
   const [error, setError] = React.useState(false)
   const [code, setCode] = React.useState('')
   const [groupExists, setGroupExists] = React.useState('')
   const [groupFull, setGroupFull] = React.useState('')
+  const [users, setUsers] = React.useState([])
 
   const handleChangeCode = (e) => {
     setError(false)
     setCode(e.target.value)
   }
 
-  const join = (code) => {
-    if (groupExists) {
+  const join = async (code) => {
+    await fetchData(code)
+    if (groupExists && groupFull) {
+      setError(true)
+      toast.error('Group is full. Try a different group.')
+    } 
+    else if (groupExists && !groupFull) {
       setError(false)
+      updateData(session.user.name)
       toast.success('Successfully joined group!')
       const dst = '/groups/' + code.toString()
       router.push(dst)
-    } else {
+    }
+    else if (!groupExists) {
       setError(true)
       toast.error('Group does not exist. Try again.')
     }
@@ -41,11 +51,24 @@ export default function CreateGroupForm() {
     })
     const data = await response.json()
     setGroupExists(Object.keys(data.groups).length !== 0)
-    // check if group full
+    setGroupFull(false) // reset for different groups
+    if (data.groups[0] && data.groups[0].users.length === 4) {
+      setGroupFull(true)
+    }
+    if (data.groups[0]) setUsers(data.groups[0].users)
   }
 
-  const updateData = async () => {
-
+  const updateData = async (name) => {
+    users.push(session.user.name)
+    const response = await fetch('/api/groups/join', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ group_data: [ name, code, users ] }),
+    })
+    await response.json()
+    setUsers([])
   }
 
   return (

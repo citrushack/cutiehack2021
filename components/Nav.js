@@ -8,6 +8,8 @@ import styles from '../styles/Nav.module.css'
 export default function Nav() {
   const [session] = useSession()
   const [checkedIn, setCheckedIn] = React.useState(false)
+  const [inGroup, setInGroup] = React.useState(false)
+  const [group, setGroup] = React.useState('')
 
   const fetchData = async (name) => {
     const response = await fetch('/api/checkin', {
@@ -19,6 +21,10 @@ export default function Nav() {
     })
     const data = await response.json()
     setCheckedIn(Object.keys(data.checkins).length !== 0)
+    setInGroup(data.checkins[0].groupId !== '')
+    if (data.checkins[0].groupId !== '') {
+      setGroup(data.checkins[0].groupId)
+    }
   }
 
   useEffect(() => {
@@ -61,8 +67,8 @@ export default function Nav() {
                 </motion.a>
               </Link>
             }
-            {false && /* replace with variable to check if user already in a group */
-              <Link passHref href="/groups/create">
+            {inGroup &&
+              <Link passHref href={"/groups/" + group}>
                 <motion.a
                   aria-label="View Group Button"
                   type="button"

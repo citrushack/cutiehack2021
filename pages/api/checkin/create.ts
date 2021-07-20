@@ -16,6 +16,7 @@ export default async function CreateCheckIn(req: NextApiRequest, res: NextApiRes
     major: major,
     grade: grade,
     firstTimeHacker: first_time,
+    groupId: '',
     createdAt: new Date()
   });
 
