@@ -7,9 +7,11 @@ import styles from '../styles/Nav.module.css'
 
 export default function Nav() {
   const [session] = useSession()
+
   const [checkedIn, setCheckedIn] = React.useState(false)
   const [inGroup, setInGroup] = React.useState(false)
   const [groupId, setGroupId] = React.useState('')
+  const [hideTabs, setHideTabs] = React.useState(false)
 
   const fetchData = async (id) => {
     const response = await fetch('/api/checkin', {
@@ -29,18 +31,25 @@ export default function Nav() {
     }
   }
 
+  const checkPage = async () => {
+    const pageURL = window.location.href
+    const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1)
+    setHideTabs(lastURLSegment !== '' && lastURLSegment !== '#')
+  }
+
   useEffect(() => {
     if (session) fetchData(session.user.id)
+    checkPage()
   })
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.tabs}>
         <Link href="/">Home</Link>
-        <a href="#">About</a>
-        <a href="#">FAQ</a>
-        <a href="#">Help</a>
-        <a href="#sponsors">Sponsors</a>
+        <a href="#" className={hideTabs && styles.hidetabs}>About</a>
+        <a href="#" className={hideTabs && styles.hidetabs}>FAQ</a>
+        <a href="#" className={hideTabs && styles.hidetabs}>Help</a>
+        <a href="#sponsors" className={hideTabs && styles.hidetabs}>Sponsors</a>
         {!session ? (
           <motion.button
             aria-label="Sign In Button"

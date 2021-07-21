@@ -19,6 +19,10 @@ export default function JoinGroup() {
       body: JSON.stringify({ user: userId }),
     })
     const data = await response.json()
+    if (Object.keys(data.checkins).length === 0) {
+      router.push('/checkin')
+      toast.error('Access denied. Please check in!', { id: 'notCheckedInJoinGroupError' })
+    }
     if (data.checkins[0] && data.checkins[0].groupId !== '') {
       router.push('/groups/' + data.checkins[0].groupId)
       toast.error(

@@ -24,6 +24,10 @@ export default function groupId() {
       body: JSON.stringify({ user: userId }),
     })
     const data = await response.json()
+    if (Object.keys(data.checkins).length === 0) {
+      router.push('/checkin')
+      toast.error('Access denied. Please check in!', { id: 'notCheckedInGroupPageError' })
+    }
     if (data.checkins[0]) {
       setInGroup(data.checkins[0].groupId !== '')
       if (data.checkins[0].groupId !== '') {
@@ -54,15 +58,15 @@ export default function groupId() {
     <Layout>
       {inGroup ? (
         <Link passHref href={'/groups/' + groupId}>
-          <div className={styles.button}>View Your groupId</div>
+          <div className={styles.button}>View Your Group</div>
         </Link>
       ) : (
         <>
           <Link passHref href="/groups/create">
-            <div className={styles.button}>Create a groupId</div>
+            <div className={styles.button}>Create a Group</div>
           </Link>
           <Link passHref href="/groups/join">
-            <div className={styles.button}>Join a groupId</div>
+            <div className={styles.button}>Join a Group</div>
           </Link>
         </>
       )}

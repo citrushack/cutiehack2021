@@ -14,6 +14,21 @@ export default function GroupPage() {
   const [groupId, setGroupId] = React.useState('')
   const [users, setUsers] = React.useState([])
 
+  const fetchData = async (userId) => {
+    const response = await fetch('/api/checkin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user: userId }),
+    })
+    const data = await response.json()
+    if (Object.keys(data.checkins).length === 0) {
+      router.push('/checkin')
+      toast.error('Access denied. Please check in!', { id: 'notCheckedInGroupPageError' })
+    }
+  }
+
   const fetchGroupId = async (userId) => {
     const response = await fetch('/api/checkin', {
       method: 'POST',
@@ -89,6 +104,7 @@ export default function GroupPage() {
         id: 'notSignedInGroupPageError',
       })
     } else if (session) {
+      fetchData()
       checkValidGroup()
     }
   }, [loading, session])
