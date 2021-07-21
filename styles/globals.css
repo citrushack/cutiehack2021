@@ -35,7 +35,7 @@ body {
   font-size: 16px;
   background-color: var(--bg);
   color: var(--fg);
-  overflow-x: hidden !important;
+  overflow: inherit;
 }
 
 body {

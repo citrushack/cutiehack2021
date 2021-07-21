@@ -43,7 +43,7 @@ export default function Home() {
   })
 
   return (
-    <div>
+    <>
       <Head>
         <title>Cutie Hack</title>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -142,7 +142,7 @@ export default function Home() {
         <Faq />
         <Sponsors />
       </Layout>
-    </div>
+    </>
   )
 }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link' // We should be using the Link component
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 import { HiMenu, HiX } from 'react-icons/hi'
 
@@ -9,6 +10,8 @@ import styles from '../styles/Nav.module.css'
 
 export default function Nav() {
   const [session] = useSession()
+
+  const [targetElement, setTargetElement] = React.useState(null)
 
   const [checkedIn, setCheckedIn] = React.useState(false)
   const [inGroup, setInGroup] = React.useState(false)
@@ -51,7 +54,14 @@ export default function Nav() {
   useEffect(() => {
     if (session) fetchData(session.user.id)
     checkPage()
+
     window.addEventListener('resize', handleResize)
+
+    setTargetElement(document.querySelector('nav'))
+    if (targetElement) {
+      if (open) disableBodyScroll(targetElement)
+      else enableBodyScroll(targetElement)
+    }
   })
 
   return (
@@ -67,7 +77,7 @@ export default function Nav() {
           <HiMenu className={styles.menuButton} />
           <HiX className={styles.menuButton} />
         </div>
-        <div className={styles.tabs}>
+        <div id="nav" className={styles.tabs}>
           <Link href="/">Home</Link>
           <a href="#" className={hideTabs && styles.hidetabs}>About</a>
           <a href="#" className={hideTabs && styles.hidetabs}>FAQ</a>
