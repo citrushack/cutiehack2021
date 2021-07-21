@@ -86,6 +86,9 @@
     justify-content: flex-end;
     margin-right: 20px;
   }
+  .menuButton {
+    transition: transform 150ms ease-in-out;
+  }
   .menuButton:nth-of-type(1) {
     position: relative;
     visibility: visible;
@@ -96,9 +99,11 @@
   }
   .open .menuButton:nth-of-type(1) {
     visibility: hidden;
+    transform: rotate(90deg);
   }
   .open .menuButton:nth-of-type(2) {
     visibility: visible;
+    transform: rotate(90deg);
   }
 
   .open .navbar {
