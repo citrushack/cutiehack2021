@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Countdown from 'react-countdown'
 import { motion } from 'framer-motion'
 
@@ -68,7 +68,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 }
 
 export default function CountdownWrapper() {
-  const [isMobile, setIsMobile] = React.useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   
   if (!isMobile)
     buttonVariants = {

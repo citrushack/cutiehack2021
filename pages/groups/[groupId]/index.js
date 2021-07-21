@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
@@ -11,8 +11,8 @@ export default function GroupPage() {
   const router = useRouter()
   const [session, loading] = useSession()
 
-  const [groupId, setGroupId] = React.useState('')
-  const [users, setUsers] = React.useState([])
+  const [groupId, setGroupId] = useState('')
+  const [users, setUsers] = useState([])
 
   const fetchData = async (userId) => {
     const response = await fetch('/api/checkin', {

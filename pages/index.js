@@ -34,8 +34,8 @@ export default function Home() {
     }
   }
 
-  const [checkedIn, setCheckedIn] = React.useState(false)
-  const [inGroup, setInGroup] = React.useState(false)
+  const [checkedIn, setCheckedIn] = useState(false)
+  const [inGroup, setInGroup] = useState(false)
 
   const constraintsRef = useRef(null)
 

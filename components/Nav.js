@@ -11,7 +11,7 @@ import styles from '../styles/Nav.module.css'
 export default function Nav() {
   const [session] = useSession()
 
-  const [isMobile, setIsMobile] = React.useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   var buttonVariants = {}
   if (!isMobile)
     buttonVariants = {
@@ -19,13 +19,13 @@ export default function Nav() {
       tap: { scale: 0.995 }
     }
 
-  const [targetElement, setTargetElement] = React.useState(null)
+  const [targetElement, setTargetElement] = useState(null)
 
-  const [checkedIn, setCheckedIn] = React.useState(false)
-  const [inGroup, setInGroup] = React.useState(false)
-  const [groupId, setGroupId] = React.useState('')
-  const [hideTabs, setHideTabs] = React.useState(false)
-  const [open, setOpen] = React.useState(false)
+  const [checkedIn, setCheckedIn] = useState(false)
+  const [inGroup, setInGroup] = useState(false)
+  const [groupId, setGroupId] = useState('')
+  const [hideTabs, setHideTabs] = useState(false)
+  const [open, setOpen] = useState(false)
 
   const fetchData = async (id) => {
     const response = await fetch('/api/checkin', {

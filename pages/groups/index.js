@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
@@ -12,8 +12,8 @@ export default function Groups() {
   const router = useRouter()
   const [session, loading] = useSession()
 
-  const [inGroup, setInGroup] = React.useState(false)
-  const [groupId, setGroupId] = React.useState('')
+  const [inGroup, setInGroup] = useState(false)
+  const [groupId, setGroupId] = useState('')
 
   const fetchData = async (userId) => {
     const response = await fetch('/api/checkin', {
