@@ -34,7 +34,7 @@ export default function CheckIn() {
     } else if (session) {
       fetchData(session.user.id)
     }
-  }, [loading, session])
+  }, [loading, session, router])
 
   if (loading)
     return (

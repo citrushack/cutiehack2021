@@ -41,7 +41,7 @@ export default function JoinGroup() {
     } else if (session) {
       fetchData(session.user.id)
     }
-  }, [loading, session])
+  }, [loading, session, router])
 
   if (loading)
     return (

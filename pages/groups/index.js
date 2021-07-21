@@ -8,7 +8,7 @@ import Layout from '../../components/Layout'
 
 import styles from '../../styles/Form.module.css'
 
-export default function groupId() {
+export default function Groups() {
   const router = useRouter()
   const [session, loading] = useSession()
 
@@ -45,7 +45,7 @@ export default function groupId() {
     } else if (session) {
       fetchData(session.user.id)
     }
-  }, [loading, session])
+  }, [loading, session, router])
 
   if (loading)
     return (

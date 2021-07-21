@@ -107,7 +107,7 @@ export default function GroupPage() {
       fetchData()
       checkValidGroup()
     }
-  }, [loading, session])
+  }, [loading, session, router])
 
   if (loading)
     return (
