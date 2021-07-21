@@ -104,7 +104,7 @@ export default function GroupPage() {
         id: 'notSignedInGroupPageError',
       })
     } else if (session) {
-      fetchData()
+      fetchData(session.user.id)
       checkValidGroup()
     }
   }, [loading, session, router])

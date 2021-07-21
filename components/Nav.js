@@ -42,7 +42,6 @@ export default function Nav() {
 
   const toggle = () => {
     setOpen(!open)
-    console.log(open)
   }
 
   const handleResize = () => {
