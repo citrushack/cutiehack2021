@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { connectToDatabase } from '../util/mongodb'
@@ -20,6 +20,20 @@ import styles from '../styles/Index.module.css'
 
 export default function Home() {
   const [session] = useSession()
+
+  const [isMobile, setIsMobile] = useState(false)
+  var buttonVariants = {}
+  var windowVariants = {}
+  if (!isMobile) {
+    buttonVariants = {
+      hover: { scale: 1.05 },
+      tap: { scale: 0.995 }
+    }
+    windowVariants = {
+      whileDrag: { scale: 1.05 }
+    }
+  }
+
   const [checkedIn, setCheckedIn] = React.useState(false)
   const [inGroup, setInGroup] = React.useState(false)
 
@@ -38,8 +52,14 @@ export default function Home() {
     if (data.checkins[0]) setInGroup(data.checkins[0].groupId !== '')
   }
 
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 720)
+  }
+
   useEffect(() => {
     if (session) fetchData(session.user.id)
+    window.addEventListener('resize', handleResize)
+    setIsMobile(window.innerWidth <= 720)
   })
 
   return (
@@ -84,10 +104,14 @@ export default function Home() {
         <section className={styles.main}>
           <motion.div ref={constraintsRef} className={styles.intro}>
             <motion.div
-              drag
+              variants={windowVariants}
+              drag={!isMobile}
               dragConstraints={constraintsRef}
-              whileDrag={{ scale: 1.05 }}
+              whileDrag="whileDrag"
               dragMomentum={false}
+              style={{
+                ...(!isMobile ? { x:0, y:0 } : {})
+              }}
               className={styles.window}
             >
               <div className={styles.windowHeader}>
@@ -110,8 +134,9 @@ export default function Home() {
                         <motion.a
                           aria-label="Create Group Button"
                           type="button"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.995 }}
+                          variants={buttonVariants}
+                          whileHover="hover"
+                          whileTap="tap"
                           transition={{ ease: 'easeInOut', duration: 0.015 }}
                           className={styles.primarybutton}
                         >
@@ -122,8 +147,9 @@ export default function Home() {
                         <motion.a
                           aria-label="Join Group Button"
                           type="button"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.995 }}
+                          variants={buttonVariants}
+                          whileHover="hover"
+                          whileTap="tap"
                           transition={{ ease: 'easeInOut', duration: 0.015 }}
                           className={styles.primarybutton}
                         >

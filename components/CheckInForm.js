@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
@@ -13,6 +13,14 @@ import styles from '../styles/Form.module.css'
 export default function CheckInForm() {
   const router = useRouter()
   const [session] = useSession()
+
+  const [isMobile, setIsMobile] = React.useState(false)
+  var buttonVariants = {}
+  if (!isMobile)
+    buttonVariants = {
+      hover: { scale: 1.02 },
+      tap: { scale: 0.997 }
+    }
 
   const [isValidEmail, setIsValidEmail] = React.useState(true)
 
@@ -155,6 +163,14 @@ export default function CheckInForm() {
     })
     await response.json()
   }
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 720)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  })
 
   return (
     <section>
@@ -342,8 +358,9 @@ export default function CheckInForm() {
       <motion.button
         aria-label="Check In Button"
         type="button"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.997 }}
+        variants={buttonVariants}
+        whileHover="hover"
+        whileTap="tap"
         transition={{ ease: 'easeInOut', duration: 0.015 }}
         className={styles.button}
         onClick={() => submitForm(session.user.name, session.user.id)}

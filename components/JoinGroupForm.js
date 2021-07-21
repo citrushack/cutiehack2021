@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
@@ -10,11 +10,19 @@ export default function CreateGroupForm() {
   const router = useRouter()
   const [session] = useSession()
 
-  const [error, setError] = React.useState(false)
-  const [groupExists, setGroupExists] = React.useState('')
-  const [groupFull, setGroupFull] = React.useState('')
-  const [groupId, setGroupId] = React.useState('')
-  const [users, setUsers] = React.useState([])
+  const [isMobile, setIsMobile] = useState(false)
+  var buttonVariants = {}
+  if (!isMobile)
+    buttonVariants = {
+      hover: { scale: 1.02 },
+      tap: { scale: 0.997 }
+    }
+
+  const [error, setError] = useState(false)
+  const [groupExists, setGroupExists] = useState('')
+  const [groupFull, setGroupFull] = useState('')
+  const [groupId, setGroupId] = useState('')
+  const [users, setUsers] = useState([])
 
   const handleChangeCode = (e) => {
     setError(false)
@@ -69,6 +77,14 @@ export default function CreateGroupForm() {
     await response.json()
   }
 
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 720)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  })
+
   return (
     <section>
       <div className={styles.inputWrapper}>
@@ -86,8 +102,9 @@ export default function CreateGroupForm() {
       <motion.button
         aria-label="Join Group Button"
         type="button"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.997 }}
+        variants={buttonVariants}
+        whileHover="hover"
+        whileTap="tap"
         transition={{ ease: 'easeInOut', duration: 0.015 }}
         className={styles.button}
         onClick={() => joinGroup(groupId)}

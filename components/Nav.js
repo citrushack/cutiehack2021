@@ -11,13 +11,21 @@ import styles from '../styles/Nav.module.css'
 export default function Nav() {
   const [session] = useSession()
 
+  const [isMobile, setIsMobile] = React.useState(false)
+  var buttonVariants = {}
+  if (!isMobile)
+    buttonVariants = {
+      hover: { scale: 1.05 },
+      tap: { scale: 0.995 }
+    }
+
   const [targetElement, setTargetElement] = React.useState(null)
 
   const [checkedIn, setCheckedIn] = React.useState(false)
   const [inGroup, setInGroup] = React.useState(false)
   const [groupId, setGroupId] = React.useState('')
   const [hideTabs, setHideTabs] = React.useState(false)
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = React.useState(false)
 
   const fetchData = async (id) => {
     const response = await fetch('/api/checkin', {
@@ -49,6 +57,7 @@ export default function Nav() {
 
   const handleResize = () => {
     if (window.innerWidth > 720) setOpen(false)
+    setIsMobile(window.innerWidth <= 720)
   }
 
   useEffect(() => {
@@ -66,10 +75,7 @@ export default function Nav() {
 
   return (
     <span className={open && styles.open}>
-      <nav className={styles.navbar}
-      onresize={() => {
-        if (window.innerWidth > 720) setOpen(false)
-      }}>
+      <nav className={styles.navbar}>
         <div 
           className={styles.menuButtonWrapper}
           onClick={() => toggle()}
@@ -87,9 +93,10 @@ export default function Nav() {
             <motion.button
               aria-label="Sign In Button"
               type="button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.995 }}
-              transition={{ ease: 'easeInOut', duration: 0.015 }}
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              transition="ease"
               className={styles.primarybutton}
               onClick={signIn}
             >
@@ -102,8 +109,9 @@ export default function Nav() {
                   <motion.a
                     aria-label="Check In Button"
                     type="button"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.995 }}
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
                     className={styles.primarybutton}
                   >
@@ -116,8 +124,9 @@ export default function Nav() {
                   <motion.a
                     aria-label="View Group Button"
                     type="button"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.995 }}
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
                     className={styles.primarybutton}
                   >
@@ -128,8 +137,9 @@ export default function Nav() {
               <motion.button
                 aria-label="Sign Out Button"
                 type="button"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.995 }}
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
                 transition={{ ease: 'easeInOut', duration: 0.015 }}
                 className={styles.secondarybutton}
                 onClick={signOut}

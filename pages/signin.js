@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { providers, signIn, getSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
 import { motion } from 'framer-motion'
@@ -33,6 +33,22 @@ export default function SignIn({ providers }) {
     query: { callbackUrl, error },
   } = useRouter()
 
+  const [isMobile, setIsMobile] = useState(false)
+  var buttonVariants = {}
+  if (!isMobile)
+    buttonVariants = {
+      hover: { scale: 1.02 },
+      tap: { scale: 0.997 }
+    }
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 720)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  })
+
   return (
     <Layout>
       {error && (
@@ -48,8 +64,9 @@ export default function SignIn({ providers }) {
           <motion.button
             aria-label="Provider Sign In Button"
             type="button"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.997 }}
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
             transition={{ ease: 'easeInOut', duration: 0.015 }}
             key={provider.name}
             className={styles.button}

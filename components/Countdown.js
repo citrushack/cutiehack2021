@@ -1,9 +1,12 @@
+import React, { useEffect } from 'react'
 import Countdown from 'react-countdown'
 import { motion } from 'framer-motion'
 
 import styles from '../styles/Countdown.module.css'
 
 const Completionist = () => <span>You are good to go!</span>
+
+var buttonVariants = {}
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
@@ -26,7 +29,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={styles.stack}>
             <div className={styles.number}>
               { Array.from(numDays).map(n =>
-                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
+                <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
               )}
             </div>
             <div className={styles.label}>days</div>
@@ -35,7 +38,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={styles.stack}>
             <div className={styles.number}>
               { Array.from(numHours).map(n =>
-                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
+                <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
               )}
             </div>
             <div className={styles.label}>hours</div>
@@ -44,7 +47,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={styles.stack}>
             <div className={styles.number}>
               { Array.from(numMinutes).map(n =>
-                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
+                <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
               )}
             </div>
             <div className={styles.label}>minutes</div>
@@ -53,7 +56,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           <div className={styles.stack}>
             <div className={styles.number}>
               { Array.from(numSeconds).map(n => 
-                <motion.div whileHover={{scale: 1.1}}>{n}</motion.div>
+                <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
               )}
             </div>
             <div className={styles.label}>seconds</div>
@@ -65,6 +68,24 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 }
 
 export default function CountdownWrapper() {
+  const [isMobile, setIsMobile] = React.useState(false)
+  
+  if (!isMobile)
+    buttonVariants = {
+      hover: { scale: 1.1 }
+    }
+  else
+    buttonVariants = {}
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 720)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    console.log(buttonVariants)
+  })
+
   return (
     <h2 className={styles.countdown}>
       <Countdown date="2021-10-31T00:00:00" renderer={renderer} />
