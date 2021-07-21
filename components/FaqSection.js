@@ -8,7 +8,7 @@ import styles from '../styles/Accordion.module.css'
 export default function FaqSection(props) {
   const [open, setOpen] = useState(false)
 
-  const Toggle = () => {
+  const toggle = () => {
     setOpen(!open)
   }
 
@@ -19,7 +19,7 @@ export default function FaqSection(props) {
           ? `${styles.accordionItem} ${styles.open}`
           : `${styles.accordionItem}`
       }
-      onClick={() => Toggle()}
+      onClick={() => toggle()}
     >
       <motion.div
         whileHover={{ scale: 1.005 }}
