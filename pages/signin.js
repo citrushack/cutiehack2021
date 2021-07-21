@@ -1,9 +1,11 @@
 import React from 'react'
-import Layout from '../components/Layout'
-import formStyles from '../styles/Form.module.css'
-import { motion } from 'framer-motion'
 import { providers, signIn, getSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
+import { motion } from 'framer-motion'
+
+import Layout from '../components/Layout'
+
+import styles from '../styles/Form.module.css'
 
 const SignInError = ({ error }) => {
   const errors = {
@@ -34,7 +36,7 @@ export default function SignIn({ providers }) {
   return (
     <Layout>
       {error && (
-        <div className={formStyles.errorMsg}>
+        <div className={styles.errorMsg}>
           <SignInError error={error} />
         </div>
       )}
@@ -50,7 +52,7 @@ export default function SignIn({ providers }) {
             whileTap={{ scale: 0.997 }}
             transition={{ ease: 'easeInOut', duration: 0.015 }}
             key={provider.name}
-            className={formStyles.button}
+            className={styles.button}
             onClick={() => signIn(provider.id)}
           >
             Sign in with {provider.name}

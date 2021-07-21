@@ -1,36 +1,37 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import toast from 'react-hot-toast'
-import { motion } from 'framer-motion'
 import { useSession } from 'next-auth/client'
-import formStyles from '../styles/Form.module.css'
+import { motion } from 'framer-motion'
+import toast from 'react-hot-toast'
+
+import styles from '../styles/Form.module.css'
 
 export default function CreateGroupForm() {
   const router = useRouter()
   const [session] = useSession()
 
   const [error, setError] = React.useState(false)
-  const [code, setCode] = React.useState('')
   const [groupExists, setGroupExists] = React.useState('')
   const [groupFull, setGroupFull] = React.useState('')
+  const [groupId, setGroupId] = React.useState('')
   const [users, setUsers] = React.useState([])
 
   const handleChangeCode = (e) => {
     setError(false)
-    setCode(e.target.value)
+    setGroupId(e.target.value)
   }
 
-  const join = async (code) => {
-    await fetchData(code)
+  const joinGroup = async (groupId) => {
+    await fetchGroup(groupId)
     if (groupExists && groupFull) {
       setError(true)
       toast.error('Group is full. Try a different group.', { id: 'fullGroupError'})
     } 
     else if (groupExists && !groupFull) {
       setError(false)
-      updateData(session.user.name)
+      updateGroup(session.user.id, session.user.name)
       toast.success('Successfully joined group!', { id: 'joinGroupSuccess'})
-      const dst = '/groups/' + code.toString()
+      const dst = '/groups/' + groupId.toString()
       router.push(dst)
     }
     else if (!groupExists) {
@@ -39,13 +40,13 @@ export default function CreateGroupForm() {
     }
   }
 
-  const fetchData = async (code) => {
+  const fetchGroup = async (groupId) => {
     const response = await fetch('/api/groups', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ group_data: code }),
+      body: JSON.stringify({ group: groupId }),
     })
     const data = await response.json()
     setGroupExists(Object.keys(data.groups).length !== 0)
@@ -56,30 +57,29 @@ export default function CreateGroupForm() {
     if (data.groups[0]) setUsers(data.groups[0].users)
   }
 
-  const updateData = async (name) => {
-    users.push(session.user.name)
+  const updateGroup = async (userId, userName) => {
+    users.push({ id: userId, name: userName })
     const response = await fetch('/api/groups/join', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ group_data: [ name, code, users ] }),
+      body: JSON.stringify({ group: [ groupId, userId, users ] }),
     })
     await response.json()
-    setUsers([])
   }
 
   return (
     <section>
-      <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>Invite Code</div>
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>Invite Code</div>
         <input
           className={
-            formStyles.inputBox && error
-              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
-              : `${formStyles.inputBox}`
+            styles.inputBox && error
+              ? `${styles.inputBox} ${styles.triggeredBox}`
+              : `${styles.inputBox}`
           }
-          value={code}
+          value={groupId}
           onChange={handleChangeCode}
         />
       </div>
@@ -89,8 +89,8 @@ export default function CreateGroupForm() {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.997 }}
         transition={{ ease: 'easeInOut', duration: 0.015 }}
-        className={formStyles.button}
-        onClick={() => join(code)}
+        className={styles.button}
+        onClick={() => joinGroup(groupId)}
       >
         Join Group
       </motion.button>

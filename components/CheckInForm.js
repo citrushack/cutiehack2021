@@ -1,23 +1,25 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/client'
+import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
+
 import { FiChevronDown } from 'react-icons/fi'
 import { IoMdRadioButtonOff, IoMdRadioButtonOn } from 'react-icons/io'
 import { FaRegQuestionCircle } from 'react-icons/fa'
-import { motion } from 'framer-motion'
 
-import formStyles from '../styles/Form.module.css'
+import styles from '../styles/Form.module.css'
 
-export default function CheckInForm(props) {
+export default function CheckInForm() {
   const router = useRouter()
+  const [session] = useSession()
 
-  const [error, setError] = React.useState(false)
-  const [validEmail, setValidEmail] = React.useState(true)
+  const [isValidEmail, setIsValidEmail] = React.useState(true)
 
   const [email, setEmail] = React.useState('')
   const [emailConfirm, setEmailConfirm] = React.useState('')
-  const [open_race, toggleOpenRace] = React.useState(false)
-  const [open_gender, toggleOpenGender] = React.useState(false)
+  const [openRace, toggleOpenRace] = React.useState(false)
+  const [openGender, toggleOpenGender] = React.useState(false)
   const [race, setRace] = React.useState('Select an option...')
   const [gender, setGender] = React.useState('Select an option...')
   const [options] = React.useState({
@@ -49,28 +51,28 @@ export default function CheckInForm(props) {
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value)
-    filled.email = e.target.value !== ''
-    setValidEmail(true)
+    filled.email = (e.target.value !== '')
+    setIsValidEmail(true)
   }
 
   const handleChangeEmailConfirm = (e) => {
     setEmailConfirm(e.target.value)
-    filled.emailConfirm = e.target.value !== ''
-    setValidEmail(true)
+    filled.emailConfirm = (e.target.value !== '')
+    setIsValidEmail(true)
   }
 
   const openRaceDropdown = () => {
-    if (!open_race && open_gender) {
+    if (!openRace && openGender) {
       toggleOpenGender(false)
     }
-    toggleOpenRace(!open_race)
+    toggleOpenRace(!openRace)
   }
 
   const openGenderDropdown = () => {
-    if (open_race && !open_gender) {
+    if (openRace && !openGender) {
       toggleOpenRace(false)
     }
-    toggleOpenGender(!open_gender)
+    toggleOpenGender(!openGender)
   }
 
   const selectRace = (e) => {
@@ -87,17 +89,17 @@ export default function CheckInForm(props) {
 
   const handleChangeSchool = (e) => {
     setSchool(e.target.value)
-    filled.school = e.target.value !== ''
+    filled.school = (e.target.value !== '')
   }
 
   const handleChangeMajor = (e) => {
     setMajor(e.target.value)
-    filled.major = e.target.value !== ''
+    filled.major = (e.target.value !== '')
   }
 
   const handleChangeGrade = (e) => {
     setGrade(e.target.value)
-    filled.grade = e.target.value !== ''
+    filled.grade = (e.target.value !== '')
   }
 
   const toggleFirstTime = (e) => {
@@ -106,7 +108,6 @@ export default function CheckInForm(props) {
   }
 
   const triggerWarning = () => {
-    setError(true)
     toast(
       'This email will be used for verifying your participation in case we need to double check!',
       {
@@ -116,31 +117,28 @@ export default function CheckInForm(props) {
     )
   }
 
-  const submitForm = (name) => {
+  const submitForm = (name, id) => {
     triggerSubmit(true)
     if (Object.values(filled).every((e) => e)) {
-      setError(false)
-      const data = [name, email, race, gender, school, major, grade, first_time]
-      // uncomment when you want to write to db
+      const data = [name, email, race, gender, school, major, grade, first_time, id]
       sendData(data)
       router.push('/groups/create')
       toast.success('Succesfully checked in!', { id: 'checkInSuccess'})
     } else {
-      setError(true)
       if (
         filled.email &&
         !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
           email
         )
       ) {
-        setValidEmail(false)
+        setIsValidEmail(false)
         toast.error('Please input a valid email.', { id: 'invalidEmailError'})
       } else if (filled.email && filled.emailConfirm && email !== emailConfirm) {
-        setValidEmail(false)
+        setIsValidEmail(false)
         toast.error('Emails don\'t match. Please try again.', { id: 'notMatchingEmailsError'})
       }
       else {
-        setValidEmail(true)
+        setIsValidEmail(true)
       }
       toast.error('Please fill out all required fields.', { id: 'incompleteFormError'})
     }
@@ -153,63 +151,61 @@ export default function CheckInForm(props) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ checkin_data: checkinData }),
+      body: JSON.stringify({ user: checkinData }),
     })
-    const data = await response.json()
-    console.log(data.checkin_data)
-    return data.checkin_data
+    await response.json()
   }
 
   return (
     <section>
-      <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>
           Email
           <FaRegQuestionCircle
             onClick={() => triggerWarning()}
-            className={formStyles.trigger}
+            className={styles.trigger}
           />
         </div>
         <input
           className={
-            (formStyles.inputBox && submit_triggered && !filled.email) ||
-            !validEmail
-              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
-              : `${formStyles.inputBox}`
+            (styles.inputBox && submit_triggered && !filled.email) ||
+            !isValidEmail
+              ? `${styles.inputBox} ${styles.triggeredBox}`
+              : `${styles.inputBox}`
           }
           value={email}
           onChange={handleChangeEmail}
         />
       </div>
 
-      <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>
           Confirm Email
         </div>
         <input
           className={
-            (formStyles.inputBox && submit_triggered && !filled.emailConfirm) ||
-            !validEmail
-              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
-              : `${formStyles.inputBox}`
+            (styles.inputBox && submit_triggered && !filled.emailConfirm) ||
+            !isValidEmail
+              ? `${styles.inputBox} ${styles.triggeredBox}`
+              : `${styles.inputBox}`
           }
           value={emailConfirm}
           onChange={handleChangeEmailConfirm}
         />
       </div>
 
-      <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>Race</div>
-        <div className={formStyles.dropdown}>
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>Race</div>
+        <div className={styles.dropdown}>
           <div
             className={
-              open_race
-                ? `${formStyles.dropdownHeader} ${formStyles.dropdownSelected}`
-                : `${formStyles.dropdownHeader}` &&
+              openRace
+                ? `${styles.dropdownHeader} ${styles.dropdownSelected}`
+                : `${styles.dropdownHeader}` &&
                   submit_triggered &&
                   !filled.race
-                ? `${formStyles.dropdownHeader} ${formStyles.triggeredBox}`
-                : `${formStyles.dropdownHeader}`
+                ? `${styles.dropdownHeader} ${styles.triggeredBox}`
+                : `${styles.dropdownHeader}`
             }
             onClick={() => openRaceDropdown()}
           >
@@ -220,9 +216,9 @@ export default function CheckInForm(props) {
           </div>
           <div
             className={
-              open_race
-                ? `${formStyles.dropdownContent} ${formStyles.show}`
-                : `${formStyles.dropdownContent}`
+              openRace
+                ? `${styles.dropdownContent} ${styles.show}`
+                : `${styles.dropdownContent}`
             }
           >
             {options.race
@@ -236,18 +232,18 @@ export default function CheckInForm(props) {
         </div>
       </div>
 
-      <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>Gender</div>
-        <div className={formStyles.dropdown}>
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>Gender</div>
+        <div className={styles.dropdown}>
           <div
             className={
-              open_gender
-                ? `${formStyles.dropdownHeader} ${formStyles.dropdownSelected}`
-                : `${formStyles.dropdownHeader}` &&
+              openGender
+                ? `${styles.dropdownHeader} ${styles.dropdownSelected}`
+                : `${styles.dropdownHeader}` &&
                   submit_triggered &&
                   !filled.gender
-                ? `${formStyles.dropdownHeader} ${formStyles.triggeredBox}`
-                : `${formStyles.dropdownHeader}`
+                ? `${styles.dropdownHeader} ${styles.triggeredBox}`
+                : `${styles.dropdownHeader}`
             }
             onClick={() => openGenderDropdown()}
           >
@@ -258,9 +254,9 @@ export default function CheckInForm(props) {
           </div>
           <div
             className={
-              open_gender
-                ? `${formStyles.dropdownContent} ${formStyles.show}`
-                : `${formStyles.dropdownContent}`
+              openGender
+                ? `${styles.dropdownContent} ${styles.show}`
+                : `${styles.dropdownContent}`
             }
           >
             {options.gender
@@ -274,52 +270,52 @@ export default function CheckInForm(props) {
         </div>
       </div>
 
-      <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>School</div>
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>School</div>
         <input
           className={
-            formStyles.inputBox && submit_triggered && !filled.school
-              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
-              : `${formStyles.inputBox}`
+            styles.inputBox && submit_triggered && !filled.school
+              ? `${styles.inputBox} ${styles.triggeredBox}`
+              : `${styles.inputBox}`
           }
           value={school}
           onChange={handleChangeSchool}
         />
       </div>
 
-      <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>Major</div>
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>Major</div>
         <input
           className={
-            formStyles.inputBox && submit_triggered && !filled.major
-              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
-              : `${formStyles.inputBox}`
+            styles.inputBox && submit_triggered && !filled.major
+              ? `${styles.inputBox} ${styles.triggeredBox}`
+              : `${styles.inputBox}`
           }
           value={major}
           onChange={handleChangeMajor}
         />
       </div>
 
-      <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>Grade</div>
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>Grade</div>
         <input
           className={
-            formStyles.inputBox && submit_triggered && !filled.grade
-              ? `${formStyles.inputBox} ${formStyles.triggeredBox}`
-              : `${formStyles.inputBox}`
+            styles.inputBox && submit_triggered && !filled.grade
+              ? `${styles.inputBox} ${styles.triggeredBox}`
+              : `${styles.inputBox}`
           }
           value={grade}
           onChange={handleChangeGrade}
         />
       </div>
 
-      <div className={formStyles.inputWrapper}>
-        <div className={formStyles.inputHeader}>First Time Hacker?</div>
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>First Time Hacker?</div>
         <div
           className={
-            formStyles.radio && submit_triggered && !filled.first_time
-              ? `${formStyles.radio} ${formStyles.triggered}`
-              : `${formStyles.radio}`
+            styles.radio && submit_triggered && !filled.first_time
+              ? `${styles.radio} ${styles.triggered}`
+              : `${styles.radio}`
           }
           onClick={() => toggleFirstTime(true)}
         >
@@ -328,9 +324,9 @@ export default function CheckInForm(props) {
         </div>
         <div
           className={
-            formStyles.radio && submit_triggered && !filled.first_time
-              ? `${formStyles.radio} ${formStyles.triggered}`
-              : `${formStyles.radio}`
+            styles.radio && submit_triggered && !filled.first_time
+              ? `${styles.radio} ${styles.triggered}`
+              : `${styles.radio}`
           }
           onClick={() => toggleFirstTime(false)}
         >
@@ -349,8 +345,8 @@ export default function CheckInForm(props) {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.997 }}
         transition={{ ease: 'easeInOut', duration: 0.015 }}
-        className={formStyles.button}
-        onClick={() => submitForm(props.name)}
+        className={styles.button}
+        onClick={() => submitForm(session.user.name, session.user.id)}
       >
         Submit
       </motion.button>

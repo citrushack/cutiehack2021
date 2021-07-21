@@ -18,6 +18,12 @@ const options = {
       clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
     }),
   ],
+  callbacks: {
+    async session(session, user) {
+      session.user.id = user.id
+      return session
+    }
+  },
   pages: {
     signIn: '/signin',
   },

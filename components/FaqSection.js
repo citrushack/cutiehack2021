@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { HiPlus } from 'react-icons/hi'
-import styles from '../styles/Accordion.module.css'
 import { motion } from 'framer-motion'
+
+import { HiPlus } from 'react-icons/hi'
+
+import styles from '../styles/Accordion.module.css'
 
 export default function FaqSection(props) {
   const [open, setOpen] = useState(false)

@@ -4,13 +4,13 @@ import { connectToDatabase } from '../../../util/mongodb'
 export default async function LeaveGroup(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { db } = await connectToDatabase();
-    const { group_data: [ name, code, users ] } = req.body; // check # of users before calling
+    const { group: [ groupId, userId, users ] } = req.body; // check # of users before calling
     db.collection('groups').updateOne(
-      {'groupId': code },
+      {'groupId': groupId },
       { $set: {'users': users } }
     );
     db.collection('checkins').updateOne(
-      {'name': name },
+      {'userId': userId },
       { $set: {'groupId': '' } }
     );
     res.status(200);

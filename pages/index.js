@@ -2,18 +2,19 @@ import Head from 'next/head'
 import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { connectToDatabase } from '../util/mongodb'
+import { useSession } from 'next-auth/client'
+import { motion } from 'framer-motion'
+
 import Layout from '../components/Layout'
 import CountdownWrapper from '../components/Countdown'
-import { connectToDatabase } from '../util/mongodb'
-import { session, useSession } from 'next-auth/client'
 import Faq from '../pages/faq'
 import Sponsors from '../pages/sponsors'
-import { FaCircle } from 'react-icons/fa'
-import { motion } from 'framer-motion'
 
 import heroLeft from '../public/assets/hero_left.png'
 import heroRight from '../public/assets/hero_right.png'
 import heroMobile from '../public/assets/hero_mobile.png'
+import { FaCircle } from 'react-icons/fa'
 
 import styles from '../styles/Index.module.css'
 
@@ -24,21 +25,21 @@ export default function Home() {
 
   const constraintsRef = useRef(null)
 
-  const fetchData = async (name) => {
+  const fetchData = async (userId) => {
     const response = await fetch('/api/checkin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ session_data: name }),
+      body: JSON.stringify({ user: userId }),
     })
     const data = await response.json()
     setCheckedIn(Object.keys(data.checkins).length !== 0)
-    setInGroup(data.checkins[0].groupId !== '')
+    if (data.checkins[0]) setInGroup(data.checkins[0].groupId !== '')
   }
 
   useEffect(() => {
-    if (session) fetchData(session.user.name)
+    if (session) fetchData(session.user.id)
   })
 
   return (

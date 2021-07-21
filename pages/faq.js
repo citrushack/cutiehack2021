@@ -1,5 +1,7 @@
-import styles from '../styles/Accordion.module.css'
+import React from 'react'
 import AccordionComponent from '../components/Accordion'
+
+import styles from '../styles/Accordion.module.css'
 
 export default function Faq() {
   return (

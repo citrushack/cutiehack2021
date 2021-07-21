@@ -1,4 +1,6 @@
+import React from 'react'
 import { motion } from 'framer-motion'
+
 import { FaChevronRight } from 'react-icons/fa'
 
 import styles from '../styles/Index.module.css'

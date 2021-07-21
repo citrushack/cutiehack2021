@@ -9,26 +9,28 @@ export default function Nav() {
   const [session] = useSession()
   const [checkedIn, setCheckedIn] = React.useState(false)
   const [inGroup, setInGroup] = React.useState(false)
-  const [group, setGroup] = React.useState('')
+  const [groupId, setGroupId] = React.useState('')
 
-  const fetchData = async (name) => {
+  const fetchData = async (id) => {
     const response = await fetch('/api/checkin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ session_data: name }),
+      body: JSON.stringify({ user: id }),
     })
     const data = await response.json()
     setCheckedIn(Object.keys(data.checkins).length !== 0)
-    setInGroup(data.checkins[0].groupId !== '')
-    if (data.checkins[0].groupId !== '') {
-      setGroup(data.checkins[0].groupId)
+    if (data.checkins[0]) {
+      setInGroup(data.checkins[0].groupId !== '')
+      if (data.checkins[0].groupId !== '') {
+        setGroupId(data.checkins[0].groupId)
+      }
     }
   }
 
   useEffect(() => {
-    if (session) fetchData(session.user.name)
+    if (session) fetchData(session.user.id)
   })
 
   return (
@@ -68,7 +70,7 @@ export default function Nav() {
               </Link>
             }
             {inGroup &&
-              <Link passHref href={"/groups/" + group}>
+              <Link passHref href={"/groups/" + groupId}>
                 <motion.a
                   aria-label="View Group Button"
                   type="button"

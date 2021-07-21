@@ -1,83 +1,97 @@
 import React, { useEffect } from 'react'
-import Layout from '../../../components/Layout'
 import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
 
-import formStyles from '../../../styles/Form.module.css'
+import Layout from '../../../components/Layout'
+
+import styles from '../../../styles/Form.module.css'
 
 export default function GroupPage() {
   const router = useRouter()
   const [session, loading] = useSession()
-  const [group, setGroup] = React.useState('')
+
+  const [groupId, setGroupId] = React.useState('')
   const [users, setUsers] = React.useState([])
 
-  useEffect(() => {
-    if (!loading && !session) {
-      router.push('/signin')
-      toast.error('Access denied. Please sign in!', { id: 'notSignedInGroupPageError'})
-    } else if (session) {
-      checkValidGroup()
-    }
-  }, [loading, session])
-
-  const fetchCode = async (name) => {
+  const fetchGroupId = async (userId) => {
     const response = await fetch('/api/checkin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ session_data: name }),
+      body: JSON.stringify({ user: userId }),
     })
     const data = await response.json()
-    return data.checkins[0].groupId
+    if (data.checkins[0]) return data.checkins[0].groupId
   }
 
-  const fetchGroup = async (code) => {
+  const fetchGroup = async (groupId) => {
     const response = await fetch('/api/groups', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ group_data: code }),
+      body: JSON.stringify({ group: groupId }),
     })
     const data = await response.json()
     if (data.groups[0]) {
-      setGroup(code)
-      setUsers(data.groups[0].users)
+      setGroupId(groupId)
+      const users = []
+      for (let i = 0; i < data.groups[0].users.length; i++) {
+        users.push(data.groups[0].users[i].name)
+      }
+      setUsers(users)
+      return data.groups[0].users
     }
   }
 
   const checkValidGroup = async () => {
-    const code = await fetchCode(session.user.name)
-    const pageURL = window.location.href;
-    const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
-    
-    if (code !== lastURLSegment) {
+    const groupId = await fetchGroupId(session.user.id)
+    const pageURL = window.location.href
+    const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1)
+
+    if (groupId !== lastURLSegment) {
       router.push('/')
-      toast.error('Access denied. This group does not exist, or you are not in this group.', { id: 'invalidGroupError'})
-    }
-    else {
-      await fetchGroup(code)
+      toast.error(
+        'Access denied. This group does not exist, or you are not in this group.',
+        { id: 'invalidGroupError' }
+      )
+    } else {
+      await fetchGroup(groupId)
     }
   }
 
-  const leaveGroup = async (name) => { /* change to user id */ 
-    const index = users.indexOf(name)
-    if (index > -1) {
-      users.splice(index, 1)
+  const leaveGroup = async (userId) => {
+    const currUsers = await fetchGroup(groupId)
+    const newUsers = []
+    for (let i = 0; i < currUsers.length; i++) {
+      if (currUsers[i].id !== userId) {
+        newUsers.push(currUsers[i])
+      }
     }
     const response = await fetch('/api/groups/leave', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ group_data: [name, group, users] }),
+      body: JSON.stringify({ group: [groupId, userId, newUsers] }),
     })
     await response.json()
     router.push('/')
-    toast.success('Successfully left the group!', { id: 'leaveGroupSuccess'})
+    toast.success('Successfully left the group!', { id: 'leaveGroupSuccess' })
   }
+
+  useEffect(() => {
+    if (!loading && !session) {
+      router.push('/signin')
+      toast.error('Access denied. Please sign in!', {
+        id: 'notSignedInGroupPageError',
+      })
+    } else if (session) {
+      checkValidGroup()
+    }
+  }, [loading, session])
 
   if (loading)
     return (
@@ -89,12 +103,15 @@ export default function GroupPage() {
   return (
     <Layout>
       <h1>Invite Code</h1>
-      {group}
+      {groupId}
       <h1>Members</h1>
       {users.map((user) => (
         <div>{user}</div>
       ))}
-      <div onClick={() => leaveGroup(session.user.name)} className={formStyles.button}>
+      <div
+        onClick={() => leaveGroup(session.user.id)}
+        className={styles.button}
+      >
         Leave Group
       </div>
     </Layout>

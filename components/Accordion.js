@@ -1,5 +1,7 @@
 import React from 'react'
+
 import FaqSection from "./FaqSection.js";
+
 import styles from "../styles/Accordion.module.css";
 
 export default function Accordian() {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+
 import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin } from 'react-icons/io5'
 
 import styles from '../styles/Socials.module.css'
