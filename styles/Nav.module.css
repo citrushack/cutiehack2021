@@ -81,7 +81,7 @@
 }
 
 .hidetabs {
-  display: none;
+  display: none !important;
 }
 
 .menuButtonWrapper {

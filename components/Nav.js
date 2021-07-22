@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link' // We should be using the Link component
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { Link as NavLink } from 'react-scroll'
+import { useRouter } from 'next/router'
 
 import { HiMenu, HiX } from 'react-icons/hi'
 
@@ -11,6 +12,7 @@ import styles from '../styles/Nav.module.css'
 
 export default function Nav() {
   const [session] = useSession()
+  const router = useRouter()
 
   const [isMobile, setIsMobile] = useState(false)
   var buttonVariants = {}
@@ -25,8 +27,8 @@ export default function Nav() {
   const [checkedIn, setCheckedIn] = useState(false)
   const [inGroup, setInGroup] = useState(false)
   const [groupId, setGroupId] = useState('')
-  const [hideTabs, setHideTabs] = useState(false)
   const [open, setOpen] = useState(false)
+  const [showTabs, setShowTabs] = useState(false)
 
   const fetchData = async (id) => {
     const response = await fetch('/api/checkin', {
@@ -46,12 +48,6 @@ export default function Nav() {
     }
   }
 
-  const checkPage = async () => {
-    const pageURL = window.location.href
-    const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1)
-    setHideTabs(lastURLSegment !== '' && lastURLSegment !== '#')
-  }
-
   const toggle = () => {
     setOpen(!open)
   }
@@ -63,10 +59,10 @@ export default function Nav() {
 
   useEffect(() => {
     if (session) fetchData(session.user.id)
-    checkPage()
+
+    setShowTabs(router.pathname !== '/')
 
     window.addEventListener('resize', handleResize)
-
     setTargetElement(document.querySelector('nav'))
     if (targetElement) {
       if (open) disableBodyScroll(targetElement)
@@ -85,7 +81,7 @@ export default function Nav() {
           <HiX className={styles.menuButton} />
         </div>
         <div id="nav" className={styles.tabs}>
-          <NavLink className={!hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}>
+          <NavLink className={showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}>
             <Link href="/">Home</Link>
           </NavLink>
           <NavLink
@@ -95,7 +91,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             Home
@@ -107,7 +103,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             About
@@ -119,7 +115,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             FAQ
@@ -131,7 +127,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             Help
@@ -143,7 +139,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             Sponsors
