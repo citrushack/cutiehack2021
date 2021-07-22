@@ -79,22 +79,38 @@ export default function GroupPage() {
     }
   }
 
-  const leaveGroup = async (userId) => {
-    const currUsers = await fetchGroup(groupId)
-    const newUsers = []
-    for (let i = 0; i < currUsers.length; i++) {
-      if (currUsers[i].id !== userId) {
-        newUsers.push(currUsers[i])
-      }
-    }
-    const response = await fetch('/api/groups/leave', {
+  const deleteGroup = async (groupId, userId) => {
+    const response = await fetch('/api/groups/delete', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ group: [groupId, userId, newUsers] }),
+      body: JSON.stringify({ group: [groupId, userId] }),
     })
     await response.json()
+  }
+
+  const leaveGroup = async (userId) => {
+    const currUsers = await fetchGroup(groupId)
+    if (currUsers.length === 1) {
+      await deleteGroup(groupId, userId)
+    }
+    else {
+      const newUsers = []
+      for (let i = 0; i < currUsers.length; i++) {
+        if (currUsers[i].id !== userId) {
+          newUsers.push(currUsers[i])
+        }
+      }
+      const response = await fetch('/api/groups/leave', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ group: [groupId, userId, newUsers] }),
+      })
+      await response.json()
+    }
     router.push('/')
     toast.success('Successfully left the group!', { id: 'leaveGroupSuccess' })
   }

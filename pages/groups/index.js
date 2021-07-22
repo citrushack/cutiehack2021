@@ -66,6 +66,7 @@ export default function Groups() {
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 720)
   }
+  
   useEffect(() => {
     window.addEventListener('resize', handleResize)
     if (!loading && !session) {
