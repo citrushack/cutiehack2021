@@ -21,7 +21,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     const numSeconds = seconds < 10 ? String(`0${seconds}`) : String(seconds)
 
     return (
-      <>
+      <div className={styles.container}>
         <div className={styles.header}>
           time remaining
         </div>
@@ -62,7 +62,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
             <div className={styles.label}>seconds</div>
           </div>
         </div>
-      </>
+      </div>
     )
   }
 }

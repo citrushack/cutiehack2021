@@ -195,13 +195,10 @@
 
 @media (max-width: 420px) {
   .greeting {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .title {
-    font-size: 2rem;
-  }
-  .windowContent {
-    margin: 1.5rem 0.8rem;
+    font-size: 3rem;
   }
   .windowButton {
     font-size: 1rem;
@@ -209,9 +206,8 @@
   .actionwrapper {
     flex-direction: column;
   }
-  .actionwrapper * {
-    margin: 6px 0;
-    font-size: 0.8rem;
+  .actionwrapper *:nth-of-type(2) {
+    margin: 10px 0;
   }
 }
 
@@ -220,16 +216,9 @@
     font-size: 1.2rem;
   }
   .title {
-    font-size: 2rem;
-  }
-  .windowContent {
-    margin: 2rem 1.5rem;
+    font-size: 3.5rem;
   }
   .windowButton {
-    font-size: 1rem;
-  }
-  .actionwrapper * {
-    margin: 0 6px;
     font-size: 1rem;
   }
 }
@@ -239,10 +228,16 @@
     font-size: 1.5rem;
   }
   .title {
-    font-size: 3rem;
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .window {
+    width: 100%;
   }
   .windowContent {
-    margin: 2rem 3.5rem;
+    margin: 6% 4%;
   }
 }
 
