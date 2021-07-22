@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useSession } from 'next-auth/client'
+import { signIn, signOut, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
 
 import CountdownWrapper from '../components/Countdown'
@@ -113,6 +113,20 @@ export default function Home() {
               <div>
                 <h1 className={styles.title}>cutie hack</h1>
                 <CountdownWrapper />
+                {!session && isMobile &&
+                  <motion.button
+                    aria-label="Sign In Button"
+                    type="button"
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition="ease"
+                    className={styles.primarybutton}
+                    onClick={signIn}
+                  >
+                    Sign in
+                  </motion.button>
+                }
                 {session && checkedIn && !inGroup && (
                   <div className={styles.actionwrapper}>
                     <Link passHref href="/groups/create">
