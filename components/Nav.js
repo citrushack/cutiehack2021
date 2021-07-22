@@ -96,7 +96,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
-            onClick={() => toggle()}
+            onClick={() => setOpen(false)}
           >
             Home
           </NavLink>
@@ -108,7 +108,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
-            onClick={() => toggle()}
+            onClick={() => setOpen(false)}
           >
             About
           </NavLink>
@@ -120,7 +120,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
-            onClick={() => toggle()}
+            onClick={() => setOpen(false)}
           >
             FAQ
           </NavLink>
@@ -132,7 +132,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
-            onClick={() => toggle()}
+            onClick={() => setOpen(false)}
           >
             Help
           </NavLink>
@@ -144,7 +144,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
-            onClick={() => toggle()}
+            onClick={() => setOpen(false)}
           >
             Sponsors
           </NavLink>
