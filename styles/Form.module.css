@@ -1,8 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .button {
   display: flex;
   width: 28rem;
   height: 3rem;
-  margin: 0.3rem 0;
+  margin: 0.2rem 0;
   align-items: center;
   justify-content: center;
   font-weight: 700;
@@ -20,11 +28,10 @@
 }
 
 .inputWrapper {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .inputHeader {
@@ -136,4 +143,15 @@
 
 .triggeredBox {
   border: 2px solid #f55b5b;
+}
+
+@media (max-width: 480px) {
+  .button,
+  .inputWrapper,
+  .inputBox,
+  .dropdownHeader,
+  .dropdownContent div,
+  .radio {
+    width: 100%;
+  }
 }

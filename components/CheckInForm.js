@@ -172,7 +172,7 @@ export default function CheckInForm() {
   })
 
   return (
-    <section>
+    <div className={styles.container}>
       <div className={styles.inputWrapper}>
         <div className={styles.inputHeader}>
           Email
@@ -366,6 +366,6 @@ export default function CheckInForm() {
       >
         Submit
       </motion.button>
-    </section>
+    </div>
   )
 }
