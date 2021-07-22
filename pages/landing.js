@@ -133,6 +133,21 @@ export default function Home() {
                     Sign in
                   </motion.button>
                 }
+                {session && isMobile && !checkedIn &&
+                  <Link passHref href="/checkin">
+                    <motion.a
+                      aria-label="Check In Button"
+                      type="button"
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                      transition={{ ease: 'easeInOut', duration: 0.015 }}
+                      className={styles.primarybutton}
+                    >
+                      Check In
+                    </motion.a>
+                  </Link>
+                }
                 {session && isMobile && inGroup &&
                   <Link passHref href={"/groups/" + groupId}>
                     <motion.a
