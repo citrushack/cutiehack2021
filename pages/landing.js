@@ -32,6 +32,7 @@ export default function Home() {
 
   const [checkedIn, setCheckedIn] = useState(false)
   const [inGroup, setInGroup] = useState(false)
+  const [groupId, setGroupId] = useState('')
 
   const constraintsRef = useRef(null)
 
@@ -45,7 +46,12 @@ export default function Home() {
     })
     const data = await response.json()
     setCheckedIn(Object.keys(data.checkins).length !== 0)
-    if (data.checkins[0]) setInGroup(data.checkins[0].groupId !== '')
+    if (data.checkins[0]) {
+      setInGroup(data.checkins[0].groupId !== '')
+      if (data.checkins[0].groupId !== '') {
+        setGroupId(data.checkins[0].groupId)
+      }
+    }
   }
 
   const handleResize = () => {
@@ -126,6 +132,21 @@ export default function Home() {
                   >
                     Sign in
                   </motion.button>
+                }
+                {session && isMobile && inGroup &&
+                  <Link passHref href={"/groups/" + groupId}>
+                    <motion.a
+                      aria-label="View Group Button"
+                      type="button"
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                      transition={{ ease: 'easeInOut', duration: 0.015 }}
+                      className={styles.primarybutton}
+                    >
+                      View Your Group
+                    </motion.a>
+                  </Link>
                 }
                 {session && checkedIn && !inGroup && (
                   <div className={styles.actionwrapper}>
