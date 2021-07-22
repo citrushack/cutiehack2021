@@ -6,7 +6,6 @@
   width: 100vw;
   overflow: hidden;
   z-index: 0;
-  /* transform: translateY(3rem); */
 }
 
 .main {
@@ -229,6 +228,12 @@
   }
   .title {
     font-size: 4rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .intro {
+    transform: translate(-50%, -45%);
   }
 }
 
