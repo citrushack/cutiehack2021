@@ -12,7 +12,7 @@ export default function Sponsors() {
   if (!isMobile)
     buttonVariants = {
       hover: { scale: 1.02 },
-      tap: { scale: 0.997 }
+      tap: { scale: 0.997 },
     }
 
   const handleResize = () => {
@@ -24,14 +24,11 @@ export default function Sponsors() {
   })
 
   return (
-    <main className={styles.main}>
+    <main className={sponsorsStyles.main}>
       <div className={styles.sponsors}>
         <h1>Sponsors</h1>
         <p>Those who made this hackathon possible.</p>
-        <motion.div 
-          variants={buttonVariants}
-          whileTap="tap"
-        >
+        <motion.div variants={buttonVariants} whileTap="tap">
           {/* "sponser us" form */}
           <a href="#">
             <div className={sponsorsStyles.icon}>

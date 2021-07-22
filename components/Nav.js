@@ -3,6 +3,7 @@ import Link from 'next/link' // We should be using the Link component
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import { Link as NavLink } from 'react-scroll'
 
 import { HiMenu, HiX } from 'react-icons/hi'
 
@@ -83,12 +84,65 @@ export default function Nav() {
           <HiMenu className={styles.menuButton} />
           <HiX className={styles.menuButton} />
         </div>
-        <div id="nav" className={styles.tabs}>
-          <Link href="/">Home</Link>
-          <a href="#" className={hideTabs && styles.hidetabs}>About</a>
-          <a href="#" className={hideTabs && styles.hidetabs}>FAQ</a>
-          <a href="#" className={hideTabs && styles.hidetabs}>Help</a>
-          <a href="#sponsors" className={hideTabs && styles.hidetabs}>Sponsors</a>
+        <div id="nav" className={styles.tabs} onClick={() => toggle()}>
+          <NavLink className={!hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}>
+            <Link href="/">Home</Link>
+          </NavLink>
+          <NavLink
+            activeClass="active"
+            to="Home"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            activeClass="active"
+            to="About"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+          >
+            About
+          </NavLink>
+          <NavLink
+            activeClass="active"
+            to="FAQ"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+          >
+            FAQ
+          </NavLink>
+          <NavLink
+            activeClass="active"
+            to="Help"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+          >
+            Help
+          </NavLink>
+          <NavLink
+            activeClass="active"
+            to="Sponsors"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+          >
+            Sponsors
+          </NavLink>
           {!session ? (
             <motion.button
               aria-label="Sign In Button"

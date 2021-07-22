@@ -26,7 +26,9 @@ export default function Groups() {
     const data = await response.json()
     if (Object.keys(data.checkins).length === 0) {
       router.push('/checkin')
-      toast.error('Access denied. Please check in!', { id: 'notCheckedInGroupPageError' })
+      toast.error('Access denied. Please check in!', {
+        id: 'notCheckedInGroupPageError',
+      })
     }
     if (data.checkins[0]) {
       setInGroup(data.checkins[0].groupId !== '')

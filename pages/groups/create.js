@@ -21,7 +21,9 @@ export default function CreateGroup() {
     const data = await response.json()
     if (Object.keys(data.checkins).length === 0) {
       router.push('/checkin')
-      toast.error('Access denied. Please check in!', { id: 'notCheckedInCreateGroupError' })
+      toast.error('Access denied. Please check in!', {
+        id: 'notCheckedInCreateGroupError',
+      })
     }
     if (data.checkins[0] && data.checkins[0].groupId !== '') {
       router.push('/groups/' + data.checkins[0].groupId)

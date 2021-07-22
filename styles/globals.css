@@ -95,3 +95,7 @@ a {
   box-sizing: border-box;
   font-family: 'Nunito', sans-serif;
 }
+
+.active {
+  color: var(--brand);
+}

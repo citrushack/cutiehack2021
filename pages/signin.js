@@ -38,7 +38,7 @@ export default function SignIn({ providers }) {
   if (!isMobile)
     buttonVariants = {
       hover: { scale: 1.02 },
-      tap: { scale: 0.997 }
+      tap: { scale: 0.997 },
     }
 
   const handleResize = () => {
