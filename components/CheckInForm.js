@@ -127,28 +127,27 @@ export default function CheckInForm() {
 
   const submitForm = (name, id) => {
     triggerSubmit(true)
-    if (Object.values(filled).every((e) => e)) {
+    const allFieldsFilled = Object.values(filled).every((e) => e)
+    const validEmailEntry = filled.email && /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
+    const matchingEmails = filled.email && filled.emailConfirm && email === emailConfirm
+
+    if (!allFieldsFilled) {
+      toast.error('Please fill out all required fields.', { id: 'incompleteFormError'})
+    }
+    if (!validEmailEntry) {
+      setIsValidEmail(false)
+      toast.error('Please input a valid email.', { id: 'invalidEmailError'})
+    }
+    if (!matchingEmails) {
+      setIsValidEmail(false)
+      toast.error('Emails don\'t match. Please try again.', { id: 'notMatchingEmailsError'})
+    }
+
+    if (allFieldsFilled && validEmailEntry && matchingEmails) {
       const data = [name, email, race, gender, school, major, grade, first_time, id]
       sendData(data)
       router.push('/groups/create')
       toast.success('Succesfully checked in!', { id: 'checkInSuccess'})
-    } else {
-      if (
-        filled.email &&
-        !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-          email
-        )
-      ) {
-        setIsValidEmail(false)
-        toast.error('Please input a valid email.', { id: 'invalidEmailError'})
-      } else if (filled.email && filled.emailConfirm && email !== emailConfirm) {
-        setIsValidEmail(false)
-        toast.error('Emails don\'t match. Please try again.', { id: 'notMatchingEmailsError'})
-      }
-      else {
-        setIsValidEmail(true)
-      }
-      toast.error('Please fill out all required fields.', { id: 'incompleteFormError'})
     }
   }
 
