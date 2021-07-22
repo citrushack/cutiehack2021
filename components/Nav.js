@@ -84,7 +84,7 @@ export default function Nav() {
           <HiMenu className={styles.menuButton} />
           <HiX className={styles.menuButton} />
         </div>
-        <div id="nav" className={styles.tabs} onClick={() => toggle()}>
+        <div id="nav" className={styles.tabs}>
           <NavLink className={!hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}>
             <Link href="/">Home</Link>
           </NavLink>
@@ -96,6 +96,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            onClick={() => toggle()}
           >
             Home
           </NavLink>
@@ -107,6 +108,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            onClick={() => toggle()}
           >
             About
           </NavLink>
@@ -118,6 +120,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            onClick={() => toggle()}
           >
             FAQ
           </NavLink>
@@ -129,6 +132,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            onClick={() => toggle()}
           >
             Help
           </NavLink>
@@ -140,6 +144,7 @@ export default function Nav() {
             offset={-70}
             duration={500}
             className={hideTabs ? `${styles.hidetabs}` : `${styles.hidetabs} ${styles.tab}`}
+            onClick={() => toggle()}
           >
             Sponsors
           </NavLink>
