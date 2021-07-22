@@ -146,7 +146,7 @@ export default function CheckInForm() {
     if (allFieldsFilled && validEmailEntry && matchingEmails) {
       const data = [name, email, race, gender, school, major, grade, first_time, id]
       sendData(data)
-      router.push('/groups/create')
+      router.push('/groups')
       toast.success('Succesfully checked in!', { id: 'checkInSuccess'})
     }
   }

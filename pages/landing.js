@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -119,7 +118,7 @@ export default function Home() {
               <div>
                 <h1 className={styles.title}>cutie hack</h1>
                 <CountdownWrapper />
-                {!session && isMobile &&
+                {!session && isMobile && (
                   <motion.button
                     aria-label="Sign In Button"
                     type="button"
@@ -132,8 +131,8 @@ export default function Home() {
                   >
                     Sign in
                   </motion.button>
-                }
-                {session && isMobile && !checkedIn &&
+                )}
+                {session && isMobile && !checkedIn && (
                   <Link passHref href="/checkin">
                     <motion.a
                       aria-label="Check In Button"
@@ -147,9 +146,9 @@ export default function Home() {
                       Check In
                     </motion.a>
                   </Link>
-                }
-                {session && isMobile && inGroup &&
-                  <Link passHref href={"/groups/" + groupId}>
+                )}
+                {session && isMobile && inGroup && (
+                  <Link passHref href={'/groups/' + groupId}>
                     <motion.a
                       aria-label="View Group Button"
                       type="button"
@@ -162,7 +161,7 @@ export default function Home() {
                       View Your Group
                     </motion.a>
                   </Link>
-                }
+                )}
                 {session && checkedIn && !inGroup && (
                   <div className={styles.actionwrapper}>
                     <Link passHref href="/groups/create">
