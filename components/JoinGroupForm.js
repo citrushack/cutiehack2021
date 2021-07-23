@@ -19,10 +19,7 @@ export default function CreateGroupForm() {
     }
 
   const [error, setError] = useState(false)
-  const [groupExists, setGroupExists] = useState('')
-  const [groupFull, setGroupFull] = useState('')
   const [groupId, setGroupId] = useState('')
-  const [users, setUsers] = useState([])
 
   const handleChangeCode = (e) => {
     setError(false)
@@ -30,19 +27,19 @@ export default function CreateGroupForm() {
   }
 
   const joinGroup = async (groupId) => {
-    await fetchGroup(groupId)
-    if (groupExists && groupFull) {
+    const group = await fetchGroup(groupId)
+    if (group.exists && group.full) {
       setError(true)
       toast.error('Group is full. Try a different group.', { id: 'fullGroupError'})
     } 
-    else if (groupExists && !groupFull) {
+    else if (group.exists && !group.full) {
       setError(false)
-      updateGroup(session.user.id, session.user.name)
+      updateGroup(session.user.id, session.user.name, group.users)
       toast.success('Successfully joined group!', { id: 'joinGroupSuccess'})
       const dst = '/groups/' + groupId.toString()
       router.push(dst)
     }
-    else if (!groupExists) {
+    else if (!group.exists) {
       setError(true)
       toast.error('Group does not exist. Try again.', { id: 'groupError'})
     }
@@ -57,15 +54,17 @@ export default function CreateGroupForm() {
       body: JSON.stringify({ group: groupId }),
     })
     const data = await response.json()
-    setGroupExists(Object.keys(data.groups).length !== 0)
-    setGroupFull(false) // reset for different groups
-    if (data.groups[0] && data.groups[0].users.length === 4) {
-      setGroupFull(true)
+    var groupExists = (Object.keys(data.groups).length !== 0)
+    var groupFull = false
+    var users = []
+    if (data.groups[0]) {
+      groupFull = (data.groups[0].users.length === 4)
+      users = data.groups[0].users
     }
-    if (data.groups[0]) setUsers(data.groups[0].users)
+    return ({exists: groupExists, full: groupFull, users: users})
   }
 
-  const updateGroup = async (userId, userName) => {
+  const updateGroup = async (userId, userName, users) => {
     users.push({ id: userId, name: userName })
     const response = await fetch('/api/groups/join', {
       method: 'POST',

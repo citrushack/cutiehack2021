@@ -98,5 +98,4 @@ a {
 
 .active {
   color: var(--brand);
-  /* border-bottom: 3px solid var(--brand); */
 }
