@@ -134,7 +134,7 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
-  font-weight: 750;
+  font-weight: 700;
   font-size: large;
   transition: all 100ms ease-in-out;
   cursor: pointer;
@@ -148,6 +148,14 @@
 
 .primarybutton:hover {
   background-color: var(--brand-dark);
+}
+
+.actionwrapper button:nth-of-type(2) {
+  background-color: var(--brand-light);
+}
+
+.actionwrapper button:nth-of-type(2):hover {
+  background-color: #d0901b;
 }
 
 .secondarybutton {

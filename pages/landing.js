@@ -156,7 +156,7 @@ export default function Home() {
                 {session && isMobile && !checkedIn && (
                   <div className={styles.actionwrapper}>
                     <Link passHref href="/checkin">
-                      <motion.a
+                      <motion.button
                         aria-label="Check In Button"
                         type="button"
                         variants={buttonVariants}
@@ -166,14 +166,14 @@ export default function Home() {
                         className={styles.primarybutton}
                       >
                         Check In
-                      </motion.a>
+                      </motion.button>
                     </Link>
                   </div>
                 )}
                 {session && isMobile && inGroup && (
                   <div className={styles.actionwrapper}>
                     <Link passHref href={'/groups/' + groupId}>
-                      <motion.a
+                      <motion.button
                         aria-label="View Group Button"
                         type="button"
                         variants={buttonVariants}
@@ -183,7 +183,7 @@ export default function Home() {
                         className={styles.primarybutton}
                       >
                         View Your Group
-                      </motion.a>
+                      </motion.button>
                     </Link>
                   </div>
                 )}
@@ -204,7 +204,7 @@ export default function Home() {
                       Create Group
                     </motion.button>
                     <Link passHref href="/groups/join">
-                      <motion.a
+                      <motion.button
                         aria-label="Join Group Button"
                         type="button"
                         variants={buttonVariants}
@@ -214,7 +214,7 @@ export default function Home() {
                         className={styles.primarybutton}
                       >
                         Join a Group
-                      </motion.a>
+                      </motion.button>
                     </Link>
                   </div>
                 )}
