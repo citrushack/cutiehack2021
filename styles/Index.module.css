@@ -88,7 +88,7 @@
 }
 
 .greeting {
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   border: 2px solid var(--brand-darkest);
   border-radius: 5px;
   color: var(--brand-darkest);
@@ -243,6 +243,9 @@
   }
   .windowContent {
     margin: 6% 4%;
+  }
+  .greeting {
+    padding: 0.5rem;
   }
 }
 

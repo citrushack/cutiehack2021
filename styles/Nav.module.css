@@ -102,7 +102,6 @@
 @media (max-width: 720px) {
   .tabs {
     flex-direction: column;
-    margin-left: 30px;
     margin-right: 0;
   }
   .menuButtonWrapper {
