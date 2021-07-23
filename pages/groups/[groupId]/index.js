@@ -56,8 +56,6 @@ export default function GroupPage() {
   const checkValidGroup = async () => {
     const groupId = await fetchGroupId(session.user.id)
     const lastURLSegment = await fetchLastURLSegment()
-    console.log(groupId)
-    console.log(lastURLSegment)
 
     if (groupId !== lastURLSegment) {
       router.push('/')
