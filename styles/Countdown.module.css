@@ -12,16 +12,17 @@
 .header {
   margin-bottom: 1rem;
   padding: 0.2rem 0;
-  border-top: 2px solid var(--brand-light);
-  border-bottom: 2px solid var(--brand-light);
+  border-top: 2px solid var(--brand);
+  border-bottom: 2px solid var(--brand);
   font-weight: 700;
-  color: var(--brand-light);
+  color: var(--brand);
 }
 
 .number {
   display: flex;
   flex-direction: row; 
   font-size: 3rem;
+  color: var(--brand-darkest);
 }
 
 .number * {
@@ -45,6 +46,7 @@
   padding: 1.2rem 0.5rem 0 0.5rem;
   font-weight: 700;
   font-size: 2.5rem;
+  color: var(--brand-darkest);
 }
 
 .label {
