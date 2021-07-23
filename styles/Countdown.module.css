@@ -12,10 +12,10 @@
 .header {
   margin-bottom: 1rem;
   padding: 0.2rem 0;
-  border-radius: 5px;
-  background: var(--brand-light);
+  border-top: 2px solid var(--brand-light);
+  border-bottom: 2px solid var(--brand-light);
   font-weight: 700;
-  color: var(--bg);
+  color: var(--brand-light);
 }
 
 .number {
