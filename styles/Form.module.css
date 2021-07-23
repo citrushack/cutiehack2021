@@ -156,6 +156,12 @@
   border: 2px solid #f55b5b;
 }
 
+@media (max-width: 420px) {
+  .button{
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 480px) {
   .button,
   .inputWrapper,
