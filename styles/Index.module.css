@@ -31,17 +31,6 @@
   padding: 0 1rem;
   overflow: hidden;
 }
-.sponsors {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  padding: 0 1rem;
-  overflow: hidden;
-}
 
 .window {
   margin: 0.5rem;

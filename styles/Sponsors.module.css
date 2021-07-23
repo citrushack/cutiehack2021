@@ -7,9 +7,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
-  margin: 0 auto;
   text-align: center;
+}
+
+.header {
+  margin-bottom: 0;
 }
 
 .topAlign {
@@ -17,6 +19,10 @@
 }
 
 .button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 15rem;
   padding: 1rem 2rem;
   border: 2px solid var(--brand);
   border-radius: 15px;
@@ -24,6 +30,7 @@
   font-size: large;
   color: var(--brand);
   transition: all 100ms ease-in-out;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -33,7 +40,6 @@
 
 .iconTextWrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
 }
