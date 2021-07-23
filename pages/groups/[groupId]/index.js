@@ -89,7 +89,7 @@ export default function GroupPage() {
       const users = []
       if (data.groups[0].users) {
         for (let i = 0; i < data.groups[0].users.length; i++) {
-          users.push(data.groups[0].users[i].name)
+          users.push(data.groups[0].users[i])
         }
         setUsers(users)
       }
@@ -188,7 +188,7 @@ export default function GroupPage() {
         {users.map((user) => (
           <div className={styles.user}>
             <FaRegCircle className={styles.bullet} />
-            <div>{user}</div>
+            <div>{user.name}</div>
             <FaRegCircle className={styles.filler} />
           </div>
         ))}
