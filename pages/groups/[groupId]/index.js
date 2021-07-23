@@ -47,10 +47,17 @@ export default function GroupPage() {
     }
   }
 
-  const checkValidGroup = async () => {
-    const groupId = await fetchGroupId(session.user.id)
+  const fetchLastURLSegment = async () => {
     const pageURL = window.location.href
     const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1)
+    return lastURLSegment
+  }
+
+  const checkValidGroup = async () => {
+    const groupId = await fetchGroupId(session.user.id)
+    const lastURLSegment = await fetchLastURLSegment()
+    console.log(groupId)
+    console.log(lastURLSegment)
 
     if (groupId !== lastURLSegment) {
       router.push('/')
