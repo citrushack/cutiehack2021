@@ -5,8 +5,11 @@ import { Element, animateScroll as scroll } from 'react-scroll'
 
 import Layout from '../components/Layout'
 import Landing from '../pages/landing'
+import About from '../pages/about'
 import Faq from '../pages/faq'
+import Help from '../pages/help'
 import Sponsors from '../pages/sponsors'
+import Team from '../pages/team'
 
 export default function Home() {
   return (
@@ -39,12 +42,19 @@ export default function Home() {
         <Element name="Home">
           <Landing />
         </Element>
+        <Element name="About">
+          <About />
+        </Element>
         <Element name="FAQ">
           <Faq />
+        </Element>
+        <Element name="Help">
+          <Help />
         </Element>
         <Element name="Sponsors">
           <Sponsors />
         </Element>
+        <Team />
       </Layout>
     </>
   )
