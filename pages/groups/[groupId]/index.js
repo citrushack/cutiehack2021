@@ -162,7 +162,7 @@ export default function GroupPage() {
         className={styles.copywrapper}
       >
         <motion.button
-          aria-label="Provider Sign In Button"
+          aria-label="Copy to Clipboard Button"
           type="button"
           variants={buttonVariants}
           whileHover="hover"
@@ -180,14 +180,14 @@ export default function GroupPage() {
       <div className={styles.userlist}>
         {users.map((user) => (
           <div className={styles.user}>
-            <FaRegCircle />
+            <FaRegCircle className={styles.bullet}/>
             <div>{user}</div>
             <FaRegCircle className={styles.filler}/>
           </div>
         ))}
       </div>
       <motion.button
-        aria-label="Provider Sign In Button"
+        aria-label="Leave Group Button"
         type="button"
         variants={buttonVariants}
         whileHover="hover"
@@ -200,7 +200,7 @@ export default function GroupPage() {
       </motion.button>
       <Link passHref href="/">
         <motion.button
-          aria-label="Provider Sign In Button"
+          aria-label="Home Button"
           type="button"
           variants={buttonVariants}
           whileHover="hover"

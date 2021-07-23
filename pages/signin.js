@@ -76,7 +76,7 @@ export default function SignIn({ providers }) {
       })}
       <Link passHref href="/">
         <motion.button
-          aria-label="Provider Sign In Button"
+          aria-label="Home Button"
           type="button"
           variants={buttonVariants}
           whileHover="hover"

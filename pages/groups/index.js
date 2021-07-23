@@ -91,7 +91,7 @@ export default function Groups() {
       {inGroup ? (
         <Link passHref href={'/groups/' + groupId}>
           <motion.button
-            aria-label="Create Group Button"
+            aria-label="View Group Button"
             type="button"
             variants={buttonVariants}
             whileHover="hover"
@@ -118,7 +118,7 @@ export default function Groups() {
           </motion.button>
           <Link passHref href="/groups/join">
             <motion.button
-              aria-label="Create Group Button"
+              aria-label="Join Group Button"
               type="button"
               variants={buttonVariants}
               whileHover="hover"
@@ -133,7 +133,7 @@ export default function Groups() {
       )}
       <Link passHref href="/">
         <motion.button
-          aria-label="Provider Sign In Button"
+          aria-label="Home Button"
           type="button"
           variants={buttonVariants}
           whileHover="hover"
