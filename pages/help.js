@@ -29,7 +29,7 @@ export default function Help() {
         <h1 className={styles.header}>Get Involved</h1>
         <p>
           Not interested in hacking but still want to participate? Fill out the
-          forms below if you`&apos;`d like to help hackers throughout the day.
+          forms below if you&apos;d like to help hackers throughout the day.
         </p>
         <div className={styles.buttonWrapper}>
           <Link passHref href="/">
