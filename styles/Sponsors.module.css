@@ -23,9 +23,9 @@
   flex-direction: row;
   justify-content: center;
   width: 15rem;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   border: 2px solid var(--brand);
-  border-radius: 15px;
+  border-radius: 5px;
   font-weight: 700;
   font-size: large;
   color: var(--brand);
