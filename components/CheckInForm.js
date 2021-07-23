@@ -151,8 +151,7 @@ export default function CheckInForm() {
     }
   }
 
-  const sendData = async (checkinData) => {
-    console.log(checkinData)
+  const sendData = async (checkinData) => {\
     const response = await fetch('/api/checkin/create', {
       method: 'POST',
       headers: {

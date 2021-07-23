@@ -83,7 +83,6 @@ export default function CountdownWrapper() {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
-    console.log(buttonVariants)
   })
 
   return (
