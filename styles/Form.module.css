@@ -167,8 +167,12 @@
   .inputWrapper,
   .inputBox,
   .dropdownHeader,
-  .dropdownContent div,
+  .dropdownContent,
   .radio {
     width: 100%;
+  }
+  
+  .dropdownContent div {
+    width: inherit;
   }
 }
