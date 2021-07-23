@@ -10,7 +10,7 @@
   display: flex;
   width: 28rem;
   height: 3rem;
-  margin: 0.2rem 0;
+  margin: 0.3rem 0;
   align-items: center;
   justify-content: center;
   font-weight: 700;
@@ -25,6 +25,15 @@
 .button:hover {
   background-color: #c9b695;
   box-shadow: 0 6px 16px 0 rgba(98, 99, 99, 0.1);
+}
+
+.home {
+  background-color: var(--brand-light);
+  color: var(--bg);
+}
+
+.home:hover {
+  background-color: #d0901b;
 }
 
 .inputWrapper {

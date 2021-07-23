@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
 
 import Layout from '../../../components/Layout'
@@ -10,6 +12,14 @@ import styles from '../../../styles/Form.module.css'
 export default function GroupPage() {
   const router = useRouter()
   const [session, loading] = useSession()
+
+  const [isMobile, setIsMobile] = useState(false)
+  var buttonVariants = {}
+  if (!isMobile)
+    buttonVariants = {
+      hover: { scale: 1.02 },
+      tap: { scale: 0.997 },
+    }
 
   const [groupId, setGroupId] = useState('')
   const [users, setUsers] = useState([])
@@ -115,7 +125,12 @@ export default function GroupPage() {
     toast.success('Successfully left the group!', { id: 'leaveGroupSuccess' })
   }
 
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 720)
+  }
+
   useEffect(() => {
+    window.addEventListener('resize', handleResize)
     if (!loading && !session) {
       router.push('/signin')
       toast.error('Access denied. Please sign in!', {
@@ -142,12 +157,31 @@ export default function GroupPage() {
       {users.map((user) => (
         <div>{user}</div>
       ))}
-      <div
-        onClick={() => leaveGroup(session.user.id)}
+      <motion.button
+        aria-label="Provider Sign In Button"
+        type="button"
+        variants={buttonVariants}
+        whileHover="hover"
+        whileTap="tap"
+        transition={{ ease: 'easeInOut', duration: 0.015 }}
         className={styles.button}
+        onClick={() => leaveGroup(session.user.id)}
       >
         Leave Group
-      </div>
+      </motion.button>
+      <Link passHref href="/">
+        <motion.button
+          aria-label="Provider Sign In Button"
+          type="button"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          transition={{ ease: 'easeInOut', duration: 0.015 }}
+          className={`${styles.button} ${styles.home}`}
+        >
+          Go Back to Homepage
+        </motion.button>
+      </Link>
     </Layout>
   )
 }

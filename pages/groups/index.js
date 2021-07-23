@@ -90,7 +90,17 @@ export default function Groups() {
     <Layout>
       {inGroup ? (
         <Link passHref href={'/groups/' + groupId}>
-          <div className={styles.button}>View Your Group</div>
+          <motion.button
+            aria-label="Create Group Button"
+            type="button"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            transition={{ ease: 'easeInOut', duration: 0.015 }}
+            className={styles.button}
+          >
+            View Your Group
+          </motion.button>
         </Link>
       ) : (
         <>
@@ -107,12 +117,32 @@ export default function Groups() {
             Create Group
           </motion.button>
           <Link passHref href="/groups/join">
-            <div className={styles.button}>Join a Group</div>
+            <motion.button
+              aria-label="Create Group Button"
+              type="button"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              transition={{ ease: 'easeInOut', duration: 0.015 }}
+              className={styles.button}
+            >
+              Join a Group
+            </motion.button>
           </Link>
         </>
       )}
       <Link passHref href="/">
-        <div className={styles.button}>Go Back to Homepage</div>
+        <motion.button
+          aria-label="Provider Sign In Button"
+          type="button"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          transition={{ ease: 'easeInOut', duration: 0.015 }}
+          className={`${styles.button} ${styles.home}`}
+        >
+          Go Back to Homepage
+        </motion.button>
       </Link>
     </Layout>
   )

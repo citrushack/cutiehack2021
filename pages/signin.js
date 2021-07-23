@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { providers, signIn, getSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
 import { motion } from 'framer-motion'
@@ -57,9 +58,6 @@ export default function SignIn({ providers }) {
         </div>
       )}
       {Object.values(providers).map((provider) => {
-        if (provider.name === 'Email') {
-          return
-        }
         return (
           <motion.button
             aria-label="Provider Sign In Button"
@@ -76,6 +74,19 @@ export default function SignIn({ providers }) {
           </motion.button>
         )
       })}
+      <Link passHref href="/">
+        <motion.button
+          aria-label="Provider Sign In Button"
+          type="button"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          transition={{ ease: 'easeInOut', duration: 0.015 }}
+          className={`${styles.button} ${styles.home}`}
+        >
+          Go Back to Homepage
+        </motion.button>
+      </Link>
     </Layout>
   )
 }

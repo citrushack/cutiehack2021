@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
@@ -85,7 +86,7 @@ export default function CreateGroupForm() {
   })
 
   return (
-    <section>
+    <>
       <div className={styles.inputWrapper}>
         <div className={styles.inputHeader}>Invite Code</div>
         <input
@@ -110,6 +111,19 @@ export default function CreateGroupForm() {
       >
         Join Group
       </motion.button>
-    </section>
+      <Link passHref href="/">
+        <motion.button
+          aria-label="Provider Sign In Button"
+          type="button"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          transition={{ ease: 'easeInOut', duration: 0.015 }}
+          className={`${styles.button} ${styles.home}`}
+        >
+          Go Back to Homepage
+        </motion.button>
+      </Link>
+    </>
   )
 }
