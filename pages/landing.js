@@ -138,48 +138,54 @@ export default function Home() {
                 <h1 className={styles.title}>cutie hack</h1>
                 <CountdownWrapper />
                 {!session && isMobile && (
-                  <motion.button
-                    aria-label="Sign In Button"
-                    type="button"
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition="ease"
-                    className={styles.primarybutton}
-                    onClick={signIn}
-                  >
-                    Sign in
-                  </motion.button>
+                  <div className={styles.actionwrapper}>
+                    <motion.button
+                      aria-label="Sign In Button"
+                      type="button"
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                      transition="ease"
+                      className={styles.primarybutton}
+                      onClick={signIn}
+                    >
+                      Sign in
+                    </motion.button>
+                  </div>
                 )}
                 {session && isMobile && !checkedIn && (
-                  <Link passHref href="/checkin">
-                    <motion.a
-                      aria-label="Check In Button"
-                      type="button"
-                      variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                      transition={{ ease: 'easeInOut', duration: 0.015 }}
-                      className={styles.primarybutton}
-                    >
-                      Check In
-                    </motion.a>
-                  </Link>
+                  <div className={styles.actionwrapper}>
+                    <Link passHref href="/checkin">
+                      <motion.a
+                        aria-label="Check In Button"
+                        type="button"
+                        variants={buttonVariants}
+                        whileHover="hover"
+                        whileTap="tap"
+                        transition={{ ease: 'easeInOut', duration: 0.015 }}
+                        className={styles.primarybutton}
+                      >
+                        Check In
+                      </motion.a>
+                    </Link>
+                  </div>
                 )}
                 {session && isMobile && inGroup && (
-                  <Link passHref href={'/groups/' + groupId}>
-                    <motion.a
-                      aria-label="View Group Button"
-                      type="button"
-                      variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                      transition={{ ease: 'easeInOut', duration: 0.015 }}
-                      className={styles.primarybutton}
-                    >
-                      View Your Group
-                    </motion.a>
-                  </Link>
+                  <div className={styles.actionwrapper}>
+                    <Link passHref href={'/groups/' + groupId}>
+                      <motion.a
+                        aria-label="View Group Button"
+                        type="button"
+                        variants={buttonVariants}
+                        whileHover="hover"
+                        whileTap="tap"
+                        transition={{ ease: 'easeInOut', duration: 0.015 }}
+                        className={styles.primarybutton}
+                      >
+                        View Your Group
+                      </motion.a>
+                    </Link>
+                  </div>
                 )}
                 {session && checkedIn && !inGroup && (
                   <div className={styles.actionwrapper}>
