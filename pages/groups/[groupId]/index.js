@@ -5,10 +5,15 @@ import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import Layout from '../../../components/Layout'
 
-import styles from '../../../styles/Form.module.css'
+import { MdContentCopy } from 'react-icons/md'
+import { FaRegCircle } from 'react-icons/fa'
+
+import styles from '../../../styles/Group.module.css'
+import formStyles from '../../../styles/Form.module.css'
 
 export default function GroupPage() {
   const router = useRouter()
@@ -42,6 +47,22 @@ export default function GroupPage() {
     }
   }
 
+  const checkValidGroup = async () => {
+    const groupId = await fetchGroupId(session.user.id)
+    const pageURL = window.location.href
+    const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1)
+
+    if (groupId !== lastURLSegment) {
+      router.push('/')
+      toast.error(
+        'Access denied. This group does not exist, or you are not in this group.',
+        { id: 'invalidGroupError' }
+      )
+    } else {
+      await fetchGroup(groupId)
+    }
+  }
+
   const fetchGroupId = async (userId) => {
     const response = await fetch('/api/checkin', {
       method: 'POST',
@@ -71,22 +92,6 @@ export default function GroupPage() {
       }
       setUsers(users)
       return data.groups[0].users
-    }
-  }
-
-  const checkValidGroup = async () => {
-    const groupId = await fetchGroupId(session.user.id)
-    const pageURL = window.location.href
-    const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1)
-
-    if (groupId !== lastURLSegment) {
-      router.push('/')
-      toast.error(
-        'Access denied. This group does not exist, or you are not in this group.',
-        { id: 'invalidGroupError' }
-      )
-    } else {
-      await fetchGroup(groupId)
     }
   }
 
@@ -156,32 +161,56 @@ export default function GroupPage() {
         <title>Cutie Hack 2021 | Your group</title>
       </Head>
       <h1>Invite Code</h1>
-      {groupId}
+      <CopyToClipboard 
+        text={groupId}
+        className={styles.copywrapper}
+      >
+        <motion.button
+          aria-label="Copy to Clipboard Button"
+          type="button"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          transition={{ ease: 'easeInOut', duration: 0.015 }}
+          className={styles.copywrapper}
+          onClick={() => toast.success('Copied to clipboard!')}
+        >
+          <div className={styles.filler}><MdContentCopy /></div>
+          <div>{groupId}</div>
+          <MdContentCopy className={styles.copybutton} />
+        </motion.button>
+      </CopyToClipboard>
       <h1>Members</h1>
-      {users.map((user) => (
-        <div>{user}</div>
-      ))}
+      <div className={styles.userlist}>
+        {users.map((user) => (
+          <div className={styles.user}>
+            <FaRegCircle className={styles.bullet}/>
+            <div>{user}</div>
+            <FaRegCircle className={styles.filler}/>
+          </div>
+        ))}
+      </div>
       <motion.button
-        aria-label="Provider Sign In Button"
+        aria-label="Leave Group Button"
         type="button"
         variants={buttonVariants}
         whileHover="hover"
         whileTap="tap"
         transition={{ ease: 'easeInOut', duration: 0.015 }}
-        className={styles.button}
+        className={formStyles.button}
         onClick={() => leaveGroup(session.user.id)}
       >
         Leave Group
       </motion.button>
       <Link passHref href="/">
         <motion.button
-          aria-label="Provider Sign In Button"
+          aria-label="Home Button"
           type="button"
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
           transition={{ ease: 'easeInOut', duration: 0.015 }}
-          className={`${styles.button} ${styles.home}`}
+          className={`${formStyles.button} ${formStyles.home}`}
         >
           Go Back to Homepage
         </motion.button>

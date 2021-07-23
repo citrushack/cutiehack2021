@@ -28,7 +28,7 @@ export default function Nav() {
   const [inGroup, setInGroup] = useState(false)
   const [groupId, setGroupId] = useState('')
   const [open, setOpen] = useState(false)
-  const [showTabs, setShowTabs] = useState(false)
+  const [notHome, setNotHome] = useState(false)
 
   const fetchData = async (id) => {
     const response = await fetch('/api/checkin', {
@@ -60,7 +60,7 @@ export default function Nav() {
   useEffect(() => {
     if (session) fetchData(session.user.id)
 
-    setShowTabs(router.pathname !== '/')
+    setNotHome(router.pathname !== '/')
 
     window.addEventListener('resize', handleResize)
     setTargetElement(document.querySelector('nav'))
@@ -82,7 +82,7 @@ export default function Nav() {
         </div>
         <div id="nav" className={styles.tabs}>
           <NavLink 
-            className={showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+            className={notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             <Link href="/">Home</Link>
@@ -94,7 +94,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             Home
@@ -106,7 +106,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             About
@@ -118,7 +118,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             FAQ
@@ -130,7 +130,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             Help
@@ -142,7 +142,7 @@ export default function Nav() {
             smooth={true}
             offset={-70}
             duration={500}
-            className={!showTabs ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+            className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
             onClick={() => setOpen(false)}
           >
             Sponsors

@@ -354,7 +354,7 @@ export default function CheckInForm() {
       </div>
 
       <motion.button
-        aria-label="Check In Button"
+        aria-label="Submit Button"
         type="button"
         variants={buttonVariants}
         whileHover="hover"

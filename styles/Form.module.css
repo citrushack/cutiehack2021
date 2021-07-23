@@ -15,9 +15,11 @@
   justify-content: center;
   font-weight: 700;
   font-size: inherit;
+  border: none;
   border-radius: 0.2rem;
   background-color: #dacbb2;
-  border: none;
+  font-size: 1.2rem;
+  color: var(--brand-darkest);
   transition: all 100ms ease-in-out;
   cursor: pointer;
 }
@@ -152,6 +154,12 @@
 
 .triggeredBox {
   border: 2px solid #f55b5b;
+}
+
+@media (max-width: 420px) {
+  .button{
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
