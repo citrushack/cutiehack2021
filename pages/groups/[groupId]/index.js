@@ -153,6 +153,9 @@ export default function GroupPage() {
   if (loading)
     return (
       <Layout>
+        <Head>
+          <title>Cutie Hack | Your Group</title>
+        </Head>
         <p>Loading...</p>
       </Layout>
     )
@@ -160,7 +163,7 @@ export default function GroupPage() {
   return (
     <Layout>
       <Head>
-        <title>Cutie Hack 2021 | Your group</title>
+        <title>Cutie Hack | Your Group</title>
       </Head>
       <h1>Invite Code</h1>
       <CopyToClipboard 

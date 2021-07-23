@@ -83,6 +83,9 @@ export default function Groups() {
   if (loading)
     return (
       <Layout>
+        <Head>
+          <title>Cutie Hack | Groups</title>
+        </Head>
         <p>Loading...</p>
       </Layout>
     )
@@ -90,7 +93,7 @@ export default function Groups() {
   return (
     <Layout>
       <Head>
-        <title>Cutie Hack 2021 | Groups</title>
+        <title>Cutie Hack | Groups</title>
       </Head>
       {inGroup ? (
         <Link passHref href={'/groups/' + groupId}>

@@ -40,6 +40,9 @@ export default function CheckIn() {
   if (loading)
     return (
       <Layout>
+        <Head>
+          <title>Cutie Hack | Check In</title>
+        </Head>
         <p>Loading...</p>
       </Layout>
     )
@@ -47,7 +50,7 @@ export default function CheckIn() {
   return (
     <Layout>
       <Head>
-        <title>Cutie Hack 2021 | Check in</title>
+        <title>Cutie Hack | Check In</title>
       </Head>
       {session && (
         <>

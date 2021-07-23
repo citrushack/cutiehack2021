@@ -54,7 +54,7 @@ export default function SignIn({ providers }) {
   return (
     <Layout>
       <Head>
-        <title>Cutie Hack 2021 | Sign in</title>
+        <title>Cutie Hack | Sign In</title>
       </Head>
       {error && (
         <div className={styles.errorMsg}>

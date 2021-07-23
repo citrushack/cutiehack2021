@@ -50,7 +50,7 @@ export default function JoinGroup() {
     return (
       <Layout>
         <Head>
-          <title>Cutie Hack 2021 | Join a group</title>
+          <title>Cutie Hack | Join a Group</title>
         </Head>
         <p>Loading...</p>
       </Layout>
@@ -59,7 +59,7 @@ export default function JoinGroup() {
   return (
     <Layout>
       <Head>
-        <title>Cutie Hack 2021 | Join a group</title>
+        <title>Cutie Hack | Join a Group</title>
       </Head>
       <h1>Join a Group</h1>
       <JoinGroupForm />
