@@ -28,33 +28,34 @@ export default function Help() {
       <div className={styles.wrapper}>
         <h1 className={styles.header}>Get Involved</h1>
         <p>
-          Not interested in hacking but still want to participate? Fill out the forms below if you'd like to help hackers throughout the day.
+          Not interested in hacking but still want to participate? Fill out the
+          forms below if you`&apos;`d like to help hackers throughout the day.
         </p>
         <div className={styles.buttonWrapper}>
           <Link passHref href="/">
-            <motion.div 
-              variants={buttonVariants} 
+            <motion.div
+              variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
               transition={{ ease: 'easeInOut', duration: 0.015 }}
               className={styles.button}
             >
               <div className={styles.iconTextWrapper}>
-                <div>Mentors</div> 
+                <div>Mentors</div>
                 <FaChevronRight className={styles.arrow} />
               </div>
             </motion.div>
           </Link>
           <Link passHref href="/">
-            <motion.div 
-              variants={buttonVariants} 
+            <motion.div
+              variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
               transition={{ ease: 'easeInOut', duration: 0.015 }}
               className={styles.button}
             >
               <div className={styles.iconTextWrapper}>
-                <div>Volunteers</div> 
+                <div>Volunteers</div>
                 <FaChevronRight className={styles.arrow} />
               </div>
             </motion.div>

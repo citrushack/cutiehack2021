@@ -29,15 +29,15 @@ export default function Sponsors() {
         <h1 className={styles.header}>Sponsors</h1>
         <p>Those who made this hackathon possible.</p>
         <Link passHref href="/">
-          <motion.div 
-            variants={buttonVariants} 
+          <motion.div
+            variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
             transition={{ ease: 'easeInOut', duration: 0.015 }}
             className={styles.button}
           >
             <div className={styles.iconTextWrapper}>
-              <div>Sponsor Us</div> 
+              <div>Sponsor Us</div>
               <FaChevronRight className={styles.arrow} />
             </div>
           </motion.div>

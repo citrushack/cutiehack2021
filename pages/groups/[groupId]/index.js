@@ -112,8 +112,7 @@ export default function GroupPage() {
     const currUsers = await fetchGroup(groupId)
     if (currUsers.length === 1) {
       await deleteGroup(groupId, userId)
-    }
-    else {
+    } else {
       const newUsers = []
       for (let i = 0; i < currUsers.length; i++) {
         if (currUsers[i].id !== userId) {
@@ -166,10 +165,7 @@ export default function GroupPage() {
         <title>Cutie Hack | Your Group</title>
       </Head>
       <h1>Invite Code</h1>
-      <CopyToClipboard 
-        text={groupId}
-        className={styles.copywrapper}
-      >
+      <CopyToClipboard text={groupId} className={styles.copywrapper}>
         <motion.button
           aria-label="Copy to Clipboard Button"
           type="button"
@@ -180,7 +176,9 @@ export default function GroupPage() {
           className={styles.copywrapper}
           onClick={() => toast.success('Copied to clipboard!')}
         >
-          <div className={styles.filler}><MdContentCopy /></div>
+          <div className={styles.filler}>
+            <MdContentCopy />
+          </div>
           <div>{groupId}</div>
           <MdContentCopy className={styles.copybutton} />
         </motion.button>
@@ -189,9 +187,9 @@ export default function GroupPage() {
       <div className={styles.userlist}>
         {users.map((user) => (
           <div className={styles.user}>
-            <FaRegCircle className={styles.bullet}/>
+            <FaRegCircle className={styles.bullet} />
             <div>{user}</div>
-            <FaRegCircle className={styles.filler}/>
+            <FaRegCircle className={styles.filler} />
           </div>
         ))}
       </div>

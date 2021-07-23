@@ -20,7 +20,7 @@ export default function Groups() {
   if (!isMobile)
     buttonVariants = {
       hover: { scale: 1.02 },
-      tap: { scale: 0.997 }
+      tap: { scale: 0.997 },
     }
 
   const [inGroup, setInGroup] = useState(false)
@@ -56,10 +56,10 @@ export default function Groups() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ group: [ groupId, userId, userName ] }),
+      body: JSON.stringify({ group: [groupId, userId, userName] }),
     })
     await response.json()
-    toast.success('Successfully created a group!', { id: 'createGroupSuccess'})
+    toast.success('Successfully created a group!', { id: 'createGroupSuccess' })
     const dst = '/groups/' + groupId.toString()
     router.push(dst)
   }
@@ -67,7 +67,7 @@ export default function Groups() {
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 720)
   }
-  
+
   useEffect(() => {
     window.addEventListener('resize', handleResize)
     if (!loading && !session) {

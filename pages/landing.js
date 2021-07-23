@@ -64,10 +64,10 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ group: [ groupId, userId, userName ] }),
+      body: JSON.stringify({ group: [groupId, userId, userName] }),
     })
     await response.json()
-    toast.success('Successfully created a group!', { id: 'createGroupSuccess'})
+    toast.success('Successfully created a group!', { id: 'createGroupSuccess' })
     const dst = '/groups/' + groupId.toString()
     router.push(dst)
   }
@@ -197,7 +197,9 @@ export default function Home() {
                       whileTap="tap"
                       transition={{ ease: 'easeInOut', duration: 0.015 }}
                       className={styles.primarybutton}
-                      onClick={() => createGroup(session.user.id, session.user.name)}
+                      onClick={() =>
+                        createGroup(session.user.id, session.user.name)
+                      }
                     >
                       Create Group
                     </motion.button>
