@@ -21,6 +21,7 @@
 .number {
   display: flex;
   flex-direction: row; 
+  font-size: 3rem;
 }
 
 .number * {
@@ -41,7 +42,7 @@
 }
 
 .separator {
-  padding: 0 0.5rem 0 0.5rem;
+  padding: 1.2rem 0.5rem 0 0.5rem;
   font-weight: 700;
   font-size: 2.5rem;
 }
@@ -69,13 +70,13 @@
   .number * {
     margin: 0 0.1rem;
     padding: 0.4rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   .label {
     font-size: 1rem;
   }
   .separator {
-    padding: 0 0.2rem 0 0.2rem;
+    padding: 0.4rem 0.2rem 0 0.2rem;
     font-size: 1.4rem;
   }
 }
@@ -87,31 +88,13 @@
   .number * {
     margin: 0 0.1rem;
     padding: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
   .label {
     font-size: 1.1rem;
   }
   .separator {
-    padding: 0 0.3rem 0 0.3rem;
-    font-size: 1.6rem;
-  }
-}
-
-@media (min-width: 420px) and (max-width: 530px) {
-  .header {
-    font-size: 1.2rem;
-  }
-  .number * {
-    margin: 0 0.1rem;
-    padding: 0.5rem;
-    font-size: 0.8rem;
-  }
-  .label {
-    font-size: 0.8rem;
-  }
-  .separator {
-    padding: 0 0.3rem 0 0.3rem;
+    padding: 0.6rem 0.2rem 0 0.2rem;
     font-size: 1.3rem;
   }
 }
@@ -123,13 +106,14 @@
   .number * {
     margin: 0 0.1rem;
     padding: 0.5rem;
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
   .label {
     font-size: 1.2rem;
   }
   .separator {
-    font-size: 2rem;
+    padding: 0.8rem 0.3rem 0 0.3rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -140,13 +124,14 @@
   .number * {
     margin: 0 0.2rem;
     padding: 0.6rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .label {
     font-size: 1.5rem;
   }
   .separator {
-    font-size: 2.4rem;
+    padding: 1rem 0.3rem 0 0.3rem;
+    font-size: 2rem;
   }
 }
 

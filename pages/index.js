@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 import { connectToDatabase } from '../util/mongodb'
-import { Element, animateScroll as scroll } from 'react-scroll'
+import { Element } from 'react-scroll'
 
 import Layout from '../components/Layout'
 import Landing from '../pages/landing'
