@@ -59,7 +59,7 @@ export default function CreateGroupForm() {
     var groupFull = false
     var users = []
     if (data.groups[0]) {
-      groupFull = (data.groups[0].users.length === 4)
+      if (data.groups[0].users) groupFull = (data.groups[0].users.length === 4)
       users = data.groups[0].users
     }
     return ({exists: groupExists, full: groupFull, users: users})

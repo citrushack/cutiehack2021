@@ -86,11 +86,13 @@ export default function GroupPage() {
     if (data.groups[0]) {
       setGroupId(groupId)
       const users = []
-      for (let i = 0; i < data.groups[0].users.length; i++) {
-        users.push(data.groups[0].users[i].name)
+      if (data.groups[0].users) {
+        for (let i = 0; i < data.groups[0].users.length; i++) {
+          users.push(data.groups[0].users[i].name)
+        }
+        setUsers(users)
       }
-      setUsers(users)
-      return data.groups[0].users
+      return users
     }
   }
 
