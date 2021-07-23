@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
@@ -88,6 +89,9 @@ export default function Groups() {
 
   return (
     <Layout>
+      <Head>
+        <title>Cutie Hack 2021 | Groups</title>
+      </Head>
       {inGroup ? (
         <Link passHref href={'/groups/' + groupId}>
           <motion.button

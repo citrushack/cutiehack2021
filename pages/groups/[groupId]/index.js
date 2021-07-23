@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
@@ -151,6 +152,9 @@ export default function GroupPage() {
 
   return (
     <Layout>
+      <Head>
+        <title>Cutie Hack 2021 | Your group</title>
+      </Head>
       <h1>Invite Code</h1>
       {groupId}
       <h1>Members</h1>

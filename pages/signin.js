@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import { providers, signIn, getSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
@@ -52,6 +53,9 @@ export default function SignIn({ providers }) {
 
   return (
     <Layout>
+      <Head>
+        <title>Cutie Hack 2021 | Sign in</title>
+      </Head>
       {error && (
         <div className={styles.errorMsg}>
           <SignInError error={error} />
