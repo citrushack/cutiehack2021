@@ -1,5 +1,6 @@
 import React from 'react'
-import AccordionComponent from '../components/Accordion'
+
+import Accordion from '../components/Accordion'
 
 import styles from '../styles/Accordion.module.css'
 
@@ -12,7 +13,7 @@ export default function Faq() {
           Here are the most commonly asked questions. Feel free to ask us any
           question you don&apos;t see on here.
         </p>
-        <AccordionComponent />
+        <Accordion />
       </div>
     </main>
   )
