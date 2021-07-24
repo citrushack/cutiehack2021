@@ -29,7 +29,15 @@ export default function CreateGroupForm() {
 
   const joinGroup = async (groupId) => {
     const group = await fetchGroup(groupId)
-    if (group.exists && group.full) {
+    const userGroupId = await fetchData(session.user.id)
+    if (userGroupId !== '') {
+      router.push('/groups/' + userGroupId)
+      toast.error(
+        'Already in a group! Leave your group to join a different one.',
+        { id: 'tryJoinGroupError' }
+      )
+    }
+    else if (group.exists && group.full) {
       setError(true)
       toast.error('Group is full. Try a different group.', { id: 'fullGroupError'})
     } 
@@ -44,6 +52,18 @@ export default function CreateGroupForm() {
       setError(true)
       toast.error('Group does not exist. Try again.', { id: 'groupError'})
     }
+  }
+
+  const fetchData = async (userId) => {
+    const response = await fetch('/api/checkin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user: userId }),
+    })
+    const data = await response.json()
+    if (data.checkins[0]) return data.checkins[0].groupId
   }
 
   const fetchGroup = async (groupId) => {
