@@ -49,6 +49,16 @@
   border-radius: 5px 5px 0 0;
   border-bottom: 2px solid var(--brand-darkest);
   background: var(--nav-bg);
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.windowHeader:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }
 
 .windowButton {
