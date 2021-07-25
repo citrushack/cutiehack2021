@@ -42,7 +42,7 @@ export default function Home() {
         <Element name="Home">
           <Landing />
         </Element>
-        <Element name="About">
+        {/* <Element name="About">
           <About />
         </Element>
         <Element name="FAQ">
@@ -54,7 +54,7 @@ export default function Home() {
         <Element name="Sponsors">
           <Sponsors />
         </Element>
-        <Team />
+        <Team /> */}
       </Layout>
     </>
   )
