@@ -166,7 +166,7 @@ export default function Nav() {
             <>
               {!checkedIn &&
                 <Link passHref href="/checkin">
-                  <motion.a
+                  <motion.button
                     aria-label="Check In Button"
                     type="button"
                     variants={buttonVariants}
@@ -176,12 +176,12 @@ export default function Nav() {
                     className={styles.primarybutton}
                   >
                     Check In
-                  </motion.a>
+                  </motion.button>
                 </Link>
               }
               {inGroup &&
                 <Link passHref href={"/groups/" + groupId}>
-                  <motion.a
+                  <motion.button
                     aria-label="View Group Button"
                     type="button"
                     variants={buttonVariants}
@@ -191,7 +191,7 @@ export default function Nav() {
                     className={styles.primarybutton}
                   >
                     View Your Group
-                  </motion.a>
+                  </motion.button>
                 </Link>
               }
               <motion.button
