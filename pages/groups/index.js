@@ -84,7 +84,7 @@ export default function Groups() {
     return (
       <Layout>
         <Head>
-          <title>Cutie Hack | Groups</title>
+          <title>Cutie Hack 2021 | Groups</title>
         </Head>
         <p>Loading...</p>
       </Layout>
