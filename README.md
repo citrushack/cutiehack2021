@@ -3,8 +3,9 @@
 
 > Contributors: 
 > 
-> Danial Beg,
+> J.S. Pescasio,
 > Rajbir Johar,
+> Danial Beg,
 > Minsoo Kim,
 > Caleb Yoo,
 > Andrei Dimaano,
