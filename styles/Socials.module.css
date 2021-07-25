@@ -19,6 +19,7 @@
   overflow: hidden;
   transition: color 200ms ease-in-out;
   transition: background 200ms ease-in-out;
+  cursor: pointer;
 }
 
 .wrapper:hover {

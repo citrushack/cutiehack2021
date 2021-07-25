@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link' // We should be using the Link component
+import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'

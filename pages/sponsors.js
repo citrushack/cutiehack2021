@@ -48,7 +48,6 @@ export default function Sponsors() {
         </Link>
         <div>
           {/* sponsor logos */}
-          <a href="#"></a>
         </div>
       </div>
     </main>
