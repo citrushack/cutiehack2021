@@ -81,12 +81,14 @@ export default function Nav() {
           <HiX className={styles.menuButton} />
         </div>
         <div id="nav" className={styles.tabs}>
-          <NavLink 
-            className={notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
-            onClick={() => setOpen(false)}
-          >
-            <Link href="/">Home</Link>
-          </NavLink>
+          <Link href="/">
+            <NavLink 
+              className={notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+              onClick={() => setOpen(false)}
+            >
+              Home
+            </NavLink>
+          </Link>
           <NavLink
             activeClass="active"
             to="Home"
