@@ -11,10 +11,10 @@ import '../styles/globals.css'
 export default function MyApp({ Component, pageProps }) {
   return (
     <Provider session={pageProps.session}>
-      {/* <Toaster /> */}
-      {/* <Nav /> */}
+      <Toaster />
+      <Nav />
       <Socials />
-      {/* <TopScroll /> */}
+      <TopScroll />
       <Component {...pageProps} />
       <Footer />
     </Provider>
