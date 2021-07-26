@@ -11,6 +11,8 @@ import Help from '../pages/help'
 import Sponsors from '../pages/sponsors'
 import Team from '../pages/team'
 
+import styles from '../styles/Index.module.css'
+
 export default function Home() {
   return (
     <>
@@ -39,19 +41,19 @@ export default function Home() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <Layout>
-        <Element name="Home">
+        <Element name="Home" className={styles.element}>
           <Landing />
         </Element>
-        <Element name="About">
+        <Element name="About" className={styles.element}>
           <About />
         </Element>
-        <Element name="FAQ">
+        <Element name="FAQ" className={styles.element}>
           <Faq />
         </Element>
-        <Element name="Help">
+        <Element name="Help" className={styles.element}>
           <Help />
         </Element>
-        <Element name="Sponsors">
+        <Element name="Sponsors" className={styles.element}>
           <Sponsors />
         </Element>
         <Team />

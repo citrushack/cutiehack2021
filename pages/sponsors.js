@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
+import Layout from '../components/Layout'
 import { FaChevronRight } from 'react-icons/fa'
 
 import styles from '../styles/Sponsors.module.css'

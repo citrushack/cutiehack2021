@@ -1,10 +1,11 @@
-.main {  
+.main { 
   min-height: 80vh;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -46,4 +47,10 @@
 
 .arrow {
   margin-left: 0.5rem;
+}
+
+@media (max-width: 720px) {
+  .button {
+    width: 100%;
+  }
 }

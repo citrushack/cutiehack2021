@@ -1,3 +1,7 @@
+.element {
+  width: 100%;
+}
+
 .bgWrap {
   display: flex;
   flex-direction: row;

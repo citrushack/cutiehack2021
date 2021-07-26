@@ -65,3 +65,13 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 720px) {
+  .buttonWrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  .button {
+    width: 100%;
+  }
+}
