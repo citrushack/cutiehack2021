@@ -11,22 +11,21 @@ export default function CheckIn() {
   const router = useRouter()
   const [session, loading] = useSession()
 
-  const fetchData = async (userId) => {
-    const response = await fetch('/api/checkin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ user: userId }),
-    })
-    const data = await response.json()
-    if (Object.keys(data.checkins).length !== 0) {
-      router.push('/')
-      toast.error('You already checked in!', { id: 'checkInTwiceError' })
-    }
-  }
-
   useEffect(() => {
+    const fetchData = async (userId) => {
+      const response = await fetch('/api/checkin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: userId }),
+      })
+      const data = await response.json()
+      if (Object.keys(data.checkins).length !== 0) {
+        router.push('/')
+        toast.error('You already checked in!', { id: 'checkInTwiceError' })
+      }
+    }
     if (!loading && !session) {
       router.push('/signin')
       toast.error('Access denied. Please sign in!', {

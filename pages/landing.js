@@ -80,7 +80,7 @@ export default function Home() {
     if (session) fetchData(session.user.id)
     window.addEventListener('resize', handleResize)
     setIsMobile(window.innerWidth <= 720)
-  })
+  }, [session])
 
   return (
     <>
@@ -89,15 +89,17 @@ export default function Home() {
           src={heroLeft}
           alt="Hero Image"
           objectFit="contain"
-          quality={100}
+          quality={50}
           placeholder="blur"
+          priority={true}
         />
         <Image
           src={heroRight}
           alt="Hero Image"
           objectFit="contain"
-          quality={100}
+          quality={50}
           placeholder="blur"
+          priority={true}
         />
       </div>
       <div className={`${styles.bgWrap} ${styles.mobileimage}`}>
@@ -105,8 +107,9 @@ export default function Home() {
           src={heroMobile}
           alt="Hero Image"
           objectFit="contain"
-          quality={100}
+          quality={50}
           placeholder="blur"
+          priority={true}
           className={styles.mobileimage}
         />
       </div>
