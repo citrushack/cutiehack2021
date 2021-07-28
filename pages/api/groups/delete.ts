@@ -5,7 +5,7 @@ export default async function CreateGroup(req: NextApiRequest, res: NextApiRespo
   try {
     const { db } = await connectToDatabase();
     const { group: [ groupId, userId ] } = req.body; // check # of users before calling
-    db.collection('groups').remove({ groupId: groupId });
+    db.collection('groups').deleteOne({ groupId: groupId });
     db.collection('checkins').updateOne(
       {'userId': userId },
       { $set: {'groupId': '' } }

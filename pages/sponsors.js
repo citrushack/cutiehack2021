@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
 import Layout from '../components/Layout'
 import { FaChevronRight } from 'react-icons/fa'
 
@@ -27,9 +25,6 @@ export default function Sponsors() {
 
   return (
     <main className={styles.main}>
-      <Head>
-        <title>Cutie Hack | Sponsors</title>
-      </Head>
       <div className={styles.wrapper}>
         <h1 className={styles.header}>Sponsors</h1>
         <p>Those who made this hackathon possible.</p>
@@ -47,9 +42,7 @@ export default function Sponsors() {
             </div>
           </motion.div>
         </Link>
-        <div>
-          {/* sponsor logos */}
-        </div>
+        <div>{/* sponsor logos */}</div>
       </div>
     </main>
   )
