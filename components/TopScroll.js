@@ -14,8 +14,8 @@ export default function TopScroll() {
   const [scrollPosition, setScrollPosition] = useState(0)
 
   const handleScroll = () => {
-      const position = window.pageYOffset
-      setScrollPosition(position)
+    const position = window.pageYOffset
+    setScrollPosition(position)
   }
 
   const handleResize = () => {
@@ -30,21 +30,19 @@ export default function TopScroll() {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  })
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [router.pathname])
 
   return (
-    <div className={
-      isMobile && !notHome && scrollPosition > 360 
-        ? `${styles.stack}`
-        : `${styles.stack} ${styles.hide}`
+    <div
+      className={
+        isMobile && !notHome && scrollPosition > 360
+          ? `${styles.stack}`
+          : `${styles.stack} ${styles.hide}`
       }
     >
-      <div
-        className={styles.wrapper}
-        onClick={() => scroll.scrollToTop()}
-      >
+      <div className={styles.wrapper} onClick={() => scroll.scrollToTop()}>
         <VscTriangleUp className={styles.icon} />
       </div>
     </div>

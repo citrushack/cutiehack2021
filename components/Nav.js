@@ -21,7 +21,7 @@ export default function Nav() {
   if (!isMobile)
     buttonVariants = {
       hover: { scale: 1.05 },
-      tap: { scale: 0.995 }
+      tap: { scale: 0.995 },
     }
 
   const [targetElement, setTargetElement] = useState(null)
@@ -70,7 +70,7 @@ export default function Nav() {
       if (open) disableBodyScroll(targetElement)
       else enableBodyScroll(targetElement)
     }
-  })
+  }, [session, router.pathname, targetElement, open])
 
   return (
     <span className={open && styles.open}>
@@ -102,7 +102,7 @@ export default function Nav() {
                   />
                 </div>
               </Link>
-              <div 
+              <div
                 className={styles.menuButtonWrapper}
                 onClick={() => toggle()}
               >
@@ -111,9 +111,13 @@ export default function Nav() {
               </div>
             </div>
             <div id="nav" className={styles.tabs}>
-              <Link href="/">
-                <NavLink 
-                  className={notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+              <Link href="/" passHref>
+                <NavLink
+                  className={
+                    notHome
+                      ? `${styles.tab}`
+                      : `${styles.hidetabs} ${styles.tab}`
+                  }
                   onClick={() => setOpen(false)}
                 >
                   Home
@@ -126,7 +130,11 @@ export default function Nav() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+                className={
+                  !notHome
+                    ? `${styles.tab}`
+                    : `${styles.hidetabs} ${styles.tab}`
+                }
                 onClick={() => setOpen(false)}
               >
                 Home
@@ -138,7 +146,11 @@ export default function Nav() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+                className={
+                  !notHome
+                    ? `${styles.tab}`
+                    : `${styles.hidetabs} ${styles.tab}`
+                }
                 onClick={() => setOpen(false)}
               >
                 About
@@ -150,7 +162,11 @@ export default function Nav() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+                className={
+                  !notHome
+                    ? `${styles.tab}`
+                    : `${styles.hidetabs} ${styles.tab}`
+                }
                 onClick={() => setOpen(false)}
               >
                 FAQ
@@ -162,7 +178,11 @@ export default function Nav() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+                className={
+                  !notHome
+                    ? `${styles.tab}`
+                    : `${styles.hidetabs} ${styles.tab}`
+                }
                 onClick={() => setOpen(false)}
               >
                 Help
@@ -174,7 +194,11 @@ export default function Nav() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={!notHome ? `${styles.tab}` : `${styles.hidetabs} ${styles.tab}`}
+                className={
+                  !notHome
+                    ? `${styles.tab}`
+                    : `${styles.hidetabs} ${styles.tab}`
+                }
                 onClick={() => setOpen(false)}
               >
                 Sponsors
@@ -186,7 +210,7 @@ export default function Nav() {
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  transition="ease"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
                   className={styles.primarybutton}
                   onClick={signIn}
                 >
@@ -194,7 +218,7 @@ export default function Nav() {
                 </motion.button>
               ) : (
                 <>
-                  {!checkedIn &&
+                  {!checkedIn && (
                     <Link passHref href="/checkin">
                       <motion.button
                         aria-label="Check In Button"
@@ -208,9 +232,9 @@ export default function Nav() {
                         Check In
                       </motion.button>
                     </Link>
-                  }
-                  {inGroup &&
-                    <Link passHref href={"/groups/" + groupId}>
+                  )}
+                  {inGroup && (
+                    <Link passHref href={'/groups/' + groupId}>
                       <motion.button
                         aria-label="View Group Button"
                         type="button"
@@ -223,7 +247,7 @@ export default function Nav() {
                         View Your Group
                       </motion.button>
                     </Link>
-                  }
+                  )}
                   <motion.button
                     aria-label="Sign Out Button"
                     type="button"
