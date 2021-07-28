@@ -21,7 +21,7 @@ export default function Footer() {
         </Link>
       </div>
       <div className={styles.caption}>
-        Made with ❤️ by the CitrusHack Team.
+        Made with ❤️ by the Citrus Hack Team.
       </div>
     </footer>
   )
