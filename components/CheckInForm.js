@@ -19,7 +19,7 @@ export default function CheckInForm() {
   if (!isMobile)
     buttonVariants = {
       hover: { scale: 1.02 },
-      tap: { scale: 0.997 }
+      tap: { scale: 0.997 },
     }
 
   const [isValidEmail, setIsValidEmail] = useState(true)
@@ -38,6 +38,8 @@ export default function CheckInForm() {
       'Hispanic or Latino',
       'Native Hawaiian or Other Pacific Islander',
       'White',
+      'Other',
+      'Prefer not to say',
     ],
     gender: ['Male', 'Female', 'Nonbinary', 'Other', 'Prefer not to say'],
   })
@@ -59,13 +61,13 @@ export default function CheckInForm() {
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value)
-    filled.email = (e.target.value !== '')
+    filled.email = e.target.value !== ''
     setIsValidEmail(true)
   }
 
   const handleChangeEmailConfirm = (e) => {
     setEmailConfirm(e.target.value)
-    filled.emailConfirm = (e.target.value !== '')
+    filled.emailConfirm = e.target.value !== ''
     setIsValidEmail(true)
   }
 
@@ -97,17 +99,17 @@ export default function CheckInForm() {
 
   const handleChangeSchool = (e) => {
     setSchool(e.target.value)
-    filled.school = (e.target.value !== '')
+    filled.school = e.target.value !== ''
   }
 
   const handleChangeMajor = (e) => {
     setMajor(e.target.value)
-    filled.major = (e.target.value !== '')
+    filled.major = e.target.value !== ''
   }
 
   const handleChangeGrade = (e) => {
     setGrade(e.target.value)
-    filled.grade = (e.target.value !== '')
+    filled.grade = e.target.value !== ''
   }
 
   const toggleFirstTime = (e) => {
@@ -128,26 +130,45 @@ export default function CheckInForm() {
   const submitForm = (name, id) => {
     triggerSubmit(true)
     const allFieldsFilled = Object.values(filled).every((e) => e)
-    const validEmailEntry = filled.email && /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
-    const matchingEmails = filled.email && filled.emailConfirm && email === emailConfirm
+    const validEmailEntry =
+      filled.email &&
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        email
+      )
+    const matchingEmails =
+      filled.email && filled.emailConfirm && email === emailConfirm
 
     if (!allFieldsFilled) {
-      toast.error('Please fill out all required fields.', { id: 'incompleteFormError'})
+      toast.error('Please fill out all required fields.', {
+        id: 'incompleteFormError',
+      })
     }
     if (!validEmailEntry) {
       setIsValidEmail(false)
-      toast.error('Please input a valid email.', { id: 'invalidEmailError'})
+      toast.error('Please input a valid email.', { id: 'invalidEmailError' })
     }
     if (!matchingEmails) {
       setIsValidEmail(false)
-      toast.error('Emails don\'t match. Please try again.', { id: 'notMatchingEmailsError'})
+      toast.error("Emails don't match. Please try again.", {
+        id: 'notMatchingEmailsError',
+      })
     }
 
     if (allFieldsFilled && validEmailEntry && matchingEmails) {
-      const data = [name, email, race, gender, school, major, grade, first_time, id]
+      const data = [
+        name,
+        email,
+        race,
+        gender,
+        school,
+        major,
+        grade,
+        first_time,
+        id,
+      ]
       sendData(data)
       router.push('/groups')
-      toast.success('Succesfully checked in!', { id: 'checkInSuccess'})
+      toast.success('Succesfully checked in!', { id: 'checkInSuccess' })
     }
   }
 
@@ -193,9 +214,7 @@ export default function CheckInForm() {
       </div>
 
       <div className={styles.inputWrapper}>
-        <div className={styles.inputHeader}>
-          Confirm Email
-        </div>
+        <div className={styles.inputHeader}>Confirm Email</div>
         <input
           className={
             (styles.inputBox && submit_triggered && !filled.emailConfirm) ||
@@ -215,9 +234,7 @@ export default function CheckInForm() {
             className={
               openRace
                 ? `${styles.dropdownHeader} ${styles.dropdownSelected}`
-                : `${styles.dropdownHeader}` &&
-                  submit_triggered &&
-                  !filled.race
+                : `${styles.dropdownHeader}` && submit_triggered && !filled.race
                 ? `${styles.dropdownHeader} ${styles.triggeredBox}`
                 : `${styles.dropdownHeader}`
             }
