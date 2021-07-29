@@ -120,7 +120,7 @@ export default function Nav() {
                   }
                   onClick={() => setOpen(false)}
                 >
-                  Home
+                  home
                 </NavLink>
               </Link>
               <NavLink
@@ -137,7 +137,7 @@ export default function Nav() {
                 }
                 onClick={() => setOpen(false)}
               >
-                Home
+                home
               </NavLink>
               <NavLink
                 activeClass="active"
@@ -153,7 +153,7 @@ export default function Nav() {
                 }
                 onClick={() => setOpen(false)}
               >
-                About
+                about
               </NavLink>
               <NavLink
                 activeClass="active"
@@ -169,9 +169,9 @@ export default function Nav() {
                 }
                 onClick={() => setOpen(false)}
               >
-                FAQ
+                faq
               </NavLink>
-              <NavLink
+              {/* <NavLink
                 activeClass="active"
                 to="Help"
                 spy={true}
@@ -185,7 +185,7 @@ export default function Nav() {
                 }
                 onClick={() => setOpen(false)}
               >
-                Help
+                help
               </NavLink>
               <NavLink
                 activeClass="active"
@@ -201,7 +201,7 @@ export default function Nav() {
                 }
                 onClick={() => setOpen(false)}
               >
-                Sponsors
+                sponsors
               </NavLink>
               {!session ? (
                 <motion.button
@@ -261,7 +261,7 @@ export default function Nav() {
                     Sign out
                   </motion.button>
                 </>
-              )}
+              )} */}
             </div>
           </div>
         </div>

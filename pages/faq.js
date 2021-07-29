@@ -8,7 +8,7 @@ export default function Faq() {
   return (
     <main className={styles.main}>
       <div className={styles.faq}>
-        <h1 className={styles.header}>Questions?</h1>
+        <div className={styles.header}>questions?</div>
         <p className={styles.description}>
           Here are the most commonly asked questions. Feel free to ask us any
           question you don&apos;t see on here.
