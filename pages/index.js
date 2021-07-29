@@ -50,13 +50,13 @@ export default function Home() {
         <Element name="FAQ" className={styles.element}>
           <Faq />
         </Element>
-        {/* <Element name="Help" className={styles.element}>
+        <Element name="Help" className={styles.element}>
           <Help />
         </Element>
         <Element name="Sponsors" className={styles.element}>
           <Sponsors />
         </Element>
-        <Team /> */}
+        <Team />
       </Layout>
     </>
   )
