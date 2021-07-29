@@ -4,8 +4,7 @@
   align-items: center;
   width: 100%;
   margin-top: 1rem;
-  padding: 0.8rem 0;
-  gap: var(--gap-half);
+  padding: 0.7rem 0;
   border-top: 2px solid var(--brand-dark);
   border-bottom: 2px solid var(--brand-dark);
   font-weight: 600;
@@ -14,87 +13,35 @@
 }
 
 .icon {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 
 .number {
+  margin-left: 0.2rem;
   font-weight: 800;
 }
 
+.text {
+  margin-left: 0.5rem;
+}
+
 @media (max-width: 375px) {
-  .header {
-    font-size: 1.2rem;
-  }
-  .number * {
-    margin: 0 0.1rem;
-    padding: 0.4rem;
-    font-size: 1.5rem;
-  }
-  .label {
+  .text {
     font-size: 1rem;
   }
-  .separator {
-    padding: 0.4rem 0.2rem 0 0.2rem;
-    font-size: 1.4rem;
-  }
 }
 
-@media (min-width: 375px) and (max-width: 420px) {
-  .header {
+@media (max-width: 420px) {
+  .wrapper {
     font-size: 1.2rem;
   }
-  .number * {
-    margin: 0 0.1rem;
-    padding: 0.5rem;
-    font-size: 1.6rem;
-  }
-  .label {
-    font-size: 1.1rem;
-  }
-  .separator {
-    padding: 0.6rem 0.2rem 0 0.2rem;
-    font-size: 1.3rem;
+  .text {
+    margin-left: 0.3rem;
   }
 }
 
-@media (min-width: 420px) and (max-width: 530px) {
-  .header {
+@media (min-width: 420px) and (max-width: 760px) {
+  .wrapper {
     font-size: 1.5rem;
-  }
-  .number * {
-    margin: 0 0.1rem;
-    padding: 0.5rem;
-    font-size: 2rem;
-  }
-  .label {
-    font-size: 1.2rem;
-  }
-  .separator {
-    padding: 0.8rem 0.3rem 0 0.3rem;
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 530px) and (max-width: 760px) {
-  .header {
-    font-size: 1.5rem;
-  }
-  .number * {
-    margin: 0 0.2rem;
-    padding: 0.6rem;
-    font-size: 2.5rem;
-  }
-  .label {
-    font-size: 1.5rem;
-  }
-  .separator {
-    padding: 1rem 0.3rem 0 0.3rem;
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 760px) {
-  .container {
-    width: 100%;
   }
 }

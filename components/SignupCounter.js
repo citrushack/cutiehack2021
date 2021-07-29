@@ -17,7 +17,7 @@ export default function SignupCounter() {
     <div className={styles.wrapper}>
       <FaRegEdit className={styles.icon} />
       <div className={styles.number}>{Object.keys(data.users).length}</div>
-      hackers signed up so far!
+      <div className={styles.text}>hackers signed up so far!</div>
     </div>
   );
 }
