@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import Layout from '../components/Layout'
 import { FaChevronRight } from 'react-icons/fa'
 
 import styles from '../styles/Sponsors.module.css'
@@ -26,7 +25,7 @@ export default function Sponsors() {
   return (
     <main className={styles.main}>
       <div className={styles.wrapper}>
-        <h1 className={styles.header}>Sponsors</h1>
+        <div className={styles.title}>sponsors</div>
         <p>Those who made this hackathon possible.</p>
         <Link passHref href="/">
           <motion.div

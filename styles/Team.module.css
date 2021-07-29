@@ -13,3 +13,9 @@
 .header {
   margin-bottom: 0;
 }
+
+.title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--brand);
+}

@@ -26,7 +26,7 @@ export default function Help() {
   return (
     <main className={styles.main}>
       <div className={styles.wrapper}>
-        <h1 className={styles.header}>Get Involved</h1>
+        <div className={styles.title}>get involved</div>
         <p>
           Not interested in hacking but still want to participate? Fill out the
           forms below if you&apos;d like to help hackers throughout the day.
