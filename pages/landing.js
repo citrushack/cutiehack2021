@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
 
 import CountdownWrapper from '../components/Countdown'
+import SignupCounter from '../components/SignupCounter'
 
 import heroLeft from '../public/assets/hero_left.png'
 import heroRight from '../public/assets/hero_right.png'
@@ -140,6 +141,7 @@ export default function Home() {
               <div>
                 <h1 className={styles.title}>cutie hack</h1>
                 <CountdownWrapper />
+                <SignupCounter />
                 {!session && isMobile && (
                   <div className={styles.actionwrapper}>
                     <motion.button
