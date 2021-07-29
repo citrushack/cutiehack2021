@@ -141,8 +141,8 @@ export default function Home() {
               <div>
                 <h1 className={styles.title}>cutie hack</h1>
                 <CountdownWrapper />
-                <SignupCounter />
-                {!session && isMobile && (
+                {/* <SignupCounter /> */}
+                {/* {!session && isMobile && (
                   <div className={styles.actionwrapper}>
                     <motion.button
                       aria-label="Sign In Button"
@@ -222,7 +222,7 @@ export default function Home() {
                       </motion.button>
                     </Link>
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </motion.div>
