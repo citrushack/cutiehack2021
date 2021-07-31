@@ -167,6 +167,8 @@ export default function CheckInForm() {
         id,
       ]
       sendData(data)
+      sendEmail(email)
+
       router.push('/groups')
       toast.success('Succesfully checked in!', { id: 'checkInSuccess' })
     }
@@ -181,6 +183,14 @@ export default function CheckInForm() {
       body: JSON.stringify({ user: checkinData }),
     })
     await response.json()
+  }
+
+  const sendEmail = async (email) => {
+    fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    });
   }
 
   const handleResize = () => {
