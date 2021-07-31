@@ -36,7 +36,9 @@ export default function About() {
             </div> */}
           </div>
           <div className={styles.description}>
-            Cutie Hack is a 12-hour, beginner-oriented hackathon hackathon hosted at University of California, Riverside with an expected participation of 500 hackers.
+            Cutie Hack is a 12-hour, beginner-oriented hackathon hackathon
+            hosted at University of California, Riverside with an expected
+            participation of 500 hackers.
           </div>
         </div>
         <div>
