@@ -5,8 +5,7 @@ const sendEmail = async ({ email }) => {
     to: email, // Change to your recipient
     from: 'citrushack@gmail.com', // Change to your verified sender
     subject: 'Cutie Hack Update',
-    text: 'Filler text...',
-    html: '<strong>Filler text...</strong>',
+    html: '<div><img src="https://cdn.foldnfly.com/images/lounge/steer2.jpg" /></div>',
   }
   sgMail
     .send(msg)
@@ -18,4 +17,4 @@ const sendEmail = async ({ email }) => {
     })
 }
 
-export { sendEmail };
+export { sendEmail }

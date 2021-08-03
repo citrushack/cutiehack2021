@@ -30,7 +30,6 @@ export default function Nav() {
   const [inGroup, setInGroup] = useState(false)
   const [groupId, setGroupId] = useState('')
   const [open, setOpen] = useState(false)
-  const [notHome, setNotHome] = useState(false)
 
   const fetchData = async (id) => {
     const response = await fetch('/api/checkin', {
@@ -62,8 +61,6 @@ export default function Nav() {
   useEffect(() => {
     if (session) fetchData(session.user.id)
 
-    setNotHome(router.pathname !== '/')
-
     window.addEventListener('resize', handleResize)
     setTargetElement(document.querySelector('nav'))
     if (targetElement) {
@@ -76,32 +73,85 @@ export default function Nav() {
     <span className={open && styles.open}>
       <nav className={styles.navbar}>
         <div className={styles.navwrapper}>
-          <Link passHref href="/">
-            <div className={styles.logo}>
-              <Image
-                src={logo}
-                alt="Logo Image"
-                objectFit="contain"
-                width={40}
-                height={40}
-                quality={100}
-              />
-            </div>
-          </Link>
-          <div>
-            <div className={styles.mobileHeader}>
+          {
+            router.pathname !== '/'
+            ?
               <Link passHref href="/">
-                <div className={styles.mobileLogo}>
+                <div className={styles.logo}>
                   <Image
                     src={logo}
                     alt="Logo Image"
                     objectFit="contain"
-                    width={35}
-                    height={35}
+                    width={40}
+                    height={40}
                     quality={100}
                   />
                 </div>
               </Link>
+            :
+              <NavLink
+                activeClass="active"
+                to="Home"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className={styles.tab}
+                onClick={() => setOpen(false)}
+              >
+                <div className={styles.logo}>
+                  <Image
+                    src={logo}
+                    alt="Logo Image"
+                    objectFit="contain"
+                    width={40}
+                    height={40}
+                    quality={100}
+                  />
+                </div>
+              </NavLink>
+          }
+          <div>
+            <div className={styles.mobileHeader}>
+              {
+                router.pathname !== '/'
+                ?
+                  <Link passHref href="/">
+                    <div className={styles.mobileLogo}>
+                      <Image
+                        src={logo}
+                        alt="Logo Image"
+                        objectFit="contain"
+                        width={35}
+                        height={35}
+                        quality={100}
+                      />
+                    </div>
+                  </Link>
+                :
+                  <NavLink
+                    activeClass="active"
+                    to="Home"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    <div className={styles.mobileLogo}>
+                      <Image
+                        src={logo}
+                        alt="Logo Image"
+                        objectFit="contain"
+                        width={35}
+                        height={35}
+                        quality={100}
+                      />
+                    </div>
+                  </NavLink>
+              }
+              
               <div
                 className={styles.menuButtonWrapper}
                 onClick={() => toggle()}
@@ -111,98 +161,82 @@ export default function Nav() {
               </div>
             </div>
             <div id="nav" className={styles.tabs}>
-              <Link href="/" passHref>
-                <NavLink
-                  className={
-                    notHome
-                      ? `${styles.tab}`
-                      : `${styles.hidetabs} ${styles.tab}`
-                  }
-                  onClick={() => setOpen(false)}
-                >
-                  home
-                </NavLink>
-              </Link>
-              <NavLink
-                activeClass="active"
-                to="Home"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className={
-                  !notHome
-                    ? `${styles.tab}`
-                    : `${styles.hidetabs} ${styles.tab}`
-                }
-                onClick={() => setOpen(false)}
-              >
-                home
-              </NavLink>
-              <NavLink
-                activeClass="active"
-                to="About"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className={
-                  !notHome
-                    ? `${styles.tab}`
-                    : `${styles.hidetabs} ${styles.tab}`
-                }
-                onClick={() => setOpen(false)}
-              >
-                about
-              </NavLink>
-              <NavLink
-                activeClass="active"
-                to="FAQ"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className={
-                  !notHome
-                    ? `${styles.tab}`
-                    : `${styles.hidetabs} ${styles.tab}`
-                }
-                onClick={() => setOpen(false)}
-              >
-                faq
-              </NavLink>
-              <NavLink
-                activeClass="active"
-                to="Help"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className={
-                  !notHome
-                    ? `${styles.tab}`
-                    : `${styles.hidetabs} ${styles.tab}`
-                }
-                onClick={() => setOpen(false)}
-              >
-                help
-              </NavLink>
-              <NavLink
-                activeClass="active"
-                to="Sponsors"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className={
-                  !notHome
-                    ? `${styles.tab}`
-                    : `${styles.hidetabs} ${styles.tab}`
-                }
-                onClick={() => setOpen(false)}
-              >
-                sponsors
-              </NavLink>
+              {
+                router.pathname !== '/' 
+                ?
+                  <Link 
+                    href="/" passHref
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    home
+                  </Link>
+                :
+                  <>
+                    <NavLink
+                      activeClass="active"
+                      to="Home"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={styles.tab}
+                      onClick={() => setOpen(false)}
+                    >
+                      home
+                    </NavLink>
+                    <NavLink
+                      activeClass="active"
+                      to="About"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={styles.tab}
+                      onClick={() => setOpen(false)}
+                    >
+                      about
+                    </NavLink>
+                    <NavLink
+                      activeClass="active"
+                      to="FAQ"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={styles.tab}
+                      onClick={() => setOpen(false)}
+                    >
+                      faq
+                    </NavLink>
+                    <NavLink
+                      activeClass="active"
+                      to="Help"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={styles.tab}
+                      onClick={() => setOpen(false)}
+                    >
+                      help
+                    </NavLink>
+                    <NavLink
+                      activeClass="active"
+                      to="Sponsors"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={styles.tab}
+                      onClick={() => setOpen(false)}
+                    >
+                      sponsors
+                    </NavLink>
+                  </>
+              }
+              
+              
               {!session ? (
                 <motion.button
                   aria-label="Sign In Button"
