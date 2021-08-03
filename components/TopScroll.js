@@ -10,7 +10,6 @@ export default function TopScroll() {
   const router = useRouter()
 
   const [isMobile, setIsMobile] = useState(false)
-  const [notHome, setNotHome] = useState(false)
   const [scrollPosition, setScrollPosition] = useState(0)
 
   const handleScroll = () => {
@@ -26,8 +25,6 @@ export default function TopScroll() {
     window.addEventListener('resize', handleResize)
     setIsMobile(window.innerWidth <= 720)
 
-    setNotHome(router.pathname !== '/')
-
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -37,7 +34,7 @@ export default function TopScroll() {
   return (
     <div
       className={
-        isMobile && !notHome && scrollPosition > 360
+        isMobile && router.pathname === '/' && scrollPosition > 360
           ? `${styles.stack}`
           : `${styles.stack} ${styles.hide}`
       }
