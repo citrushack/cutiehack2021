@@ -26,41 +26,59 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           time remaining
         </div>
         <div className={styles.row}>      
-          <div className={styles.stack}>
-            <div className={styles.number}>
-              { Array.from(numDays).map(n =>
-                <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
-              )}
-            </div>
-            <div className={styles.label}>days</div>
-          </div>
-          <div className={styles.separator}>:</div>
-          <div className={styles.stack}>
-            <div className={styles.number}>
-              { Array.from(numHours).map(n =>
-                <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
-              )}
-            </div>
-            <div className={styles.label}>hours</div>
-          </div>
-          <div className={styles.separator}>:</div>
-          <div className={styles.stack}>
-            <div className={styles.number}>
-              { Array.from(numMinutes).map(n =>
-                <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
-              )}
-            </div>
-            <div className={styles.label}>minutes</div>
-          </div>
-          <div className={styles.separator}>:</div>
-          <div className={styles.stack}>
-            <div className={styles.number}>
-              { Array.from(numSeconds).map(n => 
-                <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
-              )}
-            </div>
-            <div className={styles.label}>seconds</div>
-          </div>
+          { 
+            days > 0 &&
+              <>
+                <div className={styles.stack}>
+                  <div className={styles.number}>
+                    { Array.from(numDays).map(n =>
+                      <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
+                    )}
+                  </div>
+                  <div className={styles.label}>days</div>
+                </div>
+                <div className={styles.separator}>:</div>
+              </>
+          }
+          {
+            ( days > 0 || hours > 0 ) &&
+              <>
+                <div className={styles.stack}>
+                  <div className={styles.number}>
+                    { Array.from(numHours).map(n =>
+                      <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
+                    )}
+                  </div>
+                  <div className={styles.label}>hours</div>
+                </div>
+                <div className={styles.separator}>:</div>
+              </>
+          }
+          {
+            ( days > 0 || hours > 0 || minutes > 0 ) &&
+              <>
+                <div className={styles.stack}>
+                  <div className={styles.number}>
+                    { Array.from(numMinutes).map(n =>
+                      <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
+                    )}
+                  </div>
+                  <div className={styles.label}>minutes</div>
+                </div>
+                <div className={styles.separator}>:</div>
+              </>
+          }
+          {
+            ( days > 0 || hours > 0 || minutes > 0 || seconds > 0 ) &&
+              <div className={styles.stack}>
+                <div className={styles.number}>
+                  { Array.from(numSeconds).map(n => 
+                    <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
+                  )}
+                </div>
+                <div className={styles.label}>seconds</div>
+              </div>
+          }
         </div>
       </div>
     )
