@@ -166,10 +166,9 @@ export default function Nav() {
                 ?
                   <Link 
                     href="/" passHref
-                    className={styles.tab}
                     onClick={() => setOpen(false)}
                   >
-                    home
+                    <div className={styles.tab}>home</div>
                   </Link>
                 :
                   <>
