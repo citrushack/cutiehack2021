@@ -208,7 +208,7 @@ export default function Nav() {
                     >
                       faq
                     </NavLink>
-                    <NavLink
+                    {/* <NavLink
                       activeClass="active"
                       to="Help"
                       spy={true}
@@ -231,12 +231,11 @@ export default function Nav() {
                       onClick={() => setOpen(false)}
                     >
                       sponsors
-                    </NavLink>
+                    </NavLink> */}
                   </>
               }
               
-              
-              {!session ? (
+              {/* {!session ? (
                 <motion.button
                   aria-label="Sign In Button"
                   type="button"
@@ -294,7 +293,7 @@ export default function Nav() {
                     Sign out
                   </motion.button>
                 </>
-              )}
+              )} */}
             </div>
           </div>
         </div>
