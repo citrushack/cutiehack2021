@@ -105,7 +105,7 @@ export default function CountdownWrapper() {
 
   return (
     <h2 className={styles.countdown}>
-      <Countdown date="2021-10-31T00:00:00" renderer={renderer} />
+      <Countdown date="2021-11-06T00:00:00" renderer={renderer} />
     </h2>
   )
 }
