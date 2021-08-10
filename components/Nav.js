@@ -198,6 +198,30 @@ export default function Nav() {
                     </NavLink>
                     <NavLink
                       activeClass="active"
+                      to="Support"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={styles.tab}
+                      onClick={() => setOpen(false)}
+                    >
+                      support
+                    </NavLink>
+                    <NavLink
+                      activeClass="active"
+                      to="Team"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={styles.tab}
+                      onClick={() => setOpen(false)}
+                    >
+                      staff
+                    </NavLink>
+                    <NavLink
+                      activeClass="active"
                       to="FAQ"
                       spy={true}
                       smooth={true}
@@ -208,34 +232,10 @@ export default function Nav() {
                     >
                       faq
                     </NavLink>
-                    {/* <NavLink
-                      activeClass="active"
-                      to="Help"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      className={styles.tab}
-                      onClick={() => setOpen(false)}
-                    >
-                      help
-                    </NavLink>
-                    <NavLink
-                      activeClass="active"
-                      to="Sponsors"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      className={styles.tab}
-                      onClick={() => setOpen(false)}
-                    >
-                      sponsors
-                    </NavLink> */}
                   </>
               }
               
-              {/* {!session ? (
+              {!session ? (
                 <motion.button
                   aria-label="Sign In Button"
                   type="button"
@@ -293,7 +293,7 @@ export default function Nav() {
                     Sign out
                   </motion.button>
                 </>
-              )} */}
+              )}
             </div>
           </div>
         </div>

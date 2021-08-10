@@ -133,15 +133,15 @@ export default function Home() {
               <FaCircle className={styles.windowButton} />
             </div>
             <div className={styles.windowContent}>
-              {/* {session && (
+              {session && (
                 <h1 className={styles.greeting}>
                   Glad to have you, {session.user.name}!
                 </h1>
-              )} */}
+              )}
               <div>
                 <h1 className={styles.title}>cutie hack</h1>
                 <CountdownWrapper />
-                {/* <SignupCounter />
+                <SignupCounter />
                 {!session && isMobile && (
                   <div className={styles.actionwrapper}>
                     <motion.button
@@ -222,7 +222,7 @@ export default function Home() {
                       </motion.button>
                     </Link>
                   </div>
-                )} */}
+                )}
               </div>
             </div>
           </motion.div>
