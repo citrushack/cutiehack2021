@@ -23,7 +23,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     return (
       <div className={styles.container}>
         <div className={styles.header}>
-          time remaining
+          days left until start
         </div>
         <div className={styles.row}>      
           { 
