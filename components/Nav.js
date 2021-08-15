@@ -246,7 +246,7 @@ export default function Nav() {
                   className={styles.primarybutton}
                   onClick={signIn}
                 >
-                  Sign in
+                  apply
                 </motion.button>
               ) : (
                 <>
