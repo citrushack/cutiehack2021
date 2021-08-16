@@ -13,8 +13,6 @@ import SignupCounter from '../components/SignupCounter'
 import logo from '../public/assets/logo.png'
 import heroLeft from '../public/assets/hero_left.png'
 import heroRight from '../public/assets/hero_right.png'
-import heroMobile from '../public/assets/hero_mobile.png'
-import { FaCircle } from 'react-icons/fa'
 
 import styles from '../styles/Index.module.css'
 
@@ -24,22 +22,16 @@ export default function Home() {
 
   const [isMobile, setIsMobile] = useState(false)
   var buttonVariants = {}
-  var windowVariants = {}
   if (!isMobile) {
     buttonVariants = {
       hover: { scale: 1.05 },
       tap: { scale: 0.995 },
-    }
-    windowVariants = {
-      whileDrag: { scale: 1.05 },
     }
   }
 
   const [checkedIn, setCheckedIn] = useState(false)
   const [inGroup, setInGroup] = useState(false)
   const [groupId, setGroupId] = useState('')
-
-  const constraintsRef = useRef(null)
 
   const fetchData = async (userId) => {
     const response = await fetch('/api/checkin', {
@@ -228,17 +220,6 @@ export default function Home() {
           className={styles.heroRight}
         />
       </div>
-      {/* <div className={`${styles.bgWrap} ${styles.mobileimage}`}>
-        <Image
-          src={heroMobile}
-          alt="Hero Image"
-          objectFit="contain"
-          quality={50}
-          placeholder="blur"
-          priority={true}
-          className={styles.mobileimage}
-        />
-      </div> */}
     </>
   )
 }

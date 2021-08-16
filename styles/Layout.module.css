@@ -7,8 +7,8 @@
   min-height: 100vh;
 }
 
-@media (max-width: 720px) {
+/* @media (max-width: 720px) {
   .layout {
     padding-top: 5.5rem;
   }
-}
+} */
