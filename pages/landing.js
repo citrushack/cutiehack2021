@@ -106,14 +106,14 @@ export default function Home() {
           <h1 className={styles.title}>better together</h1>
           <p className={styles.description}>a beginner friendly hackathon</p>
           <div>
-            {/* {session && (
+            {session && (
               <h1 className={styles.greeting}>
                 Glad to have you, {session.user.name}!
               </h1>
-            )} */}
+            )}
             <div>
               <CountdownWrapper />
-              {/* <SignupCounter />
+              <SignupCounter />
               {!session && (
                 <div className={styles.actionwrapper}>
                   <motion.button
@@ -206,7 +206,7 @@ export default function Home() {
                     </motion.button>
                   </Link>
                 </div>
-              )} */}
+              )}
             </div>
           </div>
         </section>
