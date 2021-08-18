@@ -113,7 +113,7 @@ export default function Home() {
             )}
             <div>
               <CountdownWrapper />
-              <SignupCounter />
+              {/* <SignupCounter />
               {!session && (
                 <div className={styles.actionwrapper}>
                   <motion.button
@@ -206,7 +206,7 @@ export default function Home() {
                     </motion.button>
                   </Link>
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </section>
