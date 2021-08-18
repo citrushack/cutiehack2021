@@ -40,7 +40,7 @@ export default function Help() {
             transition={{ ease: 'easeInOut', duration: 0.015 }}
             className={styles.button}
           >
-            <span>Mentors</span>
+            <span>mentors</span>
             <FaChevronRight className={styles.arrow} />
           </motion.button>
         </Link>
@@ -52,7 +52,7 @@ export default function Help() {
             transition={{ ease: 'easeInOut', duration: 0.015 }}
             className={styles.button}
           >
-            <span>Volunteers</span>
+            <span>volunteers</span>
             <FaChevronRight className={styles.arrow} />
           </motion.button>
         </Link>
@@ -64,7 +64,7 @@ export default function Help() {
             transition={{ ease: 'easeInOut', duration: 0.015 }}
             className={styles.button}
           >
-            <span>Sponsor Us</span>
+            <span>sponsor us</span>
             <FaChevronRight className={styles.arrow} />
           </motion.button>
         </Link>

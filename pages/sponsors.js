@@ -35,7 +35,7 @@ export default function Sponsors() {
             transition={{ ease: 'easeInOut', duration: 0.015 }}
             className={styles.button}
           >
-            <span>Sponsor Us</span>
+            <span>sponsor us</span>
             <FaChevronRight className={styles.arrow} />
           </motion.button>
         </Link>
