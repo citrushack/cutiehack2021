@@ -6,7 +6,8 @@ export default function Team() {
   return (
     <main className={styles.main}>
       <div className={styles.wrapper}>
-        <div className={styles.title}>our team</div>
+        <h1>our team</h1>
+        <h3>Meet the team!</h3>
       </div>
     </main>
   )

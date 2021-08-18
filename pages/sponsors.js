@@ -23,26 +23,24 @@ export default function Sponsors() {
   })
 
   return (
-    <main className={styles.main}>
+    <section className={styles.section}>
       <div className={styles.wrapper}>
-        <div className={styles.title}>sponsors</div>
-        <p>Those who made this hackathon possible.</p>
+        <h1>the sponsors</h1>
+        <h3>Those who made this hackathon possible.</h3>
         <Link passHref href="/">
-          <motion.div
+          <motion.button
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
             transition={{ ease: 'easeInOut', duration: 0.015 }}
             className={styles.button}
           >
-            <div className={styles.iconTextWrapper}>
-              <div>Sponsor Us</div>
-              <FaChevronRight className={styles.arrow} />
-            </div>
-          </motion.div>
+            <span>Sponsor Us</span>
+            <FaChevronRight className={styles.arrow} />
+          </motion.button>
         </Link>
         <div>{/* sponsor logos */}</div>
       </div>
-    </main>
+    </section>
   )
 }

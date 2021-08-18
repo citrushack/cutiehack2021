@@ -1,0 +1,26 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.content{
+  max-width: 60rem;
+  text-align: center;
+}
+
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  max-width: 80rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 960px) {
+  .faq {
+    grid-template-columns: 1fr;
+  }
+}

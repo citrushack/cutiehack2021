@@ -50,7 +50,9 @@ export default function Home() {
         <Element name="Support" className={styles.element}>
           <Help />
         </Element>
-        <Sponsors />
+        <Element name="Sponsors" className={styles.element}>
+          <Sponsors />
+        </Element>
         <Element name="Team" className={styles.element}>
           <Team />
         </Element>

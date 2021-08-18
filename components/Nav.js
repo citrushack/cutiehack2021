@@ -73,62 +73,96 @@ export default function Nav() {
     <span className={open && styles.open}>
       <nav className={styles.navbar}>
         <div className={styles.navwrapper}>
-          {
-            router.pathname !== '/'
-            ?
-              <Link passHref href="/">
-                <div className={styles.logo}>
-                  <Image
-                    src={logo}
-                    alt="Logo Image"
-                    objectFit="contain"
-                    width={40}
-                    height={40}
-                    quality={100}
-                  />
-                </div>
-              </Link>
-            :
-              <NavLink
-                activeClass="active"
-                to="Home"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className={styles.tab}
-                onClick={() => setOpen(false)}
-              >
-                <div className={styles.logo}>
-                  <Image
-                    src={logo}
-                    alt="Logo Image"
-                    objectFit="contain"
-                    width={40}
-                    height={40}
-                    quality={100}
-                  />
-                </div>
-              </NavLink>
-          }
+          {router.pathname !== '/' ? (
+            <Link passHref href="/">
+              <div className={styles.logo}>
+                <Image
+                  src={logo}
+                  alt="Logo Image"
+                  objectFit="contain"
+                  width={40}
+                  height={40}
+                  quality={100}
+                />
+              </div>
+            </Link>
+          ) : (
+            <NavLink
+              activeClass="active"
+              to="Home"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={styles.tab}
+              onClick={() => setOpen(false)}
+            >
+              <div className={styles.logo}>
+                <Image
+                  src={logo}
+                  alt="Logo Image"
+                  objectFit="contain"
+                  width={40}
+                  height={40}
+                  quality={100}
+                />
+              </div>
+            </NavLink>
+          )}
           <div>
             <div className={styles.mobileHeader}>
-              {
-                router.pathname !== '/'
-                ?
-                  <Link passHref href="/">
-                    <div className={styles.mobileLogo}>
-                      <Image
-                        src={logo}
-                        alt="Logo Image"
-                        objectFit="contain"
-                        width={35}
-                        height={35}
-                        quality={100}
-                      />
-                    </div>
-                  </Link>
-                :
+              {router.pathname !== '/' ? (
+                <Link passHref href="/">
+                  <div className={styles.mobileLogo}>
+                    <Image
+                      src={logo}
+                      alt="Logo Image"
+                      objectFit="contain"
+                      width={35}
+                      height={35}
+                      quality={100}
+                    />
+                  </div>
+                </Link>
+              ) : (
+                <NavLink
+                  activeClass="active"
+                  to="Home"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  className={styles.tab}
+                  onClick={() => setOpen(false)}
+                >
+                  <div className={styles.mobileLogo}>
+                    <Image
+                      src={logo}
+                      alt="Logo Image"
+                      objectFit="contain"
+                      width={35}
+                      height={35}
+                      quality={100}
+                    />
+                  </div>
+                </NavLink>
+              )}
+
+              <div
+                className={styles.menuButtonWrapper}
+                onClick={() => toggle()}
+              >
+                <HiMenu className={styles.menuButton} />
+                <HiX className={styles.menuButton} />
+              </div>
+            </div>
+            <div id="nav" className={styles.tabs}>
+              {router.pathname !== '/' ? (
+                <Link href="/" passHref onClick={() => setOpen(false)}>
+                  <div className={styles.tab}>home</div>
+                </Link>
+              ) : (
+                <>
                   <NavLink
                     activeClass="active"
                     to="Home"
@@ -139,102 +173,71 @@ export default function Nav() {
                     className={styles.tab}
                     onClick={() => setOpen(false)}
                   >
-                    <div className={styles.mobileLogo}>
-                      <Image
-                        src={logo}
-                        alt="Logo Image"
-                        objectFit="contain"
-                        width={35}
-                        height={35}
-                        quality={100}
-                      />
-                    </div>
+                    home
                   </NavLink>
-              }
-              
-              <div
-                className={styles.menuButtonWrapper}
-                onClick={() => toggle()}
-              >
-                <HiMenu className={styles.menuButton} />
-                <HiX className={styles.menuButton} />
-              </div>
-            </div>
-            <div id="nav" className={styles.tabs}>
-              {
-                router.pathname !== '/' 
-                ?
-                  <Link 
-                    href="/" passHref
+                  <NavLink
+                    activeClass="active"
+                    to="About"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
                     onClick={() => setOpen(false)}
                   >
-                    <div className={styles.tab}>home</div>
-                  </Link>
-                :
-                  <>
-                    <NavLink
-                      activeClass="active"
-                      to="Home"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      className={styles.tab}
-                      onClick={() => setOpen(false)}
-                    >
-                      home
-                    </NavLink>
-                    <NavLink
-                      activeClass="active"
-                      to="About"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      className={styles.tab}
-                      onClick={() => setOpen(false)}
-                    >
-                      about
-                    </NavLink>
-                    <NavLink
-                      activeClass="active"
-                      to="Support"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      className={styles.tab}
-                      onClick={() => setOpen(false)}
-                    >
-                      support
-                    </NavLink>
-                    <NavLink
-                      activeClass="active"
-                      to="Team"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      className={styles.tab}
-                      onClick={() => setOpen(false)}
-                    >
-                      staff
-                    </NavLink>
-                    <NavLink
-                      activeClass="active"
-                      to="FAQ"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      className={styles.tab}
-                      onClick={() => setOpen(false)}
-                    >
-                      faq
-                    </NavLink>
-                  </>
-              }
-              
+                    about
+                  </NavLink>
+                  <NavLink
+                    activeClass="active"
+                    to="Support"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    support
+                  </NavLink>
+                  <NavLink
+                    activeClass="active"
+                    to="Sponsors"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    sponsors
+                  </NavLink>
+                  <NavLink
+                    activeClass="active"
+                    to="Team"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    staff
+                  </NavLink>
+                  <NavLink
+                    activeClass="active"
+                    to="FAQ"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    faq
+                  </NavLink>
+                </>
+              )}
+
               {!session ? (
                 <motion.button
                   aria-label="Sign In Button"
