@@ -107,9 +107,9 @@ export default function Home() {
           <p className={styles.description}>a beginner friendly hackathon</p>
           <div>
             {session && (
-              <h1 className={styles.greeting}>
+              <h2 className={styles.greeting}>
                 Glad to have you, {session.user.name}!
-              </h1>
+              </h2>
             )}
             <div>
               <CountdownWrapper />

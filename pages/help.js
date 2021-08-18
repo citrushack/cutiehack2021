@@ -24,44 +24,51 @@ export default function Help() {
   })
 
   return (
-    <main className={styles.main}>
-      <div className={styles.wrapper}>
-        <div className={styles.title}>get involved</div>
-        <p>
-          Not interested in hacking but still want to participate? Fill out the
-          forms below if you&apos;d like to help hackers throughout the day.
-        </p>
-        <div className={styles.buttonWrapper}>
-          <Link passHref href="/">
-            <motion.div
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              transition={{ ease: 'easeInOut', duration: 0.015 }}
-              className={styles.button}
-            >
-              <div className={styles.iconTextWrapper}>
-                <div>Mentors</div>
-                <FaChevronRight className={styles.arrow} />
-              </div>
-            </motion.div>
-          </Link>
-          <Link passHref href="/">
-            <motion.div
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              transition={{ ease: 'easeInOut', duration: 0.015 }}
-              className={styles.button}
-            >
-              <div className={styles.iconTextWrapper}>
-                <div>Volunteers</div>
-                <FaChevronRight className={styles.arrow} />
-              </div>
-            </motion.div>
-          </Link>
-        </div>
+    <section className={styles.section}>
+      <h1>get involved</h1>
+      <h3 className={styles.content}>
+        Not interested in hacking but still want to participate? Great! We would
+        love to have you on board. Fill out the forms below if you&#39;d like to
+        help hackers throughout the day.
+      </h3>
+      <div className={styles.buttonWrapper}>
+        <Link passHref href="/">
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            transition={{ ease: 'easeInOut', duration: 0.015 }}
+            className={styles.button}
+          >
+            <span>Mentors</span>
+            <FaChevronRight className={styles.arrow} />
+          </motion.button>
+        </Link>
+        <Link passHref href="/">
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            transition={{ ease: 'easeInOut', duration: 0.015 }}
+            className={styles.button}
+          >
+            <span>Volunteers</span>
+            <FaChevronRight className={styles.arrow} />
+          </motion.button>
+        </Link>
+        <Link passHref href="/">
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            transition={{ ease: 'easeInOut', duration: 0.015 }}
+            className={styles.button}
+          >
+            <span>Sponsor Us</span>
+            <FaChevronRight className={styles.arrow} />
+          </motion.button>
+        </Link>
       </div>
-    </main>
+    </section>
   )
 }
