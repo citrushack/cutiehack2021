@@ -4,71 +4,11 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-
 }
 
-.accordion {
-  display: flex;
-  flex-direction: column;
-  max-width: 70rem;
-  margin: 1rem 4rem;
-}
-
-.arrow {
-  min-width: 3rem;
-  max-width: 3rem;
-  font-size: 2rem;
-  transition: transform 200ms ease-in-out;
-}
-
-.open .arrow {
-  transform: rotate(45deg);
-}
-
-.accordionItemButton {
-  display: flex;
-  align-items: center;
-  border: none;
-  cursor: pointer;
-}
-
-.accordionItemButton {
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  overflow: hidden;
-  box-sizing: border-box;
-  border-radius: 15px;
-  transition: all 200ms ease-in-out;
-}
-
-.accordionItemButton:hover {
-  background: var(--brand-op-dark);
-  color: white;
-}
-
-.open .accordionItemButton {
-  background: var(--brand);
-  color: white;
-}
-
-.accordionItemPanel {
-  max-height: 0;
-  overflow-y: hidden;
-  margin: var(--gap-half) var(--gap);
-  transition: all 300ms ease-out;
-}
-
-.open .accordionItemPanel {
-  max-height: 10rem;
-  transition: all 300ms ease-in;
-}
-
-.answer {
-  overflow: hidden;
-  width: 100%;
-  height: auto;
-  text-align: left;
+.content{
+  max-width: 60rem;
+  text-align: center;
 }
 
 .faq {
@@ -80,7 +20,7 @@
 
 /* Mobile Styles */
 @media (max-width: 960px) {
-  .faq{
+  .faq {
     grid-template-columns: 1fr;
   }
 }
