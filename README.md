@@ -10,6 +10,7 @@
 > Caleb Yoo,
 > Andrei Dimaano,
 > James Zhang,
+> Aaron Van,
 > Easwaran
 
 This is the codebase for CutieHack 2021. Below is a guide for setting up a local environment to run the website locally for development purposes.
