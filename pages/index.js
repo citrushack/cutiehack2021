@@ -47,7 +47,7 @@ export default function Home() {
         <Element name="About" className={styles.element}>
           <About />
         </Element>
-        {/* <Element name="Support" className={styles.element}>
+        <Element name="Support" className={styles.element}>
           <Help />
         </Element>
         <Element name="Sponsors" className={styles.element}>
@@ -55,7 +55,7 @@ export default function Home() {
         </Element>
         <Element name="Team" className={styles.element}>
           <Team />
-        </Element> */}
+        </Element>
         <Element name="FAQ" className={styles.element}>
           <Faq />
         </Element>

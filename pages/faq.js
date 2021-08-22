@@ -5,7 +5,7 @@ import styles from '../styles/Faq.module.css'
 export default function Faq() {
   return (
     <section className={styles.section}>
-      <h1 className={styles.title}>got questions?</h1>
+      <h1>got questions?</h1>
       <h3 className={styles.content}>
         Here are the most commonly asked questions by our previous hackers. If
         you don&#39;t see your question here feel free to ask us anything via
@@ -41,10 +41,10 @@ export default function Faq() {
         <div>
           <h3>I&#39;ve never been to a hackathon before!</h3>
           <p>
-            That&#39;s the best reason to come out! Cutie Hack is open to
-            people of all skill-levels. We&#39;ll be having beginner-oriented
-            workshops and activities, along with mentors to help you turn your
-            project into reality.
+            That&#39;s the best reason to come out! Cutie Hack is open to people
+            of all skill-levels. We&#39;ll be having beginner-oriented workshops
+            and activities, along with mentors to help you turn your project
+            into reality.
           </p>
         </div>
         <div>
