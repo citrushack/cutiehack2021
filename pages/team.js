@@ -17,7 +17,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              rajbir johar<br></br>director
             </figcaption>
           </figure>
           <figure>
@@ -28,7 +28,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              audrey kim<br></br>director
             </figcaption>
           </figure>
           <figure>
@@ -39,7 +39,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              paulian le<br></br>operations lead
             </figcaption>
           </figure>
           <figure>
@@ -50,7 +50,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              westin montano<br></br>operations lead
             </figcaption>
           </figure>
           <figure>
@@ -61,7 +61,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              mariam golwalla<br></br>sponsorship lead
             </figcaption>
           </figure>
           <figure>
@@ -72,7 +72,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              marshall jones<br></br>sponsorship lead
             </figcaption>
           </figure>
           <figure>
@@ -83,7 +83,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              henry zheng<br></br>marketing lead
             </figcaption>
           </figure>
           <figure>
@@ -94,7 +94,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              kimmy lac<br></br>marketing lead
             </figcaption>
           </figure>
           <figure>
@@ -105,7 +105,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              michelle kim<br></br>web dev lead
             </figcaption>
           </figure>
           <figure>
@@ -116,7 +116,7 @@ export default function Team() {
               height="200"
             />
             <figcaption>
-              Name<br></br> Position
+              j.s. pescasio<br></br>web dev lead
             </figcaption>
           </figure>
         </div>
@@ -124,33 +124,33 @@ export default function Team() {
           <div className={styles.col}>
             <h4>operations committee</h4>
             <ul>
-              <li>John Doe</li>
-              <li>John Doe</li>
-              <li>John Doe</li>
+              <li>john doe</li>
+              <li>john doe</li>
+              <li>john doe</li>
             </ul>
           </div>
           <div className={styles.col}>
             <h4>sponsorship committee</h4>
             <ul>
-              <li>John Doe</li>
-              <li>John Doe</li>
-              <li>John Doe</li>
+              <li>john doe</li>
+              <li>john doe</li>
+              <li>john doe</li>
             </ul>
           </div>
           <div className={styles.col}>
             <h4>marketing committee</h4>
             <ul>
-              <li>John Doe</li>
-              <li>John Doe</li>
-              <li>John Doe</li>
+              <li>john doe</li>
+              <li>john doe</li>
+              <li>john doe</li>
             </ul>
           </div>
           <div className={styles.col}>
             <h4>web dev committee</h4>
             <ul>
-              <li>John Doe</li>
-              <li>John Doe</li>
-              <li>John Doe</li>
+              <li>john doe</li>
+              <li>john doe</li>
+              <li>john doe</li>
             </ul>
           </div>
         </div>
