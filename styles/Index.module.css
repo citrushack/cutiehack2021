@@ -169,7 +169,7 @@
 .primarybutton {
   background-color: var(--brand);
   color: #fff9ef;
-  margin: 0 10px;
+  margin: 0 0.625rem;
 }
 
 .primarybutton:hover {
