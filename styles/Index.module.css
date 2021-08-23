@@ -5,7 +5,8 @@
 .bgWrap {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   overflow: hidden;
   z-index: 0;
@@ -198,7 +199,7 @@
 }
 
 .heroLeft, .heroRight {
-  display: none !important;
+  display: none;
 }
 
 @-moz-document url-prefix() {
@@ -208,12 +209,33 @@
   }
 }
 
+@media (max-width: 375px) {
+  .subintrotext {
+    font-size: 1.5rem;
+  }
+  .title {
+    font-size: 2.3rem;
+  }
+  .description {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 420px) {
+  .subintrotext {
+    font-size: 1.7rem;
+  }
+  .title {
+    font-size: 2.7rem;
+  }
+  .description {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 420px) {
   .greeting {
     font-size: 1.2rem;
-  }
-  .title {
-    font-size: 3rem;
   }
   .windowButton {
     font-size: 1rem;
@@ -227,20 +249,23 @@
   .actionwrapper {
     margin-top: 0.5rem;
   }
-  .subintrotext {
-    font-size: 1.6rem !important;
-  }
 }
 
 @media (min-width: 420px) and (max-width: 530px) {
   .greeting {
     font-size: 1.2rem;
   }
-  .title {
-    font-size: 3.5rem;
-  }
   .windowButton {
     font-size: 1rem;
+  }
+  .subintrotext {
+    font-size: 2rem;
+  }
+  .title {
+    font-size: 3.2rem;
+  }
+  .description {
+    font-size: 1.8rem;
   }
 }
 
@@ -248,8 +273,14 @@
   .greeting {
     font-size: 1.5rem;
   }
+  .subintrotext {
+    font-size: 2.5rem;
+  }
   .title {
-    font-size: 2rem;
+    font-size: 4rem;
+  }
+  .description {
+    font-size: 2.2rem;
   }
 }
 
@@ -276,21 +307,14 @@
   .windowContent {
     margin: 6% 4%;
   }
-  .subintrotext  {
-    font-size: 2rem;
-  }
-  .title{
-    font-size: 2.75rem;
-  }
-  .greeting,
-  .description {
+  .greeting {
     font-size: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .heroLeft, .heroRight {
-    display: block !important;
+    display: block;
   }
 }
 
