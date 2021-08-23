@@ -26,13 +26,28 @@
   margin: 0;
 }
 
-.col{
+.link {
+  cursor: pointer;
+}
+
+.name {
+  margin: 0;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.role {
+  margin: -0.5rem;
+  color: var(--brand-dark);
+}
+
+/* .col{
   display: flex;
   flex-direction: column;
   min-width: 17rem;
   border-radius: 0.3rem;
   background: var(--brand-lightest);
-  /* border: 2px solid var(--brand-darkest); */
+  border: 2px solid var(--brand-darkest);
 }
 
 .col > h4 {
@@ -43,4 +58,4 @@
 .col > ul {
   list-style: none;
   text-align: left;
-}
+} */
