@@ -22,9 +22,6 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
     return (
       <div className={styles.container}>
-        <div className={styles.header}>
-          days left until start
-        </div>
         <div className={styles.row}>      
           { 
             days > 0 &&
@@ -85,7 +82,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   }
 }
 
-export default function CountdownWrapper() {
+export default function CountdownWrapper( props ) {
   const [isMobile, setIsMobile] = useState(false)
   
   if (!isMobile)
@@ -105,7 +102,10 @@ export default function CountdownWrapper() {
 
   return (
     <h2 className={styles.countdown}>
-      <Countdown date="2021-11-06T00:00:00" renderer={renderer} />
+      <div className={styles.header}>
+        {props.heading}
+      </div>
+      <Countdown date={props.date} renderer={renderer} />
     </h2>
   )
 }
