@@ -107,17 +107,17 @@ export default function Home() {
           <p className={styles.description}>a beginner friendly hackathon</p>
           <h2 className={styles.date}>starting november 6, 2021</h2>
           <div>
-            {session && (
+            {/* {session && (
               <h2 className={styles.greeting}>
                 Glad to have you, {session.user.name}!
               </h2>
-            )}
+            )} */}
             <div>
               <CountdownWrapper 
                 date='2021-11-06T09:00:00'
                 heading='days left until start'
               />
-              <SignupCounter />
+              {/* <SignupCounter />
               {!session && (
                 <div className={styles.actionwrapper}>
                   <motion.button
@@ -210,7 +210,7 @@ export default function Home() {
                     </motion.button>
                   </Link>
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </section>

@@ -67,7 +67,7 @@ export default function Help() {
           Citrus Hack come to life! If you are interested in contributing,
           please don&#39;t hesitate to contact us!
         </p>
-        <div className={styles.buttonWrapper}>
+        {/* <div className={styles.buttonWrapper}>
           <Link passHref href="/">
             <motion.button
               variants={buttonVariants}
@@ -104,7 +104,7 @@ export default function Help() {
               <FaChevronRight className={styles.arrow} />
             </motion.button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   )

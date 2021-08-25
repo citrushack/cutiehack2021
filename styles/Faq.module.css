@@ -27,7 +27,8 @@
 }
 
 .wave .shapefill {
-  fill: var(--bg);
+  /* fill: var(--bg); */
+  fill: #fdceae; /* comment out when all sections present */
 }
 
 .mainContent {
