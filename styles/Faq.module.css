@@ -1,14 +1,47 @@
 .section {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--brand-lightest);
+  min-height: 80vh;
+  padding: 0 1rem;
+}
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 65px;
+  transform: rotateY(180deg);
+}
+
+.wave .shapefill {
+  fill: var(--bg);
+}
+
+.mainContent {
+  margin: 5rem 0;
+}
+
+.content {
+  max-width: 60rem;
+  text-align: center;
   margin: auto;
 }
 
-.content{
-  max-width: 60rem;
-  text-align: center;
+.faq h3{
+  color: var(--brand-light) !important;
 }
 
 .faq {
@@ -20,6 +53,9 @@
 
 /* Mobile Styles */
 @media (max-width: 960px) {
+  .content{
+    font-size: 1.25rem;
+  }
   .faq {
     grid-template-columns: 1fr;
   }

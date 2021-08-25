@@ -161,16 +161,16 @@
   border: none;
   border-radius: 5px;
   font-weight: 700;
-  font-size: large;
+  font-size: 1.25rem;
   transition: all 100ms ease-in-out;
   cursor: pointer;
   width: 10rem;
+  margin: 0.3rem;
 }
 
 .primarybutton {
   background-color: var(--brand);
   color: #fff9ef;
-  margin: 0 0.625rem;
 }
 
 .primarybutton:hover {

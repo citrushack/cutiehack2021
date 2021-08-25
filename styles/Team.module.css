@@ -1,13 +1,38 @@
 .section {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  min-height: 80vh;
+  padding: 0 1rem;
+  background-color: var(--bg);
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 65px;
+  transform: rotateY(180deg);
+}
+
+.wave .shapefill {
+  fill: var(--brand-lightest);
 }
 
 .team {
   max-width: 80rem;
+  margin: 5rem 0;
 }
 
 .team > .grid:nth-of-type(1) {
@@ -39,6 +64,22 @@
 .role {
   margin: -0.5rem;
   color: var(--brand-dark);
+}
+
+.committee{
+  margin: 0 5rem;
+}
+
+@media (max-width: 768px) {
+  .grid{
+    justify-content: space-evenly;
+  }
+  .grid > figure {
+    width: 150px;
+  }
+  .committee{
+    margin: 0;
+  }
 }
 
 /* .col{

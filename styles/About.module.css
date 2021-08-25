@@ -1,14 +1,37 @@
 .section {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* min-height: 100vh; */
+  background-color: var(--brand-lightest);
+  min-height: 80vh;
+  padding: 0 1rem;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 65px;
+  transform: rotateY(180deg);
+}
+
+.wave .shapefill {
+  fill: var(--bg);
+}
+
+.mainContent {
+  margin: 5rem 0;
 }
 
 .windowContent {
@@ -102,10 +125,20 @@
 }
 
 @media (max-width: 960px) {
-  .wrapper {
-    max-width: 100%;
-  }
-  .windowContent{
+  .windowContent {
     flex-direction: column;
+  }
+  .content {
+    font-size: 1.25rem;
+    text-align: left;
+  }
+  .statsWrapper{
+    margin-top: 0;
+  }
+  .stats h1 {
+    font-size: 3.5rem;
+  }
+  .stats h2 {
+    font-size: 2rem;
   }
 }
