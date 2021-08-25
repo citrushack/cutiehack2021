@@ -1,18 +1,48 @@
 .section {
-  min-height: 100vh;
+  min-height: 80vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  background-color: #fdceae;
 }
 
-.content{
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 65px;
+}
+
+.wave .shapefill {
+  fill: var(--brand-lightest);
+}
+
+.mainContent {
+  margin: 5rem 0;
   max-width: 60rem;
+}
+
+.content {
+  
   text-align: center;
 }
 
 .buttonWrapper {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
 }
 
 .header {
@@ -24,7 +54,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 12rem;
+  width: 10rem;
   margin: 0.3rem;
   padding: 0.5rem 1rem;
   border: 2px solid var(--brand);
@@ -51,13 +81,21 @@
   background-color: var(--brand-dark);
   color: #fff9ef;
 }
+.button:nth-of-type(3) {
+  border: 2px solid var(--brand-darkest);
+  color: var(--brand-darkest);
+}
+
+.button:nth-of-type(3):hover {
+  background-color: var(--brand-darkest);
+  color: #fff9ef;
+}
 
 .title {
   font-weight: 700;
   font-size: 2rem;
   color: var(--brand);
 }
-
 
 .arrow {
   margin-left: 0.5rem;
@@ -76,5 +114,8 @@
   }
   .button {
     width: 100%;
+  }
+  .content{
+    font-size: 1.25rem;
   }
 }

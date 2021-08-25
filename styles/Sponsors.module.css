@@ -1,5 +1,32 @@
 .section {
-  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--brand-lightest);
+  min-height: 80vh;
+  padding: 0 1rem;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 91px;
+}
+
+.wave .shapefill {
+  fill: #fdceae;
 }
 
 .wrapper {
@@ -26,11 +53,11 @@
   align-items: center;
   width: fit-content;
   padding: 0.5rem 1rem;
-  border: 2px solid var(--brand);
+  border: 2px solid var(--brand-darkest);
   border-radius: 5px;
   font-weight: 700;
   font-size: large;
-  color: var(--brand);
+  color: var(--brand-darkest);
   background-color: var(--bg);
   font-size: 1.25rem;
   transition: all 100ms ease-in-out;
@@ -38,7 +65,7 @@
 }
 
 .button:hover {
-  background-color: var(--brand);
+  background-color: var(--brand-darkest);
   color: #fff9ef;
 }
 
@@ -49,5 +76,11 @@
 @media (max-width: 720px) {
   .button {
     width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .wrapper h3{
+    font-size: 1.25rem;
   }
 }
