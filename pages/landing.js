@@ -105,6 +105,7 @@ export default function Home() {
           </h1>
           <h1 className={styles.title}>better together</h1>
           <p className={styles.description}>a beginner friendly hackathon</p>
+          <h2 className={styles.date}>starting november 6, 2021</h2>
           <div>
             {session && (
               <h2 className={styles.greeting}>
