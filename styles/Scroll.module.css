@@ -9,7 +9,7 @@
 .wrapper {
   display: flex;
   margin-top: 0.2rem;
-  padding: 0.8rem;
+  padding: 0.5rem;
   border: 2px solid var(--brand-light);
   border-radius: 10rem;
   background: #fff9ef;
@@ -33,7 +33,7 @@
 }
 
 .icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .hide {
