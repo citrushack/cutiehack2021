@@ -105,7 +105,6 @@ export default function Home() {
           </h1>
           <h1 className={styles.title}>better together</h1>
           <p className={styles.description}>a beginner friendly hackathon</p>
-          <h2 className={styles.date}>starting november 6, 2021</h2>
           <div>
             {/* {session && (
               <h2 className={styles.greeting}>
@@ -115,7 +114,7 @@ export default function Home() {
             <div>
               <CountdownWrapper 
                 date='2021-11-06T09:00:00'
-                heading='days left until start'
+                heading='starting november 6, 2021'
               />
               {/* <SignupCounter />
               {!session && (

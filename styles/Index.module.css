@@ -115,12 +115,6 @@
   font-size: 2.75rem;
 }
 
-.date {
-  margin-top: -1.7rem;
-  font-weight: 700;
-  color: var(--brand-darkest);
-}
-
 .greeting {
   color: var(--brand-darkest);
   line-height: 1.5;
