@@ -244,7 +244,7 @@ export default function GroupPage() {
             whileTap="tap"
             transition={{ ease: 'easeInOut', duration: 0.015 }}
             className={`${formStyles.button} ${formStyles.danger}`}
-            // onClick={() => leaveGroup(session.user.id)}
+            onClick={() => leaveGroup(session.user.id)}
           >
             Confirm
           </motion.button>
