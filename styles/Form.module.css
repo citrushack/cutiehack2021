@@ -16,28 +16,6 @@
   padding: 0 1rem;
 }
 
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.wave svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 47px;
-  transform: rotateY(180deg);
-}
-
-.wave .shapefill {
-  fill: var(--brand-lightest);
-}
-
 .mainContent {
   margin: 5.5rem 0;
 }

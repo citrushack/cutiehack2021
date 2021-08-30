@@ -31,6 +31,28 @@
   fill: var(--brand-lightest);
 }
 
+.topWave {
+  position: absolute;
+  top: -47px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.topWave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 47px;
+  transform: rotateY(180deg);
+}
+
+.topWave .shapefill {
+  fill: var(--brand-lightest);
+}
+
 .socialWrapper {
   display: flex;
   flex-direction: row;
