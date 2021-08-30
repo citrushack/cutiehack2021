@@ -52,6 +52,24 @@
   background-color: #d0901b;
 }
 
+.danger {
+  background-color: #a5453a;
+  color: #f7d0c9;
+}
+
+.danger:hover {
+  background-color: #92362b;
+}
+
+.cancel {
+  background-color: #f7d0c9;
+  color: #a5453a;
+}
+
+.cancel:hover {
+  background-color: #e6afa5;
+}
+
 .inputWrapper {
   display: flex;
   flex-direction: column;

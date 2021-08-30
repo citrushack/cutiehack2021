@@ -56,6 +56,13 @@
   visibility: hidden;
 }
 
+.buttonWrapper {
+  display: flex;
+  width: 100%;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
 @media (max-width: 420px) {
   .userlist,
   .copywrapper {
@@ -72,5 +79,9 @@
   .userlist,
   .copywrapper {
     width: 100%;
+  }
+  .buttonWrapper {
+    flex-direction: column;
+    gap: 0;
   }
 }
