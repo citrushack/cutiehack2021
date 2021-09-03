@@ -16,8 +16,8 @@
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
-  border: 2px solid var(--brand-darkest);
-  border-radius: 5px;
+  border: 0.125rem solid var(--brand-darkest);
+  border-radius: 0.313rem;
   color: var(--brand-darkest);
 }
 
@@ -33,7 +33,7 @@
   width: 28rem;
   padding: 0.5rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   background: #f2e3ca;
   transition: all 100ms ease-in-out;
   font-weight: 700;
