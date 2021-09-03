@@ -110,9 +110,9 @@
 }
 
 .description {
+  margin-top: -1rem;
   line-height: 1.5;
   font-size: 2.75rem;
-  margin-top: -1rem;
 }
 
 .greeting {
@@ -161,16 +161,16 @@
   border: none;
   border-radius: 0.313rem;
   font-weight: 700;
-  font-size: large;
+  font-size: 1.25rem;
   transition: all 100ms ease-in-out;
   cursor: pointer;
   width: 10rem;
+  margin: 0.3rem;
 }
 
 .primarybutton {
   background-color: var(--brand);
   color: #fff9ef;
-  margin: 0 0.625rem;
 }
 
 .primarybutton:hover {
@@ -210,6 +210,9 @@
 }
 
 @media (max-width: 375px) {
+  .date {
+    font-size: 1.2rem;
+  }
   .subintrotext {
     font-size: 1.5rem;
   }
@@ -222,6 +225,9 @@
 }
 
 @media (min-width: 375px) and (max-width: 420px) {
+  .date {
+    font-size: 1.3rem;
+  }
   .subintrotext {
     font-size: 1.7rem;
   }
@@ -252,6 +258,9 @@
 }
 
 @media (min-width: 420px) and (max-width: 530px) {
+  .date {
+    font-size: 1.3rem;
+  }
   .greeting {
     font-size: 1.2rem;
   }
@@ -270,6 +279,9 @@
 }
 
 @media (min-width: 530px) and (max-width: 760px) {
+  .date {
+    font-size: 1.5rem;
+  }
   .greeting {
     font-size: 1.5rem;
   }

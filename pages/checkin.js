@@ -7,6 +7,8 @@ import toast from 'react-hot-toast'
 import Layout from '../components/Layout'
 import CheckInForm from '../components/CheckInForm'
 
+import styles from '../styles/Form.module.css'
+
 export default function CheckIn() {
   const router = useRouter()
   const [session, loading] = useSession()
@@ -47,16 +49,16 @@ export default function CheckIn() {
     )
 
   return (
-    <Layout>
+    <section className={styles.section}>
       <Head>
         <title>Cutie Hack | Check In</title>
       </Head>
       {session && (
-        <>
+        <div className={styles.mainContent}>
           <h1>Check In</h1>
           <CheckInForm />
-        </>
+        </div>
       )}
-    </Layout>
+    </section>
   )
 }

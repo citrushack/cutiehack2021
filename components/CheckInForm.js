@@ -47,6 +47,7 @@ export default function CheckInForm() {
   const [major, setMajor] = useState('')
   const [grade, setGrade] = useState('')
   const [first_time, setFirstTime] = useState('')
+  const [grad, setGrad] = useState('')
   const [submit_triggered, triggerSubmit] = useState(false)
   const [filled] = useState({
     email: false,
@@ -57,6 +58,7 @@ export default function CheckInForm() {
     major: false,
     grade: false,
     first_time: false,
+    grad: false,
   })
 
   const handleChangeEmail = (e) => {
@@ -117,6 +119,11 @@ export default function CheckInForm() {
     filled.first_time = true
   }
 
+  const toggleGrad = (e) => {
+    setGrad(e)
+    filled.grad = true
+  }
+
   const triggerWarning = () => {
     toast(
       'This email will be used for verifying your participation in case we need to double check!',
@@ -164,6 +171,7 @@ export default function CheckInForm() {
         major,
         grade,
         first_time,
+        grad,
         id,
       ]
       sendData(data)
@@ -372,6 +380,36 @@ export default function CheckInForm() {
           onClick={() => toggleFirstTime(false)}
         >
           {first_time === false ? (
+            <IoMdRadioButtonOn />
+          ) : (
+            <IoMdRadioButtonOff />
+          )}
+          No
+        </div>
+      </div>
+
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputHeader}>Graduated university and/or a graduate student?</div>
+        <div
+          className={
+            styles.radio && submit_triggered && !filled.grad
+              ? `${styles.radio} ${styles.triggered}`
+              : `${styles.radio}`
+          }
+          onClick={() => toggleGrad(true)}
+        >
+          {grad === true ? <IoMdRadioButtonOn /> : <IoMdRadioButtonOff />}
+          Yes
+        </div>
+        <div
+          className={
+            styles.radio && submit_triggered && !filled.grad
+              ? `${styles.radio} ${styles.triggered}`
+              : `${styles.radio}`
+          }
+          onClick={() => toggleGrad(false)}
+        >
+          {grad === false ? (
             <IoMdRadioButtonOn />
           ) : (
             <IoMdRadioButtonOff />

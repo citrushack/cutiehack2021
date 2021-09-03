@@ -114,9 +114,9 @@ export default function Home() {
             <div>
               <CountdownWrapper 
                 date='2021-11-06T09:00:00'
-                heading='days left until start'
+                heading='starting november 6, 2021'
               />
-              {/* <SignupCounter />
+              <SignupCounter />
               {!session && (
                 <div className={styles.actionwrapper}>
                   <motion.button
@@ -209,7 +209,7 @@ export default function Home() {
                     </motion.button>
                   </Link>
                 </div>
-              )} */}
+              )}
             </div>
           </div>
         </section>

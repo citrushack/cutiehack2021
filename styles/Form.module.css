@@ -6,6 +6,20 @@
   width: 100%;
 }
 
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 0 1rem;
+}
+
+.mainContent {
+  margin: 5.5rem 0;
+}
+
 .button {
   display: flex;
   width: 28rem;
@@ -36,6 +50,24 @@
 
 .home:hover {
   background-color: #d0901b;
+}
+
+.danger {
+  background-color: #a5453a;
+  color: #f7d0c9;
+}
+
+.danger:hover {
+  background-color: #92362b;
+}
+
+.cancel {
+  background-color: #f7d0c9;
+  color: #a5453a;
+}
+
+.cancel:hover {
+  background-color: #e6afa5;
 }
 
 .inputWrapper {

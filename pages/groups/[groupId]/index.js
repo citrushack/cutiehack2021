@@ -8,6 +8,7 @@ import toast from 'react-hot-toast'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import Layout from '../../../components/Layout'
+import Modal from '../../../components/Modal'
 
 import { MdContentCopy } from 'react-icons/md'
 import { FaRegCircle } from 'react-icons/fa'
@@ -26,6 +27,11 @@ export default function GroupPage() {
       hover: { scale: 1.02 },
       tap: { scale: 0.997 },
     }
+
+  const [leaveModalOpen, setLeaveModalOpen] = useState(false)
+  const toggleLeaveModal = () => {
+    setLeaveModalOpen(!leaveModalOpen)
+  }
 
   const [groupId, setGroupId] = useState('')
   const [users, setUsers] = useState([])
@@ -206,7 +212,7 @@ export default function GroupPage() {
         whileTap="tap"
         transition={{ ease: 'easeInOut', duration: 0.015 }}
         className={formStyles.button}
-        onClick={() => leaveGroup(session.user.id)}
+        onClick={() => toggleLeaveModal()}
       >
         Leave Group
       </motion.button>
@@ -223,6 +229,39 @@ export default function GroupPage() {
           Go Back to Homepage
         </motion.button>
       </Link>
+      <Modal
+        show={leaveModalOpen}
+        handler={toggleLeaveModal}
+        header='Leave Group?'
+        caption='If you leave, you will need to be reinvited by the remaining members. If no one else is left in the group, the group will be deleted.'
+      >
+        <div className={styles.buttonWrapper}>
+          <motion.button
+            aria-label="Confirm Leave Button"
+            type="button"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            transition={{ ease: 'easeInOut', duration: 0.015 }}
+            className={`${formStyles.button} ${formStyles.danger}`}
+            onClick={() => leaveGroup(session.user.id)}
+          >
+            Confirm
+          </motion.button>
+          <motion.button
+            aria-label="Cancel Leave Button"
+            type="button"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            transition={{ ease: 'easeInOut', duration: 0.015 }}
+            className={`${formStyles.button} ${formStyles.cancel}`}
+            onClick={() => toggleLeaveModal()}
+          >
+            Cancel
+          </motion.button>
+        </div>
+      </Modal>
     </Layout>
   )
 }
