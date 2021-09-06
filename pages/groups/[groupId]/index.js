@@ -36,6 +36,7 @@ export default function GroupPage() {
   const [groupId, setGroupId] = useState('')
   const [users, setUsers] = useState([])
   const [appStatus, setAppStatus] = useState('')
+  const [groupMatch, setgroupMatch] = useState(false)
 
   const fetchData = async (userId) => {
     const response = await fetch('/api/checkin', {
@@ -75,6 +76,7 @@ export default function GroupPage() {
   const checkValidGroup = async () => {
     const groupId = await fetchGroupId(session.user.id)
     const lastURLSegment = await fetchLastURLSegment()
+    setgroupMatch(groupId === lastURLSegment)
 
     if (groupId !== lastURLSegment) {
       router.push('/')
@@ -172,7 +174,7 @@ export default function GroupPage() {
     }
   }, [loading, session, router])
 
-  if (loading || appStatus !== 'yes')
+  if (loading || appStatus !== 'yes' || !groupMatch)
     return (
       <Layout>
         <Head>
