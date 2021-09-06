@@ -284,7 +284,7 @@ export default function Nav() {
                       </motion.button>
                     </Link>
                   )} */}
-                  <ProfileDropdown />
+                  {!isMobile && <ProfileDropdown />}
                 </>
               )}
             </div>

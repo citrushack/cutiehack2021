@@ -33,7 +33,7 @@ export default function ProfileDropdown() {
         This determines your eligibility to participate in Cutie Hack.
       </div>
       <div>
-        Check back again later if your application status is still pending!
+        Application status will be updated within 24 hours. Check back again later if your application status is still pending!
       </div>
       </div>,
       {
@@ -86,52 +86,52 @@ export default function ProfileDropdown() {
         {openProfile ? <HiX /> : <HiUser />}
       </motion.button>
       <div className={styles.profile}>
-        <div className={styles.profileheader}>
-          {/* {session.user.name} */}
-          {session && checkedIn && (
-            <>
-              <div className={styles.statuslabel}>
-                application status
-                <FaRegQuestionCircle
-                  onClick={() => triggerWarning()}
-                  className={styles.trigger}
-                />
-              </div>
-              <div className={styles.status}>
-                {
-                  appStatus === '' && 
-                    <div className={styles.pending}>
-                      pending...
-                    </div>
-                  ||
-                    appStatus === 'yes' &&  
-                    <div className={styles.accepted}>
-                      accepted
-                    </div>
-                  ||
-                    appStatus === 'no' && 
-                    <div className={styles.denied}>
-                      denied
-                    </div>
-                }
-              </div>
-            </>
-          )}
-        </div>
-        <div className={styles.profilebody}>
-          <Link passHref href={inGroup ? '/groups/' + groupId : '/groups/'}>
-            <motion.button
-              aria-label="Sign Out Button"
-              type="button"
-              className={styles.primaryoption}
-            >
-              <div className={styles.icon}><HiUsers /></div>
-              <div>
-                {inGroup ? 'my group' : 'groups'}
-              </div>
-            </motion.button>
-          </Link>
-        </div>
+        
+      {session && checkedIn && (
+          <div className={styles.profileheader}>
+            <div className={styles.statuslabel}>
+              application status
+              <FaRegQuestionCircle
+                onClick={() => triggerWarning()}
+                className={styles.trigger}
+              />
+            </div>
+            <div className={styles.status}>
+              {
+                appStatus === '' && 
+                  <div className={styles.pending}>
+                    pending...
+                  </div>
+                ||
+                  appStatus === 'yes' &&  
+                  <div className={styles.accepted}>
+                    accepted
+                  </div>
+                ||
+                  appStatus === 'no' && 
+                  <div className={styles.denied}>
+                    denied
+                  </div>
+              }
+            </div>
+          </div>
+        )}
+        {appStatus === 'yes' &&
+          <div className={styles.profilebody}>
+            <Link passHref href={inGroup ? '/groups/' + groupId : '/groups/'}>
+              <motion.button
+                aria-label="Groups Button"
+                type="button"
+                className={styles.primaryoption}
+              >
+                <div className={styles.icon}><HiUsers /></div>
+                <div>
+                  {inGroup ? 'my group' : 'groups'}
+                </div>
+              </motion.button>
+            </Link>
+          </div>
+        }
         <div className={styles.profilefooter}>
           <motion.button
             aria-label="Sign Out Button"

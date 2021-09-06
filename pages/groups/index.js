@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
 
 import Layout from '../../components/Layout'
+import JoinGroupForm from '../../components/JoinGroupForm'
 
 import styles from '../../styles/Form.module.css'
 
@@ -25,6 +26,7 @@ export default function Groups() {
 
   const [inGroup, setInGroup] = useState(false)
   const [groupId, setGroupId] = useState('')
+  const [appStatus, setAppStatus] = useState('')
 
   const fetchData = async (userId) => {
     const response = await fetch('/api/checkin', {
@@ -42,9 +44,18 @@ export default function Groups() {
       })
     }
     if (data.checkins[0]) {
-      setInGroup(data.checkins[0].groupId !== '')
-      if (data.checkins[0].groupId !== '') {
-        setGroupId(data.checkins[0].groupId)
+      setAppStatus(data.checkins[0].qualified)
+      if (data.checkins[0].qualified !== 'yes') {
+        router.push('/')
+        toast.error('Access denied. Application has not been approved yet or has been denied.', {
+          id: 'notQualifiedYetError',
+        })
+      }
+      else {
+        setInGroup(data.checkins[0].groupId !== '')
+        if (data.checkins[0].groupId !== '') {
+          setGroupId(data.checkins[0].groupId)
+        }
       }
     }
   }
@@ -80,7 +91,7 @@ export default function Groups() {
     }
   }, [loading, session, router])
 
-  if (loading)
+  if (loading || appStatus !== 'yes')
     return (
       <Layout>
         <Head>
@@ -123,7 +134,7 @@ export default function Groups() {
           >
             Create Group
           </motion.button>
-          <Link passHref href="/groups/join">
+          {/* <Link passHref href="/groups/join">
             <motion.button
               aria-label="Join Group Button"
               type="button"
@@ -135,7 +146,8 @@ export default function Groups() {
             >
               Join a Group
             </motion.button>
-          </Link>
+          </Link> */}
+          <JoinGroupForm />
         </>
       )}
       <Link passHref href="/">

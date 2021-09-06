@@ -131,19 +131,6 @@ export default function CreateGroupForm() {
       >
         Join Group
       </motion.button>
-      <Link passHref href="/">
-        <motion.button
-          aria-label="Home Button"
-          type="button"
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
-          transition={{ ease: 'easeInOut', duration: 0.015 }}
-          className={`${styles.button} ${styles.home}`}
-        >
-          Go Back to Homepage
-        </motion.button>
-      </Link>
     </>
   )
 }

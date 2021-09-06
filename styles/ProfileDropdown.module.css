@@ -48,6 +48,7 @@
 
 .profileheader {
   padding: 0.3rem;
+  margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--brand-lightest);
 }
@@ -95,12 +96,9 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  padding: 0.5rem 0;
-}
-
-.profilefooter {
-  padding-top: 0.5rem;
-  border-top: 2px solid var(--brand-lightest);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--brand-lightest);
 }
 
 .icon {

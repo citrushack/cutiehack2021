@@ -35,6 +35,7 @@ export default function GroupPage() {
 
   const [groupId, setGroupId] = useState('')
   const [users, setUsers] = useState([])
+  const [appStatus, setAppStatus] = useState('')
 
   const fetchData = async (userId) => {
     const response = await fetch('/api/checkin', {
@@ -50,6 +51,18 @@ export default function GroupPage() {
       toast.error('Access denied. Please check in!', {
         id: 'notCheckedInGroupPageError',
       })
+    }
+    if (data.checkins[0]) {
+      setAppStatus(data.checkins[0].qualified)
+      if (data.checkins[0].qualified !== 'yes') {
+        router.push('/')
+        toast.error('Access denied. Application has not been approved yet or has been denied.', {
+          id: 'notQualifiedYetError',
+        })
+      }
+      else {
+        checkValidGroup()
+      }
     }
   }
 
@@ -156,11 +169,10 @@ export default function GroupPage() {
       })
     } else if (session) {
       fetchData(session.user.id)
-      checkValidGroup()
     }
   }, [loading, session, router])
 
-  if (loading)
+  if (loading || appStatus !== 'yes')
     return (
       <Layout>
         <Head>
