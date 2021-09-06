@@ -54,7 +54,8 @@ export default function Groups() {
       else {
         setInGroup(data.checkins[0].groupId !== '')
         if (data.checkins[0].groupId !== '') {
-          setGroupId(data.checkins[0].groupId)
+          const dst = '/groups/' + data.checkins[0].groupId.toString()
+          router.push(dst)
         }
       }
     }
@@ -91,7 +92,7 @@ export default function Groups() {
     }
   }, [loading, session, router])
 
-  if (loading || appStatus !== 'yes')
+  if (loading || appStatus !== 'yes' || inGroup)
     return (
       <Layout>
         <Head>
@@ -106,50 +107,19 @@ export default function Groups() {
       <Head>
         <title>Cutie Hack | Groups</title>
       </Head>
-      {inGroup ? (
-        <Link passHref href={'/groups/' + groupId}>
-          <motion.button
-            aria-label="View Group Button"
-            type="button"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-            transition={{ ease: 'easeInOut', duration: 0.015 }}
-            className={styles.button}
-          >
-            View Your Group
-          </motion.button>
-        </Link>
-      ) : (
-        <>
-          <motion.button
-            aria-label="Create Group Button"
-            type="button"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-            transition={{ ease: 'easeInOut', duration: 0.015 }}
-            className={styles.button}
-            onClick={() => createGroup(session.user.id, session.user.name)}
-          >
-            Create Group
-          </motion.button>
-          {/* <Link passHref href="/groups/join">
-            <motion.button
-              aria-label="Join Group Button"
-              type="button"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              transition={{ ease: 'easeInOut', duration: 0.015 }}
-              className={styles.button}
-            >
-              Join a Group
-            </motion.button>
-          </Link> */}
-          <JoinGroupForm />
-        </>
-      )}
+      <JoinGroupForm />
+      <motion.button
+        aria-label="Create Group Button"
+        type="button"
+        variants={buttonVariants}
+        whileHover="hover"
+        whileTap="tap"
+        transition={{ ease: 'easeInOut', duration: 0.015 }}
+        className={styles.button}
+        onClick={() => createGroup(session.user.id, session.user.name)}
+      >
+        Create Group
+      </motion.button>
       <Link passHref href="/">
         <motion.button
           aria-label="Home Button"
