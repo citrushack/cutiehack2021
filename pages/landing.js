@@ -162,7 +162,7 @@ export default function Home() {
                   </Link>
                 </div>
               )}
-              {session && isMobile && inGroup && (
+              {/* {session && isMobile && inGroup && (
                 <div className={styles.actionwrapper}>
                   <Link passHref href={'/groups/' + groupId}>
                     <motion.button
@@ -209,7 +209,7 @@ export default function Home() {
                     </motion.button>
                   </Link>
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </section>

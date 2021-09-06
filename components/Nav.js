@@ -6,8 +6,9 @@ import { motion } from 'framer-motion'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { Link as NavLink } from 'react-scroll'
 import { useRouter } from 'next/router'
+import ProfileDropdown from './ProfileDropdown'
 
-import { HiMenu, HiX } from 'react-icons/hi'
+import { HiMenu, HiX, HiUser } from 'react-icons/hi'
 import logo from '../public/assets/logo.png'
 
 import styles from '../styles/Nav.module.css'
@@ -27,8 +28,8 @@ export default function Nav() {
   const [targetElement, setTargetElement] = useState(null)
 
   const [checkedIn, setCheckedIn] = useState(false)
-  const [inGroup, setInGroup] = useState(false)
-  const [groupId, setGroupId] = useState('')
+  // const [inGroup, setInGroup] = useState(false)
+  // const [groupId, setGroupId] = useState('')
   const [open, setOpen] = useState(false)
 
   const fetchData = async (id) => {
@@ -42,10 +43,10 @@ export default function Nav() {
     const data = await response.json()
     setCheckedIn(Object.keys(data.checkins).length !== 0)
     if (data.checkins[0]) {
-      setInGroup(data.checkins[0].groupId !== '')
-      if (data.checkins[0].groupId !== '') {
-        setGroupId(data.checkins[0].groupId)
-      }
+      // setInGroup(data.checkins[0].groupId !== '')
+      // if (data.checkins[0].groupId !== '') {
+      //   setGroupId(data.checkins[0].groupId)
+      // }
     }
   }
 
@@ -268,7 +269,7 @@ export default function Nav() {
                       </motion.button>
                     </Link>
                   )}
-                  {inGroup && (
+                  {/* {inGroup && (
                     <Link passHref href={'/groups/' + groupId}>
                       <motion.button
                         aria-label="View Group Button"
@@ -282,19 +283,8 @@ export default function Nav() {
                         View Your Group
                       </motion.button>
                     </Link>
-                  )}
-                  <motion.button
-                    aria-label="Sign Out Button"
-                    type="button"
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.secondarybutton}
-                    onClick={signOut}
-                  >
-                    Sign out
-                  </motion.button>
+                  )} */}
+                  <ProfileDropdown />
                 </>
               )}
             </div>

@@ -7,7 +7,6 @@
   justify-content: center;
   width: 100%;
   max-height: 5.5rem;
-  overflow-y: hidden;
   background-color: var(--nav-bg);
   backdrop-filter: saturate(180%) blur(20px);
   -moz-backdrop-filter: saturate(180%) blur(20px);
@@ -96,6 +95,7 @@
   background-color: #f2e3ca;
   color: var(--brand);
 }
+
 .secondarybutton:hover {
   background-color: var(--brand);
   color: #fff9ef;
@@ -121,6 +121,9 @@
 }
 
 @media (max-width: 720px) {
+  .navbar {
+    overflow-y: hidden;
+  }
   .tabs {
     flex-direction: column;
     margin-right: 0;
