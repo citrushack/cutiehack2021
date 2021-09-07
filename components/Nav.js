@@ -112,7 +112,7 @@ export default function Nav() {
             <div className={styles.mobileHeader}>
               {isMobile && 
                 <ProfileDropdown 
-                  display={!open}
+                  visible={!open}
                   checkedIn={checkedIn}
                   inGroup={inGroup}
                   groupId={groupId}
@@ -277,7 +277,7 @@ export default function Nav() {
                   )}
                   {!isMobile && 
                     <ProfileDropdown 
-                      display={true}
+                      visible={true}
                       checkedIn={checkedIn}
                       inGroup={inGroup}
                       groupId={groupId}

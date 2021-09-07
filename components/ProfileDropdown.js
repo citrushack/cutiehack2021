@@ -58,8 +58,8 @@ export default function ProfileDropdown(props) {
   }, [setOpenProfile])
 
   return (
-    <div className={!props.display && styles.hide}>
-      <div className={openProfile ? `${styles.open} ${styles.profiledropdown}` : `${styles.profiledropdown}`}>
+    <div className={!props.visible && styles.hide}>
+      <div className={openProfile && props.visible ? `${styles.open} ${styles.profiledropdown}` : `${styles.profiledropdown}`}>
         <motion.button
           aria-label="View Group Button"
           type="button"
