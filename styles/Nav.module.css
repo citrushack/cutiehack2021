@@ -121,18 +121,20 @@
 }
 
 @media (max-width: 720px) {
-  .navbar {
-    overflow-y: hidden;
-  }
   .tabs {
+    display: none;
     flex-direction: column;
     margin-right: 0;
+  }
+  .mobileOpen.tabs {
+    display: flex;
   }
   .menuButtonWrapper {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     margin-right: 1.25rem;
+    margin-bottom: 0;
   }
   .menuButton {
     transition: transform 150ms ease-in-out;
@@ -174,12 +176,14 @@
   }
   .mobileLogo {
     display: flex;
-    padding-bottom: 2rem;
+    margin: 0;
+    margin-right: 0.5rem;
   }
 
   .mobileHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 2rem;
   }
 }

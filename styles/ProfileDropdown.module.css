@@ -137,3 +137,16 @@
 .secondaryoption:hover {
   background-color: #f2e3ca;
 }
+
+.hide {
+  visibility: hidden;
+}
+
+@media (max-width: 720px) {
+  .profilebutton {
+    margin-left: 1.25rem;
+  }
+  .profile {
+    left: 1.25rem;
+  }
+}
