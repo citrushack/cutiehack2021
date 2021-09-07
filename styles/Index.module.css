@@ -213,6 +213,10 @@
   .date {
     font-size: 1.2rem;
   }
+  .greeting {
+    padding-top: 0.5rem;
+    font-size: 1.2rem;
+  }
   .subintrotext {
     font-size: 1.5rem;
   }
@@ -228,6 +232,10 @@
   .date {
     font-size: 1.3rem;
   }
+  .greeting {
+    padding-top: 0.5rem;
+    font-size: 1.3rem;
+  }
   .subintrotext {
     font-size: 1.7rem;
   }
@@ -240,9 +248,6 @@
 }
 
 @media (max-width: 420px) {
-  .greeting {
-    font-size: 1.2rem;
-  }
   .windowButton {
     font-size: 1rem;
   }
@@ -262,7 +267,7 @@
     font-size: 1.3rem;
   }
   .greeting {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   .windowButton {
     font-size: 1rem;
@@ -318,9 +323,6 @@
   }
   .windowContent {
     margin: 6% 4%;
-  }
-  .greeting {
-    font-size: 1.5rem;
   }
 }
 

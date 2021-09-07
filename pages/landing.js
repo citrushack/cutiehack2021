@@ -108,7 +108,7 @@ export default function Home() {
           <div>
             {session && (
               <h2 className={styles.greeting}>
-                Glad to have you, {session.user.name}!
+                glad to have you, {session.user.name}!
               </h2>
             )}
             <div>
