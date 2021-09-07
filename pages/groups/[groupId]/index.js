@@ -57,11 +57,13 @@ export default function GroupPage() {
       setAppStatus(data.checkins[0].qualified)
       if (data.checkins[0].qualified !== 'yes') {
         router.push('/')
-        toast.error('Access denied. Application has not been approved yet or has been denied.', {
-          id: 'notQualifiedYetError',
-        })
-      }
-      else {
+        toast.error(
+          'Access denied. Application has not been approved yet or has been denied.',
+          {
+            id: 'notQualifiedYetError',
+          }
+        )
+      } else {
         checkValidGroup()
       }
     }
@@ -232,24 +234,24 @@ export default function GroupPage() {
           Leave Group
         </motion.button>
       </div>
-        <Link passHref href="/">
-          <motion.button
-            aria-label="Home Button"
-            type="button"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-            transition={{ ease: 'easeInOut', duration: 0.015 }}
-            className={`${formStyles.button} ${formStyles.home}`}
-          >
-            Go Back to Homepage
-          </motion.button>
-        </Link>
+      <Link passHref href="/">
+        <motion.button
+          aria-label="Home Button"
+          type="button"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          transition={{ ease: 'easeInOut', duration: 0.015 }}
+          className={`${formStyles.button} ${formStyles.home}`}
+        >
+          Go Back to Homepage
+        </motion.button>
+      </Link>
       <Modal
         show={leaveModalOpen}
         handler={toggleLeaveModal}
-        header='Leave Group?'
-        caption='If you leave, you will need to be reinvited by the remaining members. If no one else is left in the group, the group will be deleted.'
+        header="Leave Group?"
+        caption="If you leave, you will need to be reinvited by the remaining members. If no one else is left in the group, the group will be deleted."
       >
         <div className={styles.buttonWrapper}>
           <motion.button

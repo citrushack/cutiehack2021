@@ -52,10 +52,6 @@ export default function Nav() {
     }
   }
 
-  const toggle = () => {
-    setOpen(!open)
-  }
-
   const handleResize = () => {
     if (window.innerWidth > 720) setOpen(false)
     setIsMobile(window.innerWidth <= 720)
@@ -161,7 +157,7 @@ export default function Nav() {
               )}
               <div
                 className={styles.menuButtonWrapper}
-                onClick={() => toggle()}
+                onClick={() => setOpen(!open)}
               >
                 <HiMenu className={styles.menuButton} />
                 <HiX className={styles.menuButton} />

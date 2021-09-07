@@ -46,11 +46,13 @@ export default function Groups() {
       setAppStatus(data.checkins[0].qualified)
       if (data.checkins[0].qualified !== 'yes') {
         router.push('/')
-        toast.error('Access denied. Application has not been approved yet or has been denied.', {
-          id: 'notQualifiedYetError',
-        })
-      }
-      else {
+        toast.error(
+          'Access denied. Application has not been approved yet or has been denied.',
+          {
+            id: 'notQualifiedYetError',
+          }
+        )
+      } else {
         setInGroup(data.checkins[0].groupId !== '')
         if (data.checkins[0].groupId !== '') {
           const dst = '/groups/' + data.checkins[0].groupId.toString()

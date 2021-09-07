@@ -25,12 +25,12 @@ export default function ProfileDropdown(props) {
   const triggerWarning = () => {
     toast(
       <div className={styles.toast}>
-      <div>
-        This determines your eligibility to participate in Cutie Hack.
-      </div>
-      <div>
-        Application status will be updated within 24 hours. Check back again later if your application status is still pending!
-      </div>
+        <div>
+          This determines your eligibility to participate in Cutie Hack.
+        </div>
+        <div>
+          Application status will be updated within 24 hours. Check back again later if your application status is still pending!
+        </div>
       </div>,
       {
         id: 'appStatusInfo',
@@ -45,7 +45,7 @@ export default function ProfileDropdown(props) {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
-  }, [session])
+  }, [])
 
   return (
     <div className={!props.display && styles.hide}>
@@ -100,6 +100,7 @@ export default function ProfileDropdown(props) {
                   aria-label="Groups Button"
                   type="button"
                   className={styles.primaryoption}
+                  onClick={() => setOpenProfile(false)}
                 >
                   <div className={styles.icon}><HiUsers /></div>
                   <div>
