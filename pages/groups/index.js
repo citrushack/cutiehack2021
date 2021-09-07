@@ -25,7 +25,6 @@ export default function Groups() {
     }
 
   const [inGroup, setInGroup] = useState(false)
-  const [groupId, setGroupId] = useState('')
   const [appStatus, setAppStatus] = useState('')
 
   const fetchData = async (userId) => {
@@ -107,19 +106,33 @@ export default function Groups() {
       <Head>
         <title>Cutie Hack | Groups</title>
       </Head>
-      <JoinGroupForm />
-      <motion.button
-        aria-label="Create Group Button"
-        type="button"
-        variants={buttonVariants}
-        whileHover="hover"
-        whileTap="tap"
-        transition={{ ease: 'easeInOut', duration: 0.015 }}
-        className={styles.button}
-        onClick={() => createGroup(session.user.id, session.user.name)}
-      >
-        Create Group
-      </motion.button>
+      <div className={styles.groupbuttonWrapper}>
+        <div>
+          <div className={styles.groupbuttonHeader}>
+            <h2>Join a Group</h2>
+            <p>Have a group to join? Enter the invite code below!</p>
+          </div>
+          <JoinGroupForm />
+        </div>
+        <div>
+          <div className={styles.groupbuttonHeader}>
+            <h2>Create a Group</h2>
+            <p>Don&apos;t have a group to join? Create your own below!</p>
+          </div>
+          <motion.button
+            aria-label="Create Group Button"
+            type="button"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            transition={{ ease: 'easeInOut', duration: 0.015 }}
+            className={styles.button}
+            onClick={() => createGroup(session.user.id, session.user.name)}
+          >
+            Create Group
+          </motion.button>
+        </div>
+      </div>
       <Link passHref href="/">
         <motion.button
           aria-label="Home Button"

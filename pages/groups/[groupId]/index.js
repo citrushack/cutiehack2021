@@ -218,31 +218,33 @@ export default function GroupPage() {
           </div>
         ))}
       </div>
-      <motion.button
-        aria-label="Leave Group Button"
-        type="button"
-        variants={buttonVariants}
-        whileHover="hover"
-        whileTap="tap"
-        transition={{ ease: 'easeInOut', duration: 0.015 }}
-        className={formStyles.button}
-        onClick={() => toggleLeaveModal()}
-      >
-        Leave Group
-      </motion.button>
-      <Link passHref href="/">
+      <div className={formStyles.groupbuttonWrapper}>
         <motion.button
-          aria-label="Home Button"
+          aria-label="Leave Group Button"
           type="button"
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
           transition={{ ease: 'easeInOut', duration: 0.015 }}
-          className={`${formStyles.button} ${formStyles.home}`}
+          className={formStyles.button}
+          onClick={() => toggleLeaveModal()}
         >
-          Go Back to Homepage
+          Leave Group
         </motion.button>
-      </Link>
+      </div>
+        <Link passHref href="/">
+          <motion.button
+            aria-label="Home Button"
+            type="button"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            transition={{ ease: 'easeInOut', duration: 0.015 }}
+            className={`${formStyles.button} ${formStyles.home}`}
+          >
+            Go Back to Homepage
+          </motion.button>
+        </Link>
       <Modal
         show={leaveModalOpen}
         handler={toggleLeaveModal}
