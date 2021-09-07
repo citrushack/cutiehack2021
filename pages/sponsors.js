@@ -52,7 +52,36 @@ export default function Sponsors() {
             <FaChevronRight className={styles.arrow} />
           </motion.button>
         </Link>
-        <div>{/* sponsor logos */}</div>
+        <div className={styles.grid}>
+          <div>
+          <img src="https://picsum.photos/200?random" width="300" height="250" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="300" height="250" alt="placeholder"></img>
+          </div>
+          <div>
+          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
+          </div>
+          <div>
+          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
+          </div>
+          <div>
+          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
+          </div>
+          <div>
+          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
+          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
+          </div>
+        </div>
       </div>
     </section>
   )

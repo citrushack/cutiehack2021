@@ -42,8 +42,8 @@
 
 .window {
   margin: 0.5rem;
-  border: 2.5px solid var(--brand-darkest);
-  border-radius: 5px;
+  border: 0.156rem solid var(--brand-darkest);
+  border-radius: 0.313rem;
   text-align: center;
   background: var(--nav-bg);
   backdrop-filter: saturate(180%) blur(20px);
@@ -54,8 +54,8 @@
 .windowHeader {
   display: flex;
   padding: 0.5rem;
-  border-radius: 5px 5px 0 0;
-  border-bottom: 2px solid var(--brand-darkest);
+  border-radius: 0.313rem 0.313rem 0 0;
+  border-bottom: 0.125rem solid var(--brand-darkest);
   background: var(--nav-bg);
   cursor: move;
   cursor: grab;
@@ -123,7 +123,7 @@
 
 .code {
   background: #fafafa;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   padding: 0.75rem;
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
@@ -159,7 +159,7 @@
 .secondarybutton {
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   font-weight: 700;
   font-size: 1.25rem;
   transition: all 100ms ease-in-out;
@@ -252,7 +252,7 @@
     font-size: 1rem;
   }
   .actionwrapper a:nth-of-type(1) {
-    margin: 10px 0;
+    margin: 0.625rem 0;
   }
   .window .primarybutton {
     font-size: 1.1rem;

@@ -40,7 +40,7 @@
 
 .button:hover {
   background-color: #c9b695;
-  box-shadow: 0 6px 16px 0 rgba(98, 99, 99, 0.1);
+  box-shadow: 0 0.375rem 1rem 0 rgba(98, 99, 99, 0.1);
 }
 
 .home {
@@ -95,7 +95,7 @@
   width: 28rem;
   height: 3rem;
   padding-left: 0.8rem;
-  border: 2px solid #dacbb2;
+  border: 0.125rem solid #dacbb2;
   border-radius: 0.2rem;
   background: #fffcf7;
   font-size: inherit;
@@ -103,7 +103,7 @@
 
 .inputBox:focus {
   outline: none;
-  border: 2px solid #ff8a00;
+  border: 0.125rem solid #ff8a00;
   border-radius: 0.2rem;
 }
 
@@ -119,14 +119,14 @@
   width: 28rem;
   height: 3rem;
   padding: 0 0.8rem;
-  border: 2px solid #dacbb2;
+  border: 0.125rem solid #dacbb2;
   border-radius: 0.2rem;
   background: #fffcf7;
   cursor: pointer;
 }
 
 .dropdownSelected {
-  border: 2px solid #ff8a00;
+  border: 0.125rem solid #ff8a00;
   color: #ff8a00;
 }
 
@@ -135,7 +135,7 @@
   display: none;
   position: absolute;
   background: #fffcf7;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2);
 }
 
 .dropdownContent div {
@@ -185,7 +185,7 @@
 }
 
 .triggeredBox {
-  border: 2px solid #f55b5b;
+  border: 0.125rem solid #f55b5b;
 }
 
 .groupbuttonWrapper {

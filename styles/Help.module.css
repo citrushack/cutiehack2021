@@ -58,7 +58,7 @@
   margin: 0.3rem;
   padding: 0.5rem 1rem;
   border: 2px solid var(--brand);
-  border-radius: 5px;
+  border-radius: 0.313rem;
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--brand);
@@ -73,7 +73,7 @@
 }
 
 .button:nth-of-type(2) {
-  border: 2px solid var(--brand-dark);
+  border: 0.125rem solid var(--brand-dark);
   color: var(--brand-dark);
 }
 
