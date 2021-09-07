@@ -19,6 +19,7 @@
 }
 
 .profile {
+	z-index: 2000;
   visibility: hidden;
   opacity: 0;
   display: flex;
@@ -38,6 +39,21 @@
   visibility: visible;
   opacity: 1;
   transition: all 150ms ease-in-out;
+}
+
+.overlay {
+	z-index: 1000;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	background: transparent;
+}
+
+.open ~ .overlay {
+	visibility: visible;
 }
 
 .toast {

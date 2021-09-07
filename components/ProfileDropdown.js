@@ -133,6 +133,7 @@ export default function ProfileDropdown(props) {
           </div>
         </div>
       </div>
+      <div className={styles.overlay} onClick={() => setOpenProfile(false)}/>
     </div>
   )
 }
