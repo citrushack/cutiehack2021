@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
+import { useRouter } from 'next/router'
 
 import { HiUser, HiX, HiUsers, HiLogout } from 'react-icons/hi'
 import { FaRegQuestionCircle } from 'react-icons/fa'
@@ -11,6 +12,7 @@ import styles from '../styles/ProfileDropdown.module.css'
 
 export default function ProfileDropdown(props) {
   const [session] = useSession()
+  const router = useRouter()
 
   const [isMobile, setIsMobile] = useState(false)
   var buttonVariants = {}
@@ -45,7 +47,15 @@ export default function ProfileDropdown(props) {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
-  }, [])
+
+    const handleRouteChange = () => {
+      setOpenProfile(false)
+    }
+    router.events.on('routeChangeStart', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [setOpenProfile])
 
   return (
     <div className={!props.display && styles.hide}>
