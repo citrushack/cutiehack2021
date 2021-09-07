@@ -24,7 +24,7 @@ export default function Modal( props ) {
           </div>
         </div>
       </div>
-      <div onClick={props.handler} className={styles.overlay} />
+      <div className={styles.overlay} onClick={props.handler} />
     </>
   )
 }
