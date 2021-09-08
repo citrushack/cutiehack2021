@@ -111,29 +111,21 @@
   visibility: hidden;
 }
 
-@media (max-width: 54.375rem) {
+@media (max-width: 870px) {
   .statsWrapper {
     flex-direction: column;
   }
 }
 
-@media (min-width: 54.375rem) and (max-width: 60rem) {
+@media (min-width: 870px) and (max-width: 960px) {
   .statsWrapper {
     flex-direction: row;
     gap: 5rem;
   }
 }
 
-<<<<<<< HEAD
-@media (max-width: 60rem) {
-  .wrapper {
-    max-width: 100%;
-  }
-  .windowContent{
-=======
 @media (max-width: 960px) {
   .windowContent {
->>>>>>> d30f407e17413cd0e93162bec02ce4fd2a52a9a4
     flex-direction: column;
   }
   .content {

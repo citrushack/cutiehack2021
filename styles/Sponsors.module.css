@@ -38,11 +38,6 @@
   text-align: center;
 }
 
-.grid > div > * {
-  margin: 0.5rem;
-  margin-top: 1.875rem;
-}
-
 .header {
   margin-bottom: 0;
 }
@@ -58,13 +53,8 @@
   align-items: center;
   width: fit-content;
   padding: 0.5rem 1rem;
-<<<<<<< HEAD
-  border: 0.125rem solid var(--brand);
-  border-radius: 0.313rem;
-=======
   border: 2px solid var(--brand-darkest);
   border-radius: 5px;
->>>>>>> d30f407e17413cd0e93162bec02ce4fd2a52a9a4
   font-weight: 700;
   font-size: large;
   color: var(--brand-darkest);
@@ -81,6 +71,37 @@
 
 .arrow {
   margin-left: 0.5rem;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  max-width: 60rem;
+  gap: 1rem;
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.big {
+  width: 15rem;
+  height: 15rem;
+}
+
+.medium {
+  width: 12rem;
+  height: 12rem;
+}
+
+.small {
+  width: 10rem;
+  height: 10rem;
 }
 
 @media (max-width: 720px) {

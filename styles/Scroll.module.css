@@ -9,13 +9,8 @@
 .wrapper {
   display: flex;
   margin-top: 0.2rem;
-<<<<<<< HEAD
-  padding: 0.8rem;
-  border: 0.125rem solid var(--brand-light);
-=======
   padding: 0.5rem;
   border: 2px solid var(--brand-light);
->>>>>>> d30f407e17413cd0e93162bec02ce4fd2a52a9a4
   border-radius: 10rem;
   background: #fff9ef;
   color: var(--brand-light);

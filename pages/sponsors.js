@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaChevronRight } from 'react-icons/fa'
+
+import Soap from '../public/assets/soap.png'
 
 import styles from '../styles/Sponsors.module.css'
 
@@ -53,33 +56,107 @@ export default function Sponsors() {
           </motion.button>
         </Link>
         <div className={styles.grid}>
-          <div>
-          <img src="https://picsum.photos/200?random" width="300" height="250" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="300" height="250" alt="placeholder"></img>
+          <div className={styles.group}>
+            <div className={styles.big}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
+            <div className={styles.big}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
+            <div className={styles.big}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
           </div>
-          <div>
-          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
+          <div className={styles.group}>
+            <div className={styles.medium}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
+            <div className={styles.medium}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
+            <div className={styles.medium}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
+            <div className={styles.medium}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
+            <div className={styles.medium}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
+            <div className={styles.medium}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
           </div>
-          <div>
-          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="200" height="150" alt="placeholder"></img>
-          </div>
-          <div>
-          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
-          </div>
-          <div>
-          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
-          <img src="https://picsum.photos/200?random" width="150" height="100" alt="placeholder"></img>
+          <div className={styles.group}>
+            <div className={styles.small}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
+            <div className={styles.small}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
+            <div className={styles.small}>
+              <Image
+                src={Soap}
+                layout='responsive'
+                quality={100}
+                alt='placeholder'
+              />
+            </div>
           </div>
         </div>
       </div>
