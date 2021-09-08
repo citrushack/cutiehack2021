@@ -12,8 +12,8 @@
 .header {
   margin-bottom: 1rem;
   color: var(--brand-dark);
-  border-top: 2px solid var(--brand-dark);
-  border-bottom: 2px solid var(--brand-dark);
+  border-top: 0.125rem solid var(--brand-dark);
+  border-bottom: 0.125rem solid var(--brand-dark);
 }
 
 .number {
@@ -26,7 +26,7 @@
 .number * {
   margin: 0 0.3rem;
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   background: #f2e3ca;
 }
 .number *:first-of-type {

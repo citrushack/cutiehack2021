@@ -12,7 +12,7 @@
   width: 3.9rem;
   margin-top: 0.2rem;
   padding: 0.8rem;
-  border: 2px solid var(--brand-light);
+  border: 0.125rem solid var(--brand-light);
   border-radius: 10rem;
   background: #fff9ef;
   color: var(--brand-light);

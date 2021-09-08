@@ -81,7 +81,7 @@
   border: 4px solid var(--brand-lightest);
   border-radius: 0.5rem;
   background: var(--brand-white);
-  box-shadow: 0 10px 12px rgba(102, 50, 5, 0.1);
+  box-shadow: 0 0.625rem 0.75rem rgba(102, 50, 5, 0.1);
 }
 
 .windowHeader {
@@ -90,7 +90,7 @@
   align-items: center;
   padding: 0.5rem 1rem;
   padding-top: 0.7rem;
-  border-bottom: 3px solid var(--brand-lightest);
+  border-bottom: 0.188rem solid var(--brand-lightest);
 }
 
 .windowButton {
@@ -111,21 +111,29 @@
   visibility: hidden;
 }
 
-@media (max-width: 870px) {
+@media (max-width: 54.375rem) {
   .statsWrapper {
     flex-direction: column;
   }
 }
 
-@media (min-width: 870px) and (max-width: 960px) {
+@media (min-width: 54.375rem) and (max-width: 60rem) {
   .statsWrapper {
     flex-direction: row;
     gap: 5rem;
   }
 }
 
+<<<<<<< HEAD
+@media (max-width: 60rem) {
+  .wrapper {
+    max-width: 100%;
+  }
+  .windowContent{
+=======
 @media (max-width: 960px) {
   .windowContent {
+>>>>>>> d30f407e17413cd0e93162bec02ce4fd2a52a9a4
     flex-direction: column;
   }
   .content {
