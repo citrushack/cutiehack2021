@@ -110,14 +110,16 @@ export default function Nav() {
           )}
           <div>
             <div className={styles.mobileHeader}>
-              {isMobile && 
-                <ProfileDropdown 
-                  visible={!open}
-                  checkedIn={checkedIn}
-                  inGroup={inGroup}
-                  groupId={groupId}
-                  appStatus={appStatus}
-                />
+              {session &&
+                <div className={styles.mobileProfile}>
+                  <ProfileDropdown 
+                    visible={!open}
+                    checkedIn={checkedIn}
+                    inGroup={inGroup}
+                    groupId={groupId}
+                    appStatus={appStatus}
+                  />
+                </div>
               }
               {router.pathname !== '/' ? (
                 <Link passHref href="/">
@@ -275,14 +277,16 @@ export default function Nav() {
                       </motion.button>
                     </Link>
                   )}
-                  {!isMobile && 
-                    <ProfileDropdown 
-                      visible={true}
-                      checkedIn={checkedIn}
-                      inGroup={inGroup}
-                      groupId={groupId}
-                      appStatus={appStatus}
-                    />
+                  {session &&
+                    <div className={styles.desktopProfile}>
+                      <ProfileDropdown 
+                        visible={true}
+                        checkedIn={checkedIn}
+                        inGroup={inGroup}
+                        groupId={groupId}
+                        appStatus={appStatus}
+                      />
+                    </div>
                   }
                 </>
               )}
