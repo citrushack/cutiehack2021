@@ -119,18 +119,19 @@ export default function Home() {
               <SignupCounter />
               {!session && (
                 <div className={styles.actionwrapper}>
-                  <motion.button
-                    aria-label="Sponsor Button"
-                    type="button"
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.secondarybutton}
-                    // onClick={signIn} change this to sponsor packet
-                  >
-                    sponsor
-                  </motion.button>
+                  <Link passHref href='https://drive.google.com/file/d/1AyY_BiIUhbllUf5h7zoz3f1Hs1LpncG4/view?usp=sharing'>
+                    <motion.button
+                      aria-label="Sponsor Button"
+                      type="button"
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                      transition={{ ease: 'easeInOut', duration: 0.015 }}
+                      className={styles.secondarybutton}
+                    >
+                      sponsor
+                    </motion.button>
+                  </Link>
                   <motion.button
                     aria-label="Sign In Button"
                     type="button"

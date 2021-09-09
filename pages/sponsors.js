@@ -43,7 +43,7 @@ export default function Sponsors() {
       <div className={styles.wrapper}>
         <h1>the sponsors</h1>
         <h3>Those who made this hackathon possible.</h3>
-        <Link passHref href="/">
+        <Link passHref href='https://drive.google.com/file/d/1AyY_BiIUhbllUf5h7zoz3f1Hs1LpncG4/view?usp=sharing'>
           <motion.button
             variants={buttonVariants}
             whileHover="hover"
