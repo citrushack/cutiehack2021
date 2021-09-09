@@ -55,7 +55,7 @@ export default function Sponsors() {
             <FaChevronRight className={styles.arrow} />
           </motion.button>
         </Link>
-        <div className={styles.grid}>
+        {/* <div className={styles.grid}>
           <div className={styles.group}>
             <div className={styles.big}>
               <Image
@@ -158,7 +158,7 @@ export default function Sponsors() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

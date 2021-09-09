@@ -107,8 +107,16 @@ export default function Team() {
           />
         </div>
         <div className={styles.committee}>
-          <h3>Committee Members</h3>
-          <p>John Doe</p>
+          <h3>committee members</h3>
+          <div>Danial Beg</div>
+          <div>Jonathon Chon</div>
+          <div>Andrei Dimaano</div>
+          <div>Minsoo Kim</div>
+          <div>Aaron Van</div>
+          <div>James Zhang</div>
+          <div>Sophie Zhu</div>
+          <div>Caleb Yoo</div>
+          <div>Easwaran</div>
         </div>
       </div>
     </section>
