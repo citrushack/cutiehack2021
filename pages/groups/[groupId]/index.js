@@ -191,95 +191,99 @@ export default function GroupPage() {
       <Head>
         <title>Cutie Hack | Your Group</title>
       </Head>
-      <h1>Invite Code</h1>
-      <CopyToClipboard text={groupId} className={styles.copywrapper}>
-        <motion.button
-          aria-label="Copy to Clipboard Button"
-          type="button"
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
-          transition={{ ease: 'easeInOut', duration: 0.015 }}
-          className={styles.copywrapper}
-          onClick={() => toast.success('Copied to clipboard!')}
-        >
-          <div className={styles.filler}>
-            <MdContentCopy />
+      <div className={formStyles.container}>
+        <div className={formStyles.section}>
+          <h1>Invite Code</h1>
+          <CopyToClipboard text={groupId} className={styles.copywrapper}>
+            <motion.button
+              aria-label="Copy to Clipboard Button"
+              type="button"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              transition={{ ease: 'easeInOut', duration: 0.015 }}
+              className={styles.copywrapper}
+              onClick={() => toast.success('Copied to clipboard!')}
+            >
+              <div className={styles.filler}>
+                <MdContentCopy />
+              </div>
+              <div>{groupId}</div>
+              <MdContentCopy className={styles.copybutton} />
+            </motion.button>
+          </CopyToClipboard>
+          <h1>Members</h1>
+          <div className={styles.userlist}>
+            {users.map((user) => (
+              <div className={styles.user}>
+                <FaRegCircle className={styles.bullet} />
+                <div>{user.name}</div>
+                <FaRegCircle className={styles.filler} />
+              </div>
+            ))}
           </div>
-          <div>{groupId}</div>
-          <MdContentCopy className={styles.copybutton} />
-        </motion.button>
-      </CopyToClipboard>
-      <h1>Members</h1>
-      <div className={styles.userlist}>
-        {users.map((user) => (
-          <div className={styles.user}>
-            <FaRegCircle className={styles.bullet} />
-            <div>{user.name}</div>
-            <FaRegCircle className={styles.filler} />
+          <div className={formStyles.groupbuttonWrapper}>
+            <motion.button
+              aria-label="Leave Group Button"
+              type="button"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              transition={{ ease: 'easeInOut', duration: 0.015 }}
+              className={formStyles.button}
+              onClick={() => toggleLeaveModal()}
+            >
+              Leave Group
+            </motion.button>
           </div>
-        ))}
-      </div>
-      <div className={formStyles.groupbuttonWrapper}>
-        <motion.button
-          aria-label="Leave Group Button"
-          type="button"
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
-          transition={{ ease: 'easeInOut', duration: 0.015 }}
-          className={formStyles.button}
-          onClick={() => toggleLeaveModal()}
-        >
-          Leave Group
-        </motion.button>
-      </div>
-      <Link passHref href="/">
-        <motion.button
-          aria-label="Home Button"
-          type="button"
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
-          transition={{ ease: 'easeInOut', duration: 0.015 }}
-          className={`${formStyles.button} ${formStyles.home}`}
-        >
-          Go Back to Homepage
-        </motion.button>
-      </Link>
-      <Modal
-        show={leaveModalOpen}
-        handler={toggleLeaveModal}
-        header="Leave Group?"
-        caption="If you leave, you will need to be reinvited by the remaining members. If no one else is left in the group, the group will be deleted."
-      >
-        <div className={styles.buttonWrapper}>
-          <motion.button
-            aria-label="Confirm Leave Button"
-            type="button"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-            transition={{ ease: 'easeInOut', duration: 0.015 }}
-            className={`${formStyles.button} ${formStyles.danger}`}
-            onClick={() => leaveGroup(session.user.id)}
+          <Link passHref href="/">
+            <motion.button
+              aria-label="Home Button"
+              type="button"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              transition={{ ease: 'easeInOut', duration: 0.015 }}
+              className={`${formStyles.button} ${formStyles.home}`}
+            >
+              Go Back to Homepage
+            </motion.button>
+          </Link>
+          <Modal
+            show={leaveModalOpen}
+            handler={toggleLeaveModal}
+            header="Leave Group?"
+            caption="If you leave, you will need to be reinvited by the remaining members. If no one else is left in the group, the group will be deleted."
           >
-            Confirm
-          </motion.button>
-          <motion.button
-            aria-label="Cancel Leave Button"
-            type="button"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-            transition={{ ease: 'easeInOut', duration: 0.015 }}
-            className={`${formStyles.button} ${formStyles.cancel}`}
-            onClick={() => toggleLeaveModal()}
-          >
-            Cancel
-          </motion.button>
+            <div className={styles.buttonWrapper}>
+              <motion.button
+                aria-label="Confirm Leave Button"
+                type="button"
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                transition={{ ease: 'easeInOut', duration: 0.015 }}
+                className={`${formStyles.button} ${formStyles.danger}`}
+                onClick={() => leaveGroup(session.user.id)}
+              >
+                Confirm
+              </motion.button>
+              <motion.button
+                aria-label="Cancel Leave Button"
+                type="button"
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                transition={{ ease: 'easeInOut', duration: 0.015 }}
+                className={`${formStyles.button} ${formStyles.cancel}`}
+                onClick={() => toggleLeaveModal()}
+              >
+                Cancel
+              </motion.button>
+            </div>
+          </Modal>
         </div>
-      </Modal>
+      </div>
     </Layout>
   )
 }
