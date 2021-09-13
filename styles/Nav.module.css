@@ -107,7 +107,7 @@
 
 .menuButtonWrapper {
   display: none;
-  margin-bottom: 2rem;
+  cursor: pointer;
 }
 
 .menuButton {
@@ -183,7 +183,7 @@
   }
   .mobileLogo {
     display: flex;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
   }
 
   .mobileHeader {
