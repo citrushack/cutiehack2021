@@ -29,7 +29,7 @@ export default function CreateGroupForm() {
 
   const joinGroup = async (groupId) => {
     const group = await fetchGroup(groupId)
-    const userGroupId = await fetchData(session.user.id)
+    const userGroupId = await fetchGroupId(session.user.id)
     if (userGroupId !== '') {
       router.push('/groups/' + userGroupId)
       toast.error(
@@ -42,6 +42,25 @@ export default function CreateGroupForm() {
       toast.error('Group is full. Try a different group.', { id: 'fullGroupError'})
     } 
     else if (group.exists && !group.full) {
+      var groupMembers = ''
+      if (group.users.length === 1) {
+        groupMembers = group.users[0].name.toString()
+      }
+      else if (group.users.length === 2) {
+        groupMembers = group.users[0].name.toString() + ' and ' + group.users[1].name.toString()
+      }
+      else if (group.users.length === 3) {
+        groupMembers = group.users[0].name.toString() + ', ' + group.users[1].name.toString() + ', and ' + group.users[2].name.toString()
+      }
+
+      const userEmail = await fetchUserEmail(session.user.id)
+      sendEmailForUser(userEmail, groupMembers)
+
+      const groupEmails = await fetchGroupEmails(group)
+      for (let i = 0; i < groupEmails.length; i++) {
+        sendEmailForGroup(groupEmails[i], session.user.name)
+      }
+
       setError(false)
       updateGroup(session.user.id, session.user.name, group.users)
       toast.success('Successfully joined group!', { id: 'joinGroupSuccess'})
@@ -54,7 +73,7 @@ export default function CreateGroupForm() {
     }
   }
 
-  const fetchData = async (userId) => {
+  const fetchGroupId = async (userId) => {
     const response = await fetch('/api/checkin', {
       method: 'POST',
       headers: {
@@ -64,6 +83,34 @@ export default function CreateGroupForm() {
     })
     const data = await response.json()
     if (data.checkins[0]) return data.checkins[0].groupId
+  }
+
+  const fetchUserEmail = async (userId) => {
+    const response = await fetch('/api/checkin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user: userId }),
+    })
+    const data = await response.json()
+    if (data.checkins[0]) return data.checkins[0].email
+  }
+
+  const fetchGroupEmails = async (group) => {
+    var groupEmails = []
+    for (let i = 0; i < group.users.length; i++) {
+      const response = await fetch('/api/checkin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: group.users[i].id }),
+      })
+      const data = await response.json()
+      if (data.checkins[0]) groupEmails.push(data.checkins[0].email)
+    }
+    return groupEmails
   }
 
   const fetchGroup = async (groupId) => {
@@ -95,6 +142,36 @@ export default function CreateGroupForm() {
       body: JSON.stringify({ group: [ groupId, userId, users ] }),
     })
     await response.json()
+  }
+
+  const sendEmailForUser = async (email, groupMembers) => {
+    fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        email: email,
+        template_id: 'd-06a1b789e26343379dc0d93974a69d97',
+        name: session.user.name,
+        members: groupMembers,
+        invite_code: groupId.toString(),
+        newcomer: ''
+      })
+    });
+  }
+
+  const sendEmailForGroup = async (email, newcomer) => {
+    fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        email: email,
+        template_id: 'd-2d5a7dbaae4740509e1a982076fee102',
+        name: session.user.name,
+        members: '',
+        invite_code: '',
+        newcomer: newcomer
+      })
+    });
   }
 
   const handleResize = () => {

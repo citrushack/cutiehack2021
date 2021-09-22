@@ -1,11 +1,23 @@
-const sendEmail = async ({ email }) => {
+const sendEmail = async ({ 
+  email,
+  template_id,
+  name,
+  members,
+  invite_code,
+  newcomer
+}) => {
   const sgMail = require('@sendgrid/mail')
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
   const msg = {
     to: email, // Change to your recipient
     from: 'citrushack@gmail.com', // Change to your verified sender
-    subject: 'Cutie Hack Update',
-    html: '<div><img src="https://cdn.foldnfly.com/images/lounge/steer2.jpg" /></div>',
+    dynamic_template_data: {
+      "first_name": name,
+      "members": members,
+      "invite_code": invite_code,
+      "newcomer": newcomer
+    },
+    template_id: template_id
   }
   sgMail
     .send(msg)

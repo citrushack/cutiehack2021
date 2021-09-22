@@ -4,8 +4,8 @@ import { sendEmail } from '../../util/sendEmail'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    const { email } = req.body;
-    await sendEmail({ email });
+    const { email, template_id, name, members, invite_code, newcomer } = req.body;
+    await sendEmail({ email, template_id, name, members, invite_code, newcomer });
     return res.status(200).end();
   }
   return res.status(404).json({
