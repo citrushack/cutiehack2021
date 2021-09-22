@@ -67,8 +67,8 @@ export default function Help() {
           Citrus Hack come to life! If you are interested in contributing,
           please don&#39;t hesitate to contact us!
         </p>
-        {/* <div className={styles.buttonWrapper}>
-          <Link passHref href="/">
+        <div className={styles.buttonWrapper}>
+          <Link passHref href="https://forms.gle/WZ6egHpSrFdFEhRr8">
             <motion.button
               variants={buttonVariants}
               whileHover="hover"
@@ -80,7 +80,7 @@ export default function Help() {
               <FaChevronRight className={styles.arrow} />
             </motion.button>
           </Link>
-          <Link passHref href="/">
+          <Link passHref href="https://forms.gle/nLr9L5FHWXfZWogd7">
             <motion.button
               variants={buttonVariants}
               whileHover="hover"
@@ -92,7 +92,7 @@ export default function Help() {
               <FaChevronRight className={styles.arrow} />
             </motion.button>
           </Link>
-          <Link passHref href="/">
+          <Link passHref href="https://drive.google.com/file/d/1AyY_BiIUhbllUf5h7zoz3f1Hs1LpncG4/view?usp=sharing">
             <motion.button
               variants={buttonVariants}
               whileHover="hover"
@@ -100,11 +100,11 @@ export default function Help() {
               transition={{ ease: 'easeInOut', duration: 0.015 }}
               className={styles.button}
             >
-              <span>sponsor</span>
+              <span>sponsor us</span>
               <FaChevronRight className={styles.arrow} />
             </motion.button>
           </Link>
-        </div> */}
+        </div>
       </div>
     </section>
   )
