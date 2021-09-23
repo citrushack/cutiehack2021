@@ -77,9 +77,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   margin: 2rem 0;
   max-width: 60rem;
   gap: 1rem;
+}
+
+.groupWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  background: var(--nav-bg);
+  border-radius: 0.5rem;
+}
+
+.groupWrapper > h3 {
+  width: 60%;
+  margin: 0;
+  margin-bottom: 2rem;
+  background: var(--bg);
+  font-weight: 700;
+  color: var(--brand-light);
+  border-radius: 0.5rem;
 }
 
 .group {
@@ -89,19 +111,28 @@
   gap: 1rem;
 }
 
-.big {
+.sponsor {
+  width: 100%;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.largest {
+  display: flex;
+  align-items: center;
+  width: 20rem;
+}
+
+.large {
+  display: flex;
+  align-items: center;
   width: 15rem;
-  height: 15rem;
 }
 
-.medium {
+.standard {
+  display: flex;
+  align-items: center;
   width: 12rem;
-  height: 12rem;
-}
-
-.small {
-  width: 10rem;
-  height: 10rem;
 }
 
 @media (max-width: 720px) {

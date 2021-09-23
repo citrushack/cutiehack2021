@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { FaChevronRight } from 'react-icons/fa'
 
 import Soap from '../public/assets/soap.png'
+import WolframAlpha from '../public/assets/sponsors/wolfram_alpha.png'
 
 import styles from '../styles/Sponsors.module.css'
 
@@ -55,110 +56,112 @@ export default function Sponsors() {
             <FaChevronRight className={styles.arrow} />
           </motion.button>
         </Link>
-        {/* <div className={styles.grid}>
-          <div className={styles.group}>
-            <div className={styles.big}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-            <div className={styles.big}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-            <div className={styles.big}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-          </div>
-          <div className={styles.group}>
-            <div className={styles.medium}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-            <div className={styles.medium}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-            <div className={styles.medium}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-            <div className={styles.medium}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-            <div className={styles.medium}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-            <div className={styles.medium}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
+        <div className={styles.grid}>
+          {/* <div className={styles.groupWrapper}>
+            <h3>pomelo</h3>
+            <div className={styles.group}>
+              <div className={styles.largest}>
+                <Link passHref href='https://www.wolframalpha.com/'>
+                  <motion.div 
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.sponsor}
+                  >
+                    <Image
+                      src={WolframAlpha}
+                      width={1973}
+                      height={699}
+                      layout='responsive'
+                      objectFit='contain'
+                      quality={100}
+                      alt='placeholder'
+                    />
+                  </motion.div>
+                </Link>
+              </div>
             </div>
           </div>
-          <div className={styles.group}>
-            <div className={styles.small}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-            <div className={styles.small}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
-            </div>
-            <div className={styles.small}>
-              <Image
-                src={Soap}
-                layout='responsive'
-                quality={100}
-                alt='placeholder'
-              />
+          <div className={styles.groupWrapper}>
+            <h3>orange</h3>
+            <div className={styles.group}>
+              <div className={styles.large}>
+                <Link passHref href='https://www.wolframalpha.com/'>
+                  <motion.div 
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.sponsor}
+                  >
+                    <Image
+                      src={WolframAlpha}
+                      width={1973}
+                      height={699}
+                      layout='responsive'
+                      objectFit='contain'
+                      quality={100}
+                      alt='placeholder'
+                    />
+                  </motion.div>
+                </Link>
+              </div>
             </div>
           </div>
-        </div> */}
+          <div className={styles.groupWrapper}>
+            <h3>tangerine</h3>
+            <div className={styles.group}>
+              <div className={styles.large}>
+                <Link passHref href='https://www.wolframalpha.com/'>
+                  <motion.div 
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.sponsor}
+                  >
+                    <Image
+                      src={WolframAlpha}
+                      width={1973}
+                      height={699}
+                      layout='responsive'
+                      objectFit='contain'
+                      quality={100}
+                      alt='placeholder'
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+            </div>
+          </div> */}
+          <div className={styles.groupWrapper}>
+            <h3>cutie</h3>
+            <div className={styles.group}>
+              <div className={styles.standard}>
+                <Link passHref href='https://www.wolframalpha.com/'>
+                  <motion.div 
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.sponsor}
+                  >
+                    <Image
+                      src={WolframAlpha}
+                      width={1973}
+                      height={699}
+                      layout='responsive'
+                      objectFit='contain'
+                      quality={100}
+                      alt='placeholder'
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
