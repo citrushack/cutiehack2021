@@ -57,43 +57,43 @@ export default function SignIn({ providers }) {
         <title>Cutie Hack | Sign In</title>
       </Head>
       <div className={styles.container}>
-      <section className={styles.section}>
-        {error && (
-          <div className={styles.errorMsg}>
-            <SignInError error={error} />
-          </div>
-        )}
-        {Object.values(providers).map((provider) => {
-          return (
+        <section className={styles.section}>
+          {error && (
+            <div className={styles.errorMsg}>
+              <SignInError error={error} />
+            </div>
+          )}
+          {Object.values(providers).map((provider) => {
+            return (
+              <motion.button
+                aria-label="Provider Sign In Button"
+                type="button"
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                transition={{ ease: 'easeInOut', duration: 0.015 }}
+                key={provider.name}
+                className={styles.button}
+                onClick={() => signIn(provider.id)}
+              >
+                Sign in with {provider.name}
+              </motion.button>
+            )
+          })}
+          <Link passHref href="/">
             <motion.button
-              aria-label="Provider Sign In Button"
+              aria-label="Home Button"
               type="button"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
               transition={{ ease: 'easeInOut', duration: 0.015 }}
-              key={provider.name}
-              className={styles.button}
-              onClick={() => signIn(provider.id)}
+              className={`${styles.button} ${styles.home}`}
             >
-              Sign in with {provider.name}
+              Go Back to Homepage
             </motion.button>
-          )
-        })}
-        <Link passHref href="/">
-          <motion.button
-            aria-label="Home Button"
-            type="button"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-            transition={{ ease: 'easeInOut', duration: 0.015 }}
-            className={`${styles.button} ${styles.home}`}
-          >
-            Go Back to Homepage
-          </motion.button>
-        </Link>
-      </section>
+          </Link>
+        </section>
       </div>
     </Layout>
   )

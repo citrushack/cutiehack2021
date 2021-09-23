@@ -29,7 +29,7 @@
 .wave .shapefill {
   fill: var(--bg);
   /* comment out when all sections present */
-  fill: #fdceae;
+  /* fill: #fdceae; */
 }
 
 .mainContent {

@@ -92,7 +92,10 @@ export default function Help() {
               <FaChevronRight className={styles.arrow} />
             </motion.button>
           </Link>
-          <Link passHref href="https://drive.google.com/file/d/1AyY_BiIUhbllUf5h7zoz3f1Hs1LpncG4/view?usp=sharing">
+          <Link
+            passHref
+            href="https://drive.google.com/file/d/1AyY_BiIUhbllUf5h7zoz3f1Hs1LpncG4/view?usp=sharing"
+          >
             <motion.button
               variants={buttonVariants}
               whileHover="hover"

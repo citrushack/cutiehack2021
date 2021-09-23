@@ -31,7 +31,7 @@
 }
 
 .team {
-  max-width: 80rem;
+  max-width: 60rem;
   margin: 5rem 0;
 }
 
@@ -44,15 +44,26 @@
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .grid > figure {
   margin: 0;
 }
 
-.link {
+.image {
+  width: 150px;
   cursor: pointer;
+}
+
+.leaves {
+  width: 80px;
+  align-items: flex-end;
+  transform: translateX(60px) translateY(7px);
+}
+
+.link {
+  border-radius: 10rem;
 }
 
 .name {
@@ -69,7 +80,6 @@
 .committee {
   display: flex;
   flex-direction: column;
-  margin: 0 5rem;
 }
 
 .committee > h3 {

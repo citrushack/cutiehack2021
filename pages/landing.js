@@ -119,7 +119,10 @@ export default function Home() {
               <SignupCounter />
               {!session && (
                 <div className={styles.actionwrapper}>
-                  <Link passHref href='https://drive.google.com/file/d/1AyY_BiIUhbllUf5h7zoz3f1Hs1LpncG4/view?usp=sharing'>
+                  <Link
+                    passHref
+                    href="https://drive.google.com/file/d/1AyY_BiIUhbllUf5h7zoz3f1Hs1LpncG4/view?usp=sharing"
+                  >
                     <motion.button
                       aria-label="Sponsor Button"
                       type="button"

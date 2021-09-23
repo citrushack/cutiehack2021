@@ -1,11 +1,92 @@
 import React from 'react'
-import Image from 'next/image'
-
 import Lead from '../components/Lead'
 
 import styles from '../styles/Team.module.css'
 
 export default function Team() {
+  const leads = [
+    {
+      image: '/assets/leads/rj.png',
+      width: '1024',
+      height: '1024',
+      name: 'rajbir johar',
+      role: 'director',
+      linkedin: 'https://www.linkedin.com/in/rajbirjohar/',
+    },
+    {
+      image: '/assets/leads/audrey.png',
+      width: '1024',
+      height: '1024',
+      name: 'audrey kim',
+      role: 'director',
+      linkedin: 'https://www.linkedin.com/in/audrey-kim-696922168/',
+    },
+    {
+      image: '/assets/leads/paulian.png',
+      width: '1024',
+      height: '1024',
+      name: 'paulian le',
+      role: 'operations lead',
+      linkedin: 'https://www.linkedin.com/in/paulianle7/',
+    },
+    {
+      image: '/assets/leads/westin.png',
+      width: '1024',
+      height: '1024',
+      name: 'westin montano',
+      role: 'operations lead',
+      linkedin: 'https://www.linkedin.com/in/westin-montano/',
+    },
+    {
+      image: '/assets/leads/mariam.png',
+      width: '1024',
+      height: '1024',
+      name: 'mariam golwalla',
+      role: 'sponsorship lead',
+      linkedin: '/',
+    },
+    {
+      image: '/assets/leads/marshall.png',
+      width: '1024',
+      height: '1024',
+      name: 'marshall jones',
+      role: 'sponsorship lead',
+      linkedin: 'https://www.linkedin.com/in/marshall-jones-0/',
+    },
+    {
+      image: '/assets/leads/kimmy.png',
+      width: '1024',
+      height: '1024',
+      name: 'kimmy lac',
+      role: 'marketing lead',
+      linkedin: 'https://www.linkedin.com/in/kimberlylac/',
+    },
+    {
+      image: '/assets/leads/henry.png',
+      width: '1024',
+      height: '1024',
+      name: 'henry zheng',
+      role: 'marketing lead',
+      linkedin: 'https://www.linkedin.com/in/henry-zheng00/',
+    },
+    {
+      image: '/assets/leads/michelle.png',
+      width: '1024',
+      height: '1024',
+      name: 'michelle kim',
+      role: 'web dev lead',
+      linkedin: 'https://www.linkedin.com/in/michellesspace/',
+    },
+    {
+      image: '/assets/leads/js.png',
+      width: '1024',
+      height: '1024',
+      name: 'j.s. pescasio',
+      role: 'web dev lead',
+      linkedin: 'https://www.linkedin.com/in/jspescasio/',
+    },
+  ]
+
   return (
     <section className={styles.section}>
       <div className={styles.wave}>
@@ -25,86 +106,16 @@ export default function Team() {
       <div className={styles.team}>
         <h1>our team</h1>
         <div className={styles.grid}>
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="rajbir johar"
-            role="director"
-            linkedin="https://www.linkedin.com/in/rajbirjohar/"
-          />
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="audrey kim"
-            role="director"
-            linkedin="https://www.linkedin.com/in/audrey-kim-696922168/"
-          />
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="paulian le"
-            role="operations lead"
-            linkedin="https://www.linkedin.com/in/paulianle7/"
-          />
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="westin montano"
-            role="operations lead"
-            linkedin="https://www.linkedin.com/in/westin-montano/"
-          />
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="mariam golwalla"
-            role="sponsorship lead"
-            linkedin="/"
-          />
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="marshall jones"
-            role="sponsorship lead"
-            linkedin="https://www.linkedin.com/in/marshall-jones-0/"
-          />
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="henry zheng"
-            role="marketing lead"
-            linkedin="https://www.linkedin.com/in/henry-zheng00/"
-          />
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="kimmy lac"
-            role="marketing lead"
-            linkedin="https://www.linkedin.com/in/kimberlylac/"
-          />
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="michelle kim"
-            role="web dev lead"
-            linkedin="https://www.linkedin.com/in/michellesspace/"
-          />
-          <Lead
-            image="/assets/sun.png"
-            width="200"
-            height="200"
-            name="j.s. pescasio"
-            role="web dev lead"
-            linkedin="https://www.linkedin.com/in/jspescasio/"
-          />
+          {leads.map(({ image, width, height, name, role, linkedin }) => (
+            <Lead
+              image={image}
+              width={width}
+              height={height}
+              name={name}
+              role={role}
+              linkedin={linkedin}
+            />
+          ))}
         </div>
         <div className={styles.committee}>
           <h3>committee members</h3>
