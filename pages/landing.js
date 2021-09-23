@@ -166,54 +166,6 @@ export default function Home() {
                   </Link>
                 </div>
               )} */}
-              {/* {session && isMobile && inGroup && (
-                <div className={styles.actionwrapper}>
-                  <Link passHref href={'/groups/' + groupId}>
-                    <motion.button
-                      aria-label='View Group Button'
-                      type='button'
-                      variants={buttonVariants}
-                      whileHover='hover'
-                      whileTap='tap'
-                      transition={{ ease: 'easeInOut', duration: 0.015 }}
-                      className={styles.primarybutton}
-                    >
-                      View Your Group
-                    </motion.button>
-                  </Link>
-                </div>
-              )}
-              {session && checkedIn && !inGroup && (
-                <div className={styles.actionwrapper}>
-                  <motion.button
-                    aria-label='Create Group Button'
-                    type='button'
-                    variants={buttonVariants}
-                    whileHover='hover'
-                    whileTap='tap'
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.primarybutton}
-                    onClick={() =>
-                      createGroup(session.user.id, session.user.name)
-                    }
-                  >
-                    Create Group
-                  </motion.button>
-                  <Link passHref href='/groups/join'>
-                    <motion.button
-                      aria-label='Join Group Button'
-                      type='button'
-                      variants={buttonVariants}
-                      whileHover='hover'
-                      whileTap='tap'
-                      transition={{ ease: 'easeInOut', duration: 0.015 }}
-                      className={styles.primarybutton}
-                    >
-                      Join a Group
-                    </motion.button>
-                  </Link>
-                </div>
-              )} */}
             </div>
           </div>
         </section>
