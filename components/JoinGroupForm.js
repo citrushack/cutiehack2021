@@ -197,11 +197,11 @@ export default function CreateGroupForm() {
         />
       </div>
       <motion.button
-        aria-label="Join Group Button"
-        type="button"
+        aria-label='Join Group Button'
+        type='button'
         variants={buttonVariants}
-        whileHover="hover"
-        whileTap="tap"
+        whileHover='hover'
+        whileTap='tap'
         transition={{ ease: 'easeInOut', duration: 0.015 }}
         className={styles.button}
         onClick={() => joinGroup(groupId)}

@@ -61,11 +61,11 @@ export default function ProfileDropdown(props) {
     <div className={!props.visible && styles.hide}>
       <div className={openProfile && props.visible ? `${styles.open} ${styles.profiledropdown}` : `${styles.profiledropdown}`}>
         <motion.button
-          aria-label="View Group Button"
-          type="button"
+          aria-label='View Group Button'
+          type='button'
           variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
+          whileHover='hover'
+          whileTap='tap'
           transition={{ ease: 'easeInOut', duration: 0.015 }}
           className={styles.profilebutton}
           onClick={() => setOpenProfile(!openProfile)}
@@ -107,8 +107,8 @@ export default function ProfileDropdown(props) {
             <div className={styles.profilebody}>
               <Link passHref href={props.inGroup ? '/groups/' + props.groupId : '/groups/'}>
                 <motion.button
-                  aria-label="Groups Button"
-                  type="button"
+                  aria-label='Groups Button'
+                  type='button'
                   className={styles.primaryoption}
                   onClick={() => setOpenProfile(false)}
                 >
@@ -122,8 +122,8 @@ export default function ProfileDropdown(props) {
           }
           <div className={styles.profilefooter}>
             <motion.button
-              aria-label="Sign Out Button"
-              type="button"
+              aria-label='Sign Out Button'
+              type='button'
               className={styles.secondaryoption}
               onClick={signOut}
             >

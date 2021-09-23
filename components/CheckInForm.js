@@ -156,7 +156,7 @@ export default function CheckInForm() {
     }
     if (!matchingEmails) {
       setIsValidEmail(false)
-      toast.error("Emails don't match. Please try again.", {
+      toast.error('Emails don\'t match. Please try again.', {
         id: 'notMatchingEmailsError',
       })
     }
@@ -426,11 +426,11 @@ export default function CheckInForm() {
       </div>
 
       <motion.button
-        aria-label="Submit Button"
-        type="button"
+        aria-label='Submit Button'
+        type='button'
         variants={buttonVariants}
-        whileHover="hover"
-        whileTap="tap"
+        whileHover='hover'
+        whileTap='tap'
         transition={{ ease: 'easeInOut', duration: 0.015 }}
         className={styles.button}
         onClick={() => submitForm(session.user.name, session.user.id)}

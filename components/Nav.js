@@ -73,12 +73,12 @@ export default function Nav() {
       <nav className={styles.navbar}>
         <div className={styles.navwrapper}>
           {router.pathname !== '/' ? (
-            <Link passHref href="/">
+            <Link passHref href='/'>
               <div className={styles.logo}>
                 <Image
                   src={logo}
-                  alt="Logo Image"
-                  objectFit="contain"
+                  alt='Logo Image'
+                  objectFit='contain'
                   width={40}
                   height={40}
                   quality={100}
@@ -87,8 +87,8 @@ export default function Nav() {
             </Link>
           ) : (
             <NavLink
-              activeClass="active"
-              to="Home"
+              activeClass='active'
+              to='Home'
               spy={true}
               smooth={true}
               offset={-70}
@@ -99,8 +99,8 @@ export default function Nav() {
               <div className={styles.logo}>
                 <Image
                   src={logo}
-                  alt="Logo Image"
-                  objectFit="contain"
+                  alt='Logo Image'
+                  objectFit='contain'
                   width={40}
                   height={40}
                   quality={100}
@@ -122,12 +122,12 @@ export default function Nav() {
                 </div>
               }
               {router.pathname !== '/' ? (
-                <Link passHref href="/">
+                <Link passHref href='/'>
                   <div className={styles.mobileLogo}>
                     <Image
                       src={logo}
-                      alt="Logo Image"
-                      objectFit="contain"
+                      alt='Logo Image'
+                      objectFit='contain'
                       width={35}
                       height={35}
                       quality={100}
@@ -136,8 +136,8 @@ export default function Nav() {
                 </Link>
               ) : (
                 <NavLink
-                  activeClass="active"
-                  to="Home"
+                  activeClass='active'
+                  to='Home'
                   spy={true}
                   smooth={true}
                   offset={-70}
@@ -148,8 +148,8 @@ export default function Nav() {
                   <div className={styles.mobileLogo}>
                     <Image
                       src={logo}
-                      alt="Logo Image"
-                      objectFit="contain"
+                      alt='Logo Image'
+                      objectFit='contain'
                       width={35}
                       height={35}
                       quality={100}
@@ -165,16 +165,16 @@ export default function Nav() {
                 <HiX className={styles.menuButton} />
               </div>
             </div>
-            <div id="nav" className={open ? `${styles.mobileOpen} ${styles.tabs}` : `${styles.tabs}`}>
+            <div id='nav' className={open ? `${styles.mobileOpen} ${styles.tabs}` : `${styles.tabs}`}>
               {router.pathname !== '/' ? (
-                <Link href="/" passHref onClick={() => setOpen(false)}>
+                <Link href='/' passHref onClick={() => setOpen(false)}>
                   <div className={styles.tab}>home</div>
                 </Link>
               ) : (
                 <>
                   <NavLink
-                    activeClass="active"
-                    to="Home"
+                    activeClass='active'
+                    to='Home'
                     spy={true}
                     smooth={true}
                     offset={-70}
@@ -185,8 +185,8 @@ export default function Nav() {
                     home
                   </NavLink>
                   <NavLink
-                    activeClass="active"
-                    to="About"
+                    activeClass='active'
+                    to='About'
                     spy={true}
                     smooth={true}
                     offset={-70}
@@ -197,8 +197,8 @@ export default function Nav() {
                     about
                   </NavLink>
                   <NavLink
-                    activeClass="active"
-                    to="Support"
+                    activeClass='active'
+                    to='Support'
                     spy={true}
                     smooth={true}
                     offset={-70}
@@ -209,8 +209,8 @@ export default function Nav() {
                     support
                   </NavLink>
                   <NavLink
-                    activeClass="active"
-                    to="Sponsors"
+                    activeClass='active'
+                    to='Sponsors'
                     spy={true}
                     smooth={true}
                     offset={-70}
@@ -221,8 +221,8 @@ export default function Nav() {
                     sponsors
                   </NavLink>
                   <NavLink
-                    activeClass="active"
-                    to="Team"
+                    activeClass='active'
+                    to='Team'
                     spy={true}
                     smooth={true}
                     offset={-70}
@@ -233,8 +233,8 @@ export default function Nav() {
                     staff
                   </NavLink>
                   <NavLink
-                    activeClass="active"
-                    to="FAQ"
+                    activeClass='active'
+                    to='FAQ'
                     spy={true}
                     smooth={true}
                     offset={-70}
@@ -249,11 +249,11 @@ export default function Nav() {
 
               {!session ? (
                 <motion.button
-                  aria-label="Sign In Button"
-                  type="button"
+                  aria-label='Sign In Button'
+                  type='button'
                   variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
+                  whileHover='hover'
+                  whileTap='tap'
                   transition={{ ease: 'easeInOut', duration: 0.015 }}
                   className={styles.primarybutton}
                   onClick={signIn}
@@ -263,13 +263,13 @@ export default function Nav() {
               ) : (
                 <>
                   {!checkedIn && (
-                    <Link passHref href="/checkin">
+                    <Link passHref href='/checkin'>
                       <motion.button
-                        aria-label="Check In Button"
-                        type="button"
+                        aria-label='Check In Button'
+                        type='button'
                         variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
+                        whileHover='hover'
+                        whileTap='tap'
                         transition={{ ease: 'easeInOut', duration: 0.015 }}
                         className={styles.primarybutton}
                       >

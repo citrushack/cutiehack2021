@@ -26,12 +26,12 @@ export default function About() {
         {/* <div>
           <Image
             src={plane}
-            objectFit="contain"
+            objectFit='contain'
             width={100}
             height={80}
             quality={50}
-            placeholder="blur"
-            alt="Image of plane"
+            placeholder='blur'
+            alt='Image of plane'
           />
         </div> */}
         <h1 className={styles.title}>about us</h1>

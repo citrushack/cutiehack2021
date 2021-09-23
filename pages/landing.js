@@ -170,11 +170,11 @@ export default function Home() {
                 <div className={styles.actionwrapper}>
                   <Link passHref href={'/groups/' + groupId}>
                     <motion.button
-                      aria-label="View Group Button"
-                      type="button"
+                      aria-label='View Group Button'
+                      type='button'
                       variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
+                      whileHover='hover'
+                      whileTap='tap'
                       transition={{ ease: 'easeInOut', duration: 0.015 }}
                       className={styles.primarybutton}
                     >
@@ -186,11 +186,11 @@ export default function Home() {
               {session && checkedIn && !inGroup && (
                 <div className={styles.actionwrapper}>
                   <motion.button
-                    aria-label="Create Group Button"
-                    type="button"
+                    aria-label='Create Group Button'
+                    type='button'
                     variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
+                    whileHover='hover'
+                    whileTap='tap'
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
                     className={styles.primarybutton}
                     onClick={() =>
@@ -199,13 +199,13 @@ export default function Home() {
                   >
                     Create Group
                   </motion.button>
-                  <Link passHref href="/groups/join">
+                  <Link passHref href='/groups/join'>
                     <motion.button
-                      aria-label="Join Group Button"
-                      type="button"
+                      aria-label='Join Group Button'
+                      type='button'
                       variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
+                      whileHover='hover'
+                      whileTap='tap'
                       transition={{ ease: 'easeInOut', duration: 0.015 }}
                       className={styles.primarybutton}
                     >

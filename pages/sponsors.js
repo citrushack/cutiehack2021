@@ -67,8 +67,8 @@ export default function Sponsors() {
                 <Link passHref href='https://www.wolframalpha.com/'>
                   <motion.div 
                     variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
+                    whileHover='hover'
+                    whileTap='tap'
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
                     className={styles.sponsor}
                   >
@@ -93,8 +93,8 @@ export default function Sponsors() {
                 <Link passHref href='https://www.wolframalpha.com/'>
                   <motion.div 
                     variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
+                    whileHover='hover'
+                    whileTap='tap'
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
                     className={styles.sponsor}
                   >
@@ -119,8 +119,8 @@ export default function Sponsors() {
                 <Link passHref href='https://www.wolframalpha.com/'>
                   <motion.div 
                     variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
+                    whileHover='hover'
+                    whileTap='tap'
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
                     className={styles.sponsor}
                   >

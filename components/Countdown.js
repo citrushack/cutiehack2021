@@ -29,7 +29,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
                 <div className={styles.stack}>
                   <div className={styles.number}>
                     { Array.from(numDays).map(n =>
-                      <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
+                      <motion.div variants={buttonVariants} whileHover='hover'>{n}</motion.div>
                     )}
                   </div>
                   <div className={styles.label}>days</div>
@@ -43,7 +43,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
                 <div className={styles.stack}>
                   <div className={styles.number}>
                     { Array.from(numHours).map(n =>
-                      <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
+                      <motion.div variants={buttonVariants} whileHover='hover'>{n}</motion.div>
                     )}
                   </div>
                   <div className={styles.label}>hours</div>
@@ -57,7 +57,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
                 <div className={styles.stack}>
                   <div className={styles.number}>
                     { Array.from(numMinutes).map(n =>
-                      <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
+                      <motion.div variants={buttonVariants} whileHover='hover'>{n}</motion.div>
                     )}
                   </div>
                   <div className={styles.label}>minutes</div>
@@ -70,7 +70,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
               <div className={styles.stack}>
                 <div className={styles.number}>
                   { Array.from(numSeconds).map(n => 
-                    <motion.div variants={buttonVariants} whileHover="hover">{n}</motion.div>
+                    <motion.div variants={buttonVariants} whileHover='hover'>{n}</motion.div>
                   )}
                 </div>
                 <div className={styles.label}>seconds</div>

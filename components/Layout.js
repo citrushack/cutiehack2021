@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      layout="position"
+      layout='position'
       className={styles.layout}
     >
       {children}
