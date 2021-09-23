@@ -110,7 +110,7 @@ export default function Nav() {
           )}
           <div>
             <div className={styles.mobileHeader}>
-              {session &&
+              {/* {session &&
                 <div className={styles.mobileProfile}>
                   <ProfileDropdown 
                     visible={!open}
@@ -120,7 +120,7 @@ export default function Nav() {
                     appStatus={appStatus}
                   />
                 </div>
-              }
+              } */}
               {router.pathname !== '/' ? (
                 <Link passHref href='/'>
                   <div className={styles.mobileLogo}>
@@ -247,7 +247,7 @@ export default function Nav() {
                 </>
               )}
 
-              {!session ? (
+              {/* {!session ? (
                 <motion.button
                   aria-label='Sign In Button'
                   type='button'
@@ -289,7 +289,7 @@ export default function Nav() {
                     </div>
                   }
                 </>
-              )}
+              )} */}
             </div>
           </div>
         </div>
