@@ -3,6 +3,41 @@ import React from 'react'
 import styles from '../styles/Faq.module.css'
 
 export default function Faq() {
+  const faq = [
+    {
+      question: 'What is a hackathon?',
+      answer: 'A hackathon is an event where teams or inviduals rush to make a creative project. Throughout, there will be free workshops intended to guide you in creating your project. At the end of the time slot, contestants have the opportunity to demo their projects to judges and win prizes.'
+    },
+    {
+      question: 'Where will we submit?',
+      answer: 'You can submit through Devpost. Further instructions will follow on the day-of the event.'
+    },
+    {
+      question: 'Can I submit a project I\'ve already worked on?',
+      answer: 'No, you must start working on project code after hacking starts at 8 AM. Projects started before that time or have been submitted to other hackathons will be disqualified. Make sure your submission is unique to Cutie Hack!'
+    },
+    {
+      question: 'I\'ve never been to a hackathon before!',
+      answer: 'That\'s the best reason to come out! Cutie Hack is open to people of all skill-levels. We\'ll be having beginner-oriented workshops and activities, along with mentors to help you turn your project into reality.'
+    },
+    {
+      question: 'What will I need to participate?',
+      answer: 'A working device (i.e your laptop or PC) and a stable internet connection. And, of course, you.'
+    },
+    {
+      question: 'What if I don\'t have a team?',
+      answer: 'If you don\'t have a team formed prior to Cutie Hack, we will have a channel on Discord where you can find other participants that share similar interests. We\'ll also be providing activities at the beginning of the event to help you form teams. Teams aren\'t required though, so feel free to work individually.'
+    },
+    {
+      question: 'Do I have to hack or make a project?',
+      answer: 'Not at all! You can attend a workshop just to learn, network with fellow hackers, and participate in games and raffles. You\'ll be able to find the schedule on our website as we get closer to the event.'
+    },
+    {
+      question: 'Can I still attend/win a prize if I reside outside the U.S.?',
+      answer: 'Those outside of the US can still attend, compete, and win. However, due to shipping restrictions and COVID, we won’t be able to send any physical items to those residing outside of the U.S.'
+    }
+  ]
+
   return (
     <section className={styles.section}>
       <div className={styles.wave}>
@@ -26,78 +61,12 @@ export default function Faq() {
           email at citrushack@gmail.com.
         </h3>
         <div className={styles.faq}>
-          <div>
-            <h3>What is a hackathon?</h3>
-            <p>
-              A hackathon is an event where teams or inviduals rush to make a
-              creative project. Throughout, there will be free workshops
-              intended to guide you in creating your project. At the end of the
-              time slot, contestants have the opportunity to demo their projects
-              to judges and win prizes.
-            </p>
-          </div>
-          <div>
-            <h3>Where will we submit?</h3>
-            <p>
-              You can submit through Devpost. Further instructions will follow
-              on the day-of the event.
-            </p>
-          </div>
-          <div>
-            <h3>Can I submit a project I&#39;ve already worked on?</h3>
-            <p>
-              No, you must start working on project code after hacking starts at
-              8 AM. Projects started before that time or have been submitted to
-              other hackathons will be disqualified. Make sure your submission
-              is unique to Cutie Hack!
-            </p>
-          </div>
-          <div>
-            <h3>I&#39;ve never been to a hackathon before!</h3>
-            <p>
-              That&#39;s the best reason to come out! Cutie Hack is open to
-              people of all skill-levels. We&#39;ll be having beginner-oriented
-              workshops and activities, along with mentors to help you turn your
-              project into reality.
-            </p>
-          </div>
-          <div>
-            <h3>What will I need to participate?</h3>
-            <p>
-              A working device (i.e your laptop or PC) and a stable internet
-              connection. And, of course, you.
-            </p>
-          </div>
-          <div>
-            <h3>What if I don&#39;t have a team?</h3>
-            <p>
-              If you don&#39;t have a team formed prior to Cutie Hack, we will
-              have a channel on Discord where you can find other participants
-              that share similar interests. We&#39;ll also be providing
-              activities at the beginning of the event to help you form teams.
-              Teams aren&#39;t required though, so feel free to work
-              individually.
-            </p>
-          </div>
-          <div>
-            <h3>Do I have to hack or make a project?</h3>
-            <p>
-              Not at all! You can attend a workshop just to learn, network with
-              fellow hackers, and participate in games and raffles. You&#39;ll
-              be able to find the schedule on our website as we get closer to
-              the event.
-            </p>
-          </div>
-          <div>
-            <h3>
-              Can I still attend/win a prize if I reside outside the U.S.?
-            </h3>
-            <p>
-              Those outside of the US can still attend, compete, and win.
-              However, due to shipping restrictions and COVID, we won’t be able
-              to send any physical items to those residing outside of the U.S.
-            </p>
-          </div>
+          {faq.map(({ question, answer }, idx) =>
+            <div key={idx}>
+              <h3>{question}</h3>
+              <p>{answer}</p>
+            </div>
+          )}
         </div>
       </div>
     </section>
