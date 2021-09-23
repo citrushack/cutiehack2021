@@ -1,30 +1,34 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { connectToDatabase } from '../../../util/mongodb'
+import { getSession } from 'next-auth/client'
 
 export default async function CreateCheckIn(req: NextApiRequest, res: NextApiResponse) {
-  const { db } = await connectToDatabase();
-  const {
-    user: [ name, email, race, gender, school, major, grade, first_time, grad, id ]
-  } = req.body;
+  const session = await getSession({ req });
+  if (session) {
+    const { db } = await connectToDatabase();
+    const {
+      user: [ name, email, race, gender, school, major, grade, first_time, grad, id ]
+    } = req.body;
+    
+    await db.collection('checkins').insertOne({
+      name: name,
+      email: email,
+      race: race,
+      gender: gender,
+      school: school,
+      major: major,
+      grade: grade,
+      firstTimeHacker: first_time,
+      graduate: grad,
+      userId: id,
+      qualified: '',
+      groupId: '',
+      createdAt: new Date()
+    });
   
-  const result = await db.collection('checkins').insertOne({
-    name: name,
-    email: email,
-    race: race,
-    gender: gender,
-    school: school,
-    major: major,
-    grade: grade,
-    firstTimeHacker: first_time,
-    graduate: grad,
-    userId: id,
-    qualified: '',
-    groupId: '',
-    createdAt: new Date()
-  });
-
-  // console.log(result.ops[0]);
-
-  res.status(200);
-  res.json({});
+    res.status(200).end();
+  }
+  else {
+    res.status(401).end();
+  }
 }

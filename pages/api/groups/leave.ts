@@ -1,23 +1,28 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { connectToDatabase } from '../../../util/mongodb'
+import { getSession } from 'next-auth/client'
 
 export default async function LeaveGroup(req: NextApiRequest, res: NextApiResponse) {
-  try {
-    const { db } = await connectToDatabase();
-    const { group: [ groupId, userId, users ] } = req.body; // check # of users before calling
-    db.collection('groups').updateOne(
-      {'groupId': groupId },
-      { $set: {'users': users } }
-    );
-    db.collection('checkins').updateOne(
-      {'userId': userId },
-      { $set: {'groupId': '' } }
-    );
-    res.status(200);
-    res.json({});
+  const session = await getSession({ req });
+  if (session) {
+    try {
+      const { db } = await connectToDatabase();
+      const { group: [ groupId, userId, users ] } = req.body; // check # of users before calling
+      await db.collection('groups').updateOne(
+        {'groupId': groupId },
+        { $set: {'users': users } }
+      );
+      await db.collection('checkins').updateOne(
+        {'userId': userId },
+        { $set: {'groupId': '' } }
+      );
+      res.status(200).end();
+    }
+    catch {
+      res.status(500).json({ error: "Unable to update groups..."});
+    }
   }
-  catch {
-    res.status(500);
-    res.json({ error: "Unable to update groups..."});
+  else {
+    res.status(401).end();
   }
 }
