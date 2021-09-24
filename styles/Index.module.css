@@ -211,6 +211,9 @@
 }
 
 @media (max-width: 375px) {
+  .bgWrap {
+    min-height: 34rem;
+  }
   .date {
     font-size: 1.2rem;
   }
@@ -230,6 +233,9 @@
 }
 
 @media (min-width: 375px) and (max-width: 420px) {
+  .bgWrap {
+    min-height: 36rem;
+  }
   .date {
     font-size: 1.3rem;
   }
@@ -264,6 +270,9 @@
 }
 
 @media (min-width: 420px) and (max-width: 530px) {
+  .bgWrap {
+    min-height: 38rem;
+  }
   .date {
     font-size: 1.3rem;
   }
@@ -285,6 +294,9 @@
 }
 
 @media (min-width: 530px) and (max-width: 760px) {
+  .bgWrap {
+    min-height: 43rem;
+  }
   .date {
     font-size: 1.5rem;
   }
