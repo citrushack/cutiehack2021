@@ -51,109 +51,107 @@ export default function Home() {
   }, [session])
 
   return (
-    <>
-      <div className={styles.bgWrap}>
-        <div className={styles.heroLeft}>
-          <Image
-            src={heroLeft}
-            alt="Hero Image"
-            objectFit="contain"
-            quality={50}
-            placeholder="blur"
-            priority={true}
-          />
-        </div>
-        <section className={styles.main}>
-          <h1>
-            <span className={styles.subintrotext}>
-              cutie
-              <Image
-                src={logo}
-                height={40}
-                width={40}
-                objectFit="contain"
-                alt="Logo in text"
-              />
-              hack presents:
-            </span>
-          </h1>
-          <h1 className={styles.title}>better together</h1>
-          <p className={styles.description}>a beginner friendly hackathon</p>
+    <div className={styles.bgWrap}>
+      <div className={styles.heroLeft}>
+        <Image
+          src={heroLeft}
+          alt="Hero Image"
+          objectFit="contain"
+          quality={50}
+          placeholder="blur"
+          priority={true}
+        />
+      </div>
+      <section className={styles.main}>
+        <h1>
+          <span className={styles.subintrotext}>
+            cutie
+            <Image
+              src={logo}
+              height={40}
+              width={40}
+              objectFit="contain"
+              alt="Logo in text"
+            />
+            hack presents:
+          </span>
+        </h1>
+        <h1 className={styles.title}>better together</h1>
+        <p className={styles.description}>a beginner friendly hackathon</p>
+        <div>
+          {session && (
+            <h2 className={styles.greeting}>
+              glad to have you, {session.user.name}!
+            </h2>
+          )}
           <div>
-            {/* {session && (
-              <h2 className={styles.greeting}>
-                glad to have you, {session.user.name}!
-              </h2>
-            )} */}
-            <div>
-              <CountdownWrapper
-                date="2021-11-06T09:00:00"
-                heading="starting november 6, 2021"
-              />
-              {/* <SignupCounter /> */}
-              {!session && (
-                <div className={styles.actionwrapper}>
-                  <Link
-                    passHref
-                    href="https://drive.google.com/file/d/1AyY_BiIUhbllUf5h7zoz3f1Hs1LpncG4/view?usp=sharing"
+            <CountdownWrapper
+              date="2021-11-06T09:00:00"
+              heading="starting november 6, 2021"
+            />
+            <SignupCounter />
+            {!session && (
+              <div className={styles.actionwrapper}>
+                <Link
+                  passHref
+                  href="https://drive.google.com/file/d/1AyY_BiIUhbllUf5h7zoz3f1Hs1LpncG4/view?usp=sharing"
+                >
+                  <motion.button
+                    aria-label="Sponsor Button"
+                    type="button"
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.secondarybutton}
                   >
-                    <motion.button
-                      aria-label="Sponsor Button"
-                      type="button"
-                      variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                      transition={{ ease: 'easeInOut', duration: 0.015 }}
-                      className={styles.secondarybutton}
-                    >
-                      sponsor
-                    </motion.button>
-                  </Link>
-                  {/* <motion.button
-                    aria-label="Sign In Button"
+                    sponsor
+                  </motion.button>
+                </Link>
+                <motion.button
+                  aria-label="Sign In Button"
+                  type="button"
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.primarybutton}
+                  onClick={signIn}
+                >
+                  apply
+                </motion.button>
+              </div>
+            )}
+            {session && isMobile && !checkedIn && (
+              <div className={styles.actionwrapper}>
+                <Link passHref href="/checkin">
+                  <motion.button
+                    aria-label="Check In Button"
                     type="button"
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
                     className={styles.primarybutton}
-                    onClick={signIn}
                   >
-                    apply
-                  </motion.button> */}
-                </div>
-              )}
-              {/* {session && isMobile && !checkedIn && (
-                <div className={styles.actionwrapper}>
-                  <Link passHref href="/checkin">
-                    <motion.button
-                      aria-label="Check In Button"
-                      type="button"
-                      variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                      transition={{ ease: 'easeInOut', duration: 0.015 }}
-                      className={styles.primarybutton}
-                    >
-                      check in
-                    </motion.button>
-                  </Link>
-                </div>
-              )} */}
-            </div>
+                    check in
+                  </motion.button>
+                </Link>
+              </div>
+            )}
           </div>
-        </section>
-        <div className={styles.heroRight}>
-          <Image
-            src={heroRight}
-            alt="Hero Image"
-            objectFit="contain"
-            quality={50}
-            placeholder="blur"
-            priority={true}
-          />
         </div>
+      </section>
+      <div className={styles.heroRight}>
+        <Image
+          src={heroRight}
+          alt="Hero Image"
+          objectFit="contain"
+          quality={50}
+          placeholder="blur"
+          priority={true}
+        />
       </div>
-    </>
+    </div>
   )
 }
