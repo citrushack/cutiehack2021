@@ -5,8 +5,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--brand-lightest);
-  min-height: 80vh;
-  padding: 0 1rem;
+  padding: 5rem 1rem;
 }
 
 .wave {
