@@ -4,9 +4,6 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaChevronRight } from 'react-icons/fa'
 
-import Soap from '../public/assets/soap.png'
-import WolframAlpha from '../public/assets/sponsors/wolfram_alpha.png'
-
 import styles from '../styles/Sponsors.module.css'
 
 export default function Sponsors() {
@@ -151,9 +148,51 @@ export default function Sponsors() {
                     className={styles.sponsor}
                   >
                     <Image
-                      src={WolframAlpha}
+                      src="/assets/sponsors/wolfram_alpha.png"
                       width={1973}
                       height={699}
+                      layout="responsive"
+                      objectFit="contain"
+                      quality={100}
+                      alt="placeholder"
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+              <div className={styles.standard}>
+                <Link passHref href="https://www.fedex.com/">
+                  <motion.div
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.sponsor}
+                  >
+                    <Image
+                      src="/assets/sponsors/fedex.png"
+                      width={2308}
+                      height={1054}
+                      layout="responsive"
+                      objectFit="contain"
+                      quality={100}
+                      alt="placeholder"
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+              <div className={styles.standard}>
+                <Link passHref href="https://sketch.com/">
+                  <motion.div
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.sponsor}
+                  >
+                    <Image
+                      src="/assets/sponsors/sketch.png"
+                      width={1919}
+                      height={463}
                       layout="responsive"
                       objectFit="contain"
                       quality={100}
