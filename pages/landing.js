@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { signIn, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
-import { nanoid } from 'nanoid'
 import { motion } from 'framer-motion'
-import toast from 'react-hot-toast'
 
 import CountdownWrapper from '../components/Countdown'
 import SignupCounter from '../components/SignupCounter'
@@ -17,7 +15,6 @@ import heroRight from '../public/assets/hero_right.png'
 import styles from '../styles/Index.module.css'
 
 export default function Home() {
-  const router = useRouter()
   const [session] = useSession()
 
   const [isMobile, setIsMobile] = useState(false)
@@ -30,8 +27,6 @@ export default function Home() {
   }
 
   const [checkedIn, setCheckedIn] = useState(false)
-  const [inGroup, setInGroup] = useState(false)
-  const [groupId, setGroupId] = useState('')
 
   const fetchData = async (userId) => {
     const response = await fetch('/api/checkin', {
@@ -43,27 +38,6 @@ export default function Home() {
     })
     const data = await response.json()
     setCheckedIn(Object.keys(data.checkins).length !== 0)
-    if (data.checkins[0]) {
-      setInGroup(data.checkins[0].groupId !== '')
-      if (data.checkins[0].groupId !== '') {
-        setGroupId(data.checkins[0].groupId)
-      }
-    }
-  }
-
-  const createGroup = async (userId, userName) => {
-    const groupId = nanoid()
-    const response = await fetch('/api/groups/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ group: [groupId, userId, userName] }),
-    })
-    await response.json()
-    toast.success('Successfully created a group!', { id: 'createGroupSuccess' })
-    const dst = '/groups/' + groupId.toString()
-    router.push(dst)
   }
 
   const handleResize = () => {
