@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import Lead from '../components/Lead'
 import RJ from '../public/assets/leads/rj.png'
 import Audrey from '../public/assets/leads/audrey.png'
@@ -10,6 +11,9 @@ import Kimmy from '../public/assets/leads/kimmy.png'
 import Henry from '../public/assets/leads/henry.png'
 import Michelle from '../public/assets/leads/michelle.png'
 import JS from '../public/assets/leads/js.png'
+import laptop from '../public/assets/laptop.png'
+import speechbubble from '../public/assets/speechbubble.png'
+import girl from '../public/assets/girl.png'
 
 import styles from '../styles/Team.module.css'
 
@@ -127,17 +131,50 @@ export default function Team() {
             />
           ))}
         </div>
-        <div className={styles.committee}>
-          <h3>committee members</h3>
-          <div>Danial Beg</div>
-          <div>Jonathon Chon</div>
-          <div>Andrei Dimaano</div>
-          <div>Minsoo Kim</div>
-          <div>Aaron Van</div>
-          <div>James Zhang</div>
-          <div>Sophie Zhu</div>
-          <div>Caleb Yoo</div>
-          <div>Easwaran</div>
+        <div className={styles.committeeWrapper}>
+          <div className={styles.committeeImageGroup}>
+            <div className={styles.committee}>
+              <h3>committee members</h3>
+              <div>Danial Beg</div>
+              <div>Jonathon Chon</div>
+              <div>Andrei Dimaano</div>
+              <div>Minsoo Kim</div>
+              <div>Aaron Van</div>
+              <div>James Zhang</div>
+              <div>Sophie Zhu</div>
+              <div>Caleb Yoo</div>
+              <div>Easwaran</div>
+            </div>
+            <div className={styles.laptop}>
+              <Image
+                alt='Laptop image'
+                src={laptop}
+                quality={80}
+                layout='responsive'
+                objectFit='contain'
+              />
+            </div>
+          </div>
+          <div className={styles.imageGroup}>
+            <div className={styles.speechbubble}>
+              <Image
+                alt='Speechbubble image'
+                src={speechbubble}
+                quality={80}
+                layout='responsive'
+                objectFit='contain'
+              />
+            </div>
+            <div className={styles.girl}>
+              <Image
+                alt='Girl image'
+                src={girl}
+                quality={80}
+                layout='responsive'
+                objectFit='contain'
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
