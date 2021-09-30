@@ -65,7 +65,6 @@ export default function Home() {
 }
 
 export async function getServerSideProps() {
-  const { db } = await connectToDatabase()
-
+  await connectToDatabase()
   return { props: {} }
 }

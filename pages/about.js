@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 
-import plane from '../public/assets/plane.png'
 import { FaCircle } from 'react-icons/fa'
 
 import styles from '../styles/About.module.css'
