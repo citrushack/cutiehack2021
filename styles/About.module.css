@@ -43,8 +43,9 @@
 }
 
 .content {
-  max-width: 42rem;
+  max-width: 36rem;
   text-align: center;
+  font-size: 1.3rem;
 }
 
 .statsWrapper {
@@ -65,7 +66,7 @@
 
 .stats h1 {
   margin: 0;
-  font-size: 5.5rem;
+  font-size: 4.5rem;
   font-weight: 800;
   line-height: 1;
 }
@@ -73,7 +74,7 @@
 .stats h2 {
   margin: 1rem;
   margin-top: 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--brand-darkest);
 }
 
@@ -111,6 +112,15 @@
   visibility: hidden;
 }
 
+.aboutContent {
+  display: flex;
+  gap: 2rem;
+}
+
+.plants {
+  width: 15rem;
+}
+
 @media (max-width: 870px) {
   .statsWrapper {
     flex-direction: column;
@@ -140,5 +150,8 @@
   }
   .stats h2 {
     font-size: 2rem;
+  }
+  .plants {
+    display: none;
   }
 }
