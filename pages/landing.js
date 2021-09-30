@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { signIn, useSession } from 'next-auth/client'
-import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 
 import CountdownWrapper from '../components/Countdown'
