@@ -1,12 +1,22 @@
 import React from 'react'
 import Lead from '../components/Lead'
+import RJ from '../public/assets/leads/rj.png'
+import Audrey from '../public/assets/leads/audrey.png'
+import Paulian from '../public/assets/leads/paulian.png'
+import Westin from '../public/assets/leads/westin.png'
+import Mariam from '../public/assets/leads/mariam.png'
+import Marshall from '../public/assets/leads/marshall.png'
+import Kimmy from '../public/assets/leads/kimmy.png'
+import Henry from '../public/assets/leads/henry.png'
+import Michelle from '../public/assets/leads/michelle.png'
+import JS from '../public/assets/leads/js.png'
 
 import styles from '../styles/Team.module.css'
 
 export default function Team() {
   const leads = [
     {
-      image: '/assets/leads/rj.png',
+      image: RJ,
       width: '1024',
       height: '1024',
       name: 'rajbir johar',
@@ -14,7 +24,7 @@ export default function Team() {
       linkedin: 'https://www.linkedin.com/in/rajbirjohar/',
     },
     {
-      image: '/assets/leads/audrey.png',
+      image: Audrey,
       width: '1024',
       height: '1024',
       name: 'audrey kim',
@@ -22,7 +32,7 @@ export default function Team() {
       linkedin: 'https://www.linkedin.com/in/audrey-kim-696922168/',
     },
     {
-      image: '/assets/leads/paulian.png',
+      image: Paulian,
       width: '1024',
       height: '1024',
       name: 'paulian le',
@@ -30,7 +40,7 @@ export default function Team() {
       linkedin: 'https://www.linkedin.com/in/paulianle7/',
     },
     {
-      image: '/assets/leads/westin.png',
+      image: Westin,
       width: '1024',
       height: '1024',
       name: 'westin montano',
@@ -38,7 +48,7 @@ export default function Team() {
       linkedin: 'https://www.linkedin.com/in/westin-montano/',
     },
     {
-      image: '/assets/leads/mariam.png',
+      image: Mariam,
       width: '1024',
       height: '1024',
       name: 'mariam golwalla',
@@ -46,7 +56,7 @@ export default function Team() {
       linkedin: '/',
     },
     {
-      image: '/assets/leads/marshall.png',
+      image: Marshall,
       width: '1024',
       height: '1024',
       name: 'marshall jones',
@@ -54,7 +64,7 @@ export default function Team() {
       linkedin: 'https://www.linkedin.com/in/marshall-jones-0/',
     },
     {
-      image: '/assets/leads/kimmy.png',
+      image: Kimmy,
       width: '1024',
       height: '1024',
       name: 'kimmy lac',
@@ -62,7 +72,7 @@ export default function Team() {
       linkedin: 'https://www.linkedin.com/in/kimberlylac/',
     },
     {
-      image: '/assets/leads/henry.png',
+      image: Henry,
       width: '1024',
       height: '1024',
       name: 'henry zheng',
@@ -70,7 +80,7 @@ export default function Team() {
       linkedin: 'https://www.linkedin.com/in/henry-zheng00/',
     },
     {
-      image: '/assets/leads/michelle.png',
+      image: Michelle,
       width: '1024',
       height: '1024',
       name: 'michelle kim',
@@ -78,7 +88,7 @@ export default function Team() {
       linkedin: 'https://www.linkedin.com/in/michellesspace/',
     },
     {
-      image: '/assets/leads/js.png',
+      image: JS,
       width: '1024',
       height: '1024',
       name: 'j.s. pescasio',

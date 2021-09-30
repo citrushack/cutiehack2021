@@ -4,6 +4,10 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaChevronRight } from 'react-icons/fa'
 
+import Wolfram from '../public/assets/sponsors/wolfram_alpha.png'
+import FedEx from '../public/assets/sponsors/fedex.png'
+import Sketch from '../public/assets/sponsors/sketch.png'
+
 import styles from '../styles/Sponsors.module.css'
 
 export default function Sponsors() {
@@ -148,12 +152,12 @@ export default function Sponsors() {
                     className={styles.sponsor}
                   >
                     <Image
-                      src="/assets/sponsors/wolfram_alpha.png"
+                      src={Wolfram}
                       width={1973}
                       height={699}
                       layout="responsive"
                       objectFit="contain"
-                      quality={100}
+                      quality={80}
                       alt="placeholder"
                     />
                   </motion.div>
@@ -169,12 +173,12 @@ export default function Sponsors() {
                     className={styles.sponsor}
                   >
                     <Image
-                      src="/assets/sponsors/fedex.png"
+                      src={FedEx}
                       width={2308}
                       height={1054}
                       layout="responsive"
                       objectFit="contain"
-                      quality={100}
+                      quality={80}
                       alt="placeholder"
                     />
                   </motion.div>
@@ -190,12 +194,12 @@ export default function Sponsors() {
                     className={styles.sponsor}
                   >
                     <Image
-                      src="/assets/sponsors/sketch.png"
+                      src={Sketch}
                       width={1919}
                       height={463}
                       layout="responsive"
                       objectFit="contain"
-                      quality={100}
+                      quality={80}
                       alt="placeholder"
                     />
                   </motion.div>

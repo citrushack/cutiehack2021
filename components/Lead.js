@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import leaves from '../public/assets/leaves.png'
 
 import styles from '../styles/Team.module.css'
 
@@ -14,7 +15,7 @@ export default function Lead( props ) {
         >
           <div className={styles.leaves}>
             <Image
-              src='/assets/leaves.png'
+              src={leaves}
               alt='leaves'
               width={279}
               height={122}
