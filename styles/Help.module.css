@@ -9,6 +9,15 @@
   background-color: #fdceae;
 }
 
+.background {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  transform: translateX(2rem);
+  width: 90%;
+  min-width: 960px;
+}
+
 .wave {
   position: absolute;
   top: 0;
@@ -31,6 +40,7 @@
 }
 
 .mainContent {
+  z-index: 2;
   margin: 5rem 0;
   max-width: 60rem;
 }
@@ -117,5 +127,8 @@
   }
   .content{
     font-size: 1.25rem;
+  }
+  .background {
+    display: none;
   }
 }

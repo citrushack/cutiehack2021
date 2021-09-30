@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
+import Image from 'next/image'
+import globeBackground from '../public/assets/globe_swoosh.png'
 import { FaChevronRight } from 'react-icons/fa'
 
 import styles from '../styles/Help.module.css'
@@ -37,6 +38,17 @@ export default function Help() {
             className={styles.shapefill}
           ></path>
         </svg>
+      </div>
+      <div className={styles.background}>
+        <Image
+          alt='Section background'
+          src={globeBackground}
+          width={2923}
+          height={1548}
+          quality={80}
+          layout='responsive'
+          objectFit='contain'
+        />
       </div>
       <div className={styles.mainContent}>
         <h1>get involved</h1>
