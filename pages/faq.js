@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image'
+import slice from '../public/assets/slice.png'
 
 import styles from '../styles/Faq.module.css'
 
@@ -62,9 +64,22 @@ export default function Faq() {
         </h3>
         <div className={styles.faq}>
           {faq.map(({ question, answer }, idx) =>
-            <div key={idx}>
-              <h3>{question}</h3>
-              <p>{answer}</p>
+            <div key={idx} className={styles.questionAnswer}>
+              <div className={styles.slice}>
+                <Image
+                  alt='Cutie Slice'
+                  src={slice}
+                  width={201}
+                  height={135}
+                  quality={80}
+                  layout='responsive'
+                  objectFit='contain'
+                />
+              </div>
+              <div>
+                <h3>{question}</h3>
+                <p>{answer}</p>
+              </div>
             </div>
           )}
         </div>

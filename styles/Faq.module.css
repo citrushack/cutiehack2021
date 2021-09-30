@@ -53,6 +53,16 @@
   max-width: 80rem;
 }
 
+.questionAnswer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.slice {
+  min-width: 2rem;
+  margin-top: 2rem;
+}
+
 /* Mobile Styles */
 @media (max-width: 960px) {
   .content{
