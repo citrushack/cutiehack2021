@@ -78,17 +78,17 @@ export default function Home() {
         <h1 className={styles.title}>better together</h1>
         <p className={styles.description}>a beginner friendly hackathon</p>
         <div>
-          {session && (
+          {/* {session && (
             <h2 className={styles.greeting}>
               glad to have you, {session.user.name}!
             </h2>
-          )}
+          )} */}
           <div>
             <CountdownWrapper
               date="2021-11-06T09:00:00"
               heading="starting november 6, 2021"
             />
-            <SignupCounter />
+            {/* <SignupCounter /> */}
             {!session && (
               <div className={styles.actionwrapper}>
                 <Link
@@ -107,7 +107,7 @@ export default function Home() {
                     sponsor
                   </motion.button>
                 </Link>
-                <motion.button
+                {/* <motion.button
                   aria-label="Sign In Button"
                   type="button"
                   variants={buttonVariants}
@@ -118,10 +118,10 @@ export default function Home() {
                   onClick={signIn}
                 >
                   apply
-                </motion.button>
+                </motion.button> */}
               </div>
             )}
-            {session && isMobile && !checkedIn && (
+            {/* {session && isMobile && !checkedIn && (
               <div className={styles.actionwrapper}>
                 <Link passHref href="/checkin">
                   <motion.button
@@ -137,7 +137,7 @@ export default function Home() {
                   </motion.button>
                 </Link>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </section>
