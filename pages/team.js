@@ -139,6 +139,7 @@ export default function Team() {
               <div>Jonathon Chon</div>
               <div>Andrei Dimaano</div>
               <div>Minsoo Kim</div>
+              <div>Justin Mazon</div>
               <div>Aaron Van</div>
               <div>James Zhang</div>
               <div>Sophie Zhu</div>
