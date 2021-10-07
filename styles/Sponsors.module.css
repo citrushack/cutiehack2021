@@ -52,12 +52,12 @@
   align-items: center;
   width: 11rem;
   padding: 0.5rem 1rem;
-  border: 2px solid var(--brand-darkest);
+  border: none;
   border-radius: 5px;
   font-weight: 700;
   font-size: large;
   color: var(--brand-darkest);
-  background-color: var(--bg);
+  background-color: #fac995;
   font-size: 1.25rem;
   transition: all 100ms ease-in-out;
   cursor: pointer;
@@ -65,10 +65,11 @@
 
 .button:hover {
   background-color: var(--brand-darkest);
-  color: #fff9ef;
+  color: #fac995;
 }
 
 .arrow {
+  font-size: 1rem;
   margin-left: 0.5rem;
 }
 

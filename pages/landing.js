@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { signIn, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
+import { FaChevronRight } from 'react-icons/fa'
 
 import CountdownWrapper from '../components/Countdown'
 import SignupCounter from '../components/SignupCounter'
@@ -104,7 +105,7 @@ export default function Home() {
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
                     className={styles.secondarybutton}
                   >
-                    sponsor
+                    sponsor us
                   </motion.button>
                 </Link>
                 {/* <motion.button
