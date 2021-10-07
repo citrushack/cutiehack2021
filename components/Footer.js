@@ -44,7 +44,6 @@ export default function Footer() {
             <IoLogoFacebook className={styles.icon} />
           </div>
         </Link>
-
         <Link passHref href='https://www.instagram.com/cutiehack_ucr/'>
           <div>
             <IoLogoInstagram className={styles.icon} />
