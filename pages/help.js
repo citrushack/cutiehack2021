@@ -68,9 +68,9 @@ export default function Help() {
         <p>
           <b>Volunteers</b>
           <br />
-          Volunteers help out with the majority of the day-of event including
-          but not limited to matching hackers to mentors, helping hackers find
-          teams, hosting activities, and answering general questions.
+          Volunteers help out with the majority of day-of event  tasks including, but
+          not limited to, matching hackers to mentors matching hackers to mentors, helping
+          hackers find teams, hosting activities, and answering general questions.
         </p>
         <p>
           <b>Sponsors</b>
