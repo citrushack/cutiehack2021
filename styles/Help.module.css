@@ -9,14 +9,18 @@
   background-color: #fdceae;
 }
 
+.bgWrap {
+  position: relative;
+}
+
 .background {
   z-index: 1;
   position: absolute;
-  right: 0;
-  transform: translateX(2rem);
+  top: 7%;
+  right: -40%;
   width: 90%;
   max-width: 1420px;
-  min-width: 960px;
+  min-width: 1320px;
 }
 
 .wave {
@@ -42,6 +46,7 @@
 
 .mainContent {
   z-index: 2;
+  position: relative;
   margin: 5rem 0;
   max-width: 60rem;
 }

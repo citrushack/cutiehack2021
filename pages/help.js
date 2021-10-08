@@ -39,86 +39,88 @@ export default function Help() {
           ></path>
         </svg>
       </div>
-      <div className={styles.background}>
-        <Image
-          alt='Section background'
-          src={globeBackground}
-          width={2923}
-          height={1548}
-          quality={80}
-          layout='responsive'
-          objectFit='contain'
-        />
-      </div>
-      <div className={styles.mainContent}>
-        <h1>get involved</h1>
-        <h3 className={styles.content}>
-          Not interested in hacking but still want to participate? Great! We
-          would love to have you on board. Fill out the forms below if you&#39;d
-          like to help hackers throughout the day.
-        </h3>
-        <p>
-          <b>Mentors</b>
-          <br />
-          Mentors are in charge of helping the hackers with new technologies and
-          working through any bugs or obstacles they encounter. We recommend
-          this position if you are well versed in a particular stack to offer
-          the best guidance.
-        </p>
-        <p>
-          <b>Volunteers</b>
-          <br />
-          Volunteers help out with the majority of day-of event  tasks including, but
-          not limited to, matching hackers to mentors matching hackers to mentors, helping
-          hackers find teams, hosting activities, and answering general questions.
-        </p>
-        <p>
-          <b>Sponsors</b>
-          <br />
-          Sponsors are companies/individuals that want to help Cutie Hack and
-          Citrus Hack come to life! If you are interested in contributing,
-          please don&#39;t hesitate to contact us!
-        </p>
-        <div className={styles.buttonWrapper}>
-          <Link passHref href="https://forms.gle/WZ6egHpSrFdFEhRr8">
-            <motion.button
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              transition={{ ease: 'easeInOut', duration: 0.015 }}
-              className={styles.button}
+      <div className={styles.bgWrap}>
+        <div className={styles.background}>
+          <Image
+            alt='Section background'
+            src={globeBackground}
+            width={2923}
+            height={1548}
+            quality={80}
+            layout='responsive'
+            objectFit='contain'
+          />
+        </div>
+        <div className={styles.mainContent}>
+          <h1>get involved</h1>
+          <h3 className={styles.content}>
+            Not interested in hacking but still want to participate? Great! We
+            would love to have you on board. Fill out the forms below if you&#39;d
+            like to help hackers throughout the day.
+          </h3>
+          <p>
+            <b>Mentors</b>
+            <br />
+            Mentors are in charge of helping the hackers with new technologies and
+            working through any bugs or obstacles they encounter. We recommend
+            this position if you are well versed in a particular stack to offer
+            the best guidance.
+          </p>
+          <p>
+            <b>Volunteers</b>
+            <br />
+            Volunteers help out with the majority of day-of event  tasks including, but
+            not limited to, matching hackers to mentors matching hackers to mentors, helping
+            hackers find teams, hosting activities, and answering general questions.
+          </p>
+          <p>
+            <b>Sponsors</b>
+            <br />
+            Sponsors are companies/individuals that want to help Cutie Hack and
+            Citrus Hack come to life! If you are interested in contributing,
+            please don&#39;t hesitate to contact us!
+          </p>
+          <div className={styles.buttonWrapper}>
+            <Link passHref href="https://forms.gle/WZ6egHpSrFdFEhRr8">
+              <motion.button
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                transition={{ ease: 'easeInOut', duration: 0.015 }}
+                className={styles.button}
+              >
+                <span>mentors</span>
+                <FaChevronRight className={styles.arrow} />
+              </motion.button>
+            </Link>
+            <Link passHref href="https://forms.gle/nLr9L5FHWXfZWogd7">
+              <motion.button
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                transition={{ ease: 'easeInOut', duration: 0.015 }}
+                className={styles.button}
+              >
+                <span>volunteers</span>
+                <FaChevronRight className={styles.arrow} />
+              </motion.button>
+            </Link>
+            <Link
+              passHref
+              href="/sponsor-us"
             >
-              <span>mentors</span>
-              <FaChevronRight className={styles.arrow} />
-            </motion.button>
-          </Link>
-          <Link passHref href="https://forms.gle/nLr9L5FHWXfZWogd7">
-            <motion.button
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              transition={{ ease: 'easeInOut', duration: 0.015 }}
-              className={styles.button}
-            >
-              <span>volunteers</span>
-              <FaChevronRight className={styles.arrow} />
-            </motion.button>
-          </Link>
-          <Link
-            passHref
-            href="/sponsor-us"
-          >
-            <motion.button
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              transition={{ ease: 'easeInOut', duration: 0.015 }}
-              className={`${styles.button} ${styles.sponsorbutton}`}
-            >
-              <span>sponsor us</span>
-              <FaChevronRight className={styles.arrow} />
-            </motion.button>
-          </Link>
+              <motion.button
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                transition={{ ease: 'easeInOut', duration: 0.015 }}
+                className={`${styles.button} ${styles.sponsorbutton}`}
+              >
+                <span>sponsor us</span>
+                <FaChevronRight className={styles.arrow} />
+              </motion.button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
