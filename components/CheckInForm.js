@@ -42,6 +42,14 @@ export default function CheckInForm() {
       'Prefer not to say',
     ],
     gender: ['Male', 'Female', 'Nonbinary', 'Other', 'Prefer not to say'],
+    grade: [
+      'High School',
+      'Freshman',
+      'Sophomore',
+      'Junior',
+      'Senior',
+      'International'
+    ]
   })
   const [school, setSchool] = useState('')
   const [major, setMajor] = useState('')
@@ -112,6 +120,11 @@ export default function CheckInForm() {
   const handleChangeGrade = (e) => {
     setGrade(e.target.value)
     filled.grade = e.target.value !== ''
+  }
+
+  const toggleGrade = (e) => {
+    setGrade(e)
+    filled.grade = true
   }
 
   const toggleFirstTime = (e) => {
@@ -354,15 +367,19 @@ export default function CheckInForm() {
 
       <div className={styles.inputWrapper}>
         <div className={styles.inputHeader}>Grade</div>
-        <input
-          className={
-            styles.inputBox && submit_triggered && !filled.grade
-              ? `${styles.inputBox} ${styles.triggeredBox}`
-              : `${styles.inputBox}`
-          }
-          value={grade}
-          onChange={handleChangeGrade}
-        />
+        {options.grade.map((option) =>
+          <div
+            className={
+              styles.radio && submit_triggered && !filled.grade
+                ? `${styles.radio} ${styles.triggered}`
+                : `${styles.radio}`
+            }
+            onClick={() => toggleGrade(option)}
+          >
+            {grade === option ? <IoMdRadioButtonOn /> : <IoMdRadioButtonOff />}
+            {option}
+          </div>
+        )}
       </div>
 
       <div className={styles.inputWrapper}>
