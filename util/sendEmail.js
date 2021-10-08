@@ -22,10 +22,10 @@ const sendEmail = async ({
   sgMail
     .send(msg)
     .then(() => {
-      console.log('Email sent')
+      // console.log('Email sent')
     })
     .catch((error) => {
-      console.error(error)
+      // console.error(error)
     })
 }
 
