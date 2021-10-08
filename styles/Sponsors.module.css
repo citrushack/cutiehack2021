@@ -16,14 +16,12 @@
   overflow: hidden;
   line-height: 0;
 }
-
 .wave svg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
   height: 91px;
 }
-
 .wave .shapefill {
   fill: #fdceae;
 }
