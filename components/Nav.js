@@ -246,7 +246,7 @@ export default function Nav() {
                   </NavLink>
                 </>
               )}
-              {/* {!session ? (
+              {!session ? (
                 <motion.button
                   aria-label='Sign In Button'
                   type='button'
@@ -288,7 +288,7 @@ export default function Nav() {
                     </div>
                   }
                 </>
-              )} */}
+              )}
             </div>
           </div>
         </div>
