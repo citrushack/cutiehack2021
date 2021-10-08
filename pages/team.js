@@ -57,7 +57,7 @@ export default function Team() {
       height: '1024',
       name: 'mariam golwalla',
       role: 'sponsorship lead',
-      linkedin: '/',
+      linkedin: 'https://www.linkedin.com/in/mariam-golwalla-74930949/',
     },
     {
       image: Marshall,
