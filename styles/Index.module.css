@@ -167,6 +167,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 11rem;
+  margin: 0.3rem;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.313rem;
@@ -174,8 +176,6 @@
   font-size: 1.25rem;
   transition: all 100ms ease-in-out;
   cursor: pointer;
-  width: 10rem;
-  margin: 0.3rem;
 }
 
 .primarybutton {
@@ -187,13 +187,13 @@
   background-color: var(--brand-dark);
 }
 
-.actionwrapper button:nth-of-type(2) {
+/* .actionwrapper button:nth-of-type(2) {
   background-color: var(--brand-light);
 }
 
 .actionwrapper button:nth-of-type(2):hover {
   background-color: #d0901b;
-}
+} */
 
 .secondarybutton {
   background-color: #f2e3ca;
@@ -202,6 +202,15 @@
 .secondarybutton:hover {
   background-color: var(--brand);
   color: #fff9ef;
+}
+
+.sponsorbutton {
+  background-color: var(--brand-darkest);
+  color: var(--brand-lighter);
+}
+.sponsorbutton:hover {
+  background-color: var(--brand-lighter);
+  color: var(--brand-darkest);
 }
 
 .invisible {

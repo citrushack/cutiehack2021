@@ -68,6 +68,15 @@
   color: #fac995;
 }
 
+.sponsorbutton {
+  background-color: var(--brand-darkest);
+  color: var(--brand-lighter);
+}
+.sponsorbutton:hover {
+  background-color: var(--brand-lighter);
+  color: var(--brand-darkest);
+}
+
 .arrow {
   font-size: 1rem;
   margin-left: 0.5rem;

@@ -54,7 +54,7 @@ export default function Sponsors() {
             whileHover="hover"
             whileTap="tap"
             transition={{ ease: 'easeInOut', duration: 0.015 }}
-            className={styles.button}
+            className={`${styles.button} ${styles.sponsorbutton}`}
           >
             <span>sponsor us</span>
             <FaChevronRight className={styles.arrow} />

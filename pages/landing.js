@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { signIn, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
-// import { FaChevronRight } from 'react-icons/fa'
+import { FaChevronRight } from 'react-icons/fa'
 
 import CountdownWrapper from '../components/Countdown'
 import SignupCounter from '../components/SignupCounter'
@@ -103,9 +103,10 @@ export default function Home() {
                     whileHover="hover"
                     whileTap="tap"
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.secondarybutton}
+                    className={`${styles.secondarybutton} ${styles.sponsorbutton}`}
                   >
-                    sponsor us
+                    <span>sponsor us</span>
+                    <FaChevronRight className={styles.arrow} />
                   </motion.button>
                 </Link>
                 <motion.button
