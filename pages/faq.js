@@ -8,15 +8,15 @@ import styles from '../styles/Faq.module.css'
 export default function Faq() {
   const faq = [
     {
-      question: 'When will applications open?',
-      answer: 
-        <>
-          Applications will be opening within the next couple of weeks — follow us on our social media accounts on <Link passHref href='https://www.facebook.com/cutiehack/'><span className={styles.link}>Facebook</span></Link>, <Link passHref href='https://www.instagram.com/cutiehack_ucr/'><span className={styles.link}>Instagram</span></Link>, and <Link passHref href='https://www.linkedin.com/company/17907222/admin/'><span className={styles.link}>LinkedIn</span></Link> and turn on post notifications to get our latest updates.
-        </>
-    },
-    {
       question: 'What is a hackathon?',
       answer: 'A hackathon is an event where teams or inviduals rush to make a creative project. Throughout, there will be free workshops intended to guide you in creating your project. At the end of the time slot, contestants have the opportunity to demo their projects to judges and win prizes.'
+    },
+    {
+      question: 'How do I apply?',
+      answer: 
+        <>
+          You can apply be <Link passHref href='/signin'><span className={styles.link}>signing in first</span></Link> with your Github, Google, or LinkedIn account and filling out the check-in form. The check-in form is accessible on the website after signing in.
+        </>
     },
     {
       question: 'How much does it cost?',
