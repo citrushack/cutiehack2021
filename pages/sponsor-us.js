@@ -21,6 +21,8 @@ export default function SponsorUs() {
             <motion.button
               aria-label="Home Button"
               type="button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.995 }}
               transition={{ ease: 'easeInOut', duration: 0.015 }}
               className={`${styles.button} ${styles.home}`}
             >
