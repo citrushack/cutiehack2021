@@ -15,7 +15,7 @@ export default function Faq() {
       question: 'How do I apply?',
       answer: 
         <>
-          You can apply be <Link passHref href='/signin'><span className={styles.link}>signing in first</span></Link> with your Github, Google, or LinkedIn account and filling out the check-in form. The check-in form is accessible on the website after signing in.
+          You can apply by <Link passHref href='/signin'><span className={styles.link}>signing in first</span></Link> with your Github, Google, or LinkedIn account and filling out the check-in form. The check-in form is accessible on the website after signing in.
         </>
     },
     {
