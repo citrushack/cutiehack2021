@@ -7,6 +7,8 @@ import { FaChevronRight } from 'react-icons/fa'
 import Wolfram from '../public/assets/sponsors/wolfram_alpha.png'
 import FedEx from '../public/assets/sponsors/fedex.png'
 import Sketch from '../public/assets/sponsors/sketch.png'
+import ACM from '../public/assets/sponsors/acm_ucr.png'
+import IEEE from '../public/assets/sponsors/ieee.png'
 
 import styles from '../styles/Sponsors.module.css'
 
@@ -197,6 +199,48 @@ export default function Sponsors() {
                       src={Sketch}
                       width={1919}
                       height={463}
+                      layout="responsive"
+                      objectFit="contain"
+                      quality={80}
+                      alt="placeholder"
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+              <div className={styles.standard}>
+                <Link passHref href="https://acmucr.org/">
+                  <motion.div
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.sponsor}
+                  >
+                    <Image
+                      src={ACM}
+                      width={910}
+                      height={910}
+                      layout="responsive"
+                      objectFit="contain"
+                      quality={80}
+                      alt="placeholder"
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+              <div className={styles.standard}>
+                <Link passHref href="https://ieee.ee.ucr.edu/">
+                  <motion.div
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.sponsor}
+                  >
+                    <Image
+                      src={IEEE}
+                      width={745}
+                      height={999}
                       layout="responsive"
                       objectFit="contain"
                       quality={80}
