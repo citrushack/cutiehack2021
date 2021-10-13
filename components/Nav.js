@@ -246,6 +246,70 @@ export default function Nav() {
                   </NavLink>
                 </>
               )}
+              {router.pathname === '/live' && (
+                <>
+                  <NavLink
+                    activeClass='active'
+                    to='Schedule'
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    schedule
+                  </NavLink>
+                  <NavLink
+                    activeClass='active'
+                    to='Judges'
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    judges
+                  </NavLink>
+                  <NavLink
+                    activeClass='active'
+                    to='Resources'
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    resources
+                  </NavLink>
+                  <NavLink
+                    activeClass='active'
+                    to='Sponsors'
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    sponsors
+                  </NavLink>
+                  <NavLink
+                    activeClass='active'
+                    to='Team'
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    staff
+                  </NavLink>
+                </>
+              )}
               {!session ? (
                 <motion.button
                   aria-label='Sign In Button'
