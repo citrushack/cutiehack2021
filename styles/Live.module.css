@@ -229,7 +229,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  min-height: 35rem;
   padding: 0 1rem;
   background-color: #fdceae;
 }
@@ -262,12 +262,22 @@
 }
 
 .resourcesBg {
-  z-index: 10;
+  z-index: 1;
   position: absolute;
+  top: -10rem;
   width: 100%;
   max-width: 68rem;
   display: flex;
   justify-content: space-between;
+}
+
+.resourcesContent {
+  z-index: 2;
+  position: absolute;
+  top: -6rem;
+  width: 100%;
+  max-width: 68rem;
+
 }
 
 .resourcesBg > div {

@@ -446,32 +446,34 @@ export default function Live() {
                 />
               </div>
             </div>
-            <h1>resources</h1>
-            <div className={styles.buttonWrapper}>
-              <Link passHref href="/">
-                <motion.button
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                  transition={{ ease: 'easeInOut', duration: 0.015 }}
-                  className={styles.button}
-                >
-                  <span>devpost</span>
-                  <FaChevronRight className={styles.arrow} />
-                </motion.button>
-              </Link>
-              <Link passHref href="https://github.com/citrushack/CitrusHackResources">
-                <motion.button
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                  transition={{ ease: 'easeInOut', duration: 0.015 }}
-                  className={styles.button}
-                >
-                  <span>github</span>
-                  <FaChevronRight className={styles.arrow} />
-                </motion.button>
-              </Link>
+            <div className={styles.resourcesContent}>
+              <h1>resources</h1>
+              <div className={styles.buttonWrapper}>
+                <Link passHref href="/">
+                  <motion.button
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.button}
+                  >
+                    <span>devpost</span>
+                    <FaChevronRight className={styles.arrow} />
+                  </motion.button>
+                </Link>
+                <Link passHref href="https://github.com/citrushack/CitrusHackResources">
+                  <motion.button
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.button}
+                  >
+                    <span>github</span>
+                    <FaChevronRight className={styles.arrow} />
+                  </motion.button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
