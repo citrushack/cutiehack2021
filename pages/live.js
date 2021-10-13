@@ -32,15 +32,17 @@ export default function Live() {
       <Head>
         <title>Cutie Hack | Live</title>
       </Head>
-      <section className={styles.section}>
-        <CountdownWrapper
-          date="2021-11-06T21:00:00"
-          heading="time left until hacking ends"
-        />
-      </section>
+      <Element name="Countdown" className={styles.element}>
+        <section className={styles.countdown}>
+          <CountdownWrapper
+            date="2021-11-06T21:00:00"
+            heading="time left until hacking ends"
+          />
+        </section>
+      </Element>
       <Element name="Schedule" className={styles.element}>
-        <section className={styles.section2}>
-          <div className={styles.wave2}>
+        <section className={styles.schedule}>
+          <div className={styles.wave}>
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
@@ -58,8 +60,8 @@ export default function Live() {
         </section>
       </Element>
       <Element name="Judges" className={styles.element}>
-        <section className={styles.section3}>
-          <div className={styles.wave3}>
+        <section className={styles.judges}>
+          <div className={styles.wave}>
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
@@ -77,8 +79,8 @@ export default function Live() {
         </section>
       </Element>
       <Element name="Resources" className={styles.element}>
-        <section className={styles.section4}>
-          <div className={styles.wave4}>
+        <section className={styles.resources}>
+          <div className={styles.wave}>
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
@@ -114,21 +116,6 @@ export default function Live() {
                 className={styles.button}
               >
                 <span>github</span>
-                <FaChevronRight className={styles.arrow} />
-              </motion.button>
-            </Link>
-            <Link
-              passHref
-              href="/"
-            >
-              <motion.button
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-                transition={{ ease: 'easeInOut', duration: 0.015 }}
-                className={styles.button}
-              >
-                <span>discord</span>
                 <FaChevronRight className={styles.arrow} />
               </motion.button>
             </Link>

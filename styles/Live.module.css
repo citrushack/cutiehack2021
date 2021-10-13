@@ -2,26 +2,27 @@
   width: 100%;
 }
 
-.section {
+.countdown {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 40rem;
 }
 
-.section2 {
+.schedule {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--brand-lightest);
-  min-height: 80vh;
+  min-height: 60vh;
   padding: 0 1rem;
 }
 
-.wave2 {
+.schedule .wave {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,7 +31,7 @@
   line-height: 0;
 }
 
-.wave2 svg {
+.schedule .wave svg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
@@ -38,22 +39,22 @@
   transform: rotateY(180deg);
 }
 
-.wave2 .shapefill {
+.schedule .wave .shapefill {
   fill: var(--bg);
 }
 
-.section3 {
+.judges {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 60vh;
   padding: 0 1rem;
   background-color: var(--bg);
 }
 
-.wave3 {
+.judges .wave {
   position: absolute;
   top: 0;
   left: 0;
@@ -63,29 +64,30 @@
   transform: rotate(180deg);
 }
 
-.wave3 svg {
+.judges .wave svg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
   height: 65px;
+  transform: rotateY(180deg);
 }
 
-.wave3 .shapefill {
+.judges .wave .shapefill {
   fill: var(--brand-lightest);
 }
 
-.section4 {
+.resources {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 60vh;
   padding: 0 1rem;
   background-color: #fdceae;
 }
 
-.wave4 {
+.resources .wave {
   position: absolute;
   top: 0;
   left: 0;
@@ -95,14 +97,14 @@
   transform: rotate(180deg);
 }
 
-.wave4 svg {
+.resources .wave svg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
   height: 65px;
 }
 
-.wave4 .shapefill {
+.resources .wave .shapefill {
   fill: var(--bg);
 }
 
@@ -140,15 +142,6 @@
 
 .button:nth-of-type(2):hover {
   background-color: var(--brand-dark);
-  color: #fff9ef;
-}
-
-.button:nth-of-type(3) {
-  color: var(--brand-darkest);
-}
-
-.button:nth-of-type(3):hover {
-  background-color: var(--brand-darkest);
   color: #fff9ef;
 }
 

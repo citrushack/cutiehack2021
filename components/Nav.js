@@ -166,7 +166,7 @@ export default function Nav() {
               </div>
             </div>
             <div id='nav' className={open ? `${styles.mobileOpen} ${styles.tabs}` : `${styles.tabs}`}>
-              {router.pathname !== '/' ? (
+              {router.pathname !== '/live' && (router.pathname !== '/' ? (
                 <Link href='/' passHref onClick={() => setOpen(false)}>
                   <div className={styles.tab}>home</div>
                 </Link>
@@ -245,9 +245,21 @@ export default function Nav() {
                     faq
                   </NavLink>
                 </>
-              )}
+              ))}
               {router.pathname === '/live' && (
                 <>
+                  <NavLink
+                    activeClass='active'
+                    to='Countdown'
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    countdown
+                  </NavLink>
                   <NavLink
                     activeClass='active'
                     to='Schedule'
