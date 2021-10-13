@@ -43,6 +43,75 @@
   fill: var(--bg);
 }
 
+.schedules {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.schedules > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.eventGroupTitle {
+  text-align: center;
+}
+
+.eventGroupTitle > h2 {
+  margin: 0;
+}
+
+.eventGroupTitle > p {
+  margin: 0;
+  margin-top: -0.5rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.event {
+  display: flex;
+  gap: 10px;
+  width: 100rem;
+  max-width: 20rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.3rem;
+  background-color: #fdc383;
+}
+
+.schedules > div:nth-of-type(2) > .event {
+  background-color: #f3975e;
+}
+
+.schedules > div:nth-of-type(3) > .event {
+  background-color: var(--brand-lighter);
+}
+
+.eventTime,
+.eventName {
+  font-weight: 700;
+}
+
+.schedules > div:nth-of-type(1) > .event > .eventTime {
+  color: var(--brand-dark);
+}
+
+.schedules > div:nth-of-type(2) > .event > .eventTime {
+  color: var(--brand-darkest);
+}
+
+.schedules > div:nth-of-type(3) > .event > .eventTime {
+  color: #c05e17;
+}
+
 .judges {
   position: relative;
   display: flex;
@@ -56,7 +125,7 @@
 
 .judges .wave {
   position: absolute;
-  top: 0;
+  top: -2px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -74,6 +143,40 @@
 
 .judges .wave .shapefill {
   fill: var(--brand-lightest);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.grid > figure {
+  margin: 0;
+  width: 150px;
+}
+
+.image {
+  width: 150px;
+}
+
+.link {
+  border-radius: 10rem;
+}
+
+.name {
+  margin: 0.3rem 0;
+  line-height: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.role {
+  margin: 0;
+  line-height: 1.5rem;
+  color: var(--brand-dark);
 }
 
 .resources {
@@ -106,6 +209,11 @@
 
 .resources .wave .shapefill {
   fill: var(--bg);
+}
+
+.wrapper {
+  max-width: 60rem;
+  margin: 5rem 0;
 }
 
 .buttonWrapper {
@@ -150,45 +258,6 @@
   margin-left: 0.5rem;
 }
 
-.judgesWrapper {
-  max-width: 60rem;
-  margin: 5rem 0;
-}
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-  gap: 1.5rem;
-}
-
-.grid > figure {
-  margin: 0;
-  width: 150px;
-}
-
-.image {
-  width: 150px;
-}
-
-.link {
-  border-radius: 10rem;
-}
-
-.name {
-  margin: 0.3rem 0;
-  line-height: 1.5rem;
-  font-weight: 700;
-  color: var(--brand-dark);
-}
-
-.role {
-  margin: 0;
-  line-height: 1.5rem;
-  color: var(--brand-dark);
-}
-
 @media (max-width: 540px) {
   .buttonWrapper {
     flex-direction: column;
@@ -208,5 +277,24 @@
 @media (max-width: 768px) {
   .grid{
     justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 1000px) {
+  .schedules {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 40rem;
+  }
+  .schedules > div {
+    max-width: 40rem;
+  }
+  .event {
+    width: 100%;
+    max-width: 40rem;
+  }
+  .hidden {
+    display: none;
   }
 }
