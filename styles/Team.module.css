@@ -67,13 +67,15 @@
 }
 
 .name {
-  margin: 0;
+  margin: 0.3rem 0;
+  line-height: 1.5rem;
   font-weight: 700;
   color: var(--brand-dark);
 }
 
 .role {
-  margin: -0.5rem;
+  margin: 0;
+  line-height: 1.5rem;
   color: var(--brand-dark);
 }
 
