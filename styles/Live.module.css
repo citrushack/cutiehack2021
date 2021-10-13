@@ -4,11 +4,42 @@
 
 .countdown {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   height: 100vh;
-  min-height: 40rem;
+  min-height: 35rem;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.title {
+  margin: 0 0 1.5rem 0;
+  line-height: 1;
+  font-size: 5rem;
+  z-index: 2;
+  width: 100%;
+  font-weight: 800;
+}
+
+.subintrotext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #35b442;
+}
+
+.title,
+.description {
+  color: var(--brand-dark);
+}
+
+.description {
+  margin-top: -1rem;
+  line-height: 1.5;
+  font-size: 2.75rem;
 }
 
 .schedule {
@@ -271,6 +302,58 @@
   margin-left: 0.5rem;
 }
 
+.heroLeft, .heroRight {
+  display: none;
+}
+
+@media (max-width: 375px) {
+  .subintrotext {
+    font-size: 1.5rem;
+  }
+  .title {
+    font-size: 2.3rem;
+  }
+  .description {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 420px) {
+  .subintrotext {
+    font-size: 1.7rem;
+  }
+  .title {
+    font-size: 2.7rem;
+  }
+  .description {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 530px) {
+  .subintrotext {
+    font-size: 2rem;
+  }
+  .title {
+    font-size: 3.2rem;
+  }
+  .description {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 530px) and (max-width: 760px) {
+  .subintrotext {
+    font-size: 2.5rem;
+  }
+  .title {
+    font-size: 4rem;
+  }
+  .description {
+    font-size: 2.2rem;
+  }
+}
+
 @media (max-width: 540px) {
   .buttonWrapper {
     flex-direction: column;
@@ -309,5 +392,11 @@
   }
   .hidden {
     display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroLeft, .heroRight {
+    display: block;
   }
 }

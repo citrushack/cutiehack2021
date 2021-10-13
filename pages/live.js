@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Element } from 'react-scroll'
 import { FaChevronRight } from 'react-icons/fa'
@@ -9,6 +10,8 @@ import Sponsors from '../pages/sponsors'
 import Team from '../pages/team'
 import Judge from '../components/Judge'
 
+import heroLeft from '../public/assets/hero_left.png'
+import heroRight from '../public/assets/hero_right.png'
 import logo from '../public/assets/logo.png'
 import Michael from '../public/assets/judges/michael_odea.jpg'
 import Keila from '../public/assets/judges/keila_braden.jpg'
@@ -248,10 +251,47 @@ export default function Live() {
       </Head>
       <Element name="Countdown" className={styles.element}>
         <section className={styles.countdown}>
-          <CountdownWrapper
-            date="2021-11-06T21:00:00"
-            heading="time left until hacking ends"
-          />
+          <div className={styles.heroLeft}>
+            <Image
+              src={heroLeft}
+              alt="Hero Image"
+              objectFit="contain"
+              quality={50}
+              placeholder="blur"
+              priority={true}
+            />
+          </div>
+          <div>
+            <h1>
+              <span className={styles.subintrotext}>
+                cutie
+                <Image
+                  src={logo}
+                  height={40}
+                  width={40}
+                  objectFit="contain"
+                  alt="Logo in text"
+                />
+                hack presents:
+              </span>
+            </h1>
+            <h1 className={styles.title}>better together</h1>
+            <p className={styles.description}>a beginner friendly hackathon</p>
+            <CountdownWrapper
+              date="2021-11-06T21:00:00"
+              heading="time left until hacking ends"
+            />
+          </div>
+          <div className={styles.heroRight}>
+            <Image
+              src={heroRight}
+              alt="Hero Image"
+              objectFit="contain"
+              quality={50}
+              placeholder="blur"
+              priority={true}
+            />
+          </div>
         </section>
       </Element>
       <Element name="Schedule" className={styles.element}>
