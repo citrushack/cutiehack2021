@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 import CountdownWrapper from '../components/Countdown'
 import Sponsors from '../pages/sponsors'
 import Team from '../pages/team'
+import { FaChevronRight } from 'react-icons/fa'
 
 import styles from '../styles/Live.module.css'
 
 export default function Live() {
+  const [isMobile, setIsMobile] = useState(false)
+  var buttonVariants = {}
+  if (!isMobile)
+    buttonVariants = {
+      hover: { scale: 1.05 },
+      tap: { scale: 0.995 },
+    }
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 720)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  })
+
   return (
     <>
       <Head>
@@ -32,6 +51,7 @@ export default function Live() {
             ></path>
           </svg>
         </div>
+        <h1>schedule</h1>
         
       </section>
       <section className={styles.section3}>
@@ -48,6 +68,7 @@ export default function Live() {
             ></path>
           </svg>
         </div>
+        <h1>judges</h1>
         
       </section>
       <section className={styles.section4}>
@@ -64,7 +85,48 @@ export default function Live() {
             ></path>
           </svg>
         </div>
-        
+        <h1>resources</h1>
+        <div className={styles.buttonWrapper}>
+          <Link passHref href="/">
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              transition={{ ease: 'easeInOut', duration: 0.015 }}
+              className={styles.button}
+            >
+              <span>devpost</span>
+              <FaChevronRight className={styles.arrow} />
+            </motion.button>
+          </Link>
+          <Link passHref href="/">
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              transition={{ ease: 'easeInOut', duration: 0.015 }}
+              className={styles.button}
+            >
+              <span>github</span>
+              <FaChevronRight className={styles.arrow} />
+            </motion.button>
+          </Link>
+          <Link
+            passHref
+            href="/"
+          >
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              transition={{ ease: 'easeInOut', duration: 0.015 }}
+              className={styles.button}
+            >
+              <span>discord</span>
+              <FaChevronRight className={styles.arrow} />
+            </motion.button>
+          </Link>
+        </div>
       </section>
       <Sponsors />
       <Team />

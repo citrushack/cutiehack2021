@@ -101,3 +101,70 @@
 .wave4 .shapefill {
   fill: var(--bg);
 }
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 11rem;
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--brand);
+  background-color: var(--bg);
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--brand);
+  color: #fff9ef;
+}
+
+.button:nth-of-type(2) {
+  color: var(--brand-dark);
+}
+
+.button:nth-of-type(2):hover {
+  background-color: var(--brand-dark);
+  color: #fff9ef;
+}
+
+.button:nth-of-type(3) {
+  color: var(--brand-darkest);
+}
+
+.button:nth-of-type(3):hover {
+  background-color: var(--brand-darkest);
+  color: #fff9ef;
+}
+
+.arrow {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 540px) {
+  .buttonWrapper {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 720px) {
+  .buttonWrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  .button {
+    width: 100%;
+  }
+}
