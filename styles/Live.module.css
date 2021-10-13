@@ -150,6 +150,45 @@
   margin-left: 0.5rem;
 }
 
+.judgesWrapper {
+  max-width: 60rem;
+  margin: 5rem 0;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.grid > figure {
+  margin: 0;
+  width: 150px;
+}
+
+.image {
+  width: 150px;
+}
+
+.link {
+  border-radius: 10rem;
+}
+
+.name {
+  margin: 0.3rem 0;
+  line-height: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.role {
+  margin: 0;
+  line-height: 1.5rem;
+  color: var(--brand-dark);
+}
+
 @media (max-width: 540px) {
   .buttonWrapper {
     flex-direction: column;
@@ -163,5 +202,11 @@
   }
   .button {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid{
+    justify-content: space-evenly;
   }
 }

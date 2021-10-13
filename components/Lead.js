@@ -10,8 +10,8 @@ export default function Lead( props ) {
     <figure>
       <Link passHref href={props.linkedin}>
         <motion.div 
-            whileHover={{ y: -8 }}
-            className={styles.image}
+          whileHover={{ y: -8 }}
+          className={styles.image}
         >
           <div className={styles.leaves}>
             <Image
