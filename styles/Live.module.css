@@ -236,7 +236,7 @@
 
 .resources .wave {
   position: absolute;
-  top: 0;
+  top: -2px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -253,6 +253,25 @@
 
 .resources .wave .shapefill {
   fill: var(--bg);
+}
+
+.resourcesWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 68rem;
+}
+
+.resourcesBg {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  max-width: 68rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.resourcesBg > div {
+  width: 15rem;
 }
 
 .wrapper {
@@ -302,7 +321,10 @@
   margin-left: 0.5rem;
 }
 
-.heroLeft, .heroRight {
+.heroLeft,
+.heroRight,
+.resourcesLeft,
+.resourcesRight {
   display: none;
 }
 
@@ -396,7 +418,10 @@
 }
 
 @media (min-width: 1024px) {
-  .heroLeft, .heroRight {
+  .heroLeft,
+  .heroRight,
+  .resourcesLeft,
+  .resourcesRight {
     display: block;
   }
 }

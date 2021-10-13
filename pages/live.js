@@ -12,6 +12,8 @@ import Judge from '../components/Judge'
 
 import heroLeft from '../public/assets/hero_left.png'
 import heroRight from '../public/assets/hero_right.png'
+import resourcesLeft from '../public/assets/resources_left.png'
+import resourcesRight from '../public/assets/resources_right.png'
 import logo from '../public/assets/logo.png'
 import Michael from '../public/assets/judges/michael_odea.jpg'
 import Keila from '../public/assets/judges/keila_braden.jpg'
@@ -419,32 +421,58 @@ export default function Live() {
               ></path>
             </svg>
           </div>
-          <h1>resources</h1>
-          <div className={styles.buttonWrapper}>
-            <Link passHref href="/">
-              <motion.button
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-                transition={{ ease: 'easeInOut', duration: 0.015 }}
-                className={styles.button}
-              >
-                <span>devpost</span>
-                <FaChevronRight className={styles.arrow} />
-              </motion.button>
-            </Link>
-            <Link passHref href="/">
-              <motion.button
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-                transition={{ ease: 'easeInOut', duration: 0.015 }}
-                className={styles.button}
-              >
-                <span>github</span>
-                <FaChevronRight className={styles.arrow} />
-              </motion.button>
-            </Link>
+          <div className={styles.resourcesWrapper}>
+            <div className={styles.resourcesBg}>
+              <div className={styles.resourcesLeft}>
+                <Image
+                  alt='Section background'
+                  src={resourcesLeft}
+                  width={968}
+                  height={1552}
+                  quality={80}
+                  layout='responsive'
+                  objectFit='contain'
+                />
+              </div>
+              <div className={styles.resourcesRight}>
+                <Image
+                  alt='Section background'
+                  src={resourcesRight}
+                  width={904}
+                  height={1493}
+                  quality={80}
+                  layout='responsive'
+                  objectFit='contain'
+                />
+              </div>
+            </div>
+            <h1>resources</h1>
+            <div className={styles.buttonWrapper}>
+              <Link passHref href="/">
+                <motion.button
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.button}
+                >
+                  <span>devpost</span>
+                  <FaChevronRight className={styles.arrow} />
+                </motion.button>
+              </Link>
+              <Link passHref href="https://github.com/citrushack/CitrusHackResources">
+                <motion.button
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.button}
+                >
+                  <span>github</span>
+                  <FaChevronRight className={styles.arrow} />
+                </motion.button>
+              </Link>
+            </div>
           </div>
         </section>
       </Element>
