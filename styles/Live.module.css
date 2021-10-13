@@ -85,14 +85,27 @@
   padding: 0.7rem 1rem;
   border-radius: 0.3rem;
   background-color: #fdc383;
+  cursor: default;
+}
+
+.event:hover {
+  background-color: #f6b06b;
 }
 
 .schedules > div:nth-of-type(2) > .event {
   background-color: #f3975e;
 }
 
+.schedules > div:nth-of-type(2) > .event:hover {
+  background-color: #ea8349;
+}
+
 .schedules > div:nth-of-type(3) > .event {
   background-color: var(--brand-lighter);
+}
+
+.schedules > div:nth-of-type(3) > .event:hover {
+  background-color: #fca55d;
 }
 
 .eventTime,

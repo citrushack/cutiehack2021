@@ -278,14 +278,17 @@ export default function Live() {
                   <p className={styles.hidden}>via</p>
                 </div>
                 {setupEvents.map(({ time, name }) =>
-                  <div className={styles.event}>
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    className={styles.event}
+                  >
                     <div className={styles.eventTime}>
                       {time}
                     </div>
                     <div className={styles.eventName}>
                       {name}
                     </div>
-                  </div>
+                  </motion.div>
                 )}
               </div>
               <div>
@@ -294,14 +297,17 @@ export default function Live() {
                   <p>via zoom</p>
                 </div>
                 {workshops.map(({ time, name }) =>
-                  <div className={styles.event}>
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    className={styles.event}
+                  >
                     <div className={styles.eventTime}>
                       {time}
                     </div>
                     <div className={styles.eventName}>
                       {name}
                     </div>
-                  </div>
+                  </motion.div>
                 )}
               </div>
               <div>
@@ -310,14 +316,17 @@ export default function Live() {
                   <p>via discord</p>
                 </div>
                 {activities.map(({ time, name }) =>
-                  <div className={styles.event}>
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    className={styles.event}
+                  >
                     <div className={styles.eventTime}>
                       {time}
                     </div>
                     <div className={styles.eventName}>
                       {name}
                     </div>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </div>
