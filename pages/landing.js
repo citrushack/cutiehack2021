@@ -94,7 +94,7 @@ export default function Home() {
               <div className={styles.actionwrapper}>
                 <Link
                   passHref
-                  href="/sponsor-us"
+                  href="/sponsorship-packet.pdf"
                 >
                   <motion.button
                     aria-label="Sponsor Button"

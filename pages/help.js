@@ -107,7 +107,7 @@ export default function Help() {
             </Link>
             <Link
               passHref
-              href="/sponsor-us"
+              href="/sponsorship-packet.pdf"
             >
               <motion.button
                 variants={buttonVariants}

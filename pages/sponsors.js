@@ -49,7 +49,7 @@ export default function Sponsors() {
         <h3>Those who made this hackathon possible.</h3>
         <Link
           passHref
-          href="/sponsor-us"
+          href="/sponsorship-packet.pdf"
         >
           <motion.button
             variants={buttonVariants}
