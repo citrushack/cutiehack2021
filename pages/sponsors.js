@@ -207,7 +207,7 @@ export default function Sponsors() {
                   </motion.div>
                 </Link>
               </div>
-              <div className={styles.standard}>
+              <div className={`${styles.standard} ${styles.standardshrink}`}>
                 <Link passHref href="https://acmucr.org/">
                   <motion.div
                     variants={buttonVariants}
@@ -228,7 +228,7 @@ export default function Sponsors() {
                   </motion.div>
                 </Link>
               </div>
-              <div className={styles.standard}>
+              <div className={`${styles.standard} ${styles.standardshrink}`}>
                 <Link passHref href="https://ieee.ee.ucr.edu/">
                   <motion.div
                     variants={buttonVariants}

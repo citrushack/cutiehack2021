@@ -144,6 +144,10 @@
   width: 12rem;
 }
 
+.standardshrink {
+  width: 8rem;
+}
+
 @media (max-width: 720px) {
   .button {
     width: 100%;
