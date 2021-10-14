@@ -280,7 +280,7 @@ export default function Live() {
             <h1 className={styles.title}>better together</h1>
             <p className={styles.description}>a beginner friendly hackathon</p>
             <CountdownWrapper
-              date="2021-11-06T21:00:00"
+              date="2021-11-06T20:00:00"
               heading="time left until hacking ends"
             />
           </div>
