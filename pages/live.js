@@ -29,6 +29,7 @@ import Roy from '../public/assets/judges/roy_feng.jpg'
 import Kanin from '../public/assets/judges/kanin_liang.jpg'
 import Kelly from '../public/assets/judges/kelly_downey.jpg'
 import Ian from '../public/assets/judges/ian_oh.jpg'
+import Paea from '../public/assets/judges/paea_lependu.jpg'
 
 import styles from '../styles/Live.module.css'
 
@@ -111,6 +112,11 @@ export default function Live() {
       image: Ian,
       name: 'Ian Oh',
       role: 'IEEE@UCR Secretary',
+    },
+    {
+      image: Paea,
+      name: 'Paea LePendu',
+      role: 'UCR Professor',
     },
   ]
 
