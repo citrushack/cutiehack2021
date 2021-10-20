@@ -16,13 +16,13 @@ export default async function JoinGroup(req: NextApiRequest, res: NextApiRespons
         {'userId': userId },
         { $set: {'groupId': groupId } }
       );
-      res.status(200).end();
+      res.status(200).json({});
     }
     catch {
       res.status(500).json({ error: "Unable to update groups..."});
     }
   }
   else {
-    res.status(401).end();
+    res.status(401).json({});
   }
 }

@@ -26,9 +26,9 @@ export default async function CreateCheckIn(req: NextApiRequest, res: NextApiRes
       createdAt: new Date()
     });
   
-    res.status(200).end();
+    res.status(200).json({});
   }
   else {
-    res.status(401).end();
+    res.status(401).json({});
   }
 }

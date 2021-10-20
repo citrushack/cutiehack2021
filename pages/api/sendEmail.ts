@@ -19,6 +19,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
   }
   else {
-    res.status(401).end();
+    res.status(401).json({});
   }
 }

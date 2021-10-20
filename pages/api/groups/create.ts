@@ -20,9 +20,9 @@ export default async function CreateGroup(req: NextApiRequest, res: NextApiRespo
       { $set: {'groupId': groupId } }
     );
   
-    res.status(200).end();
+    res.status(200).json({});
   }
   else {
-    res.status(401).end();
+    res.status(401).json({});
   }
 }

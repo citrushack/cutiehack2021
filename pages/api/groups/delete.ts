@@ -13,13 +13,13 @@ export default async function CreateGroup(req: NextApiRequest, res: NextApiRespo
         {'userId': userId },
         { $set: {'groupId': '' } }
       );
-      res.status(200).end();
+      res.status(200).json({});
     }
     catch {
       res.status(500).json({ error: "Unable to update groups..."});
     }
   }
   else {
-    res.status(401).end();
+    res.status(401).json({});
   }
 }

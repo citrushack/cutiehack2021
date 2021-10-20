@@ -16,6 +16,6 @@ export default async function FetchGroupMembers(req: NextApiRequest, res: NextAp
     }
   }
   else {
-    res.status(401).end();
+    res.status(401).json({});
   }
 }

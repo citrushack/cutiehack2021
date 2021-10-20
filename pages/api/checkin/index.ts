@@ -16,6 +16,6 @@ export default async function FetchCheckIn(req: NextApiRequest, res: NextApiResp
     }
   }
   else {
-    res.status(401).end();
+    res.status(401).json({});
   }
 }
