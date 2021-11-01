@@ -158,7 +158,7 @@
   visibility: hidden;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .profilebutton {
     margin-left: 1.25rem;
   }
