@@ -326,6 +326,15 @@
   color: #fff9ef;
 }
 
+.button:nth-of-type(3) {
+  color: var(--brand-darkest);
+}
+
+.button:nth-of-type(3):hover {
+  background-color: var(--brand-darkest);
+  color: #fff9ef;
+}
+
 .arrow {
   font-size: 1rem;
   margin-left: 0.5rem;

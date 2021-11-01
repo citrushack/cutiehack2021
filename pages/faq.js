@@ -26,7 +26,7 @@ export default function Faq() {
       question: 'Where is the event?',
       answer: 
         <>
-          The COVID-19 pandemic caused our event to go fully online. We will mostly be using <Link passHref href='https://discord.com/'><span className={styles.link}>Discord</span></Link> as our main platform, so be sure to get an account before you apply! An invite link to our server will be sent via email to those who will be participating.
+          The COVID-19 pandemic caused our event to go fully online. We will mostly be using <Link passHref href='https://discord.com/'><span className={styles.link}>Discord</span></Link> as our main platform, so be sure to get an account before you apply! An invite link to our server will be sent via email to those who will be participating and will be also made available on the website for those qualified.
         </>
     },
     {

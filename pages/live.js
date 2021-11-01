@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Element } from 'react-scroll'
+import { useSession } from 'next-auth/client'
 import { FaChevronRight } from 'react-icons/fa'
 import CountdownWrapper from '../components/Countdown'
 import Sponsors from '../pages/sponsors'
@@ -34,6 +35,8 @@ import Paea from '../public/assets/judges/paea_lependu.jpg'
 import styles from '../styles/Live.module.css'
 
 export default function Live() {
+  const [session] = useSession()
+  const [appStatus, setAppStatus] = useState('')
   const [isMobile, setIsMobile] = useState(false)
   var buttonVariants = {}
   if (!isMobile)
@@ -245,13 +248,28 @@ export default function Live() {
     },
   ]
 
+  const fetchData = async (id) => {
+    const response = await fetch('/api/checkin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user: id }),
+    })
+    const data = await response.json()
+    if (data.checkins[0]) {
+      setAppStatus(data.checkins[0].qualified)
+    }
+  }
+
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 720)
   }
 
   useEffect(() => {
+    if (session) fetchData(session.user.id)
     window.addEventListener('resize', handleResize)
-  })
+  }, [session])
 
   return (
     <>
@@ -480,6 +498,20 @@ export default function Live() {
                     <FaChevronRight className={styles.arrow} />
                   </motion.button>
                 </Link>
+                { (session && appStatus === 'yes') &&
+                  <Link passHref href="https://discord.gg/CjkwAvFr2T">
+                    <motion.button
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                      transition={{ ease: 'easeInOut', duration: 0.015 }}
+                      className={styles.button}
+                    >
+                      <span>discord</span>
+                      <FaChevronRight className={styles.arrow} />
+                    </motion.button>
+                  </Link>
+                }
               </div>
             </div>
           </div>
