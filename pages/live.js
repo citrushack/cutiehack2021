@@ -60,7 +60,7 @@ export default function Live() {
     },
     {
       image: Craig,
-      name: 'Craig Schroeder',
+      name: 'Dr. Craig Schroeder',
       role: 'UCR Professor',
     },
     {
@@ -90,7 +90,7 @@ export default function Live() {
     },
     {
       image: Fuad,
-      name: 'Fuad Jamour',
+      name: 'Dr. Fuad Jamour',
       role: 'UCR Professor',
     },
     {
@@ -115,7 +115,7 @@ export default function Live() {
     },
     {
       image: Paea,
-      name: 'Paea LePendu',
+      name: 'Dr. Paea LePendu',
       role: 'UCR Professor',
     },
   ]
