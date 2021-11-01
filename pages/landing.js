@@ -5,7 +5,7 @@ import { signIn, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
 import { FaChevronRight } from 'react-icons/fa'
 
-import CountdownWrapper from '../components/Countdown'
+import CountdownWrapper from '../components/LiveCountdown'
 import SignupCounter from '../components/SignupCounter'
 
 import logo from '../public/assets/logo.png'
@@ -87,7 +87,6 @@ export default function Home() {
           <div>
             <CountdownWrapper
               date="2021-11-06T08:00:00"
-              heading="starting november 6, 2021"
             />
             <SignupCounter />
             {!session && (

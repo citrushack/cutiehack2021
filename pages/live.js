@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { Element } from 'react-scroll'
 import { useSession } from 'next-auth/client'
 import { FaChevronRight } from 'react-icons/fa'
-import CountdownWrapper from '../components/Countdown'
+import CountdownWrapper from '../components/HackerCountdown'
 import Sponsors from '../pages/sponsors'
 import Team from '../pages/team'
 import Judge from '../components/Judge'
@@ -306,7 +306,6 @@ export default function Live() {
             <p className={styles.description}>a beginner friendly hackathon</p>
             <CountdownWrapper
               date="2021-11-06T20:00:00"
-              heading="time left until hacking ends"
             />
           </div>
           <div className={styles.heroRight}>
