@@ -186,6 +186,18 @@ export default function Nav() {
                   </NavLink>
                   <NavLink
                     activeClass='active'
+                    to='Schedule'
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className={styles.tab}
+                    onClick={() => setOpen(false)}
+                  >
+                    schedule
+                  </NavLink>
+                  <NavLink
+                    activeClass='active'
                     to='About'
                     spy={true}
                     smooth={true}

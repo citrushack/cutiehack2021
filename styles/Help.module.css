@@ -41,7 +41,7 @@
 }
 
 .wave .shapefill {
-  fill: var(--brand-lightest);
+  fill: var(--bg);
 }
 
 .mainContent {

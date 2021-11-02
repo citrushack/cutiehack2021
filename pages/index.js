@@ -4,6 +4,7 @@ import { connectToDatabase } from '../util/mongodb'
 import { Element } from 'react-scroll'
 import Layout from '../components/Layout'
 import Landing from '../pages/landing'
+import Schedule from '../pages/schedule'
 import About from '../pages/about'
 import Faq from '../pages/faq'
 import Help from '../pages/help'
@@ -21,6 +22,9 @@ export default function Home() {
       <Layout>
         <Element name="Home" className={styles.element}>
           <Landing />
+        </Element>
+        <Element name="Schedule" className={styles.element}>
+          <Schedule />
         </Element>
         <Element name="About" className={styles.element}>
           <About />
