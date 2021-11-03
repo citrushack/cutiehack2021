@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { useSession } from 'next-auth/client'
 
 import {
+  IoLogoDiscord,
   IoLogoFacebook,
   IoLogoInstagram,
   IoLogoLinkedin,
@@ -10,6 +13,27 @@ import {
 import styles from '../styles/Footer.module.css'
 
 export default function Footer() {
+  const [session] = useSession()
+  const [appStatus, setAppStatus] = useState('')
+
+  const fetchData = async (id) => {
+    const response = await fetch('/api/checkin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user: id }),
+    })
+    const data = await response.json()
+    if (data.checkins[0]) {
+      setAppStatus(data.checkins[0].qualified)
+    }
+  }
+
+  useEffect(() => {
+    if (session) fetchData(session.user.id)
+  }, [session])
+
   return (
     <footer className={styles.footer}>
       <div className={styles.topWave}>
@@ -39,6 +63,13 @@ export default function Footer() {
         </svg>
       </div>
       <div className={styles.socialWrapper}>
+        { (session && appStatus === 'yes') &&
+          <Link passHref href='https://discord.gg/CjkwAvFr2T'>
+            <div>
+              <IoLogoDiscord className={styles.icon} />
+            </div>
+          </Link>
+        }
         <Link passHref href='https://www.facebook.com/cutiehack/'>
           <div>
             <IoLogoFacebook className={styles.icon} />

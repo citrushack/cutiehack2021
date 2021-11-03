@@ -3,7 +3,12 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useSession } from 'next-auth/client'
 
-import { IoLogoDiscord, IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin } from 'react-icons/io5'
+import {
+  IoLogoDiscord,
+  IoLogoFacebook,
+  IoLogoInstagram,
+  IoLogoLinkedin,
+} from 'react-icons/io5'
 
 import styles from '../styles/Socials.module.css'
 
