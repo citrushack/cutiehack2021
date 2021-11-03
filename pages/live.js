@@ -23,7 +23,7 @@ import Elaine from '../public/assets/judges/elaine_lin.jpg'
 import Craig from '../public/assets/judges/craig_schroeder.jpg'
 import Danial from '../public/assets/judges/danial_beg.jpg'
 import Jonathan from '../public/assets/judges/jonathan_trinh.jpg'
-import Mariam from '../public/assets/judges/mariam_salloum.jpg'
+import Nate from '../public/assets/judges/nate_melwani.jpg'
 import Lucca from '../public/assets/judges/lucca_psaila.jpg'
 import KuanChieh from '../public/assets/judges/kuanchieh_hsu.jpg'
 import Fuad from '../public/assets/judges/fuad_jamour.jpg'
@@ -48,19 +48,9 @@ export default function Live() {
 
   const judges = [
     {
-      image: Michael,
-      name: 'Michael O\'Dea',
-      role: 'IEEE@UCR President',
-    },
-    {
-      image: Keila,
-      name: 'Keila Braden',
-      role: 'Design@UCR Director',
-    },
-    {
-      image: Elaine,
-      name: 'Elaine Lin',
-      role: 'Design@UCR Communications',
+      image: Paea,
+      name: 'Dr. Paea LePendu',
+      role: 'UCR Professor',
     },
     {
       image: Craig,
@@ -68,24 +58,14 @@ export default function Live() {
       role: 'UCR Professor',
     },
     {
-      image: Danial,
-      name: 'Danial Beg',
-      role: 'Previous Citrus Hack Director',
-    },
-    {
-      image: Jonathan,
-      name: 'Jonathan Trinh',
-      role: 'Previous Citrus Hack Director',
-    },
-    {
-      image: Mariam,
-      name: 'Dr. Mariam Salloum',
+      image: Fuad,
+      name: 'Dr. Fuad Jamour',
       role: 'UCR Professor',
     },
     {
-      image: Lucca,
-      name: 'Lucca Psaila',
-      role: 'Software Engineer Intern @ Rev',
+      image: Kelly,
+      name: 'Kelly Downey',
+      role: 'CS Lecturer',
     },
     {
       image: KuanChieh,
@@ -93,9 +73,14 @@ export default function Live() {
       role: 'UCR PhD Candidate',
     },
     {
-      image: Fuad,
-      name: 'Dr. Fuad Jamour',
-      role: 'UCR Professor',
+      image: Michael,
+      name: 'Michael O\'Dea',
+      role: 'IEEE@UCR President',
+    },
+    {
+      image: Ian,
+      name: 'Ian Oh',
+      role: 'IEEE@UCR Secretary',
     },
     {
       image: Roy,
@@ -108,19 +93,34 @@ export default function Live() {
       role: 'ACM Alumni Chair',
     },
     {
-      image: Kelly,
-      name: 'Kelly Downey',
-      role: 'CS Lecturer',
+      image: Keila,
+      name: 'Keila Braden',
+      role: 'Design@UCR Director',
     },
     {
-      image: Ian,
-      name: 'Ian Oh',
-      role: 'IEEE@UCR Secretary',
+      image: Elaine,
+      name: 'Elaine Lin',
+      role: 'Design@UCR Communications',
     },
     {
-      image: Paea,
-      name: 'Dr. Paea LePendu',
-      role: 'UCR Professor',
+      image: Nate,
+      name: 'Nate Melwani',
+      role: 'Cyber@UCR Vice President',
+    },
+    {
+      image: Lucca,
+      name: 'Lucca Psaila',
+      role: 'Software Engineer Intern @ Rev',
+    },
+    {
+      image: Danial,
+      name: 'Danial Beg',
+      role: 'Previous Citrus Hack Director',
+    },
+    {
+      image: Jonathan,
+      name: 'Jonathan Trinh',
+      role: 'Previous Citrus Hack Director',
     },
   ]
 
