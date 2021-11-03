@@ -83,16 +83,6 @@ export default function Live() {
       role: 'IEEE@UCR Secretary',
     },
     {
-      image: Roy,
-      name: 'Roy Feng',
-      role: 'ACM President',
-    },
-    {
-      image: Kanin,
-      name: 'Kanin Liang',
-      role: 'ACM Alumni Chair',
-    },
-    {
       image: Keila,
       name: 'Keila Braden',
       role: 'Design@UCR Director',
@@ -121,6 +111,16 @@ export default function Live() {
       image: Jonathan,
       name: 'Jonathan Trinh',
       role: 'Previous Citrus Hack Director',
+    },
+    {
+      image: Kanin,
+      name: 'Kanin Liang',
+      role: 'ACM Alumni Chair',
+    },
+    {
+      image: Roy,
+      name: 'Roy Feng',
+      role: 'ACM President',
     },
   ]
 
