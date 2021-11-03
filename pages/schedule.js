@@ -17,20 +17,24 @@ export default function Live() {
       name: 'Registration Ends',
     },
     {
+      time: '06:00pm',
+      name: 'Project Submission Opens',
+    },
+    {
       time: '06:30pm',
       name: 'Judges Show Up',
     },
     {
-      time: '07:00pm',
+      time: '07:30pm',
       name: 'Judges Debriefing (Zoom)',
     },
     {
       time: '08:00pm',
-      name: 'Judging + Demos',
+      name: 'Hacking Ends',
     },
     {
-      time: '08:00pm',
-      name: 'Hacking Ends',
+      time: '08:15pm',
+      name: 'Judging + Demos',
     },
     {
       time: '10:00pm',
@@ -38,7 +42,7 @@ export default function Live() {
     },
     {
       time: '11:00pm',
-      name: 'Closing Ceremony (Zoom)',
+      name: 'Closing Ceremony (YouTube)',
     },
   ]
 
