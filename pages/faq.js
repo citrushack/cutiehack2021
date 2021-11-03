@@ -19,6 +19,10 @@ export default function Faq() {
         </>
     },
     {
+      question: 'When do applications close?',
+      answer: 'Applications close on Friday, November 5, 2021, at midnight. Be sure to submit your application before then in order to participate.'
+    },
+    {
       question: 'How much does it cost?',
       answer: 'Applying and attending Cutie Hack is completely free! You’ll get access to mentors, workshops, and prizes at no extra cost.'
     },
