@@ -9,6 +9,8 @@ import FedEx from '../public/assets/sponsors/fedex.png'
 import Sketch from '../public/assets/sponsors/sketch.png'
 import ACM from '../public/assets/sponsors/acm_ucr.png'
 import IEEE from '../public/assets/sponsors/ieee.png'
+import GCAP from '../public/assets/sponsors/gcap.png'
+import Triad from '../public/assets/sponsors/triad.png'
 
 import styles from '../styles/Sponsors.module.css'
 
@@ -114,12 +116,12 @@ export default function Sponsors() {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className={styles.groupWrapper}>
             <h3>tangerine</h3>
             <div className={styles.group}>
               <div className={styles.large}>
-                <Link passHref href='https://www.wolframalpha.com/'>
+                <Link passHref href='https://www.gcapucr.com/aboutgcap'>
                   <motion.div 
                     variants={buttonVariants}
                     whileHover='hover'
@@ -128,9 +130,9 @@ export default function Sponsors() {
                     className={styles.sponsor}
                   >
                     <Image
-                      src={WolframAlpha}
-                      width={1973}
-                      height={699}
+                      src={GCAP}
+                      width={750}
+                      height={750}
                       layout='responsive'
                       objectFit='contain'
                       quality={100}
@@ -140,7 +142,7 @@ export default function Sponsors() {
                 </Link>
               </div>
             </div>
-          </div> */}
+          </div>
           <div className={styles.groupWrapper}>
             <h3>cutie</h3>
             <div className={styles.group}>
@@ -199,6 +201,27 @@ export default function Sponsors() {
                       src={Sketch}
                       width={1919}
                       height={463}
+                      layout="responsive"
+                      objectFit="contain"
+                      quality={80}
+                      alt="placeholder"
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+              <div className={styles.standard}>
+                <Link passHref href="https://www.triadmagnetics.com/">
+                  <motion.div
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ ease: 'easeInOut', duration: 0.015 }}
+                    className={styles.sponsor}
+                  >
+                    <Image
+                      src={Triad}
+                      width={371}
+                      height={95}
                       layout="responsive"
                       objectFit="contain"
                       quality={80}
