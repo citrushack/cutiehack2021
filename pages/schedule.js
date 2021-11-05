@@ -116,11 +116,11 @@ export default function Live() {
     },
     {
       time: '02:30pm',
-      name: 'League of Legends + Valorant',
+      name: 'Valorant',
     },
     {
       time: '03:30pm',
-      name: 'Codenames',
+      name: 'Gartic Phone',
     },
     {
       time: '06:30pm',
