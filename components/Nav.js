@@ -256,7 +256,7 @@ export default function Nav() {
                   >
                     faq
                   </NavLink>
-                  <Link passHref href='/live'>
+                  {/* <Link passHref href='/live'>
                     <motion.button
                       aria-label='Live Button'
                       type='button'
@@ -268,7 +268,7 @@ export default function Nav() {
                     >
                       Live
                     </motion.button>
-                  </Link>
+                  </Link> */}
                 </>
               ))}
               {router.pathname === '/live' && (

@@ -86,7 +86,7 @@ export default function Home() {
           )}
           <div>
             <CountdownWrapper
-              date="2021-11-06T08:00:00"
+              date="2021-11-06T07:00:00"
             />
             <SignupCounter />
             {!session && (
