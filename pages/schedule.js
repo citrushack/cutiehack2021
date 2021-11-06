@@ -6,7 +6,7 @@ export default function Live() {
   const setupEvents = [
     {
       time: '07:00am',
-      name: 'Opening Ceremony (Zoom)',
+      name: 'Opening Ceremony (Prerecorded on Youtube)',
     },
     {
       time: '08:00am',
@@ -42,7 +42,7 @@ export default function Live() {
     },
     {
       time: '11:00pm',
-      name: 'Closing Ceremony (YouTube)',
+      name: 'Closing Ceremony (Live on YouTube)',
     },
   ]
 
