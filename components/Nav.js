@@ -256,6 +256,19 @@ export default function Nav() {
                   >
                     faq
                   </NavLink>
+                  <Link passHref href='/live'>
+                    <motion.button
+                      aria-label='Live Button'
+                      type='button'
+                      variants={buttonVariants}
+                      whileHover='hover'
+                      whileTap='tap'
+                      transition={{ ease: 'easeInOut', duration: 0.015 }}
+                      className={styles.primarybutton}
+                    >
+                      Live
+                    </motion.button>
+                  </Link>
                 </>
               ))}
               {router.pathname === '/live' && (
@@ -349,7 +362,7 @@ export default function Nav() {
                 </motion.button>
               ) : (
                 <>
-                  {!checkedIn && (
+                  {/* {!checkedIn && (
                     <Link passHref href='/checkin'>
                       <motion.button
                         aria-label='Check In Button'
@@ -363,7 +376,7 @@ export default function Nav() {
                         Check In
                       </motion.button>
                     </Link>
-                  )}
+                  )} */}
                   {session &&
                     <div className={styles.desktopProfile}>
                       <ProfileDropdown 

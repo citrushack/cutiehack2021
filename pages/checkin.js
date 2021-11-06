@@ -35,6 +35,10 @@ export default function CheckIn() {
       })
     } else if (session) {
       fetchData(session.user.id)
+      router.push('/')
+      toast.error('Applications have closed!', {
+        id: 'appsClosedError',
+      })
     }
   }, [loading, session, router])
 
@@ -53,12 +57,13 @@ export default function CheckIn() {
       <Head>
         <title>Cutie Hack | Check In</title>
       </Head>
-      {session && (
+      {/* {session && (
         <div className={styles.mainContent}>
           <h1>Check In</h1>
           <CheckInForm />
         </div>
-      )}
+      )} */}
+      <p>Applications are closed...</p>
     </section>
   )
 }
