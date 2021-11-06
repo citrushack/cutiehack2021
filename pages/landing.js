@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
+// import Link from 'next/link'
 import Image from 'next/image'
 import { signIn, useSession } from 'next-auth/client'
 import { motion } from 'framer-motion'
@@ -91,10 +91,7 @@ export default function Home() {
             <SignupCounter />
             {!session && (
               <div className={styles.actionwrapper}>
-                <Link
-                  passHref
-                  href="/sponsorship-packet.pdf"
-                >
+                <a target='_blank' rel='noopener noreferrer' href="/sponsorship-packet.pdf">
                   <motion.button
                     aria-label="Sponsor Button"
                     type="button"
@@ -107,7 +104,7 @@ export default function Home() {
                     <span>sponsor us</span>
                     <FaChevronRight className={styles.arrow} />
                   </motion.button>
-                </Link>
+                </a>
                 <motion.button
                   aria-label="Sign In Button"
                   type="button"
@@ -122,7 +119,7 @@ export default function Home() {
                 </motion.button>
               </div>
             )}
-            {session && isMobile && !checkedIn && (
+            {/* {session && isMobile && !checkedIn && (
               <div className={styles.actionwrapper}>
                 <Link passHref href="/checkin">
                   <motion.button
@@ -138,7 +135,7 @@ export default function Home() {
                   </motion.button>
                 </Link>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </section>

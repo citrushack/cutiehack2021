@@ -292,6 +292,7 @@
 .buttonWrapper {
   display: flex;
   justify-content: center;
+  gap: 0.5rem;
 }
 
 .button {
@@ -300,7 +301,6 @@
   justify-content: center;
   align-items: center;
   width: 11rem;
-  margin: 0.3rem;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
@@ -317,20 +317,20 @@
   color: #fff9ef;
 }
 
-.button:nth-of-type(2) {
+.button.github {
   color: var(--brand-dark);
 }
 
-.button:nth-of-type(2):hover {
+.button.github:hover {
   background-color: var(--brand-dark);
   color: #fff9ef;
 }
 
-.button:nth-of-type(3) {
+.button.discord {
   color: var(--brand-darkest);
 }
 
-.button:nth-of-type(3):hover {
+.button.discord:hover {
   background-color: var(--brand-darkest);
   color: #fff9ef;
 }

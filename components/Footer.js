@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { useSession } from 'next-auth/client'
 
 import {
@@ -64,27 +62,27 @@ export default function Footer() {
       </div>
       <div className={styles.socialWrapper}>
         { (session && appStatus === 'yes') &&
-          <Link passHref href='https://discord.gg/CjkwAvFr2T'>
+          <a target='_blank' rel='noopener noreferrer' href='https://discord.gg/CjkwAvFr2T'>
             <div>
               <IoLogoDiscord className={styles.icon} />
             </div>
-          </Link>
+          </a>
         }
-        <Link passHref href='https://www.facebook.com/cutiehack/'>
+        <a target='_blank' rel='noopener noreferrer' href='https://www.facebook.com/cutiehack/'>
           <div>
             <IoLogoFacebook className={styles.icon} />
           </div>
-        </Link>
-        <Link passHref href='https://www.instagram.com/cutiehack_ucr/'>
+        </a>
+        <a target='_blank' rel='noopener noreferrer' href='https://www.instagram.com/cutiehack_ucr/'>
           <div>
             <IoLogoInstagram className={styles.icon} />
           </div>
-        </Link>
-        <Link passHref href='https://www.linkedin.com/company/17907222/admin/'>
+        </a>
+        <a target='_blank' rel='noopener noreferrer' href='https://www.linkedin.com/company/17907222/admin/'>
           <div>
             <IoLogoLinkedin className={styles.icon} />
           </div>
-        </Link>
+        </a>
       </div>
       <div className={styles.caption}>
         Made with 🧡 by the Citrus Hack Team.

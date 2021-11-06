@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link' 
 import { motion } from 'framer-motion'
 import { useSession } from 'next-auth/client'
 
@@ -37,31 +36,31 @@ export default function Socials() {
   return (
     <div className={styles.stack}>
       { (session && appStatus === 'yes') &&
-        <Link passHref href='https://discord.gg/CjkwAvFr2T'>
+        <a target='_blank' rel='noopener noreferrer' href='https://discord.gg/CjkwAvFr2T'>
           <motion.div whileHover={{ width: 300 }} className={styles.wrapper}>
             <div><IoLogoDiscord className={styles.icon} /></div>
             <div className={styles.caption}>Join our Discord server!</div>
           </motion.div>
-        </Link>
+        </a>
       }
-      <Link passHref href='https://www.facebook.com/cutiehack/'>
+      <a target='_blank' rel='noopener noreferrer' href='https://www.facebook.com/cutiehack/'>
         <motion.div whileHover={{ width: 300 }} className={styles.wrapper}>
           <div><IoLogoFacebook className={styles.icon} /></div>
           <div className={styles.caption}>Check out our Facebook!</div>
         </motion.div>
-      </Link>
-      <Link passHref href='https://www.instagram.com/cutiehack_ucr/'>
+      </a>
+      <a target='_blank' rel='noopener noreferrer' href='https://www.instagram.com/cutiehack_ucr/'>
         <motion.div whileHover={{ width: 305 }} className={styles.wrapper}>
           <div><IoLogoInstagram className={styles.icon} /></div>
           <div className={styles.caption}>Check out our Instagram!</div>
         </motion.div>
-      </Link>
-      <Link passHref href='https://www.linkedin.com/company/17907222/admin/'>
+      </a>
+      <a target='_blank' rel='noopener noreferrer' href='https://www.linkedin.com/company/17907222/admin/'>
         <motion.div whileHover={{ width: 290 }} className={styles.wrapper}>
           <div><IoLogoLinkedin className={styles.icon} /></div>
           <div className={styles.caption}>Check out our LinkedIn!</div>
         </motion.div>
-      </Link>
+      </a>
     </div>
   )
 }

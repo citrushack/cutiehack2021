@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaChevronRight } from 'react-icons/fa'
@@ -49,10 +48,7 @@ export default function Sponsors() {
       <div className={styles.wrapper}>
         <h1>the sponsors</h1>
         <h3>Those who made this hackathon possible.</h3>
-        <Link
-          passHref
-          href="/sponsorship-packet.pdf"
-        >
+        <a target='_blank' rel='noopener noreferrer' href="/sponsorship-packet.pdf">
           <motion.button
             variants={buttonVariants}
             whileHover="hover"
@@ -63,7 +59,7 @@ export default function Sponsors() {
             <span>sponsor us</span>
             <FaChevronRight className={styles.arrow} />
           </motion.button>
-        </Link>
+        </a>
         <div className={styles.grid}>
           {/* <div className={styles.groupWrapper}>
             <h3>pomelo</h3>
@@ -121,14 +117,14 @@ export default function Sponsors() {
             <h3>tangerine</h3>
             <div className={styles.group}>
               <div className={styles.large}>
-                <Link passHref href='https://www.gcapucr.com/aboutgcap'>
-                  <motion.div 
-                    variants={buttonVariants}
-                    whileHover='hover'
-                    whileTap='tap'
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.sponsor}
-                  >
+                <motion.div 
+                  variants={buttonVariants}
+                  whileHover='hover'
+                  whileTap='tap'
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.sponsor}
+                >
+                  <a target='_blank' rel='noopener noreferrer' href='https://www.gcapucr.com/aboutgcap'>
                     <Image
                       src={GCAP}
                       width={750}
@@ -138,8 +134,8 @@ export default function Sponsors() {
                       quality={100}
                       alt='placeholder'
                     />
-                  </motion.div>
-                </Link>
+                  </a>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -147,14 +143,14 @@ export default function Sponsors() {
             <h3>cutie</h3>
             <div className={styles.group}>
               <div className={styles.standard}>
-                <Link passHref href="https://www.wolframalpha.com/">
-                  <motion.div
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.sponsor}
-                  >
+                <motion.div
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.sponsor}
+                >
+                  <a target='_blank' rel='noopener noreferrer' href="https://www.wolframalpha.com/">
                     <Image
                       src={Wolfram}
                       width={1973}
@@ -164,18 +160,18 @@ export default function Sponsors() {
                       quality={80}
                       alt="placeholder"
                     />
-                  </motion.div>
-                </Link>
+                  </a>
+                </motion.div>
               </div>
               <div className={styles.standard}>
-                <Link passHref href="https://www.fedex.com/">
-                  <motion.div
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.sponsor}
-                  >
+                <motion.div
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.sponsor}
+                >
+                  <a target='_blank' rel='noopener noreferrer' href="https://www.fedex.com/">
                     <Image
                       src={FedEx}
                       width={2308}
@@ -185,18 +181,18 @@ export default function Sponsors() {
                       quality={80}
                       alt="placeholder"
                     />
-                  </motion.div>
-                </Link>
+                  </a>
+                </motion.div>
               </div>
               <div className={styles.standard}>
-                <Link passHref href="https://sketch.com/">
-                  <motion.div
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.sponsor}
-                  >
+                <motion.div
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.sponsor}
+                >
+                  <a target='_blank' rel='noopener noreferrer' href="https://sketch.com/">
                     <Image
                       src={Sketch}
                       width={1919}
@@ -206,18 +202,18 @@ export default function Sponsors() {
                       quality={80}
                       alt="placeholder"
                     />
-                  </motion.div>
-                </Link>
+                  </a>
+                </motion.div>
               </div>
               <div className={styles.standard}>
-                <Link passHref href="https://www.triadmagnetics.com/">
-                  <motion.div
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.sponsor}
-                  >
+                <motion.div
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.sponsor}
+                >
+                  <a target='_blank' rel='noopener noreferrer' href="https://www.triadmagnetics.com/">
                     <Image
                       src={Triad}
                       width={371}
@@ -227,18 +223,18 @@ export default function Sponsors() {
                       quality={80}
                       alt="placeholder"
                     />
-                  </motion.div>
-                </Link>
+                  </a>
+                </motion.div>
               </div>
               <div className={`${styles.standard} ${styles.standardshrink}`}>
-                <Link passHref href="https://acmucr.org/">
-                  <motion.div
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.sponsor}
-                  >
+                <motion.div
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.sponsor}
+                >
+                  <a target='_blank' rel='noopener noreferrer' href="https://acmucr.org/">
                     <Image
                       src={ACM}
                       width={910}
@@ -248,18 +244,18 @@ export default function Sponsors() {
                       quality={80}
                       alt="placeholder"
                     />
-                  </motion.div>
-                </Link>
+                  </a>
+                </motion.div>
               </div>
               <div className={`${styles.standard} ${styles.standardshrink}`}>
-                <Link passHref href="https://ieee.ee.ucr.edu/">
-                  <motion.div
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.sponsor}
-                  >
+                <motion.div
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ ease: 'easeInOut', duration: 0.015 }}
+                  className={styles.sponsor}
+                >
+                  <a target='_blank' rel='noopener noreferrer' href="https://ieee.ee.ucr.edu/">
                     <Image
                       src={IEEE}
                       width={745}
@@ -269,8 +265,8 @@ export default function Sponsors() {
                       quality={80}
                       alt="placeholder"
                     />
-                  </motion.div>
-                </Link>
+                  </a>
+                </motion.div>
               </div>
             </div>
           </div>

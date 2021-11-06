@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Element } from 'react-scroll'
@@ -273,7 +272,7 @@ export default function Live() {
             <div className={styles.resourcesContent}>
               <h1>resources</h1>
               <div className={styles.buttonWrapper}>
-                <Link passHref href="/">
+                <a target='_blank' rel='noopener noreferrer' href="https://cutiehack2021.devpost.com/">
                   <motion.button
                     variants={buttonVariants}
                     whileHover="hover"
@@ -284,32 +283,32 @@ export default function Live() {
                     <span>devpost</span>
                     <FaChevronRight className={styles.arrow} />
                   </motion.button>
-                </Link>
-                <Link passHref href="https://github.com/citrushack/CitrusHackResources">
+                </a>
+                <a target='_blank' rel='noopener noreferrer' href="https://github.com/citrushack/CitrusHackResources">
                   <motion.button
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
                     transition={{ ease: 'easeInOut', duration: 0.015 }}
-                    className={styles.button}
+                    className={`${styles.button} ${styles.github}`}
                   >
                     <span>github</span>
                     <FaChevronRight className={styles.arrow} />
                   </motion.button>
-                </Link>
+                </a>
                 { (session && appStatus === 'yes') &&
-                  <Link passHref href="https://discord.gg/CjkwAvFr2T">
+                  <a target='_blank' rel='noopener noreferrer' href="https://discord.gg/CjkwAvFr2T">
                     <motion.button
                       variants={buttonVariants}
                       whileHover="hover"
                       whileTap="tap"
                       transition={{ ease: 'easeInOut', duration: 0.015 }}
-                      className={styles.button}
+                      className={`${styles.button} ${styles.discord}`}
                     >
                       <span>discord</span>
                       <FaChevronRight className={styles.arrow} />
                     </motion.button>
-                  </Link>
+                  </a>
                 }
               </div>
             </div>

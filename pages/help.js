@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import globeBackground from '../public/assets/globe_swoosh.png'
@@ -81,7 +80,7 @@ export default function Help() {
             please don&#39;t hesitate to contact us!
           </p>
           <div className={styles.buttonWrapper}>
-            <Link passHref href="https://forms.gle/WZ6egHpSrFdFEhRr8">
+            <a target='_blank' rel='noopener noreferrer' href="https://forms.gle/WZ6egHpSrFdFEhRr8">
               <motion.button
                 variants={buttonVariants}
                 whileHover="hover"
@@ -92,8 +91,8 @@ export default function Help() {
                 <span>mentors</span>
                 <FaChevronRight className={styles.arrow} />
               </motion.button>
-            </Link>
-            <Link passHref href="https://forms.gle/nLr9L5FHWXfZWogd7">
+            </a>
+            <a target='_blank' rel='noopener noreferrer' href="https://forms.gle/nLr9L5FHWXfZWogd7">
               <motion.button
                 variants={buttonVariants}
                 whileHover="hover"
@@ -104,11 +103,8 @@ export default function Help() {
                 <span>volunteers</span>
                 <FaChevronRight className={styles.arrow} />
               </motion.button>
-            </Link>
-            <Link
-              passHref
-              href="/sponsorship-packet.pdf"
-            >
+            </a>
+            <a target='_blank' rel='noopener noreferrer' href="/sponsorship-packet.pdf">
               <motion.button
                 variants={buttonVariants}
                 whileHover="hover"
@@ -119,7 +115,7 @@ export default function Help() {
                 <span>sponsor us</span>
                 <FaChevronRight className={styles.arrow} />
               </motion.button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

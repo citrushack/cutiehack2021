@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import leaves from '../public/assets/leaves.png'
@@ -8,7 +7,7 @@ import styles from '../styles/Team.module.css'
 export default function Lead( props ) {
   return (
     <figure>
-      <Link passHref href={props.linkedin}>
+      <a target='_blank' rel='noopener noreferrer' href={props.linkedin}>
         <motion.div 
           whileHover={{ y: -8 }}
           className={styles.image}
@@ -35,7 +34,7 @@ export default function Lead( props ) {
             className={styles.link}
           />
         </motion.div>
-      </Link>
+      </a>
       <figcaption>
         <p className={styles.name}>
           {props.name}
