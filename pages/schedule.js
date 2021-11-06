@@ -13,10 +13,6 @@ export default function Live() {
       name: 'Hacking Starts',
     },
     {
-      time: '09:00am',
-      name: 'Registration Ends',
-    },
-    {
       time: '06:00pm',
       name: 'Project Submission Opens',
     },
