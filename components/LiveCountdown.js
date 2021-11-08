@@ -8,7 +8,7 @@ import styles from '../styles/Countdown.module.css'
 const Completionist = () => 
   <>
     <div className={styles.header}>
-      starting now!
+      november 6, 2021
     </div>
     <div className={styles.container}>
       <Link passHref href='/live'>
